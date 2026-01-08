@@ -1,0 +1,64 @@
+/* ✅ All imports MUST be at the top */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Satisfy&display=swap"); */
+@import "tailwindcss";
+/* -------------------------------
+🌸 Root Theme Colors
+--------------------------------*/
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Light & Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #504c4c;
+    --foreground: #ededed;
+  }
+}
+
+/* -------------------------------
+🎨 Tailwind Theme Customization
+--------------------------------*/
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Patrick Hand", cursive, "Satisfy", sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+/* -------------------------------
+🪷 Body Styles
+--------------------------------*/
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Patrick Hand", "Satisfy", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* -------------------------------
+📜 Background Image Setup (optional)
+--------------------------------*/
+/*
+body {
+  background-image: url("/images/temple-bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+*/
+
+/* -------------------------------
+🧭 Hide Scrollbar
+--------------------------------*/
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
