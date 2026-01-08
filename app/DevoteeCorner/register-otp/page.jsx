@@ -1,10 +1,11 @@
 "use client";
 
+import { Suspense, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function RegisterOTP() {
+/* ---------------- CONTENT COMPONENT ---------------- */
+function RegisterOTPContent() {
   const router = useRouter();
   const params = useSearchParams();
   const phone = params.get("phone");
@@ -42,7 +43,6 @@ export default function RegisterOTP() {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-200/40 via-purple-50 to-white relative overflow-hidden">
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -53,7 +53,6 @@ export default function RegisterOTP() {
         </h2>
 
         <form onSubmit={verifyOTP} className="space-y-5">
-
           <input
             type="text"
             maxLength={6}
@@ -67,7 +66,7 @@ export default function RegisterOTP() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-purple-700 text-white py-3 rounded-xl hover:bg-purple-800"
+            className="w-full bg-purple-700 text-white py-3 rounded-xl hover:bg-purple-800 transition"
           >
             {loading ? "Verifying..." : "Verify & Create Account"}
           </button>
@@ -81,5 +80,14 @@ export default function RegisterOTP() {
         </button>
       </motion.div>
     </section>
+  );
+}
+
+/* ---------------- PAGE EXPORT WITH SUSPENSE ---------------- */
+export default function RegisterOTPPage() {
+  return (
+    <Suspense fallback={<p className="text-center mt-10">Loading OTP Page...</p>}>
+      <RegisterOTPContent />
+    </Suspense>
   );
 }
