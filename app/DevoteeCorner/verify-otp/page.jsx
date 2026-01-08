@@ -1,12 +1,14 @@
 "use client";
 
+import { Suspense, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function VerifyOtpPage() {
+/* ---------------- OTP CONTENT ---------------- */
+function VerifyOtpContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
+
   const phone = searchParams.get("phone") || "";
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
@@ -25,7 +27,6 @@ export default function VerifyOtpPage() {
       const data = await res.json();
 
       if (data.success) {
-        // ✅ Save user and go dashboard
         localStorage.setItem("user", JSON.stringify(data.user));
         alert("OTP verified, login successful!");
         router.push("/dashboard");
@@ -59,27 +60,25 @@ export default function VerifyOtpPage() {
         </p>
 
         <form onSubmit={handleVerify} className="space-y-5">
-          <div>
-            <label className="block text-purple-700 mb-2 font-medium">
-              Enter OTP
-            </label>
-            <input
-              type="text"
-              required
-              maxLength={6}
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-purple-200 focus:ring-2 focus:ring-purple-400 outline-none tracking-widest text-center"
-              placeholder="● ● ● ● ● ●"
-            />
-          </div>
+          <input
+            type="text"
+            required
+            maxLength={6}
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border border-purple-200
+                       focus:ring-2 focus:ring-purple-400 outline-none
+                       tracking-widest text-center"
+            placeholder="● ● ● ● ● ●"
+          />
 
           <button
             type="submit"
             disabled={loading}
-            className={`w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition ${
-              loading ? "opacity-70 cursor-not-allowed" : ""
-            }`}
+            className={`w-full bg-gradient-to-r from-purple-600 to-purple-700
+                        text-white py-3 rounded-lg font-semibold shadow-lg
+                        hover:shadow-xl transition
+                        ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
           >
             {loading ? "Verifying..." : "Verify & Continue"}
           </button>
@@ -93,5 +92,14 @@ export default function VerifyOtpPage() {
         </button>
       </motion.div>
     </section>
+  );
+}
+
+/* ---------------- PAGE EXPORT ---------------- */
+export default function VerifyOtpPage() {
+  return (
+    <Suspense fallback={<p className="text-center mt-10">Loading OTP…</p>}>
+      <VerifyOtpContent />
+    </Suspense>
   );
 }
