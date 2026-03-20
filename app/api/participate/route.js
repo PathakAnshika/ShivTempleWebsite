@@ -6,7 +6,7 @@ export async function POST(req) {
 
   try {
     const body = await req.json();
-s
+
     console.log("📥 Received Data:");
     console.table(body);
 

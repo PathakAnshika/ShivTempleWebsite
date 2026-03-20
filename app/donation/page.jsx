@@ -31,6 +31,7 @@ const donationOptions = [
     s.src = "https://checkout.razorpay.com/v1/checkout.js";
     s.async = true;
     document.body.appendChild(s);
+    fetchDonors();
   }, []);
 
    const fetchDonors = async ()=>{
@@ -42,7 +43,7 @@ const donationOptions = [
 
   };
 
-  fetchDonors();
+  
 
 
   
