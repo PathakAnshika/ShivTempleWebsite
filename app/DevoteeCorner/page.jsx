@@ -2,10 +2,17 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-
+import { useEffect } from "react";
 export default function DevoteeCorner() {
   const router = useRouter();
 
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      router.push("/dashboard");
+    }
+  }, []);
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-purple-100 via-lavender-50 to-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(180,160,255,0.25),transparent_70%)]"></div>
