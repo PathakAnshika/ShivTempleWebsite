@@ -23,17 +23,6 @@ export default function Dashboard() {
       🌙 APPLY DARK MODE ON LOAD OR CHANGE
   ------------------------------------------- */
   useEffect(() => {
-    if (preferences.darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [preferences.darkMode]);
-
-  /* -----------------------------------------
-      ✅ STEP 1: CHECK USER + FETCH DATA
-  ------------------------------------------- */
-  useEffect(() => {
   const stored = localStorage.getItem("user");
 
   if (!stored) {
@@ -51,25 +40,23 @@ export default function Dashboard() {
     return;
   }
 
-  // 🔴 BASIC VALIDATION
   if (!parsedUser?.email || !parsedUser?.role) {
     localStorage.removeItem("user");
     router.replace("/DevoteeCorner/login");
     return;
   }
 
-  // 🟣 ROLE BASED REDIRECTION
   if (parsedUser.role === "admin") {
     router.replace("/admin/dashboard");
     return;
   }
 
   if (parsedUser.role === "user") {
-    fetchUserData(parsedUser.email);
+    setUserData(parsedUser);   // ✅ FIX
+    setLoading(false);         // ✅ FIX
     return;
   }
 
-  // ❌ UNKNOWN ROLE
   localStorage.removeItem("user");
   router.replace("/DevoteeCorner/login");
 
