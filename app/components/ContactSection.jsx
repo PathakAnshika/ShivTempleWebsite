@@ -11,7 +11,7 @@ export function ContactSection() {
     },
     {
       q: "How can I join temple membership?",
-      a: "You can join from the Membership section inside your dashboard.",
+      a: "You can join from the Membership section.",
     },
     {
       q: "Do you conduct special pooja bookings?",

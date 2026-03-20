@@ -10,6 +10,8 @@ import {AartiSection} from "./components/AartiSection";
 import {EventCalendar} from "./components/EventCalendar";
 import {LiveDarshan } from "./components/LiveDarshan";
 import HomeDonationSection from "./components/HomeDonationSection";
+import { ScholarshipPreview } from "./components/ScholarshipPreview";
+
 import { GallerySection } from "./components/GallerySection";
 import { MembershipSection } from "./components/MembershipSection";
 import { ContactSection } from "./components/ContactSection";
@@ -31,13 +33,18 @@ export default function HomePage() {
       <section id="about">
         <AboutSection />
       </section>
-      <AartiTiming/>
-      <AartiSection/>
+     
+      {/* <AartiTiming/>
+      <AartiSection/> */}
       <EventCalendar/>
       <section id="events">
         <LiveDarshan />
       </section>
       <HomeDonationSection/>
+       <section id="about">
+        <ScholarshipPreview />
+      
+      </section>
       <section id="gallery">
         <GallerySection />
       </section>

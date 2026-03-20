@@ -3,11 +3,14 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function DonationPage() {
-  const router = useRouter();
 
+export default function DonationPage() {
+
+  const router = useRouter();
+  const [donors, setDonors] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,12 +19,12 @@ export default function DonationPage() {
     message: "",
   });
 
-  const donationOptions = [
-    { id: 1, title: "Aarti Seva", amount: 501, desc: "Offer your devotion in daily Aarti." },
-    { id: 2, title: "Prasad Seva", amount: 1100, desc: "Help distribute sacred prasad to devotees." },
-    { id: 3, title: "Temple Maintenance", amount: 2100, desc: "Support cleanliness, lighting & upkeep." },
-    { id: 4, title: "Festival Support", amount: 5100, desc: "Contribute toward festival pooja & decoration." },
-  ];
+const donationOptions = [
+  { id: 1, title: "Aarti Seva", amount: 501, desc: "Offer your devotion in daily Aarti." },
+  { id: 2, title: "Prasad Seva", amount: 1100, desc: "Help distribute sacred prasad to devotees." },
+  { id: 3, title: "Temple Maintenance", amount: 2100, desc: "Support temple upkeep & lighting." },
+  { id: 4, title: "Festival Support", amount: 5100, desc: "Contribute to special festival poojas." },
+];
 
   useEffect(() => {
     const s = document.createElement("script");
@@ -30,146 +33,389 @@ export default function DonationPage() {
     document.body.appendChild(s);
   }, []);
 
+   const fetchDonors = async ()=>{
+
+    const res = await fetch("/api/darpan");
+    const data = await res.json();
+
+    setDonors(data);
+
+  };
+
+  fetchDonors();
+
+
+  
+
   const handleChange = (e) => {
     setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
-  const handleCardSelect = (opt) => {
+const handleCardSelect = (opt) => {
+
+  if (selected === opt.id) {
+
+    // unselect
+    setSelected(null);
+    setFormData((p) => ({ ...p, amount: "", message: "" }));
+
+  } else {
+
+    // select
     setSelected(opt.id);
     setFormData((p) => ({ ...p, amount: opt.amount, message: opt.title }));
-  };
+
+  }
+
+};
 
   const handleDonate = async () => {
-    if (!formData.name || !formData.email || !formData.phone || !formData.amount) {
-      alert("Please fill all required fields.");
-      return;
-    }
 
-    try {
-      setLoading(true);
-      const res = await fetch("/api/create-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: formData.amount }),
-      });
+  if (!formData.name || !formData.email || !formData.phone || !formData.amount) {
+    alert("Please fill all required fields.");
+    return;
+  }
 
-      const order = await res.json();
+  try {
 
-      const options = {
-        key: "rzp_test_RZLiEvK0QO65pT",
-        amount: order.amount,
-        currency: order.currency,
-        name: "Mandir Donation",
-        description: formData.message,
-        order_id: order.id,
-        handler: () => alert("Donation Successful! 🙏"),
-      };
+    setLoading(true);
 
-      new window.Razorpay(options).open();
-    } catch (err) {
-      alert("Error processing payment");
-    } finally {
-      setLoading(false);
-    }
-  };
+    // STEP 1 → create razorpay order
+    const res = await fetch("/api/create-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        amount: formData.amount
+      })
+    });
 
+    const order = await res.json();
+
+    const options = {
+      key: "rzp_test_RZLiEvK0QO65pT",
+      amount: order.amount,
+      currency: order.currency,
+      name: "Mandir Donation",
+      description: formData.message,
+      order_id: order.id,
+
+      handler: async function (response) {
+
+        // STEP 2 → save donation in DB
+        await fetch("/api/save-donation", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            amount: formData.amount,
+            message: formData.message,
+            show_public: formData.show_public,
+            payment_id: response.razorpay_payment_id
+          })
+        });
+
+        alert("Donation Successful! 🙏");
+
+      }
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+
+  } catch (err) {
+
+    alert("Error processing payment");
+
+  } finally {
+
+    setLoading(false);
+
+  }
+};
+  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-white py-16 sm:py-20 px-4 sm:px-6">
-      
-      {/* Back Button */}
+
+   <div className="min-h-screen bg-[#fafafa] pt-10 pb-20 px-6">
+
+      {/* BACK */}
       <button
         onClick={() => router.push("/")}
-        className="fixed left-4 top-4 sm:left-6 sm:top-6 px-4 py-2 bg-white/70 rounded-full border shadow-md hover:bg-white"
+        className="fixed left-6 top-6 bg-white px-4 py-2 rounded-full shadow hover:bg-gray-50"
       >
         ← Back
       </button>
 
-      {/* Heading */}
-      <div className="text-center mb-10 sm:mb-12 mt-12">
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-purple-800">
-          Make a Divine Offering
+
+      {/* TITLE */}
+      <div className="text-center mb-14">
+
+        <h1 className="text-4xl md:text-5xl font-semibold text-purple-700">
+          Offer Your Seva
         </h1>
-        <p className="mt-3 text-sm sm:text-base text-gray-700 max-w-xl mx-auto">
-          Your donation supports temple rituals, maintenance & spiritual activities.
+
+        <p className="text-gray-600 mt-4 max-w-xl mx-auto">
+          Your contribution supports temple rituals, community service,
+          and preservation of spiritual traditions.
         </p>
+
       </div>
 
-      {/* Main Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        {/* LEFT FORM */}
-        <div className="bg-white/80 p-6 sm:p-8 rounded-3xl shadow-xl backdrop-blur">
-          <h2 className="text-xl sm:text-2xl font-bold text-purple-700 text-center mb-6">
+      {/* MAIN GRID */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+
+        {/* DONOR FORM */}
+        <div className="bg-white p-8 rounded-2xl shadow-lg">
+
+          <h2 className="text-xl font-semibold mb-6 text-gray-800">
             Donor Information
           </h2>
 
           <div className="space-y-4">
-            <input name="name" placeholder="Full Name" onChange={handleChange} className="input_donation" />
-            <input name="email" placeholder="Email" onChange={handleChange} className="input_donation" />
-            <input name="phone" placeholder="Phone" onChange={handleChange} className="input_donation" />
-            <input name="amount" placeholder="Donation Amount (₹)" value={formData.amount} onChange={handleChange} className="input_donation" />
-            <textarea name="message" placeholder="Message" onChange={handleChange} className="input_donation" />
+
+            <input
+              name="name"
+              placeholder="Full Name"
+              onChange={handleChange}
+              className="input"
+            />
+
+            <input
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+              className="input"
+            />
+
+            <input
+              name="phone"
+              placeholder="Phone"
+              onChange={handleChange}
+              className="input"
+            />
+
+            <input
+              name="amount"
+              placeholder="Donation Amount"
+              value={formData.amount}
+              onChange={handleChange}
+              className="input"
+            />
+
+            <textarea
+              name="message"
+              placeholder="Message"
+              onChange={handleChange}
+              className="input"
+            />
+
+            <label className="flex items-center gap-2 text-sm text-gray-600">
+  <input
+    type="checkbox"
+    name="show_public"
+    onChange={(e) =>
+      setFormData((p) => ({
+        ...p,
+        show_public: e.target.checked
+      }))
+    }
+  />
+  I allow my name to be displayed in the Darpan transparency section
+</label>
+
           </div>
 
           <button
             onClick={handleDonate}
             disabled={loading}
-            className="w-full mt-6 py-3 rounded-full bg-purple-700 text-white font-semibold shadow-lg hover:bg-purple-800 transition"
+            className="w-full mt-6 bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition"
           >
-            {loading ? "Processing..." : "Donate Securely 🙏"}
+            {loading ? "Processing..." : "Donate Securely"}
           </button>
+
         </div>
 
-        {/* RIGHT CARDS */}
-        <div className="bg-white/80 p-6 sm:p-8 rounded-3xl shadow-xl backdrop-blur">
-          <h2 className="text-xl sm:text-3xl font-bold text-purple-700 text-center mb-6">
-            Choose a Seva
-          </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {donationOptions.map((opt) => (
-              <div
-                key={opt.id}
-                onClick={() => handleCardSelect(opt)}
-                className={`donation_card ${selected === opt.id ? "selected_card" : ""}`}
-              >
-                <h3 className="text-lg sm:text-xl font-bold">{opt.title}</h3>
-                <p className="text-sm opacity-80 mt-1">{opt.desc}</p>
-                <span className="text-lg font-semibold mt-2 block">₹{opt.amount}</span>
-              </div>
-            ))}
+       {/* SEVA OPTIONS */}
+<div>
+
+  <h2 className="text-xl font-semibold mb-6 text-gray-800">
+    Choose a Seva
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    {donationOptions.map((opt) => {
+
+      const isSelected = selected === opt.id;
+
+      return (
+
+        <div
+          key={opt.id}
+          onClick={() => handleCardSelect(opt)}
+          className={`
+            donation_card
+            ${isSelected ? "selected" : ""}
+          `}
+        >
+
+          {/* TITLE */}
+          <div className="flex justify-between items-center">
+
+            <h3 className="font-semibold text-lg">
+              {opt.title}
+            </h3>
+
+            {isSelected && (
+              <span className="text-white text-sm bg-black/20 px-2 py-1 rounded">
+                ✓
+              </span>
+            )}
+
           </div>
+
+          {/* DESCRIPTION */}
+          <p className="text-sm opacity-80 mt-2">
+            {opt.desc}
+          </p>
+
+          {/* AMOUNT */}
+          <span className="text-lg font-semibold mt-3 block">
+            ₹{opt.amount}
+          </span>
+
+        </div>
+
+      );
+
+    })}
+
+          </div>
+
         </div>
 
       </div>
 
-      {/* Styles */}
+
+      {/* DARPAN – TRANSPARENCY */}
+
+{/* DARPAN – TRANSPARENCY */}
+
+<section className="max-w-6xl mx-auto mt-28">
+
+  {/* HEADER */}
+  <div className="text-center mb-12">
+
+    <h2 className="text-4xl font-semibold text-orange-700 mb-4">
+      Darpan – Transparency
+    </h2>
+
+    <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      Shri Chandreshwar Dham believes in transparency and accountability.
+      All donations received for temple activities and seva are recorded
+      and reflected here. Donors who prefer privacy may choose to remain
+      anonymous.
+    </p>
+
+  </div>
+
+
+  {/* TABLE */}
+  <div className="bg-white rounded-2xl shadow-lg overflow-hidden border">
+
+    <table className="w-full text-left">
+
+      <thead className="bg-orange-50 text-gray-700">
+
+        <tr>
+          <th className="p-5">Donor Name</th>
+          <th className="p-5">Donation</th>
+          <th className="p-5">Purpose</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        {donors.map((d, i) => (
+
+          <tr
+            key={i}
+            className="border-t hover:bg-orange-50 transition"
+          >
+
+            <td className="p-5 font-medium">
+              {d.name}
+            </td>
+
+            <td className="p-5 text-orange-600 font-semibold">
+              {d.amount}
+            </td>
+
+            <td className="p-5 text-gray-600">
+              {d.purpose}
+            </td>
+
+          </tr>
+
+        ))}
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  {/* NOTE */}
+
+  <p className="text-center text-sm text-gray-500 mt-6">
+    *Donors may choose to remain anonymous if they prefer privacy.
+  </p>
+
+</section>
+
+
+      {/* STYLES */}
       <style jsx>{`
-        .input_donation {
-          width: 100%;
-          border: 1px solid #ddd;
-          padding: 12px;
-          border-radius: 12px;
-          font-size: 14px;
+
+        .input{
+          width:100%;
+          padding:12px;
+          border:1px solid #ddd;
+          border-radius:10px;
+          font-size:14px;
         }
-        .donation_card {
-          padding: 18px;
-          border-radius: 18px;
-          background: white;
-          border: 2px solid #ddd;
-          cursor: pointer;
-          transition: all 0.3s ease;
+
+        .donation_card{
+          border:1px solid #eee;
+          padding:20px;
+          border-radius:14px;
+          cursor:pointer;
+          transition:0.3s;
+          background:white;
         }
-        .donation_card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+        .donation_card:hover{
+          transform:translateY(-4px);
+          box-shadow:0 10px 20px rgba(0,0,0,0.08);
         }
-        .selected_card {
-          background: linear-gradient(to right, #7a3bbc, #9f5fff);
-          color: white;
-          border-color: transparent;
+
+        .selected{
+          background:#ea580c;
+          color:white;
+          border-color:#ea580c;
         }
+
       `}</style>
+
     </div>
   );
 }
