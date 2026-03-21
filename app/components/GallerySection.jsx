@@ -81,7 +81,7 @@ export function GallerySection() {
   {/* IMAGE WRAPPER (card size control) */}
   <div className="w-full h-65 overflow-hidden rounded-2xl">
     <img
-      src="/images/Shivparivar.jpg"
+      src="/images/ShivParivar.jpg"
       alt="ShivParivar.jpg"
       className="w-full h-full object-cover scale-110"
     />
