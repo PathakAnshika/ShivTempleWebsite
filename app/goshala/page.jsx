@@ -7,14 +7,20 @@ export default function GoshalaPage() {
 
   return (
     <main className="min-h-screen bg-[#f9fafb] text-gray-800">
-  {/* BACK BUTTON */}
-      <button
-        onClick={() => router.back()}
-        className="fixed top-6 left-6 bg-black/10 px-5 py-2 rounded-full border border-black/20 hover:bg-white/20 transition"
-      >
-        ← Back
-      </button>
-      {/* HERO */}
+  <button
+  onClick={() => router.back()}
+  className="
+    fixed top-6 left-6
+    bg-white/80 backdrop-blur-md
+    text-purple-700 font-semibold
+    px-5 py-2 rounded-full
+    shadow-md hover:bg-purple-100
+    transition
+    z-50
+  "
+>
+  ⬅️ Back
+</button>
     <section className="relative h-[570px]">
 
   {/* <img
@@ -26,7 +32,7 @@ export default function GoshalaPage() {
   <img
     src="/images/GoshalaHome.jpg"
     alt="Goshala"
-     className="absolute w-full h-full object-cover blur-[1px] scale-105"
+     className="absolute w-full h-full"
   />
 
   {/* overlay */}

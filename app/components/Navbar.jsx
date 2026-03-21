@@ -29,50 +29,48 @@ export function Navbar({ setShowLogin }) {
           <li><Link href="#events" className="hover:text-[#b76e79]">Events</Link></li>
 
           {/* 🔥 DROPDOWN */}
-          <li
-            className="relative"
-            onMouseEnter={() => setDropdown(true)}
-            onMouseLeave={() => setDropdown(false)}
-          >
-            <span className="cursor-pointer hover:text-[#b76e79]">
-              Temple Projects ▾
-            </span>
+<li className="relative">
 
-            {dropdown && (
-              <div className="absolute top-8 left-0 bg-white shadow-lg rounded-xl p-3 w-56 z-50">
+  <span
+    onClick={(e) => {
+      e.stopPropagation();        // 👈 important
+      setDropdown(!dropdown);
+    }}
+    className="cursor-pointer hover:text-[#b76e79]"
+  >
+    Temple Projects ▾
+  </span>
 
-                <p
-                  onClick={() => router.push("/shivalaya")}
-                  className="dropdown_item"
-                >
-                  Shivalaya
-                </p>
+  {dropdown && (
+    <div
+      className="absolute top-8 left-0 bg-white shadow-lg rounded-xl p-3 w-56 z-50"
+      onClick={(e) => e.stopPropagation()} // 👈 dropdown click safe
+    >
 
-                <p
-                  onClick={() => router.push("/goshala")}
-                  className="dropdown_item"
-                >
-                  Goshala
-                </p>
+      <p onClick={() => router.push("/shivalaya")} className="dropdown_item">
+        Shivalaya
+      </p>
 
-                <p
-                  onClick={() => router.push("/sanskriti-bhavan")}
-                  className="dropdown_item"
-                >
-                  Sanskriti Bhavan
-                </p>
+      <p onClick={() => router.push("/goshala")} className="dropdown_item">
+        Goshala
+      </p>
 
-                <p
-                  onClick={() => router.push("/annapoorna")}
-                  className="dropdown_item"
-                >
-                  Annapoorna Rasoi
-                </p>
+      <p onClick={() => router.push("/sanskriti-bhavan")} className="dropdown_item">
+        Sanskriti Bhavan
+      </p>
 
-              </div>
-            )}
-          </li>
+      <p onClick={() => router.push("/annapoorna")} className="dropdown_item">
+        Annapoorna Rasoi
+      </p>
 
+      <p onClick={() => router.push("/scholarship")} className="dropdown_item">
+        Scholarship
+      </p>
+
+    </div>
+  )}
+
+</li>
           <li><Link href="#gallery" className="hover:text-[#b76e79]">Gallery</Link></li>
           <li><Link href="#contact" className="hover:text-[#b76e79]">Contact</Link></li>
 

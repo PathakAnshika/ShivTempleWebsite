@@ -8,8 +8,10 @@ export function ScholarshipPreview() {
   const router = useRouter();
 
   return (
-    <section className="relative py-28 overflow-hidden bg-gradient-to-b from-white via-purple-50 to-white">
-
+   <section 
+  id="scholarship"   // 👈 yaha apna id de do
+  className="relative py-28 overflow-hidden bg-gradient-to-b from-white via-purple-50 to-white"
+>
       {/* soft glow background */}
       <div className="absolute top-[-80px] left-[-60px] w-72 h-72 bg-purple-200/40 rounded-full blur-3xl"></div>
       <div className="absolute bottom-[-80px] right-[-60px] w-80 h-80 bg-purple-300/40 rounded-full blur-3xl"></div>

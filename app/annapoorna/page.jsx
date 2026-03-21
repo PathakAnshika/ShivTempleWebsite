@@ -8,7 +8,7 @@ export default function AnnapoornaPage() {
 
   return (
 
-    <main className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100 text-gray-800">
+    <main className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-orange-100 text-gray-800">
 
       {/* BACK */}
       <button
@@ -22,7 +22,7 @@ export default function AnnapoornaPage() {
       {/* HERO */}
       <section className="py-24 text-center px-6">
 
-        <h1 className="text-4xl md:text-5xl font-bold text-orange-700">
+        <h1 className="text-4xl md:text-5xl font-bold text-purple-700">
           Annapoorna Rasoi 🍛
         </h1>
 
@@ -40,21 +40,21 @@ export default function AnnapoornaPage() {
       <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 mb-20">
 
         <div className="bg-white p-6 rounded-xl shadow text-center">
-          <h3 className="text-lg font-semibold text-orange-600">Daily Seva</h3>
+          <h3 className="text-lg font-semibold text-purple-600">Daily Seva</h3>
           <p className="text-sm text-gray-600 mt-2">
             Fresh meals served to devotees visiting the temple.
           </p>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow text-center">
-          <h3 className="text-lg font-semibold text-orange-600">Community Service</h3>
+          <h3 className="text-lg font-semibold text-purple-600">Community Service</h3>
           <p className="text-sm text-gray-600 mt-2">
             Food distribution to underprivileged and needy people.
           </p>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow text-center">
-          <h3 className="text-lg font-semibold text-orange-600">Festival Bhoj</h3>
+          <h3 className="text-lg font-semibold text-purple-600">Festival Bhoj</h3>
           <p className="text-sm text-gray-600 mt-2">
             Special meals during festivals and religious events.
           </p>
@@ -68,7 +68,7 @@ export default function AnnapoornaPage() {
 
         <div className="max-w-5xl mx-auto">
 
-          <h2 className="text-3xl font-semibold text-orange-700 mb-6">
+          <h2 className="text-3xl font-semibold text-purple-700 mb-6">
             Proposed Plan
           </h2>
 
@@ -89,7 +89,7 @@ export default function AnnapoornaPage() {
 
         <div className="max-w-5xl mx-auto">
 
-          <h2 className="text-3xl font-semibold text-orange-700 mb-6">
+          <h2 className="text-3xl font-semibold text-purple-700 mb-6">
             Ongoing Activities
           </h2>
 
@@ -106,7 +106,7 @@ export default function AnnapoornaPage() {
 
 
       {/* CTA */}
-      <section className="py-24 text-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6">
+      <section className="py-24 text-center bg-gradient-to-r from-purple-600 to-purple-300 text-white px-6">
 
         <h2 className="text-3xl md:text-4xl font-semibold mb-6">
           Support Annapoorna Seva 🙏

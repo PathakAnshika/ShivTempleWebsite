@@ -213,7 +213,7 @@ export default function ShivalayaPage() {
 </section>
 
       {/* DONATION */}
-     <section className="py-24 text-center bg-gradient-to-r from-[#FFE8CC] to-[#FFF4E6] text-gray-800">
+     <section className="py-24 text-center bg-gradient-to-r from-purple-600 to-purple-300 text-gray-800">
         <h3 className="text-3xl font-semibold mb-4">
           Be a Part of the Sacred Journey
         </h3>

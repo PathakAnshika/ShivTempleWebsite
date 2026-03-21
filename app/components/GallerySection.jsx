@@ -61,7 +61,7 @@ export function GallerySection() {
           className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition"
         >
           <img
-            src="/images/gallary.jpg"
+            src="/images/trishul.jpg"
             alt="Gallery 1"
             className="w-full h-72 object-cover"
           />
@@ -81,7 +81,7 @@ export function GallerySection() {
   {/* IMAGE WRAPPER (card size control) */}
   <div className="w-full h-65 overflow-hidden rounded-2xl">
     <img
-      src="/images/shivparivar.jpg"
+      src="/images/Shivparivar.jpg"
       alt="ShivParivar.jpg"
       className="w-full h-full object-cover scale-110"
     />
@@ -106,7 +106,7 @@ export function GallerySection() {
             </span>
           </div>
         </motion.div>
-{/* Landscape Mantra Section – Aesthetic */}
+{/* 🌸 Landscape Mantra Section – Premium Aesthetic */}
 <motion.div
   custom={5}
   variants={fadeUp}
@@ -114,26 +114,54 @@ export function GallerySection() {
   whileInView="visible"
   viewport={{ once: true }}
   className="
-    bg-[#e5e7eb] rounded-3xl shadow-md hover:shadow-lg transition
-    md:col-span-3 h-80
-    flex items-center justify-center px-20
+    relative md:col-span-3
+    rounded-3xl overflow-hidden
+
+    bg-gradient-to-br from-purple-200 via-white to-purple-300
+    shadow-xl hover:shadow-2xl transition duration-500
+
+    px-6 sm:px-10 md:px-16
+    py-14 sm:py-16
+
+    flex items-center justify-center
   "
 >
+
+  {/* ✨ Glow Layer */}
+  <div className="absolute inset-0 bg-white/40 backdrop-blur-xl"></div>
+
+  {/* 🌙 Decorative gradient ring */}
+  <div className="absolute inset-0 rounded-3xl border border-purple-200"></div>
+
+  {/* 🌸 Content */}
   <p
     className="
-      text-sm md:text-base lg:text-lg
-      font-medium text-gray-600
-      leading-loose tracking-wider text-center
+      relative z-10
+      text-base sm:text-lg md:text-xl lg:text-2xl
+
+      font-semibold
+      text-gray-800
+
+      leading-relaxed sm:leading-loose
+      tracking-wide text-center
+
+      max-w-4xl
     "
   >
     जटाटवीगलज्जलप्रवाहपावितस्थले गलेऽवलम्ब्य लम्बितां भुजङ्गतुङ्गमालिकाम् ।
     डमड्डमड्डमड्डमन्निनादवड्डमर्‍वयं चकार चण्डताण्डवं तनोतु नः शिवः शिवम् ॥
+
     <br /><br />
+
     जटाकटाहसम्भ्रमभ्रमन्निलिम्पनिर्झरी विलोलवीचिवल्लरीविराजमानमूर्धनि ।
     धगद्धगद्धगज्ज्वलल्ललाटपट्टपावके किशोरचन्द्रशेखरे रतिः प्रतिक्षणं मम ॥
   </p>
-</motion.div>
 
+  {/* 🌟 subtle radial glow */}
+  <div className="absolute w-[400px] h-[400px] bg-purple-300/20 blur-3xl rounded-full -top-20 -left-20"></div>
+  <div className="absolute w-[300px] h-[300px] bg-purple-400/20 blur-3xl rounded-full bottom-0 right-0"></div>
+
+</motion.div>
 
       </div>
     </section>

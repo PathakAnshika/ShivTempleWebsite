@@ -18,14 +18,14 @@ export function EventCalendar() {
       date: "6 April 2026",
       description:
         "Celebrate the birth of Lord Rama with bhajans and spiritual rituals.",
-      image: "/images/ram.jpg",
+      image: "/images/Ram.jpg",
     },
     {
       title: "Navratri Celebrations",
       date: "11 Oct – 20 Oct 2026",
       description:
         "Nine days of devotion and blessings of Maa Durga.",
-      image: "/images/Navratri.jpg",
+      image: "/images/navratri.jpg",
     },
     {
       title: "Diwali Mahotsav",

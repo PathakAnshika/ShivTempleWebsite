@@ -63,7 +63,7 @@ export function StayInTouchSection() {
         transition={{ delay: 0.6, duration: 1 }}
         className="text-gray-500 mt-16 text-sm"
       >
-        © {new Date().getFullYear()} Sri Sri Radha Govind Dev Ji Temple • All Rights Reserved  
+        © {new Date().getFullYear()} Sri Chandreshwar Dham Mandir • All Rights Reserved  
       </motion.p>
     </section>
   );

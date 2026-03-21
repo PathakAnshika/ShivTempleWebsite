@@ -182,7 +182,7 @@ export default function ScholarshipPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center px-6">
+      <section className="py-24 text-center px-6 bg-gradient-to-r from-purple-500 to-purple-300">
         <h2 className="text-3xl font-semibold text-purple-900 mb-6">
           Begin Your Scholarship Journey
         </h2>
