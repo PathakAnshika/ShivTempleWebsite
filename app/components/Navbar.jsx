@@ -4,12 +4,28 @@ import { useState } from "react";
 import Link from "next/link";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 export function Navbar({ setShowLogin }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
+   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#fff8f0] shadow-sm font-[Playfair_Display] text-[#4a2e05]">
       
@@ -29,11 +45,11 @@ export function Navbar({ setShowLogin }) {
           <li><Link href="#events" className="hover:text-[#b76e79]">Events</Link></li>
 
           {/* 🔥 DROPDOWN */}
-<li className="relative">
+<li className="relative" ref={dropdownRef}>
 
   <span
     onClick={(e) => {
-      e.stopPropagation();        // 👈 important
+      e.stopPropagation();
       setDropdown(!dropdown);
     }}
     className="cursor-pointer hover:text-[#b76e79]"
@@ -44,9 +60,8 @@ export function Navbar({ setShowLogin }) {
   {dropdown && (
     <div
       className="absolute top-8 left-0 bg-white shadow-lg rounded-xl p-3 w-56 z-50"
-      onClick={(e) => e.stopPropagation()} // 👈 dropdown click safe
+      onClick={(e) => e.stopPropagation()}
     >
-
       <p onClick={() => router.push("/shivalaya")} className="dropdown_item">
         Shivalaya
       </p>
@@ -66,7 +81,6 @@ export function Navbar({ setShowLogin }) {
       <p onClick={() => router.push("/scholarship")} className="dropdown_item">
         Scholarship
       </p>
-
     </div>
   )}
 
