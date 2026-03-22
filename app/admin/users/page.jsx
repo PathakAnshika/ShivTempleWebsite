@@ -223,6 +223,83 @@ const [showModal, setShowModal] = useState(false);
           </tbody>
         </table>
       </div>
+      {showModal && selectedUser && (
+  <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+
+    <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 relative animate-fadeIn">
+
+      {/* ❌ Close */}
+      <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-3 right-4 text-gray-500 text-xl hover:text-black"
+      >
+        ✕
+      </button>
+
+      {/* 👤 Header */}
+      <div className="text-center mb-6">
+        <div className="w-16 h-16 mx-auto rounded-full bg-purple-100 flex items-center justify-center text-2xl">
+          👤
+        </div>
+        <h2 className="text-xl font-bold text-purple-700 mt-2">
+          {selectedUser.name}
+        </h2>
+        <p className="text-sm text-gray-500">{selectedUser.email}</p>
+      </div>
+
+      {/* 📋 Details */}
+      <div className="space-y-3 text-sm">
+
+        <div className="flex justify-between">
+          <span className="text-gray-500">Phone</span>
+          <span>{selectedUser.phone || "-"}</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span className="text-gray-500">Role</span>
+          <span className="capitalize">{selectedUser.role}</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span className="text-gray-500">Status</span>
+          <span
+            className={`font-semibold ${
+              selectedUser.status === "active"
+                ? "text-green-600"
+                : "text-red-600"
+            }`}
+          >
+            {selectedUser.status || "active"}
+          </span>
+        </div>
+
+        <div className="flex justify-between">
+          <span className="text-gray-500">Joined</span>
+          <span>{selectedUser.created_at}</span>
+        </div>
+
+      </div>
+
+      {/* 🔘 Actions */}
+      <div className="mt-6 flex gap-3">
+
+        <button
+          onClick={() => {
+            toggleStatus(selectedUser.id, selectedUser.status);
+            setShowModal(false);
+          }}
+          className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700"
+        >
+          {selectedUser.status === "active" ? "Block User" : "Unblock User"}
+        </button>
+
+      </div>
+
     </div>
+  </div>
+)}
+    </div>
+    
   );
+  
 }
