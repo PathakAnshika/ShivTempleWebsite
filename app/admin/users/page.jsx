@@ -5,6 +5,8 @@ export default function AdminUsersPage() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [selectedUser, setSelectedUser] = useState(null);
+const [showModal, setShowModal] = useState(false);
 
   /* -----------------------------------------
       FETCH USERS
@@ -190,21 +192,32 @@ export default function AdminUsersPage() {
                 </td>
 
                 {/* ACTION */}
-                <td className="px-6 py-4 text-center space-x-3">
+               <td className="px-6 py-4 text-center space-x-3">
 
-                  <button
-                    onClick={() => toggleStatus(u.id, u.status)}
-                    className={`hover:underline ${
-                      u.status === "active"
-                        ? "text-red-600"
-                        : "text-green-600"
-                    }`}
-                  >
-                    {u.status === "active" ? "Block" : "Unblock"}
-                  </button>
+  {/* 👁️ VIEW BUTTON */}
+  <button
+    onClick={() => {
+      setSelectedUser(u);
+      setShowModal(true);
+    }}
+    className="text-blue-600 hover:underline"
+  >
+    View
+  </button>
 
-                </td>
+  {/* 🔴 BLOCK / UNBLOCK */}
+ <span
+  className={`font-semibold ${
+    (u.status || "active") === "active"
+      ? "text-green-600"
+      : "text-red-600"
+  }`}
+>
+  {u.status || "active"}
+</span>
 
+
+</td>
               </tr>
             ))}
           </tbody>
