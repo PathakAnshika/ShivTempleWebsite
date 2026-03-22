@@ -188,7 +188,7 @@ export default function AboutPage() {
         </p>
 
         <p className="text-purple-900 font-semibold text-xl pt-4">
-          — Founder Name
+          —  Shri Akhoury Ravindra Prasad
         </p>
 
         <p className="text-sm text-gray-500">
