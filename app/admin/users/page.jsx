@@ -137,7 +137,7 @@ export default function AdminUsersPage() {
               <th className="px-6 py-4 text-left">Email</th>
               <th className="px-6 py-4">Role</th>
               <th className="px-6 py-4">Status</th>
-              {/* <th className="px-6 py-4">Joined</th> */}
+              { <th className="px-6 py-4">Joined</th> }
               <th className="px-6 py-4 text-center">Action</th>
             </tr>
           </thead>
