@@ -33,36 +33,44 @@ const [showModal, setShowModal] = useState(false);
   /* -----------------------------------------
       BLOCK / UNBLOCK USER
   ------------------------------------------- */
-  const toggleStatus = async (id, currentStatus) => {
-    try {
-      const res = await fetch("/api/admin/update-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: id,
-          status: currentStatus === "active" ? "blocked" : "active",
-        }),
-      });
+ const toggleStatus = async (userId, currentStatus) => {
+  try {
+    const res = await fetch("/api/admin/users/status", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId,
+        status:
+          (currentStatus || "active") === "active"
+            ? "blocked"
+            : "active",
+      }),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (data.success) {
-        // UI update instantly
-        setUsers((prev) =>
-          prev.map((u) =>
-            u.id === id
-              ? { ...u, status: currentStatus === "active" ? "blocked" : "active" }
-              : u
-          )
-        );
-      }
-    } catch (err) {
-      console.error("Status update failed:", err);
+    if (data.success) {
+      // 🔥 UI update without reload
+      setUsers((prev) =>
+        prev.map((u) =>
+          u.id === userId
+            ? {
+                ...u,
+                status:
+                  (currentStatus || "active") === "active"
+                    ? "blocked"
+                    : "active",
+              }
+            : u
+        )
+      );
     }
-  };
-
+  } catch (err) {
+    console.error(err);
+  }
+};
   /* -----------------------------------------
       CHANGE ROLE
   ------------------------------------------- */
@@ -175,26 +183,22 @@ const [showModal, setShowModal] = useState(false);
                 </td>
 
                 {/* STATUS */}
-                <td className="px-6 py-4 text-center">
-                  <span
-                    className={`font-semibold ${
-                      u.status === "active"
-                        ? "text-green-600"
-                        : "text-red-600"
-                    }`}
-                  >
-                    {u.status}
-                  </span>
-                </td>
-
-                <td className="px-6 py-4 text-center text-gray-500">
-                  {u.created_at}
-                </td>
+               <td className="px-6 py-4 text-center">
+  <span
+    className={`font-semibold ${
+      (u.status || "active") === "active"
+        ? "text-green-600"
+        : "text-red-600"
+    }`}
+  >
+    {(u.status || "active")}
+  </span>
+</td>
 
                 {/* ACTION */}
                <td className="px-6 py-4 text-center space-x-3">
 
-  {/* 👁️ VIEW BUTTON */}
+  {/* 👁️ VIEW */}
   <button
     onClick={() => {
       setSelectedUser(u);
@@ -205,17 +209,17 @@ const [showModal, setShowModal] = useState(false);
     View
   </button>
 
-  {/* 🔴 BLOCK / UNBLOCK */}
- <span
-  className={`font-semibold ${
-    (u.status || "active") === "active"
-      ? "text-green-600"
-      : "text-red-600"
-  }`}
->
-  {u.status || "active"}
-</span>
-
+  {/* 🚫 BLOCK / UNBLOCK */}
+  <button
+    onClick={() => toggleStatus(u.id, u.status)}
+    className={`font-semibold hover:underline ${
+      (u.status || "active") === "active"
+        ? "text-red-600"
+        : "text-green-600"
+    }`}
+  >
+    {(u.status || "active") === "active" ? "Block" : "Unblock"}
+  </button>
 
 </td>
               </tr>
