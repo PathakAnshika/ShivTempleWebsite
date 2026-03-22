@@ -7,27 +7,95 @@ export default function AdminUsersPage() {
   const [search, setSearch] = useState("");
 
   /* -----------------------------------------
-      FETCH USERS FROM BACKEND
+      FETCH USERS
   ------------------------------------------- */
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const res = await fetch("/api/admin/users");
-        const data = await res.json();
+  const fetchUsers = async () => {
+    try {
+      const res = await fetch("/api/admin/users");
+      const data = await res.json();
 
-        if (data.success) {
-          setUsers(data.users);
-        }
-      } catch (err) {
-        console.error("Fetch users failed:", err);
-      } finally {
-        setLoading(false);
+      if (data.success) {
+        setUsers(data.users);
       }
-    };
+    } catch (err) {
+      console.error("Fetch users failed:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchUsers();
   }, []);
 
+  /* -----------------------------------------
+      BLOCK / UNBLOCK USER
+  ------------------------------------------- */
+  const toggleStatus = async (id, currentStatus) => {
+    try {
+      const res = await fetch("/api/admin/update-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: id,
+          status: currentStatus === "active" ? "blocked" : "active",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // UI update instantly
+        setUsers((prev) =>
+          prev.map((u) =>
+            u.id === id
+              ? { ...u, status: currentStatus === "active" ? "blocked" : "active" }
+              : u
+          )
+        );
+      }
+    } catch (err) {
+      console.error("Status update failed:", err);
+    }
+  };
+
+  /* -----------------------------------------
+      CHANGE ROLE
+  ------------------------------------------- */
+  const changeRole = async (id, role) => {
+    try {
+      const res = await fetch("/api/admin/update-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: id,
+          role: role === "admin" ? "user" : "admin",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setUsers((prev) =>
+          prev.map((u) =>
+            u.id === id
+              ? { ...u, role: role === "admin" ? "user" : "admin" }
+              : u
+          )
+        );
+      }
+    } catch (err) {
+      console.error("Role update failed:", err);
+    }
+  };
+
+  /* -----------------------------------------
+      SEARCH FILTER
+  ------------------------------------------- */
   const filteredUsers = users.filter(
     (u) =>
       u.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -69,7 +137,7 @@ export default function AdminUsersPage() {
               <th className="px-6 py-4 text-left">Email</th>
               <th className="px-6 py-4">Role</th>
               <th className="px-6 py-4">Status</th>
-              <th className="px-6 py-4">Joined</th>
+              {/* <th className="px-6 py-4">Joined</th> */}
               <th className="px-6 py-4 text-center">Action</th>
             </tr>
           </thead>
@@ -84,16 +152,16 @@ export default function AdminUsersPage() {
             )}
 
             {filteredUsers.map((u) => (
-              <tr
-                key={u.id}
-                className="border-t hover:bg-purple-50 transition"
-              >
+              <tr key={u.id} className="border-t hover:bg-purple-50 transition">
+
                 <td className="px-6 py-4 font-medium">{u.name}</td>
                 <td className="px-6 py-4 text-gray-600">{u.email}</td>
 
+                {/* ROLE */}
                 <td className="px-6 py-4 text-center">
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm
+                  <button
+                    onClick={() => changeRole(u.id, u.role)}
+                    className={`px-3 py-1 rounded-full text-sm cursor-pointer
                       ${
                         u.role === "admin"
                           ? "bg-purple-100 text-purple-700"
@@ -101,9 +169,10 @@ export default function AdminUsersPage() {
                       }`}
                   >
                     {u.role}
-                  </span>
+                  </button>
                 </td>
 
+                {/* STATUS */}
                 <td className="px-6 py-4 text-center">
                   <span
                     className={`font-semibold ${
@@ -120,21 +189,22 @@ export default function AdminUsersPage() {
                   {u.created_at}
                 </td>
 
+                {/* ACTION */}
                 <td className="px-6 py-4 text-center space-x-3">
-                  <button className="text-blue-600 hover:underline">
-                    View
+
+                  <button
+                    onClick={() => toggleStatus(u.id, u.status)}
+                    className={`hover:underline ${
+                      u.status === "active"
+                        ? "text-red-600"
+                        : "text-green-600"
+                    }`}
+                  >
+                    {u.status === "active" ? "Block" : "Unblock"}
                   </button>
 
-                  {u.status === "active" ? (
-                    <button className="text-red-600 hover:underline">
-                      Block
-                    </button>
-                  ) : (
-                    <button className="text-green-600 hover:underline">
-                      Unblock
-                    </button>
-                  )}
                 </td>
+
               </tr>
             ))}
           </tbody>
