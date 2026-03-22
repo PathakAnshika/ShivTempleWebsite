@@ -35,6 +35,12 @@ const [showModal, setShowModal] = useState(false);
   ------------------------------------------- */
  const toggleStatus = async (userId, currentStatus) => {
   try {
+
+    const newStatus =
+      (currentStatus || "active") === "active"
+        ? "blocked"
+        : "active";
+
     const res = await fetch("/api/admin/users/status", {
       method: "POST",
       headers: {
@@ -42,33 +48,30 @@ const [showModal, setShowModal] = useState(false);
       },
       body: JSON.stringify({
         userId,
-        status:
-          (currentStatus || "active") === "active"
-            ? "blocked"
-            : "active",
+        status: newStatus,
       }),
     });
 
     const data = await res.json();
 
     if (data.success) {
-      // 🔥 UI update without reload
+
+      // 🔥 UI instantly update
       setUsers((prev) =>
         prev.map((u) =>
           u.id === userId
-            ? {
-                ...u,
-                status:
-                  (currentStatus || "active") === "active"
-                    ? "blocked"
-                    : "active",
-              }
+            ? { ...u, status: newStatus }
             : u
         )
       );
+
+    } else {
+      alert("Failed to update status");
     }
+
   } catch (err) {
     console.error(err);
+    alert("Error");
   }
 };
   /* -----------------------------------------
