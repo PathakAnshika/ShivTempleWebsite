@@ -290,7 +290,7 @@ const [showModal, setShowModal] = useState(false);
           }}
           className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700"
         >
-          {selectedUser.status === "active" ? "Block User" : "Unblock User"}
+          {selectedUser.status === "active" ? "Block User" : "Block User"}
         </button>
 
       </div>
