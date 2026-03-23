@@ -92,7 +92,7 @@ export default function GoshalaPage() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
-          <img src="/images/Cow1.jpg" className="rounded-xl shadow-md" />
+          <img src="/images/cow1.jpg" className="rounded-xl shadow-md" />
           <img src="/images/cow2.jpg" className="rounded-xl shadow-md" />
           <img src="/images/cow3.jpg" className="rounded-xl shadow-md" />
 
