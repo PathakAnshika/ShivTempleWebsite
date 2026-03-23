@@ -143,6 +143,10 @@ export function Navbar({ setShowLogin }) {
               <Link href="/annapoorna">Annapoorna Rasoi</Link>
             </li>
 
+             <li onClick={() => setOpen(false)}>
+              <Link href="/scholarship">Scholarship</Link>
+            </li>
+
             <li onClick={() => setOpen(false)}>
               <Link href="#gallery">Gallery</Link>
             </li>
