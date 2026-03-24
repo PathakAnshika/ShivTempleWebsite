@@ -158,27 +158,42 @@ const [showModal, setShowModal] = useState(false);
 
           <tbody>
             {filteredUsers.length === 0 && (
-             <tr key={u.id}>
-  <td>{u.name}</td>
-  <td>{u.email}</td>
+            <tr key={u.id}>
+  <td className="px-6 py-4">{u.name}</td>
+  <td className="px-6 py-4">{u.email}</td>
 
-  <td>{u.role}</td>
+  <td className="px-6 py-4 text-center">
+    {u.role}
+  </td>
 
-  <td className="text-green-600 font-semibold">
+  <td className="px-6 py-4 text-center text-green-600 font-semibold">
     {u.status || "active"}
   </td>
 
-  <td>{u.created_at}</td>
+  <td className="px-6 py-4 text-center">
+    {u.created_at}
+  </td>
 
-  <td className="text-purple-700 font-semibold">
+  {/* ✅ DONATION */}
+  <td className="px-6 py-4 text-center font-semibold text-purple-700">
     ₹{u.total_donation || 0}
   </td>
 
-  <td>
-    <button>View</button>
-    <button>
-      {u.status === "active" ? "Block" : "Unblock"}
+  {/* ✅ ACTION */}
+  <td className="px-6 py-4 text-center space-x-3">
+    <button className="text-blue-600 hover:underline">
+      View
     </button>
+
+    {u.status === "active" ? (
+      <button className="text-red-600 hover:underline">
+        Block
+      </button>
+    ) : (
+      <button className="text-green-600 hover:underline">
+        Unblock
+      </button>
+    )}
   </td>
 </tr>
             )}
