@@ -40,43 +40,46 @@ export default function AdminEvents() {
       </div>
 
       {/* ADD EVENT */}
-      <div className="bg-white p-6 rounded-2xl shadow-lg grid md:grid-cols-4 gap-4">
-        <input
-          type="text"
-          placeholder="Event Name"
-          value={newEvent.name}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, name: e.target.value })
-          }
-          className="border px-4 py-2 rounded-lg"
-        />
+     <div className="bg-white p-6 rounded-2xl shadow-lg grid md:grid-cols-4 gap-4">
+  
+  <input
+    type="text"
+    placeholder="Event Name"
+    value={newEvent.name}
+    onChange={(e) =>
+      setNewEvent({ ...newEvent, name: e.target.value })
+    }
+    className="border px-4 py-2 rounded-lg"
+  />
 
-        <input
-          type="date"
-          value={newEvent.date}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, date: e.target.value })
-          }
-          className="border px-4 py-2 rounded-lg"
-        />
+  <input
+    type="date"
+    value={newEvent.date}
+    onChange={(e) =>
+      setNewEvent({ ...newEvent, date: e.target.value })
+    }
+    className="border px-4 py-2 rounded-lg"
+  />
 
-        <input
-          type="text"
-          placeholder="Location"
-          value={newEvent.location}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, location: e.target.value })
-          }
-          className="border px-4 py-2 rounded-lg"
-        />
+  <input
+    type="text"
+    placeholder="Location"
+    value={newEvent.location}
+    onChange={(e) =>
+      setNewEvent({ ...newEvent, location: e.target.value })
+    }
+    className="border px-4 py-2 rounded-lg"
+  />
 
-      <button
-  onClick={handleAdd}
-  className="bg-purple-600 text-white px-4 py-2 rounded-lg"
->
-  + Add Event
-</button>
-      </div>
+  <button
+    type="button"
+    onClick={handleAdd}
+    className="bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+  >
+    + Add Event
+  </button>
+
+</div>
 
       {/* EVENTS LIST */}
       <div className="grid md:grid-cols-3 gap-6">
