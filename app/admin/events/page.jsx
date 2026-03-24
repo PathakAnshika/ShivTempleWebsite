@@ -1,12 +1,110 @@
-export default function AdminEvents() {
-  return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">Events</h1>
+"use client";
+import { useState } from "react";
 
-      <div className="bg-white rounded-xl shadow p-6 space-y-2">
-        <p>Diwali Mahotsav</p>
-        <p>Mahashivratri</p>
-        <p>Navratri</p>
+export default function AdminEvents() {
+  const [events, setEvents] = useState([
+    { id: 1, name: "Diwali Mahotsav", date: "2026-11-01", location: "Temple Ground" },
+    { id: 2, name: "Mahashivratri", date: "2026-03-08", location: "Main Mandir" },
+    { id: 3, name: "Navratri", date: "2026-10-10", location: "Bhavan Hall" },
+  ]);
+
+  const [newEvent, setNewEvent] = useState({
+    name: "",
+    date: "",
+    location: "",
+  });
+
+  const handleAdd = () => {
+    if (!newEvent.name || !newEvent.date) return;
+
+    setEvents([
+      ...events,
+      { ...newEvent, id: Date.now() }
+    ]);
+
+    setNewEvent({ name: "", date: "", location: "" });
+  };
+
+  const handleDelete = (id) => {
+    setEvents(events.filter((e) => e.id !== id));
+  };
+
+  return (
+    <div className="space-y-8">
+
+      {/* HEADER */}
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-purple-700">
+          📅 Manage Events
+        </h1>
+      </div>
+
+      {/* ADD EVENT */}
+      <div className="bg-white p-6 rounded-2xl shadow-lg grid md:grid-cols-4 gap-4">
+        <input
+          type="text"
+          placeholder="Event Name"
+          value={newEvent.name}
+          onChange={(e) =>
+            setNewEvent({ ...newEvent, name: e.target.value })
+          }
+          className="border px-4 py-2 rounded-lg"
+        />
+
+        <input
+          type="date"
+          value={newEvent.date}
+          onChange={(e) =>
+            setNewEvent({ ...newEvent, date: e.target.value })
+          }
+          className="border px-4 py-2 rounded-lg"
+        />
+
+        <input
+          type="text"
+          placeholder="Location"
+          value={newEvent.location}
+          onChange={(e) =>
+            setNewEvent({ ...newEvent, location: e.target.value })
+          }
+          className="border px-4 py-2 rounded-lg"
+        />
+
+        <button
+          onClick={handleAdd}
+          className="bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+        >
+          + Add Event
+        </button>
+      </div>
+
+      {/* EVENTS LIST */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {events.map((e) => (
+          <div
+            key={e.id}
+            className="bg-white p-5 rounded-2xl shadow-md hover:shadow-xl transition"
+          >
+            <h2 className="text-xl font-semibold text-purple-700">
+              {e.name}
+            </h2>
+
+            <p className="text-gray-600 mt-2">
+              📅 {e.date}
+            </p>
+
+            <p className="text-gray-600">
+              📍 {e.location}
+            </p>
+
+            <button
+              onClick={() => handleDelete(e.id)}
+              className="mt-4 text-red-600 hover:underline"
+            >
+              Delete
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
