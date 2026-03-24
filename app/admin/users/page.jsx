@@ -156,105 +156,65 @@ const [showModal, setShowModal] = useState(false);
             </tr>
           </thead>
 
-          <tbody>
-            {filteredUsers.length === 0 && (
-            <tr key={u.id}>
-  <td className="px-6 py-4">{u.name}</td>
-  <td className="px-6 py-4">{u.email}</td>
+     <tbody>
 
-  <td className="px-6 py-4 text-center">
-    {u.role}
-  </td>
+  {/* ✅ NO DATA */}
+  {filteredUsers.length === 0 && (
+    <tr>
+      <td colSpan="7" className="text-center py-10 text-gray-500">
+        No users found
+      </td>
+    </tr>
+  )}
 
-  <td className="px-6 py-4 text-center text-green-600 font-semibold">
-    {u.status || "active"}
-  </td>
+  {/* ✅ USER DATA */}
+  {filteredUsers.map((u) => (
+    <tr key={u.id} className="border-t hover:bg-purple-50 transition">
 
-  <td className="px-6 py-4 text-center">
-    {u.created_at}
-  </td>
+      <td className="px-6 py-4 font-medium">{u.name}</td>
 
-  {/* ✅ DONATION */}
-  <td className="px-6 py-4 text-center font-semibold text-purple-700">
-    ₹{u.total_donation || 0}
-  </td>
+      <td className="px-6 py-4 text-gray-600">{u.email}</td>
 
-  {/* ✅ ACTION */}
-  <td className="px-6 py-4 text-center space-x-3">
-    <button className="text-blue-600 hover:underline">
-      View
-    </button>
+      <td className="px-6 py-4 text-center">
+        <span className="px-3 py-1 rounded-full text-sm bg-gray-100">
+          {u.role}
+        </span>
+      </td>
 
-    {u.status === "active" ? (
-      <button className="text-red-600 hover:underline">
-        Block
-      </button>
-    ) : (
-      <button className="text-green-600 hover:underline">
-        Unblock
-      </button>
-    )}
-  </td>
-</tr>
-            )}
+      <td className="px-6 py-4 text-center text-green-600 font-semibold">
+        {u.status || "active"}
+      </td>
 
-            {filteredUsers.map((u) => (
-             <tr key={u.id} className="border-t hover:bg-purple-50 transition">
+      <td className="px-6 py-4 text-center">
+        {u.created_at}
+      </td>
 
-  <td className="px-6 py-4 font-medium">{u.name}</td>
+      {/* ✅ DONATION */}
+      <td className="px-6 py-4 text-center font-semibold text-purple-700">
+        ₹{u.total_donation || 0}
+      </td>
 
-  <td className="px-6 py-4 text-gray-600">{u.email}</td>
+      {/* ✅ ACTION */}
+      <td className="px-6 py-4 text-center space-x-3">
+        <button className="text-blue-600 hover:underline">
+          View
+        </button>
 
-  <td className="px-6 py-4 text-center">
-    <span className="px-3 py-1 rounded-full text-sm bg-gray-100">
-      {u.role}
-    </span>
-  </td>
+        {u.status === "active" ? (
+          <button className="text-red-600 hover:underline">
+            Block
+          </button>
+        ) : (
+          <button className="text-green-600 hover:underline">
+            Unblock
+          </button>
+        )}
+      </td>
 
-  {/* STATUS */}
-  <td className="px-6 py-4 text-center">
-    <span className={`font-semibold ${
-      (u.status || "active") === "active"
-        ? "text-green-600"
-        : "text-red-600"
-    }`}>
-      {u.status || "active"}
-    </span>
-  </td>
+    </tr>
+  ))}
 
-  {/* JOINED */}
-  <td className="px-6 py-4 text-center text-gray-500">
-    {u.created_at}
-  </td>
-
-  {/* ACTION */}
-  <td className="px-6 py-4 text-center space-x-3">
-
-    <button
-      onClick={() => {
-        setSelectedUser(u);
-        setShowModal(true);
-      }}
-      className="text-blue-600 hover:underline"
-    >
-      View
-    </button>
-
-    <button
-      onClick={() => toggleStatus(u.id, u.status)}
-      className={`font-semibold hover:underline ${
-        (u.status || "active") === "active"
-          ? "text-red-600"
-          : "text-green-600"
-      }`}
-    >
-      {(u.status || "active") === "active" ? "Block" : "Unblock"}
-    </button>
-
-  </td>
-
-</tr>            ))}
-          </tbody>
+</tbody>
         </table>
       </div>
       {showModal && selectedUser && (
