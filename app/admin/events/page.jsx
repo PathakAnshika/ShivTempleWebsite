@@ -16,7 +16,7 @@ export default function AdminEvents() {
 
   const handleAdd = () => {
     if (!newEvent.name || !newEvent.date) return;
-
+ console.log("Button clicked 🔥");  // 👈 ye add karo
     setEvents([
       ...events,
       { ...newEvent, id: Date.now() }
@@ -70,12 +70,12 @@ export default function AdminEvents() {
           className="border px-4 py-2 rounded-lg"
         />
 
-        <button
-          onClick={handleAdd}
-          className="bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-        >
-          + Add Event
-        </button>
+      <button
+  onClick={handleAdd}
+  className="bg-purple-600 text-white px-4 py-2 rounded-lg"
+>
+  + Add Event
+</button>
       </div>
 
       {/* EVENTS LIST */}
