@@ -14,20 +14,36 @@ export default function AdminEvents() {
     location: "",
   });
 
-  const handleAdd = () => {
-    if (!newEvent.name || !newEvent.date) return;
- console.log("Button clicked 🔥");  // 👈 ye add karo
-    setEvents([
-      ...events,
-      { ...newEvent, id: Date.now() }
-    ]);
+ const handleAdd = async () => {
+  console.log("Button clicked 🔥");
 
-    setNewEvent({ name: "", date: "", location: "" });
-  };
+  if (!newEvent.name || !newEvent.date) {
+    alert("Fill all fields");
+    return;
+  }
 
-  const handleDelete = (id) => {
-    setEvents(events.filter((e) => e.id !== id));
-  };
+  try {
+    const res = await fetch("/api/admin/events/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: newEvent.name,
+        date: newEvent.date,
+        location: newEvent.location,
+      }),
+    });
+
+    const data = await res.json();
+
+    // 👇 YAHAN ADD KARNA HAI
+    console.log("Response:", data);
+
+  } catch (err) {
+    console.error("Error:", err);
+  }
+};
 
   return (
     <div className="space-y-8">
