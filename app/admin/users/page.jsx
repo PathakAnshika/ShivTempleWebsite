@@ -158,12 +158,29 @@ const [showModal, setShowModal] = useState(false);
 
           <tbody>
             {filteredUsers.length === 0 && (
-              <tr>
-                <td colSpan="6" className="text-center py-10 text-gray-500">
-                  No users found
-                </td>
-                <td>₹{u.total_donation || 0}</td>
-              </tr>
+             <tr key={u.id}>
+  <td>{u.name}</td>
+  <td>{u.email}</td>
+
+  <td>{u.role}</td>
+
+  <td className="text-green-600 font-semibold">
+    {u.status || "active"}
+  </td>
+
+  <td>{u.created_at}</td>
+
+  <td className="text-purple-700 font-semibold">
+    ₹{u.total_donation || 0}
+  </td>
+
+  <td>
+    <button>View</button>
+    <button>
+      {u.status === "active" ? "Block" : "Unblock"}
+    </button>
+  </td>
+</tr>
             )}
 
             {filteredUsers.map((u) => (
