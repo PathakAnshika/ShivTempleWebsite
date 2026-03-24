@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("home");
- const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,11 +24,25 @@ export default function Dashboard() {
   ------------------------------------------- */
   useEffect(() => {
   const stored = localStorage.getItem("user");
+  const [events, setEvents] = useState([]);
 
+useEffect(() => {
+  fetchEvents();
+}, []);
+
+const fetchEvents = async () => {
+  const res = await fetch("/api/events");
+  const data = await res.json();
+
+  if (data.success) {
+    setEvents(data.events);
+  }
+};
   if (!stored) {
     router.replace("/DevoteeCorner/login");
     return;
   }
+  
 
   let parsedUser = null;
 
@@ -274,24 +288,21 @@ function HomePage({ user, stats }) {
       </div>
 
 
-      {/* Highlight Festival Event */}
-      <div className="bg-white/70 backdrop-blur-xl border border-gray-200/40 
-                      rounded-2xl shadow-md p-6 flex items-center gap-6 hover:shadow-xl transition">
-        <img
-          src="/images/mahadev.jpg"
-          className="w-32 h-32 rounded-xl object-cover shadow-lg"
-        />
-        <div>
-          <h3 className="text-xl font-semibold text-indigo-900">✨ Highlight Event</h3>
-          <p className="text-gray-600">
-            Maha Shivratri – A night of divine energy, meditation & devotion.
-          </p>
-          <button className="mt-3 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
-            View Details
-          </button>
-        </div>
-      </div>
+     <div className="mt-10">
+  <h2 className="text-xl font-bold text-purple-700 mb-4">
+    📅 Upcoming Events
+  </h2>
 
+  <div className="grid md:grid-cols-3 gap-4">
+    {events.map((e) => (
+      <div key={e.id} className="bg-white p-4 rounded-xl shadow">
+        <h3 className="font-semibold text-purple-700">{e.title}</h3>
+        <p className="text-sm text-gray-600">📅 {e.date}</p>
+        <p className="text-sm text-gray-600">📍 {e.location}</p>
+      </div>
+    ))}
+  </div>
+</div>
 
       {/* Small Horizontal Upcoming Events List */}
       <div>
