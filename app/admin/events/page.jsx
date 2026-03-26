@@ -12,8 +12,6 @@ const [events, setEvents] = useState([]);
     location: "",
   });
 
-  
-
 useEffect(() => {
   fetchEvents();
 }, []);
