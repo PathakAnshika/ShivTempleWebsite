@@ -13,6 +13,20 @@ export default function AdminEvents() {
     date: "",
     location: "",
   });
+  
+  useEffect(() => {
+  fetchEvents();
+}, []);
+
+const fetchEvents = async () => {
+  const res = await fetch("/api/events");
+  const data = await res.json();
+
+  if (data.success) {
+    setEvents(data.events);
+  }
+};
+``
 
  const handleAdd = async () => {
   console.log("Button clicked 🔥");
