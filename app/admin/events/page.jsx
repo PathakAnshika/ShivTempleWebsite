@@ -12,6 +12,8 @@ const [events, setEvents] = useState([]);
     location: "",
   });
 
+  
+
 useEffect(() => {
   fetchEvents();
 }, []);
@@ -37,20 +39,7 @@ const fetchEvents = async () => {
     return;
   }
 
-  try {
-    const res = await fetch("/api/admin/events/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: newEvent.name,
-        date: newEvent.date,
-        location: newEvent.location,
-      }),
-    });
-
-    const handleDelete = async (id) => {
+const handleDelete = async (id) => {
   try {
     const res = await fetch("/api/admin/events/delete", {
       method: "POST",
@@ -65,7 +54,7 @@ const fetchEvents = async () => {
     if (data.success) {
       alert("Event Deleted ❌");
 
-      // 🔥 refresh list
+      // 🔥 list refresh
       fetchEvents();
     } else {
       alert("Delete failed");
@@ -74,7 +63,22 @@ const fetchEvents = async () => {
   } catch (err) {
     console.error(err);
   }
-};
+
+  
+  try {
+    const res = await fetch("/api/admin/events/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: newEvent.name,
+        date: newEvent.date,
+        location: newEvent.location,
+      }),
+    });
+
+   
 
     const data = await res.json();
     console.log("Response:", data);
@@ -199,3 +203,4 @@ const fetchEvents = async () => {
     </div>
   );
 }
+};
