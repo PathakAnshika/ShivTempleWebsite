@@ -8,24 +8,14 @@ export default function AdminEvents() {
     { id: 3, name: "Navratri", date: "2026-10-10", location: "Bhavan Hall" },
   ]);
 
+  
+
   const [newEvent, setNewEvent] = useState({
     name: "",
     date: "",
     location: "",
   });
-  
-  useEffect(() => {
-  fetchEvents();
-}, []);
 
-const fetchEvents = async () => {
-  const res = await fetch("/api/events");
-  const data = await res.json();
-
-  if (data.success) {
-    setEvents(data.events);
-  }
-};
 ``
 
  const handleAdd = async () => {
