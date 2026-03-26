@@ -30,15 +30,6 @@ const fetchEvents = async () => {
     console.error(err);
   }
 };
-
- const handleAdd = async () => {
-  console.log("Button clicked 🔥");
-
-  if (!newEvent.name || !newEvent.date) {
-    alert("Fill all fields");
-    return;
-  }
-
 const handleDelete = async (id) => {
   try {
     const res = await fetch("/api/admin/events/delete", {
@@ -63,9 +54,16 @@ const handleDelete = async (id) => {
   } catch (err) {
     console.error(err);
   }
-}
 
-  
+ const handleAdd = async () => {
+  console.log("Button clicked 🔥");
+
+  if (!newEvent.name || !newEvent.date) {
+    alert("Fill all fields");
+    return;
+  }
+
+ }
   try {
     const res = await fetch("/api/admin/events/add", {
       method: "POST",
@@ -78,7 +76,7 @@ const handleDelete = async (id) => {
         location: newEvent.location,
       }),
     });
-
+  
    
 
     const data = await res.json();
@@ -204,3 +202,5 @@ const handleDelete = async (id) => {
     </div>
   );
 }
+
+
