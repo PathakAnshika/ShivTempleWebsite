@@ -186,11 +186,13 @@ const fetchEvents = async () => {
               📍 {e.location}
             </p>
 
-           <button
+<button
   onClick={() => handleDelete(e.id)}
+   className="mt-4 text-red-600 hover:underline"
 >
   Delete
 </button>
+           
           </div>
         ))}
       </div>
