@@ -63,6 +63,7 @@ const handleDelete = async (id) => {
   } catch (err) {
     console.error(err);
   }
+}
 
   
   try {
@@ -203,4 +204,3 @@ const handleDelete = async (id) => {
     </div>
   );
 }
-};
