@@ -1,12 +1,8 @@
 "use client";
 import { useState } from "react";
-
+import { useState, useEffect } from "react";
 export default function AdminEvents() {
-  const [events, setEvents] = useState([
-    { id: 1, name: "Diwali Mahotsav", date: "2026-11-01", location: "Temple Ground" },
-    { id: 2, name: "Mahashivratri", date: "2026-03-08", location: "Main Mandir" },
-    { id: 3, name: "Navratri", date: "2026-10-10", location: "Bhavan Hall" },
-  ]);
+const [events, setEvents] = useState([]);
 
   
 
@@ -16,7 +12,22 @@ export default function AdminEvents() {
     location: "",
   });
 
-``
+useEffect(() => {
+  fetchEvents();
+}, []);
+
+const fetchEvents = async () => {
+  try {
+    const res = await fetch("/api/events");
+    const data = await res.json();
+
+    if (data.success) {
+      setEvents(data.events);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 
  const handleAdd = async () => {
   console.log("Button clicked 🔥");
@@ -24,6 +35,35 @@ export default function AdminEvents() {
   if (!newEvent.name || !newEvent.date) {
     alert("Fill all fields");
     return;
+  }
+
+  try {
+    const res = await fetch("/api/admin/events/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: newEvent.name,
+        date: newEvent.date,
+        location: newEvent.location,
+      }),
+    });
+
+    const data = await res.json();
+    console.log("Response:", data);
+
+    if (data.success) {
+      alert("Event Added ✅");
+
+      // 🔥 IMPORTANT LINE
+      fetchEvents();
+
+      setNewEvent({ name: "", date: "", location: "" });
+    }
+
+  } catch (err) {
+    console.error("Error:", err);
   }
 
   try {
@@ -109,7 +149,7 @@ export default function AdminEvents() {
             className="bg-white p-5 rounded-2xl shadow-md hover:shadow-xl transition"
           >
             <h2 className="text-xl font-semibold text-purple-700">
-              {e.name}
+              {e.title}
             </h2>
 
             <p className="text-gray-600 mt-2">
