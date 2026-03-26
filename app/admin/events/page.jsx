@@ -12,6 +12,8 @@ const [events, setEvents] = useState([]);
     location: "",
   });
 
+  
+
 useEffect(() => {
   fetchEvents();
 }, []);
@@ -37,30 +39,6 @@ const fetchEvents = async () => {
     return;
   }
 
-const handleDelete = async (id) => {
-  try {
-    const res = await fetch("/api/admin/events/delete", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id }),
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
-      alert("Event Deleted ❌");
-
-      // 🔥 list refresh
-      fetchEvents();
-    } else {
-      alert("Delete failed");
-    }
-
-  } catch (err) {
-    console.error(err);
-  }
 
   
   try {
@@ -201,4 +179,3 @@ const handleDelete = async (id) => {
     </div>
   );
 }
-};
