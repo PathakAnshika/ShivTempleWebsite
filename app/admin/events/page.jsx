@@ -50,6 +50,32 @@ const fetchEvents = async () => {
       }),
     });
 
+    const handleDelete = async (id) => {
+  try {
+    const res = await fetch("/api/admin/events/delete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Event Deleted ❌");
+
+      // 🔥 refresh list
+      fetchEvents();
+    } else {
+      alert("Delete failed");
+    }
+
+  } catch (err) {
+    console.error(err);
+  }
+};
+
     const data = await res.json();
     console.log("Response:", data);
 
@@ -160,12 +186,11 @@ const fetchEvents = async () => {
               📍 {e.location}
             </p>
 
-            <button
-              onClick={() => handleDelete(e.id)}
-              className="mt-4 text-red-600 hover:underline"
-            >
-              Delete
-            </button>
+           <button
+  onClick={() => handleDelete(e.id)}
+>
+  Delete
+</button>
           </div>
         ))}
       </div>
