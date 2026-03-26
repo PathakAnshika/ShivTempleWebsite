@@ -63,7 +63,7 @@ const handleDelete = async (id) => {
     return;
   }
 
- }
+ 
   try {
     const res = await fetch("/api/admin/events/add", {
       method: "POST",
@@ -202,5 +202,5 @@ const handleDelete = async (id) => {
     </div>
   );
 }
-
+}
 
