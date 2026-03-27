@@ -5,7 +5,7 @@ import { Menu } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
-  const [user, setUser] = useState(null);
+ 
   const [activeTab, setActiveTab] = useState("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -13,8 +13,9 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [stats, setStats] = useState(null);
-
+ 
   // 🌙 Preferences (Dark mode + Notifications)
+  const [events, setEvents] = useState([]); 
   const [preferences, setPreferences] = useState({
     darkMode: false,
     notifications: true,
@@ -25,26 +26,12 @@ export default function Dashboard() {
   ------------------------------------------- */
   useEffect(() => {
   const stored = localStorage.getItem("user");
-  const [events, setEvents] = useState([]);
 
-useEffect(() => {
-  fetchEvents();
-}, []);
-
-const fetchEvents = async () => {
-  const res = await fetch("/api/events");
-  const data = await res.json();
-
-  if (data.success) {
-    setEvents(data.events);
-  }
-};
   if (!stored) {
     router.replace("/DevoteeCorner/login");
     return;
   }
-  
-  
+
   let parsedUser = null;
 
   try {
@@ -61,19 +48,15 @@ const fetchEvents = async () => {
     return;
   }
 
+  // 🔥 ROLE CHECK
   if (parsedUser.role === "admin") {
     router.replace("/admin/dashboard");
     return;
   }
 
-  if (parsedUser.role === "user") {
-    setUserData(parsedUser);   // ✅ FIX
-    setLoading(false);         // ✅ FIX
-    return;
-  }
-
-  localStorage.removeItem("user");
-  router.replace("/DevoteeCorner/login");
+  // ✅ USER OK
+  setUserData(parsedUser);
+  setLoading(false);
 
 }, []);
 
