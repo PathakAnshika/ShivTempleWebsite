@@ -64,6 +64,18 @@ useEffect(() => {
 
 }, []);
 
+ const fetchEvents = async () => {
+  try {
+    const res = await fetch("/api/events");
+    const data = await res.json();
+
+    if (data.success) {
+      setEvents(data.events);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   /* -----------------------------------------
       ✅ STEP 2: Fetch User from API
@@ -92,19 +104,7 @@ useEffect(() => {
     }
   };
 
-  const fetchEvents = async () => {
-  try {
-    const res = await fetch("/api/events");
-    const data = await res.json();
-
-    if (data.success) {
-      setEvents(data.events);
-    }
-  } catch (err) {
-    console.error(err);
-  }
-};
-
+ 
   /* -----------------------------------------
       🔓 Logout
   ------------------------------------------- */
