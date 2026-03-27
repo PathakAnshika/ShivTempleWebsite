@@ -1,18 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function AdminEvents() {
-
-  const [events, setEvents] = useState([]);
-
-  const [newEvent, setNewEvent] = useState({
-    name: "",
-    date: "",
-    location: "",
-  });
-
-  /* ---------------- FETCH EVENTS ---------------- */
-  useEffect(() => {
+ useEffect(() => {
     fetchEvents();
   }, []);
 
@@ -28,6 +17,18 @@ export default function AdminEvents() {
       console.error(err);
     }
   };
+export default function AdminEvents() {
+
+  const [events, setEvents] = useState([]);
+
+  const [newEvent, setNewEvent] = useState({
+    name: "",
+    date: "",
+    location: "",
+  });
+
+  /* ---------------- FETCH EVENTS ---------------- */
+ 
 
   /* ---------------- ADD EVENT ---------------- */
   const handleAdd = async () => {
