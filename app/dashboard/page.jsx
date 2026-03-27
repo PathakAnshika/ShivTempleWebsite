@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
+  const [user, setUser] = useState(null);
   const [activeTab, setActiveTab] = useState("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -43,7 +44,7 @@ const fetchEvents = async () => {
     return;
   }
   
-
+  
   let parsedUser = null;
 
   try {
@@ -666,11 +667,17 @@ function NotificationsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem("user");
-    if (!stored) return;
+   const stored = localStorage.getItem("user");
 
-    const user = JSON.parse(stored);
-    fetchNotifications(user.id);
+let parsedUser = null;
+
+try {
+  parsedUser = JSON.parse(stored);
+} catch (err) {
+  localStorage.removeItem("user");
+  router.replace("/DevoteeCorner/login");
+  return;
+}
   }, []);
 
 const fetchNotifications = async (userId) => {
