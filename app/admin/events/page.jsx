@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 
+
+export default function AdminEvents() {
  useEffect(() => {
     fetchEvents();
   }, []);
@@ -17,8 +19,6 @@ import { useState, useEffect } from "react";
       console.error(err);
     }
   };
-export default function AdminEvents() {
-
   const [events, setEvents] = useState([]);
 
   const [newEvent, setNewEvent] = useState({
