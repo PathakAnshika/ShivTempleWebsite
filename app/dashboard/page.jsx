@@ -13,9 +13,9 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [stats, setStats] = useState(null);
- 
+   const [events, setEvents] = useState([]);
   // 🌙 Preferences (Dark mode + Notifications)
-  const [events, setEvents] = useState([]); 
+ 
   const [preferences, setPreferences] = useState({
     darkMode: false,
     notifications: true,
