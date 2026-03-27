@@ -3,7 +3,16 @@ import { useState, useEffect } from "react";
 
 
 export default function AdminEvents() {
- useEffect(() => {
+
+  const [events, setEvents] = useState([]);
+
+  const [newEvent, setNewEvent] = useState({
+    name: "",
+    date: "",
+    location: "",
+  });
+
+   useEffect(() => {
     fetchEvents();
   }, []);
 
@@ -19,14 +28,6 @@ export default function AdminEvents() {
       console.error(err);
     }
   };
-  const [events, setEvents] = useState([]);
-
-  const [newEvent, setNewEvent] = useState({
-    name: "",
-    date: "",
-    location: "",
-  });
-
   /* ---------------- FETCH EVENTS ---------------- */
  
 
