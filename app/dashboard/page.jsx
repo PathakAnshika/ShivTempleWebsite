@@ -295,7 +295,7 @@ function HomePage({ user, stats }) {
   </h2>
 
   <div className="grid md:grid-cols-3 gap-4">
-    {events.map((e) => (
+    {events?.map((e) => (
       <div key={e.id} className="bg-white p-4 rounded-xl shadow">
         <h3 className="font-semibold text-purple-700">{e.title}</h3>
         <p className="text-sm text-gray-600">📅 {e.date}</p>
