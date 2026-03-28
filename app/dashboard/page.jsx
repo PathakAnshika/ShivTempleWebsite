@@ -665,7 +665,7 @@ function OfferingsPage() {
 }
 
 
-function NotificationsPage(fetchNotifications) {
+function NotificationsPage() {
   const [notifs, setNotifs] = useState([]);
   const [loading, setLoading] = useState(true);
 
