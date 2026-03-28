@@ -312,26 +312,15 @@ function HomePage({ user, stats, events }) {
 </div>
 
       {/* Small Horizontal Upcoming Events List */}
-      <div>
-        <h3 className="text-xl font-semibold text-indigo-900 mb-3">🌙 Upcoming Temple Events</h3>
+     <div className="bg-gradient-to-r from-purple-200/40 to-indigo-200/40 p-6 rounded-2xl shadow text-center">
+  <h3 className="text-xl font-semibold text-indigo-900 mb-3">
+    🌼 Daily Blessing
+  </h3>
 
-        <div className="flex gap-4 overflow-x-auto pb-3">
-          {[
-            { title: "Rudra Abhishek", date: "5 Feb 2025", img: "/images/abhishek.jpg" },
-            { title: "Shravan Somvar", date: "12 Aug 2025", img: "/images/shivling.jpg" },
-            { title: "Har Har Mahadev Night", date: "20 Apr 2025", img: "/images/mahadev2.jpg" }
-          ].map((e, i) => (
-            <div
-              key={i}
-              className="min-w-[220px] bg-white/70 border border-gray-200/40 backdrop-blur-md rounded-xl shadow p-4"
-            >
-              <img src={e.img} className="h-28 w-full rounded-lg object-cover mb-3" />
-              <h4 className="font-semibold text-indigo-900">{e.title}</h4>
-              <p className="text-sm text-gray-600">{e.date}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+  <p className="text-gray-700 italic leading-relaxed">
+    “ॐ नमः शिवाय — May Lord Shiva bless you with peace, strength & clarity.”
+  </p>
+</div>
 
     </div>
   );
