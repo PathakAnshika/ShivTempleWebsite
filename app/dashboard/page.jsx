@@ -221,7 +221,13 @@ useEffect(() => {
   `}
 >
 
-       {activeTab === "home" && <HomePage user={userData} stats={stats} />}
+      {activeTab === "home" && (
+  <HomePage 
+    user={userData} 
+    stats={stats} 
+    events={events}   // ✅ ADD THIS
+  />
+)}
 
         {activeTab === "profile" && <ProfilePage user={userData} />}
         {activeTab === "membership" && (
@@ -251,7 +257,7 @@ useEffect(() => {
 /* -----------------------------------------
       HOME PAGE (BEAUTIFUL & AESTHETIC)
 ------------------------------------------- */
-function HomePage({ user, stats }) {
+function HomePage({ user, stats, events }) {
   return (
     <div className="space-y-10">
 
