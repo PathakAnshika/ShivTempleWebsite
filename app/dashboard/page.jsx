@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Dashboard() {
  
   const [activeTab, setActiveTab] = useState("home");
+  const [notifications, setNotifications] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [userData, setUserData] = useState(null);
