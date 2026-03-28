@@ -28,6 +28,13 @@ useEffect(() => {
   fetchEvents();
 }, []);
 
+useEffect(() => {
+  const stored = localStorage.getItem("user");
+  const user = JSON.parse(stored);
+
+  fetchNotifications(user.id);
+}, []);
+
   useEffect(() => {
   const stored = localStorage.getItem("user");
 
@@ -696,7 +703,11 @@ const fetchNotifications = async (userId) => {
   if (loading) {
     return <p className="text-purple-600 animate-pulse">Loading notifications...</p>;
   }
-
+<div
+  className={`p-5 rounded-xl shadow ${
+    n.is_read ? "bg-white" : "bg-purple-100"
+  }`}
+></div>
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-purple-700">
