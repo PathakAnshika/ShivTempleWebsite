@@ -671,10 +671,13 @@ function NotificationsPage() {
 
     let user = JSON.parse(stored);
 
-   fetchNotifications(user?.id || 0);
+   fetchNotifications(Number(user?.id));
+   console.log("USER DATA:", user);
+console.log("USER ID:", user?.id);
   }, []);
 
   const fetchNotifications = async (userId) => {
+    console.log("Sending user_id:", userId); // 👈 add this
     try {
       const res = await fetch("/api/notifications/get", {
         method: "POST",
