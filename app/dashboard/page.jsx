@@ -29,12 +29,7 @@ useEffect(() => {
   fetchEvents();
 }, []);
 
-useEffect(() => {
-  const stored = localStorage.getItem("user");
-  const user = JSON.parse(stored);
 
-  fetchNotifications(user.id);
-}, []);
 
   useEffect(() => {
   const stored = localStorage.getItem("user");
@@ -670,26 +665,25 @@ function NotificationsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   const stored = localStorage.getItem("user");
+    const stored = localStorage.getItem("user");
 
-let parsedUser = null;
+    if (!stored) return;
 
-try {
-  parsedUser = JSON.parse(stored);
-} catch (err) {
-  localStorage.removeItem("user");
-  router.replace("/DevoteeCorner/login");
-  return;
-}
+    let user = JSON.parse(stored);
+
+    fetchNotifications(user.id);
   }, []);
 
-const fetchNotifications = async (userId) => {
-  try {
-    const res = await fetch("/api/notifications/get", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user_id: userId }),
-    });
+  const fetchNotifications = async (userId) => {
+    try {
+      const res = await fetch("/api/notifications/get", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id: userId }),
+      });
+
       const data = await res.json();
 
       if (data.success) {
@@ -698,17 +692,14 @@ const fetchNotifications = async (userId) => {
     } catch (err) {
       console.error(err);
     }
+
     setLoading(false);
   };
 
   if (loading) {
     return <p className="text-purple-600 animate-pulse">Loading notifications...</p>;
   }
-<div
-  className={`p-5 rounded-xl shadow ${
-    n.is_read ? "bg-white" : "bg-purple-100"
-  }`}
-></div>
+
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-purple-700">
@@ -722,7 +713,9 @@ const fetchNotifications = async (userId) => {
       {notifs.map((n) => (
         <div
           key={n.id}
-          className="bg-white border-l-4 border-purple-500 p-5 rounded-xl shadow"
+          className={`p-5 rounded-xl shadow ${
+            n.is_read ? "bg-white" : "bg-purple-100"
+          }`}
         >
           <h3 className="text-lg font-semibold text-purple-700">
             {n.title}
