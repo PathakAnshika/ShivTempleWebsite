@@ -671,7 +671,7 @@ function NotificationsPage() {
 
     let user = JSON.parse(stored);
 
-    fetchNotifications(user.id);
+   fetchNotifications(user?.id || 0);
   }, []);
 
   const fetchNotifications = async (userId) => {
