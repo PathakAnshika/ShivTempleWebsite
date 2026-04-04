@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { GraduationCap } from "lucide-react";
 import { useRouter } from "next/navigation";
 import {
   LayoutDashboard,
