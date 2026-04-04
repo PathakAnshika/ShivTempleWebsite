@@ -21,7 +21,7 @@ export default function AdminLayout({ children }) {
     { label: "Donations", path: "/admin/donations", icon: HandCoins },
     { label: "Events", path: "/admin/events", icon: CalendarDays },
     { label: "Notifications", path: "/admin/notifications", icon: Bell },
-     { label: "Scholarship", path: "/admin/scholarship", icon: Settings },
+     { label: "Scholarship", path: "/admin/scholarship", icon: GraduationCap },
     { label: "Settings", path: "/admin/settings", icon: Settings },
   ];
 
