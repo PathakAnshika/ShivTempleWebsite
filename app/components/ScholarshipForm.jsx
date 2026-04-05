@@ -23,12 +23,19 @@ export default function ScholarshipForm() {
       <input name="phone" placeholder="Phone Number" required onChange={handleChange} className="input" />
       <input name="email" placeholder="Email Address" required onChange={handleChange} className="input" />
 
-      <select name="category" required onChange={handleChange} className="input">
-        <option value="">Select Category</option>
-        <option>Class 8–10</option>
-        <option>Class 11–12</option>
-        <option>Graduation</option>
-      </select>
+    <select
+  name="category"
+  required
+  onChange={handleChange}
+  className="input text-gray-700"
+>
+  <option value="" disabled selected className="text-gray-400">
+    Select Category
+  </option>
+  <option>Class 8–10</option>
+  <option>Class 11–12</option>
+  <option>Graduation</option>
+</select>
 
       <input name="school" placeholder="School / College" required onChange={handleChange} className="input" />
 
