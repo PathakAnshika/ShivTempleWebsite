@@ -48,7 +48,7 @@ export default function ScholarshipForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 max-h-[80vh] overflow-y-auto pr-2">
 
       {/* NAME (AUTO) */}
       <input

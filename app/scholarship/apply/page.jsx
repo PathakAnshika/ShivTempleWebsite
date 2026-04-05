@@ -56,7 +56,7 @@ export default function ApplyPage() {
    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 h-full">
 
         {/* ================= LEFT: FORM ================= */}
-      <div className="bg-white rounded-3xl shadow-xl p-6 h-full overflow-hidden">
+      <div className="bg-white rounded-3xl shadow-xl p-6 h-full overflow-y-auto">
           <h2 className="text-2xl font-bold text-purple-700 mb-4">
             🎓 Apply for Scholarship
           </h2>
