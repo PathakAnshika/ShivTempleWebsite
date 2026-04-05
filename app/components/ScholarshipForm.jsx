@@ -150,7 +150,23 @@ export default function ScholarshipForm() {
           background: #fff;
           box-shadow: 0 0 0 3px rgba(122,59,188,0.15);
         }
+.fileBox {
+  display: block;
+  width: 100%;
+  border: 1px dashed #c084fc;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  background: #faf5ff;
+  color: #6b21a8;
+  font-size: 14px;
+  transition: 0.3s;
+}
 
+.fileBox:hover {
+  background: #f3e8ff;
+}
         .submitBtn {
           width: 100%;
           background: linear-gradient(to right, #7a3bbc, #9d4edd);
