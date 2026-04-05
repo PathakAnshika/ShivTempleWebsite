@@ -43,7 +43,7 @@ export default function ScholarshipForm() {
           padding: 10px 12px;
           border-radius: 10px;
           outline: none;
-          placeholder : black;
+          placeholder : #0c0c0c;
         }
         .input:focus {
           border-color: #7a3bbc;
