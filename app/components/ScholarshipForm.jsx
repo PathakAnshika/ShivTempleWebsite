@@ -94,14 +94,15 @@ export default function ScholarshipForm() {
       />
 
       {/* INCOME */}
-      <input
-        name="income"
-        type="number"
-        placeholder="Annual Family Income"
-        required
-        onChange={handleChange}
-        className="input"
-      />
+     <input
+  name="income"
+  type="text"   // 👈 change
+  inputMode="numeric" // 👈 mobile numeric keyboard
+  placeholder="Annual Family Income (₹)"
+  required
+  onChange={handleChange}
+  className="input"
+/>
 
       {/* REASON */}
       <textarea
@@ -114,12 +115,15 @@ export default function ScholarshipForm() {
       />
 
       {/* DOCUMENT (OPTIONAL) */}
-      <input
-        type="file"
-        name="document"
-        className="input"
-      />
-
+    <input
+  name="income"
+  type="text"   // 👈 change
+  inputMode="numeric" // 👈 mobile numeric keyboard
+  placeholder="Annual Family Income (₹)"
+  required
+  onChange={handleChange}
+  className="input"
+/>
       {/* SUBMIT */}
       <button className="submitBtn">
         Submit Application
