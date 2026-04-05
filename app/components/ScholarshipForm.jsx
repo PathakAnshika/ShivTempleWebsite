@@ -53,7 +53,8 @@ export default function ScholarshipForm() {
       {/* NAME (AUTO) */}
       <input
         name="name"
-        value={formData.name || ""}
+         placeholder="Name"
+        // value={formData.name || ""}
         readOnly
         className="input bg-gray-100 cursor-not-allowed"
       />
@@ -61,7 +62,8 @@ export default function ScholarshipForm() {
       {/* EMAIL (AUTO) */}
       <input
         name="email"
-        value={formData.email || ""}
+        placeholder="Email"
+        // value={formData.email || ""}
         readOnly
         className="input bg-gray-100 cursor-not-allowed"
       />
