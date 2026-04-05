@@ -50,6 +50,9 @@ export default function ScholarshipForm() {
   color: #6b7280; /* gray-500 (visible + aesthetic) */
   opacity: 1;
 }
+  .input::category {
+  color: #0c0c0c;
+  }
         .input:focus {
           border-color: #7a3bbc;
           box-shadow: 0 0 0 2px rgba(122,59,188,0.15);
