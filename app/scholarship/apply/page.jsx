@@ -43,7 +43,7 @@ export default function ApplyPage() {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 px-6 py-10">
+   <section className="h-screen overflow-hidden bg-gradient-to-br from-purple-50 to-indigo-100 px-6 py-6">
 
       {/* BACK BUTTON */}
       <button
@@ -53,10 +53,10 @@ export default function ApplyPage() {
         ← Back
       </button>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 h-full">
 
         {/* ================= LEFT: FORM ================= */}
-        <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8">
+      <div className="bg-white rounded-3xl shadow-xl p-6 h-full overflow-hidden">
           <h2 className="text-2xl font-bold text-purple-700 mb-4">
             🎓 Apply for Scholarship
           </h2>
@@ -65,7 +65,7 @@ export default function ApplyPage() {
         </div>
 
         {/* ================= RIGHT: STATUS ================= */}
-        <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col justify-center">
+       <div className="bg-white rounded-3xl shadow-xl p-6 h-full overflow-hidden">
 
           <h2 className="text-2xl font-bold text-purple-700 mb-6">
             📊 Application Status
