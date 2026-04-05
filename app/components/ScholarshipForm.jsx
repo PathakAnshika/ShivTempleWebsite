@@ -7,10 +7,34 @@ export default function ScholarshipForm() {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Application submitted successfully 🙏");
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const stored = localStorage.getItem("user");
+    const user = JSON.parse(stored);
+
+    const res = await fetch("/api/scholarship/apply", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...formData,
+        user_id: user.id,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Application submitted ✅");
+    }
+
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
