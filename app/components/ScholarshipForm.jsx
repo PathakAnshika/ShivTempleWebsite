@@ -43,8 +43,13 @@ export default function ScholarshipForm() {
           padding: 10px 12px;
           border-radius: 10px;
           outline: none;
-          placeholder : #0c0c0c;
+       
         }
+
+      .input::placeholder {
+  color: #6b7280; /* gray-500 (visible + aesthetic) */
+  opacity: 1;
+}
         .input:focus {
           border-color: #7a3bbc;
           box-shadow: 0 0 0 2px rgba(122,59,188,0.15);
