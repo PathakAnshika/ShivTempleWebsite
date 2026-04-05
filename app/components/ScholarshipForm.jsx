@@ -55,7 +55,7 @@ export default function ScholarshipForm() {
         name="name"
          placeholder="Name"
         // value={formData.name || ""}
-        className="input bg-gray-100 cursor-not-allowed"
+        className="input"
       />
 
       {/* EMAIL (AUTO) */}
@@ -63,7 +63,7 @@ export default function ScholarshipForm() {
         name="email"
         placeholder="Email"
         // value={formData.email || ""}
-        className="input bg-gray-100 cursor-not-allowed"
+        className="input"
       />
 
       {/* PHONE */}
