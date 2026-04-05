@@ -115,15 +115,17 @@ export default function ScholarshipForm() {
       />
 
       {/* DOCUMENT (OPTIONAL) */}
-    <input
-  name="income"
-  type="text"   // 👈 change
-  inputMode="numeric" // 👈 mobile numeric keyboard
-  placeholder="Annual Family Income (₹)"
-  required
-  onChange={handleChange}
-  className="input"
-/>
+   <label className="fileBox">
+  📄 Upload Document (optional)
+  <input
+    type="file"
+    name="document"
+    onChange={(e) =>
+      setFormData({ ...formData, document: e.target.files[0] })
+    }
+    hidden
+  />
+</label>
       {/* SUBMIT */}
       <button className="submitBtn">
         Submit Application
