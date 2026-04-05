@@ -15,9 +15,9 @@ export default function ScholarshipForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
 
-      <h2 className="text-2xl font-bold text-purple-800 text-center">
+      {/* <h2 className="text-2xl font-bold text-purple-800 text-center">
         Apply Now
-      </h2>
+      </h2> */}
 
       <input name="name" placeholder="Full Name" required onChange={handleChange} className="input" />
       <input name="phone" placeholder="Phone Number" required onChange={handleChange} className="input" />
@@ -39,7 +39,7 @@ export default function ScholarshipForm() {
       <style jsx>{`
         .input {
           width: 100%;
-          border: 1px solid #e5e5e5;
+          border: 1px solid #0c0c0c;
           padding: 10px 12px;
           border-radius: 10px;
           outline: none;
