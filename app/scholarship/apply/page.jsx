@@ -1,16 +1,21 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import ScholarshipForm from "../../components/ScholarshipForm";
 
-export default function ScholarshipStatusPage() {
+export default function ApplyPage() {
   const router = useRouter();
+
+  const [view, setView] = useState("form"); // form | status
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (view === "status") {
+      fetchStatus();
+    }
+  }, [view]);
 
-  const fetchData = async () => {
+  const fetchStatus = async () => {
     try {
       const stored = localStorage.getItem("user");
       const user = JSON.parse(stored);
@@ -28,7 +33,6 @@ export default function ScholarshipStatusPage() {
       if (json.success) {
         setData(json.data);
       }
-
     } catch (err) {
       console.error(err);
     }
@@ -64,57 +68,76 @@ export default function ScholarshipStatusPage() {
 
       <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* CONTENT */}
-      <div className="relative z-10 flex items-center justify-center h-full px-6">
+      {/* MAIN CONTENT */}
+      <div className="relative z-10 flex justify-end items-center h-full px-6 md:px-16">
 
-        <div className="w-full max-w-md backdrop-blur-xl bg-white/90 rounded-3xl shadow-2xl p-8 text-center space-y-6">
+        <div className="w-full max-w-md backdrop-blur-xl bg-white/90 rounded-3xl shadow-2xl p-6 space-y-6">
 
-          <h2 className="text-2xl font-bold text-purple-700">
-            🎓 Scholarship Status
-          </h2>
+          {/* TOGGLE BUTTON */}
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-bold text-purple-700">
+              🎓 Scholarship
+            </h2>
 
-          {!data ? (
-            <p className="text-gray-600">No application found</p>
-          ) : (
+            <button
+              onClick={() =>
+                setView(view === "form" ? "status" : "form")
+              }
+              className="text-sm text-purple-600 underline"
+            >
+              {view === "form" ? "Check Status" : "Apply Again"}
+            </button>
+          </div>
+
+          {/* ================= FORM ================= */}
+          {view === "form" && <ScholarshipForm />}
+
+          {/* ================= STATUS ================= */}
+          {view === "status" && (
             <>
-              {/* STATUS */}
-              <div>
-                <p className="text-gray-500">Status</p>
-                <span
-                  className={`px-4 py-2 rounded-full text-sm font-semibold ${statusColor[data.status]}`}
-                >
-                  {data.status}
-                </span>
-              </div>
-
-              {/* AMOUNT */}
-              <div>
-                <p className="text-gray-500">Amount</p>
-                <p className="text-xl font-bold text-purple-700">
-                  {data.amount ? `₹${data.amount}` : "-"}
+              {!data ? (
+                <p className="text-gray-600 text-center">
+                  No application found
                 </p>
-              </div>
+              ) : (
+                <div className="space-y-4 text-center">
 
-              {/* DATE */}
-              <div>
-                <p className="text-gray-500">Applied On</p>
-                <p className="text-gray-700">
-                  {new Date(data.created_at).toLocaleDateString()}
-                </p>
-              </div>
+                  <div>
+                    <p className="text-gray-500">Status</p>
+                    <span
+                      className={`px-4 py-2 rounded-full text-sm font-semibold ${statusColor[data.status]}`}
+                    >
+                      {data.status}
+                    </span>
+                  </div>
 
-              {/* MESSAGE */}
-              <div className="text-sm text-gray-600">
-                {data.status === "pending" && "⏳ Your application is under review"}
-                {data.status === "approved" && "🎉 Your scholarship is approved"}
-                {data.status === "rejected" && "❌ Application rejected"}
-                {data.status === "paid" && "💰 Amount transferred successfully"}
-              </div>
+                  <div>
+                    <p className="text-gray-500">Amount</p>
+                    <p className="text-lg font-bold text-purple-700">
+                      {data.amount ? `₹${data.amount}` : "-"}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-500">Applied On</p>
+                    <p className="text-gray-700">
+                      {new Date(data.created_at).toLocaleDateString()}
+                    </p>
+                  </div>
+
+                  <div className="text-sm text-gray-600">
+                    {data.status === "pending" && "⏳ Under review"}
+                    {data.status === "approved" && "🎉 Approved"}
+                    {data.status === "rejected" && "❌ Rejected"}
+                    {data.status === "paid" && "💰 Payment done"}
+                  </div>
+
+                </div>
+              )}
             </>
           )}
 
         </div>
-
       </div>
     </section>
   );
