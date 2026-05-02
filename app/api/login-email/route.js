@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
     const { email, password } = await req.json();
 
+    // 🔹 validation
     if (!email || !password) {
       return NextResponse.json(
         { success: false, message: "Email and password required" },
@@ -12,22 +13,33 @@ export async function POST(req) {
       );
     }
 
-    const db = getDB();
+    // 🔹 SAFE FETCH USER
+    const { data: user, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("email", email)
+      .maybeSingle(); // ✅ FIX
 
-    const [rows] = await db.execute(
-      "SELECT * FROM users WHERE email = ?",
-      [email]
-    );
+    console.log("USER:", user);
+    console.log("ERROR:", error);
 
-    if (rows.length === 0) {
+    // ❌ error handle
+    if (error) {
+      return NextResponse.json(
+        { success: false, message: error.message },
+        { status: 500 }
+      );
+    }
+
+    // ❌ user not found
+    if (!user) {
       return NextResponse.json(
         { success: false, message: "User not found" },
         { status: 404 }
       );
     }
 
-    const user = rows[0];
-
+    // ❌ password mismatch
     if (user.password !== password) {
       return NextResponse.json(
         { success: false, message: "Incorrect password" },
@@ -35,15 +47,15 @@ export async function POST(req) {
       );
     }
 
-   const safeUser = {
-  id: user.id,
-  name: user.name,
-  email: user.email,
-  phone: user.phone,
-  role: user.role,        
-  created_at: user.created_at,
-};
-
+    // 🔒 safe user
+    const safeUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      role: user.role,
+      created_at: user.created_at,
+    };
 
     return NextResponse.json({
       success: true,
@@ -52,9 +64,14 @@ export async function POST(req) {
     });
 
   } catch (err) {
-    console.error("login-email error:", err);
+    console.error("LOGIN ERROR:", err);
+
     return NextResponse.json(
-      { success: false, message: "Server error", error: err.message },
+      {
+        success: false,
+        message: "Server error",
+        error: err.message,
+      },
       { status: 500 }
     );
   }

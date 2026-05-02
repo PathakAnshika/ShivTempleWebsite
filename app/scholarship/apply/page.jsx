@@ -1,122 +1,508 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import ScholarshipForm from "../../components/ScholarshipForm";
+import { useState } from "react";
 
-export default function ApplyPage() {
-  const router = useRouter();
+export default function ScholarshipApplyPage() {
+  const [step, setStep] = useState(1);
+  const totalSteps = 6;
 
-  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetchStatus();
-  }, []);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    dob: "",
+    gender: "",
+    address: "",
 
-  const fetchStatus = async () => {
+    course: "",
+    college: "",
+    year: "",
+    marks: "",
+
+    income: "",
+    fatherOccupation: "",
+    motherOccupation: "",
+    dependents: "",
+    feeAmount: "",
+
+    bankName: "",
+    accountNumber: "",
+    ifsc: "",
+    reason: "",
+
+    agree: false,
+  });
+
+  /* =========================
+     INPUT CHANGE
+  ========================= */
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setForm({
+      ...form,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  /* =========================
+     NEXT STEP
+  ========================= */
+  const nextStep = () => {
+    if (step < totalSteps) setStep(step + 1);
+  };
+
+  /* =========================
+     PREV STEP
+  ========================= */
+  const prevStep = () => {
+    if (step > 1) setStep(step - 1);
+  };
+
+  /* =========================
+     SUBMIT
+  ========================= */
+  const handleSubmit = async () => {
     try {
-      const stored = localStorage.getItem("user");
-      const user = JSON.parse(stored);
+      setLoading(true);
 
-      const res = await fetch("/api/scholarship/my", {
+      const res = await fetch("/api/scholarship/apply", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user_id: user.id }),
+        body: JSON.stringify(form),
       });
 
-      const json = await res.json();
+      const data = await res.json();
 
-      if (json.success) {
-        setData(json.data);
+      if (data.success) {
+        alert("Application Submitted Successfully 🎓");
+        window.location.reload();
+      } else {
+        alert(data.message || "Failed");
       }
+
     } catch (err) {
       console.error(err);
+      alert("Something went wrong");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const statusColor = {
-    pending: "bg-yellow-100 text-yellow-700",
-    approved: "bg-green-100 text-green-700",
-    rejected: "bg-red-100 text-red-700",
-    paid: "bg-purple-100 text-purple-700",
-  };
+  /* =========================
+     PROGRESS %
+  ========================= */
+  const progress = (step / totalSteps) * 100;
 
   return (
-   <section className="h-screen overflow-hidden bg-gradient-to-br from-purple-50 to-indigo-100 px-6 py-6">
+  <div className="min-h-screen bg-purple-50 px-4 py-4">
 
-      {/* BACK BUTTON */}
-      <button
-        onClick={() => router.back()}
-        className="mb-6 text-purple-700 hover:underline"
-      >
-        ← Back
-      </button>
+      <div className="max-w-4xl h-full mx-auto flex flex-col gap-4">
 
-   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 h-full">
+        {/* HEADER */}
+        <div className="bg-gradient-to-r from-purple-700 to-fuchsia-600 text-white rounded-3xl p-8 shadow-lg">
+          <h1 className="text-4xl font-bold">
+            🎓 Scholarship Application
+          </h1>
 
-        {/* ================= LEFT: FORM ================= */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
-          <h2 className="text-2xl font-bold text-purple-700 mb-4">
-            🎓 Apply for Scholarship
-          </h2>
-
-          <ScholarshipForm />
+          <p className="mt-2 text-purple-100">
+            Support for deserving students
+          </p>
         </div>
 
-        {/* ================= RIGHT: STATUS ================= */}
-      <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8 max-h-[350px]">
+        {/* PROGRESS */}
+        <div className="bg-white rounded-2xl shadow p-6">
+          <div className="flex justify-between text-sm font-medium text-gray-600 mb-3">
+            <span>
+              Step {step} of {totalSteps}
+            </span>
 
-          <h2 className="text-2xl font-bold text-purple-700 mb-6">
-            📊 Application Status
-          </h2>
+            <span>
+              {Math.round(progress)}%
+            </span>
+          </div>
 
-          {!data ? (
-            <p className="text-gray-500 text-center">
-              No application submitted yet
-            </p>
-          ) : (
-            <div className="space-y-5 text-center">
+          <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-purple-600 to-fuchsia-600 transition-all duration-500"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
 
-              {/* STATUS */}
-              <div>
-                <p className="text-gray-500">Status</p>
-                <span
-                  className={`px-4 py-2 rounded-full text-sm font-semibold ${statusColor[data.status]}`}
-                >
-                  {data.status}
-                </span>
-              </div>
+        {/* FORM CARD */}
+     <div className="bg-white rounded-3xl shadow-lg p-6 max-h-[78vh] overflow-y-auto">
 
-              {/* AMOUNT */}
-              <div>
-                <p className="text-gray-500">Amount</p>
-                <p className="text-xl font-bold text-purple-700">
-                  {data.amount ? `₹${data.amount}` : "-"}
-                </p>
-              </div>
+         
 
-              {/* DATE */}
-              <div>
-                <p className="text-gray-500">Applied On</p>
-                <p className="text-gray-700">
-                  {new Date(data.created_at).toLocaleDateString()}
-                </p>
-              </div>
+{step === 1 && (
+  <div className="space-y-5">
 
-              {/* MESSAGE */}
-              <div className="text-sm text-gray-600">
-                {data.status === "pending" && "⏳ Your application is under review"}
-                {data.status === "approved" && "🎉 Scholarship approved"}
-                {data.status === "rejected" && "❌ Application rejected"}
-                {data.status === "paid" && "💰 Amount transferred"}
-              </div>
+    <h2 className="text-2xl font-semibold text-purple-700">
+      👤 Basic Details
+    </h2>
 
+    <Grid>
+
+      <Input
+        name="name"
+        placeholder="Full Name"
+        value={form.name}
+        onChange={handleChange}
+      />
+
+      <Input
+        name="email"
+        placeholder="Email Address"
+        value={form.email}
+        onChange={handleChange}
+      />
+
+      <Input
+        name="phone"
+        placeholder="Phone Number"
+        value={form.phone}
+        onChange={handleChange}
+      />
+
+      <Input
+        type="date"
+        name="dob"
+        value={form.dob}
+        onChange={handleChange}
+      />
+
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Gender
+        </label>
+
+        <select
+          name="gender"
+          value={form.gender}
+          onChange={handleChange}
+          className="input"
+        >
+          <option value="">Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+    </Grid>
+
+  </div>
+)}
+
+
+
+
+{step === 2 && (
+  <div className="space-y-5">
+
+    <h2 className="text-2xl font-semibold text-purple-700">
+      📍 Address Details
+    </h2>
+
+    <Grid>
+
+      <Input
+        name="city"
+        placeholder="City"
+        value={form.city}
+        onChange={handleChange}
+      />
+
+      <Input
+        name="state"
+        placeholder="State"
+        value={form.state}
+        onChange={handleChange}
+      />
+
+      <Input
+        name="pincode"
+        placeholder="Pincode"
+        value={form.pincode}
+        onChange={handleChange}
+      />
+
+    </Grid>
+
+    <div>
+      <label className="block text-sm font-semibold text-gray-700 mb-2">
+        Full Address
+      </label>
+
+      <textarea
+        name="address"
+        rows={2}
+        value={form.address}
+        onChange={handleChange}
+        placeholder="Enter Full Address"
+        className="input resize-none"
+      />
+    </div>
+
+  </div>
+)}
+
+
+
+          {/* STEP 2 */}
+          {step === 3 && (
+            <div className="space-y-5">
+              <h2 className="text-2xl font-semibold text-purple-700">
+                🎓 Education Details
+              </h2>
+
+              <Grid>
+                <Input
+                  name="course"
+                  placeholder="Course Name"
+                  value={form.course}
+                  onChange={handleChange}
+                />
+
+                <Input
+                  name="college"
+                  placeholder="College / School Name"
+                  value={form.college}
+                  onChange={handleChange}
+                />
+
+                <Input
+                  name="year"
+                  placeholder="Current Year / Class"
+                  value={form.year}
+                  onChange={handleChange}
+                />
+
+                <Input
+                  name="marks"
+                  placeholder="Previous Marks %"
+                  value={form.marks}
+                  onChange={handleChange}
+                />
+              </Grid>
             </div>
           )}
-        </div>
 
+          {/* STEP 3 */}
+          {step === 4 && (
+            <div className="space-y-5">
+              <h2 className="text-2xl font-semibold text-purple-700">
+                💰 Financial Details
+              </h2>
+
+              <Grid>
+                <Input
+                  name="income"
+                  placeholder="Family Income"
+                  value={form.income}
+                  onChange={handleChange}
+                />
+
+                <Input
+                  name="fatherOccupation"
+                  placeholder="Father Occupation"
+                  value={form.fatherOccupation}
+                  onChange={handleChange}
+                />
+
+                <Input
+                  name="motherOccupation"
+                  placeholder="Mother Occupation"
+                  value={form.motherOccupation}
+                  onChange={handleChange}
+                />
+
+                <Input
+                  name="dependents"
+                  placeholder="Dependents"
+                  value={form.dependents}
+                  onChange={handleChange}
+                />
+
+                <Input
+                  name="feeAmount"
+                  placeholder="Annual Fee Amount"
+                  value={form.feeAmount}
+                  onChange={handleChange}
+                />
+              </Grid>
+            </div>
+          )}
+
+          {/* STEP 4 */}
+       {step === 5 && (
+  <div className="space-y-4">
+
+    <h2 className="text-xl font-semibold text-purple-700">
+      🏦 Bank Details
+    </h2>
+
+    <Grid>
+      <Input
+        name="bankName"
+        placeholder="Bank Name"
+        value={form.bankName}
+        onChange={handleChange}
+      />
+
+      <Input
+        name="accountNumber"
+        placeholder="Account Number"
+        value={form.accountNumber}
+        onChange={handleChange}
+      />
+
+      <Input
+        name="ifsc"
+        placeholder="IFSC Code"
+        value={form.ifsc}
+        onChange={handleChange}
+      />
+    </Grid>
+
+    <div>
+      <label className="block text-sm font-semibold text-gray-700 mb-2">
+        Reason for Scholarship
+      </label>
+
+      <textarea
+        name="reason"
+        rows={2}
+        value={form.reason}
+        onChange={handleChange}
+        placeholder="Explain your need..."
+        className="input resize-none"
+      />
+    </div>
+
+  </div>
+)}
+
+        {step === 6 && (
+  <div className="space-y-4">
+
+    <h2 className="text-xl font-semibold text-purple-700">
+      ✅ Review & Submit
+    </h2>
+
+    {/* Compact Summary */}
+    <div className="bg-purple-50 rounded-xl p-4 text-sm text-gray-700 grid md:grid-cols-2 gap-3">
+
+      <p><b>Name:</b> {form.name}</p>
+      <p><b>Email:</b> {form.email}</p>
+
+      <p><b>Phone:</b> {form.phone}</p>
+      <p><b>Gender:</b> {form.gender}</p>
+
+      <p><b>Course:</b> {form.course}</p>
+      <p><b>College:</b> {form.college}</p>
+
+      <p><b>Marks:</b> {form.marks}%</p>
+      <p><b>Income:</b> ₹{form.income}</p>
+
+      <p><b>Bank:</b> {form.bankName}</p>
+      <p><b>IFSC:</b> {form.ifsc}</p>
+
+    </div>
+
+    {/* Checkbox */}
+    <div className="bg-purple-50 p-4 rounded-xl">
+      <label className="flex items-start gap-3 cursor-pointer">
+
+        <input
+          type="checkbox"
+          name="agree"
+          checked={form.agree}
+          onChange={handleChange}
+          className="mt-1 w-5 h-5 accent-purple-600"
+        />
+
+        <span className="text-sm text-gray-700 leading-5">
+          I confirm all details are true and valid.
+        </span>
+
+      </label>
+    </div>
+
+  </div>
+)}
+
+        <div className="flex justify-between mt-10">
+
+  {step > 1 ? (
+    <button
+      onClick={prevStep}
+      className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50"
+    >
+      ← Back
+    </button>
+  ) : (
+    <div />
+  )}
+
+  {step < totalSteps ? (
+    <button
+      onClick={nextStep}
+      className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-700 to-fuchsia-600 text-white font-semibold"
+    >
+      Next →
+    </button>
+  ) : (
+    <button
+      onClick={handleSubmit}
+      disabled={!form.agree || loading}
+      className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-700 to-fuchsia-600 text-white font-semibold disabled:opacity-50"
+    >
+      {loading ? "Submitting..." : "Submit Application"}
+    </button>
+  )}
+
+</div>
+
+        </div>
       </div>
-    </section>
+    </div>
+  );
+}
+
+/* =========================
+   REUSABLE INPUT
+========================= */
+function Input({
+  name,
+  value,
+  onChange,
+  placeholder,
+  type = "text",
+}) {
+  return (
+    <input
+      type={type}
+      name={name}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className="input"
+    />
+  );
+}
+
+/* =========================
+   GRID
+========================= */
+function Grid({ children }) {
+  return (
+    <div className="grid md:grid-cols-2 gap-4">
+      {children}
+    </div>
   );
 }

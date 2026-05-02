@@ -1,21 +1,22 @@
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
     const { id } = await req.json();
 
-    const db = getDB();
+    const { error } = await supabase
+      .from("events")
+      .delete()
+      .eq("id", id);
 
-    await db.execute(
-      "DELETE FROM events WHERE id = ?",
-      [id]
-    );
+    if (error) throw error;
 
     return NextResponse.json({ success: true });
 
   } catch (err) {
-    console.error(err);
+    console.error("Delete Event Error:", err);
+
     return NextResponse.json(
       { success: false },
       { status: 500 }

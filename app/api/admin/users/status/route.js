@@ -1,20 +1,29 @@
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
     const { userId, status } = await req.json();
 
-    const db = getDB();
+    const { data, error } = await supabase
+      .from("users")
+      .update({ status })
+      .eq("id", userId);
 
-    await db.execute(
-      "UPDATE users SET status = ? WHERE id = ?",
-      [status, userId]
-    );
+    // ❌ error handle
+    if (error) {
+      console.error("Update Error:", error);
+      return NextResponse.json(
+        { success: false, message: error.message },
+        { status: 500 }
+      );
+    }
 
+    // ✅ success
     return NextResponse.json({
       success: true,
       message: "Status updated",
+      data,
     });
 
   } catch (err) {

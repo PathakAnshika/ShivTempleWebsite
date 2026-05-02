@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
-import fs from "fs";
-import path from "path";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
@@ -18,31 +16,44 @@ export async function POST(req) {
 
     let filePath = null;
 
-    // file save
+    // 🔥 FILE UPLOAD (Supabase Storage)
     if (file && file.name) {
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
+      const fileName = `${Date.now()}-${file.name}`;
 
-      const uploadDir = path.join(process.cwd(), "public/uploads");
+      const { data, error } = await supabase.storage
+        .from("uploads") // 👈 bucket name (create in supabase)
+        .upload(fileName, file, {
+          cacheControl: "3600",
+          upsert: false,
+        });
 
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
+      if (error) throw error;
 
-      const fileName = Date.now() + "-" + file.name;
-      filePath = `/uploads/${fileName}`;
+      // 🔗 public URL
+      const { data: publicUrl } = supabase.storage
+        .from("uploads")
+        .getPublicUrl(fileName);
 
-      fs.writeFileSync(path.join(uploadDir, fileName), buffer);
+      filePath = publicUrl.publicUrl;
     }
 
-    const db = getDB();
+    // 🔹 insert into DB
+    const { error: insertError } = await supabase
+      .from("samvaad_submissions")
+      .insert([
+        {
+          name,
+          location,
+          category,
+          title,
+          description,
+          file_path: filePath,
+          phone,
+          email,
+        },
+      ]);
 
-    await db.execute(
-      `INSERT INTO samvaad_submissions
-      (name, location, category, title, description, file_path, phone, email)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-      [name, location, category, title, description, filePath, phone, email]
-    );
+    if (insertError) throw insertError;
 
     console.log("📥 New Samvaad Submission");
     console.table({ name, category, title, phone });
@@ -51,6 +62,10 @@ export async function POST(req) {
 
   } catch (error) {
     console.error("ERROR:", error);
-    return NextResponse.json({ success: false });
+
+    return NextResponse.json({
+      success: false,
+      message: error.message,
+    });
   }
 }

@@ -39,7 +39,7 @@ export default function AdminDonations() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <SummaryCard
           title="Total Donations"
-          value={`₹${donations.reduce((s, d) => s + d.amount, 0)}`}
+          value={`₹${donations.reduce((s, d) => s + (d.amount || 0), 0)}`}
         />
         <SummaryCard
           title="Total Entries"
@@ -53,49 +53,80 @@ export default function AdminDonations() {
 
       {/* Table */}
       <div className="bg-white rounded-2xl shadow overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead className="bg-purple-100 text-purple-800">
-            <tr>
-              <th className="p-3 text-left">Donor</th>
-              <th className="p-3">Seva</th>
-              <th className="p-3">Amount</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Date</th>
-            </tr>
-          </thead>
+       <table className="w-full text-sm table-fixed">
+        <thead className="bg-purple-100 text-purple-800">
+  <tr className="border-b hover:bg-purple-50 transition duration-200">
+   <th className="p-4 text-left w-[25%]">Donor</th>
+<th className="p-4 text-center w-[5%]">Seva</th>
+<th className="p-4 text-right w-[14%]">Amount</th>
+<th className="p-4 text-center w-[15%]">Status</th>
+<th className="p-4 text-left w-[5%]">Date</th>
+  </tr>
+</thead>
 
-          <tbody>
-            {donations.map(d => (
-              <tr
-                key={d.id}
-                className="border-b hover:bg-purple-50 transition"
-              >
-                <td className="p-3">
-                  <p className="font-semibold">{d.donor_name}</p>
-                  <p className="text-xs text-gray-500">{d.email}</p>
-                </td>
+   <tbody>
+  {donations.map(d => (
+    <tr
+      key={d.id}
+      className="border-b hover:bg-purple-50 transition"
+    >
+      {/* Donor */}
+     <td className="px-4 py-5 text-left">
+       <p className="font-semibold text-gray-800 leading-tight">
+  {d.donor_name}
+</p>
+<p className="text-xs text-gray-500 mt-1">
+  {d.email || "-"}
+</p>
+        <p className="text-xs text-gray-500">
+          {d.email || "-"}
+        </p>
+      </td>
 
-                <td className="p-3">{d.seva_type}</td>
+      {/* Seva */}
+      <td className="p-4 text-left text-gray-700">
+        {d.seva_type || "-"}
+      </td>
 
-                <td className="p-3 font-semibold text-green-600">
-                  ₹{d.amount}
-                </td>
+      {/* Amount */}
+    <td className="px-4 py-5 text-right pr-6 font-semibold text-green-600 tracking-wide">
+  ₹{d.amount}
+</td>
+      {/* Status */}
+     <td className="px-4 py-5 text-center align-middle">
+        <span
+          className={`px-3 py-1 rounded-full text-xs font-medium ${
+            d.status === "success"
+              ? "bg-green-100 text-green-700"
+              : "bg-yellow-100 text-yellow-700"
+          }`}
+        >
+          {d.status}
+        </span>
+      </td>
 
-                <td className="p-3">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium
-                    ${d.status === "success"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-red-100 text-red-700"}`}>
-                    {d.status}
-                  </span>
-                </td>
+      {/* Date */}
+     <td className="px-4 py-5 text-right pr-8">
+  <div className="flex flex-col items-end leading-tight">
+    <span className="text-gray-800 font-medium">
+      {new Date(d.created_at).toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })}
+    </span>
 
-                <td className="p-3 text-gray-600">
-                  {d.created_at}
-                </td>
-              </tr>
-            ))}
-          </tbody>
+    <span className="text-xs text-gray-500 mt-1">
+      {new Date(d.created_at).toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })}
+    </span>
+  </div>
+</td>
+    </tr>
+  ))}
+</tbody>
         </table>
 
         {donations.length === 0 && (

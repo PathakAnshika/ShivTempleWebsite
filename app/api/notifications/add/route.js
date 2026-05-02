@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { getDB } from "../../../../lib/db";
-
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
     const { user_email, title, message } = await req.json();
 
+    // 🔹 validation
     if (!title || !message) {
       return NextResponse.json(
         { success: false, message: "Title & message required" },
@@ -13,18 +13,50 @@ export async function POST(req) {
       );
     }
 
-    const db = await getDB();
+    let user_id = null;
 
-    await db.query(
-      "INSERT INTO notifications (user_email, title, message) VALUES (?, ?, ?)",
-      [user_email || null, title, message]
-    );
+    // 🔥 agar email diya hai → user_id find karo
+    if (user_email) {
+      const { data: userData, error: userError } = await supabase
+        .from("users")
+        .select("id")
+        .eq("email", user_email)
+        .maybeSingle();
 
-    return NextResponse.json({ success: true, message: "Notification added!" });
+      if (userError) throw userError;
+
+      user_id = userData?.id || null;
+    }
+
+    // 🔹 insert notification
+    const { error } = await supabase
+      .from("notifications")
+      .insert([
+        {
+          title,
+          message,
+          user_id, // null = sab users
+          is_read: false,
+          type: "general",
+        },
+      ]);
+
+    if (error) throw error;
+
+    return NextResponse.json({
+      success: true,
+      message: "Notification added!",
+    });
+
   } catch (err) {
     console.error("ADD NOTIFICATION ERROR:", err);
+
     return NextResponse.json(
-      { success: false, message: "Server error", error: err.message },
+      {
+        success: false,
+        message: "Server error",
+        error: err.message,
+      },
       { status: 500 }
     );
   }

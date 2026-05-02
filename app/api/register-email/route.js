@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
     const { name, email, password } = await req.json();
 
+    // 🔹 validation
     if (!name || !email || !password) {
       return NextResponse.json(
         { success: false, message: "All fields required" },
@@ -12,35 +13,68 @@ export async function POST(req) {
       );
     }
 
-    const db = await getDB();
+    // 🔹 check if email already exists
+    const { data: exist, error: checkError } = await supabase
+      .from("users")
+      .select("id")
+      .eq("email", email)
+      .maybeSingle();
 
-    // Check if email exists
-    const [exist] = await db.execute(
-      "SELECT * FROM users WHERE email = ?",
-      [email]
-    );
+    if (checkError) {
+      console.error("Check Error:", checkError);
+      return NextResponse.json(
+        { success: false, message: checkError.message },
+        { status: 500 }
+      );
+    }
 
-    if (exist.length > 0) {
+    if (exist) {
       return NextResponse.json(
         { success: false, message: "Email already registered" },
         { status: 400 }
       );
     }
 
-    // Insert user
-    await db.execute(
-      "INSERT INTO users (name, email, password, login_method) VALUES (?, ?, ?, ?)",
-      [name, email, password, "email"]
+    // 🔹 insert user
+    const { data, error: insertError } = await supabase
+      .from("users")
+      .insert([
+        {
+          name,
+          email,
+          password, // ⚠️ plain password (later hashing karenge)
+          login_method: "email",
+          role: "user",
+        },
+      ]);
+
+    if (insertError) {
+      console.error("Insert Error:", insertError);
+      return NextResponse.json(
+        { success: false, message: insertError.message },
+        { status: 500 }
+      );
+    }
+
+    // ✅ success response
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Registration successful",
+        data,
+      },
+      { status: 201 }
     );
 
-    return NextResponse.json({
-      success: true,
-      message: "Registration successful",
-    });
   } catch (err) {
     console.error("register-email error:", err);
+
     return NextResponse.json(
-      { success: false, message: "Server error", error: err.message },
+      {
+        success: false,
+        message: "Server error",
+        error: err.message,
+      },
       { status: 500 }
     );
   }

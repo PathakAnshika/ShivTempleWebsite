@@ -1,6 +1,5 @@
-// app/api/send-otp/route.js
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 import twilio from "twilio";
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -22,31 +21,46 @@ export async function POST(req) {
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-    // ✅ SMS bhejo
+    // 🔥 SMS SEND (same as before)
     await client.messages.create({
       body: `Your login OTP is ${otp}`,
       from: fromNumber,
-      to: `+91${phone}`, // India assume
+      to: `+91${phone}`,
     });
 
-    // ✅ OTP ko temporary memory me nahi, Redis ya DB me rakhna ideal hai.
-    // Simple demo: ek separate table "otp_logins" use karo.
+    // 🔥 SAVE OTP IN SUPABASE
+    const { error } = await supabase
+      .from("otp")
+      .insert([
+        {
+          phone,
+          otp,
+          created_at: new Date().toISOString(),
+        },
+      ]);
 
-    const db = await getDB();
-    await db.execute(
-      `INSERT INTO otp_logins (phone, otp, created_at)
-       VALUES (?, ?, NOW())`,
-      [phone, otp]
-    );
+    if (error) {
+      console.error("OTP Save Error:", error);
+      return NextResponse.json(
+        { success: false, message: error.message },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
       success: true,
       message: "OTP sent successfully",
     });
+
   } catch (err) {
     console.error("send-otp error:", err);
+
     return NextResponse.json(
-      { success: false, message: "Failed to send OTP", error: err.message },
+      {
+        success: false,
+        message: "Failed to send OTP",
+        error: err.message,
+      },
       { status: 500 }
     );
   }

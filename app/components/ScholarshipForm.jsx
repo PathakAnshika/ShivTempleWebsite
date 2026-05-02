@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import { supabase } from "@/lib/supabase";
 export default function ScholarshipForm() {
   const [formData, setFormData] = useState({});
   const [user, setUser] = useState(null);
@@ -21,8 +21,25 @@ export default function ScholarshipForm() {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const { data, error } = await supabase
+    .from("scholarships")
+    .insert([
+      {
+        ...formData,
+        user_id: user.id,
+      },
+    ]);
+
+  if (error) {
+    console.error(error);
+    alert("Error ❌");
+  } else {
+    alert("Application submitted ✅");
+  }
+
 
     try {
       const res = await fetch("/api/scholarship/apply", {

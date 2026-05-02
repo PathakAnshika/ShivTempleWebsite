@@ -1,20 +1,35 @@
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 export async function GET() {
   try {
-    const db = getDB();
+    // 🔹 fetch events from supabase
+    const { data, error } = await supabase
+      .from("events")
+      .select("*")
+      .order("date", { ascending: false });
 
-    const [rows] = await db.execute(`
-      SELECT * FROM events ORDER BY date DESC
-    `);
+    // ❌ error handle
+    if (error) {
+      console.error("Fetch Events Error:", error);
+      return NextResponse.json(
+        { success: false, message: error.message },
+        { status: 500 }
+      );
+    }
 
+    // ✅ success response
     return NextResponse.json({
       success: true,
-      events: rows
+      events: data,
     });
 
   } catch (err) {
-    return NextResponse.json({ success: false });
+    console.error("Server Error:", err);
+
+    return NextResponse.json(
+      { success: false, message: "Failed to fetch events" },
+      { status: 500 }
+    );
   }
 }

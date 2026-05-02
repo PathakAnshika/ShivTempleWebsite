@@ -98,46 +98,58 @@ export default function AdminEvents() {
         📅 Manage Events
       </h1>
 
-      {/* ADD EVENT */}
-      <div className="bg-white p-6 rounded-2xl shadow-lg grid md:grid-cols-4 gap-4">
-        
-        <input
-          type="text"
-          placeholder="Event Name"
-          value={newEvent.name}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, name: e.target.value })
-          }
-          className="border px-4 py-2 rounded-lg"
-        />
+     {/* ADD EVENT */}
+<div className="bg-white p-6 rounded-2xl shadow-lg grid md:grid-cols-4 gap-4">
 
-        <input
-          type="date"
-          value={newEvent.date}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, date: e.target.value })
-          }
-          className="border px-4 py-2 rounded-lg"
-        />
+  {/* Event Name */}
+  <input
+    type="text"
+    placeholder="Event Name"
+    value={newEvent.name}
+    onChange={(e) =>
+      setNewEvent({ ...newEvent, name: e.target.value })
+    }
+    className="w-full border border-gray-300 px-4 py-3 rounded-xl
+               text-gray-800 placeholder-gray-500
+               focus:outline-none focus:ring-2 focus:ring-purple-500"
+  />
 
-        <input
-          type="text"
-          placeholder="Location"
-          value={newEvent.location}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, location: e.target.value })
-          }
-          className="border px-4 py-2 rounded-lg"
-        />
+  {/* Date */}
+  <input
+    type="date"
+    value={newEvent.date}
+    onChange={(e) =>
+      setNewEvent({ ...newEvent, date: e.target.value })
+    }
+    className="w-full border border-gray-300 px-4 py-3 rounded-xl
+               text-gray-800
+               focus:outline-none focus:ring-2 focus:ring-purple-500"
+  />
 
-        <button
-          onClick={handleAdd}
-          className="bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-        >
-          + Add Event
-        </button>
-      </div>
+  {/* Location */}
+  <input
+    type="text"
+    placeholder="Location"
+    value={newEvent.location}
+    onChange={(e) =>
+      setNewEvent({ ...newEvent, location: e.target.value })
+    }
+    className="w-full border border-gray-300 px-4 py-3 rounded-xl
+               text-gray-800 placeholder-gray-500
+               focus:outline-none focus:ring-2 focus:ring-purple-500"
+  />
 
+  {/* Button */}
+  <button
+    onClick={handleAdd}
+    className="bg-gradient-to-r from-purple-600 to-fuchsia-600
+               text-white font-semibold px-6 py-3 rounded-xl
+               hover:scale-[1.02] transition"
+  >
+    + Add Event
+  </button>
+
+</div>
       {/* EVENTS LIST */}
       <div className="grid md:grid-cols-3 gap-6">
         {events.map((e) => (

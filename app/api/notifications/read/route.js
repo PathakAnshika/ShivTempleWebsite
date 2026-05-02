@@ -1,11 +1,36 @@
+import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
+
 export async function POST(req) {
-  const { id } = await req.json();
-  const db = getDB();
+  try {
+    const { id } = await req.json();
 
-  await db.execute(
-    "UPDATE notifications SET is_read = 1 WHERE id = ?",
-    [id]
-  );
+    const { data, error } = await supabase
+      .from("notifications")
+      .update({ is_read: true })
+      .eq("id", id);
 
-  return NextResponse.json({ success: true });
+    // ❌ error handle
+    if (error) {
+      console.error("Mark Read Error:", error);
+      return NextResponse.json(
+        { success: false, message: error.message },
+        { status: 500 }
+      );
+    }
+
+    // ✅ success
+    return NextResponse.json({
+      success: true,
+      data,
+    });
+
+  } catch (err) {
+    console.error("Server Error:", err);
+
+    return NextResponse.json(
+      { success: false },
+      { status: 500 }
+    );
+  }
 }

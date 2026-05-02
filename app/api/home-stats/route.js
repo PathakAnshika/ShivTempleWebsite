@@ -1,39 +1,60 @@
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
     const { user_id } = await req.json();
-    const db = await getDB();
 
-    /* TOTAL OFFERINGS */
-    const [offerings] = await db.execute(
-      "SELECT SUM(amount) AS total FROM offerings WHERE user_id = ?",
-      [user_id]
+    // 🔹 TOTAL OFFERINGS
+    const { data: offeringsData, error: offeringsError } = await supabase
+      .from("offerings")
+      .select("amount")
+      .eq("user_id", user_id);
+
+    if (offeringsError) throw offeringsError;
+
+    const totalOfferings = offeringsData.reduce(
+      (sum, o) => sum + (Number(o.amount) || 0),
+      0
     );
 
-    /* SEVA COMPLETED COUNT */
-    const [seva] = await db.execute(
-      "SELECT COUNT(*) AS sevaCount FROM seva_completed WHERE user_id = ?",
-      [user_id]
-    );
+    // 🔹 SEVA COMPLETED COUNT
+    const { data: sevaData, error: sevaError } = await supabase
+      .from("seva_completed")
+      .select("id")
+      .eq("user_id", user_id);
 
-    /* UPCOMING EVENTS */
-    const [events] = await db.execute(
-      "SELECT * FROM events WHERE event_date >= CURDATE() ORDER BY event_date ASC LIMIT 5"
-    );
+    if (sevaError) throw sevaError;
+
+    const sevaCompleted = sevaData.length;
+
+    // 🔹 UPCOMING EVENTS
+    const today = new Date().toISOString().split("T")[0];
+
+    const { data: eventsData, error: eventsError } = await supabase
+      .from("events")
+      .select("*")
+      .gte("date", today)
+      .order("date", { ascending: true })
+      .limit(5);
+
+    if (eventsError) throw eventsError;
 
     return NextResponse.json({
       success: true,
       data: {
-        totalOfferings: offerings[0]?.total || 0,
-        sevaCompleted: seva[0]?.sevaCount || 0,
-        upcomingEvents: events || []
-      }
+        totalOfferings,
+        sevaCompleted,
+        upcomingEvents: eventsData || [],
+      },
     });
 
   } catch (err) {
     console.error("home-stats API error:", err);
-    return NextResponse.json({ success: false, message: err.message });
+
+    return NextResponse.json({
+      success: false,
+      message: err.message,
+    });
   }
 }

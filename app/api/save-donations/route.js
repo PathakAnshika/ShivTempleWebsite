@@ -1,10 +1,8 @@
-import { getDB } from "@/lib/db";
 import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
-
   try {
-
     const body = await req.json();
 
     const {
@@ -17,34 +15,50 @@ export async function POST(req) {
       payment_id
     } = body;
 
-    const db = getDB();
+    // 🔹 validation (optional but good)
+    if (!name || !amount) {
+      return NextResponse.json(
+        { success: false, message: "Name and amount required" },
+        { status: 400 }
+      );
+    }
 
-    await db.execute(
-      `INSERT INTO donations
-      (donor_name,email,phone,amount,purpose,show_public,payment_id)
-      VALUES (?,?,?,?,?,?,?)`,
-      [
-        name,
-        email,
-        phone,
-        amount,
-        message,
-        show_public ? 1 : 0,
-        payment_id
-      ]
-    );
+    // 🔹 insert into supabase
+    const { data, error } = await supabase
+      .from("donations")
+      .insert([
+        {
+          donor_name: name,
+          email,
+          phone,
+          amount,
+          purpose: message,
+          show_public: show_public ? true : false,
+          payment_id,
+        },
+      ]);
 
-    return NextResponse.json({ success: true });
+    // ❌ error handle
+    if (error) {
+      console.error("Insert Error:", error);
+      return NextResponse.json(
+        { success: false, message: error.message },
+        { status: 500 }
+      );
+    }
+
+    // ✅ success
+    return NextResponse.json({
+      success: true,
+      data,
+    });
 
   } catch (error) {
-
-    console.error(error);
+    console.error("Donation Save Error:", error);
 
     return NextResponse.json({
       success: false,
-      error: error.message
+      error: error.message,
     });
-
   }
-
 }

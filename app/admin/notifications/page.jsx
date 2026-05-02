@@ -79,53 +79,64 @@ export default function AdminNotifications() {
         </div>
       )}
 
-      <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid md:grid-cols-2 gap-6">
 
-        {/* FORM */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4">
+  {/* FORM */}
+  <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4">
 
-          <h2 className="text-xl font-semibold text-purple-700">
-            Create Notification
-          </h2>
+    <h2 className="text-xl font-semibold text-purple-700">
+      Create Notification
+    </h2>
 
-          <input
-            name="title"
-            value={form.title}
-            onChange={handleChange}
-            placeholder="Notification Title"
-            className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-purple-400"
-          />
+    {/* Title */}
+    <input
+      name="title"
+      value={form.title}
+      onChange={handleChange}
+      placeholder="Notification Title"
+      className="w-full border border-gray-300 px-4 py-3 rounded-xl
+                 text-gray-800 placeholder-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
 
-          <textarea
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            placeholder="Notification Message"
-            rows={4}
-            className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-purple-400"
-          />
+    {/* Message */}
+    <textarea
+      name="message"
+      value={form.message}
+      onChange={handleChange}
+      placeholder="Notification Message"
+      rows={5}
+      className="w-full border border-gray-300 px-4 py-3 rounded-xl
+                 text-gray-800 placeholder-gray-500 resize-none
+                 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
 
-          <select
-            name="type"
-            value={form.type}
-            onChange={handleChange}
-            className="w-full border p-3 rounded-lg"
-          >
-            <option value="general">General</option>
-            <option value="event">Event</option>
-            <option value="donation">Donation</option>
-            <option value="membership">Membership</option>
-            <option value="alert">Alert</option>
-          </select>
+    {/* Type */}
+    <select
+      name="type"
+      value={form.type}
+      onChange={handleChange}
+      className="w-full border border-gray-300 px-4 py-3 rounded-xl
+                 text-gray-800 bg-white
+                 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    >
+      <option value="general">General</option>
+      <option value="event">Event</option>
+      <option value="donation">Donation</option>
+      <option value="membership">Membership</option>
+      <option value="alert">Alert</option>
+    </select>
 
-          <input
-            name="user_id"
-            value={form.user_id}
-            onChange={handleChange}
-            placeholder="User ID (optional)"
-            className="w-full border p-3 rounded-lg"
-          />
-
+    {/* User ID */}
+    <input
+      name="user_id"
+      value={form.user_id}
+      onChange={handleChange}
+      placeholder="User ID (optional)"
+      className="w-full border border-gray-300 px-4 py-3 rounded-xl
+                 text-gray-800 placeholder-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
           <button
             onClick={sendNotification}
             disabled={loading}

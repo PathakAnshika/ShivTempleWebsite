@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+
 
 export default function AdminUsersPage() {
   const [users, setUsers] = useState([]);
@@ -30,6 +32,14 @@ const [showModal, setShowModal] = useState(false);
     fetchUsers();
   }, []);
 
+  const testDB = async () => {
+  const { data, error } = await supabase
+    .from("users")
+    .select("*");
+
+  console.log("DATA:", data);
+  console.log("ERROR:", error);
+};
   /* -----------------------------------------
       BLOCK / UNBLOCK USER
   ------------------------------------------- */
@@ -168,51 +178,85 @@ const [showModal, setShowModal] = useState(false);
   )}
 
   {/* ✅ USER DATA */}
-  {filteredUsers.map((u) => (
-    <tr key={u.id} className="border-t hover:bg-purple-50 transition">
+{filteredUsers.map((u) => (
+  <tr
+    key={u.id}
+    className="border-t border-gray-200 hover:bg-purple-50 transition duration-200"
+  >
 
-      <td className="px-6 py-4 font-medium">{u.name}</td>
+    {/* Name */}
+    <td className="px-6 py-4">
+      <p className="font-semibold text-gray-800">
+        {u.name || "-"}
+      </p>
+    </td>
 
-      <td className="px-6 py-4 text-gray-600">{u.email}</td>
+    {/* Email */}
+    <td className="px-6 py-4 text-gray-700">
+      {u.email || "-"}
+    </td>
 
-      <td className="px-6 py-4 text-center">
-        <span className="px-3 py-1 rounded-full text-sm bg-gray-100">
-          {u.role}
-        </span>
-      </td>
+    {/* Role */}
+    <td className="px-6 py-4 text-center">
+      <span
+        className={`px-3 py-1 rounded-full text-sm font-medium ${
+          u.role === "admin"
+            ? "bg-purple-100 text-purple-700"
+            : "bg-gray-100 text-gray-700"
+        }`}
+      >
+        {u.role || "user"}
+      </span>
+    </td>
 
-      <td className="px-6 py-4 text-center text-green-600 font-semibold">
+    {/* Status */}
+    <td className="px-6 py-4 text-center">
+      <span
+        className={`font-semibold ${
+          u.status === "blocked"
+            ? "text-red-600"
+            : "text-green-600"
+        }`}
+      >
         {u.status || "active"}
-      </td>
+      </span>
+    </td>
 
-      <td className="px-6 py-4 text-center">
-        {u.created_at}
-      </td>
+    {/* Joined Date */}
+    <td className="px-6 py-4 text-center text-gray-700 whitespace-nowrap">
+      {u.created_at || "-"}
+    </td>
 
-      {/* ✅ DONATION */}
-      <td className="px-6 py-4 text-center font-semibold text-purple-700">
-        ₹{u.total_donation || 0}
-      </td>
+    {/* Donation */}
+    <td className="px-6 py-4 text-center font-semibold text-purple-700">
+      ₹{u.total_donation || 0}
+    </td>
 
-      {/* ✅ ACTION */}
-      <td className="px-6 py-4 text-center space-x-3">
-        <button className="text-blue-600 hover:underline">
-          View
-        </button>
+    {/* Action */}
+   <td className="px-6 py-4 text-center space-x-3">
 
-        {u.status === "active" ? (
-          <button className="text-red-600 hover:underline">
-            Block
-          </button>
-        ) : (
-          <button className="text-green-600 hover:underline">
-            Unblock
-          </button>
-        )}
-      </td>
+  {/* VIEW BUTTON */}
+  <button
+    onClick={() => {
+      setSelectedUser(u);
+      setShowModal(true);
+    }}
+    className="text-blue-600 hover:underline font-medium"
+  >
+    View
+  </button>
 
-    </tr>
-  ))}
+  {/* BLOCK / UNBLOCK */}
+  <button
+    onClick={() => toggleStatus(u.id, u.status)}
+    className="text-red-600 hover:underline font-medium"
+  >
+    {u.status === "blocked" ? "Unblock" : "Block"}
+  </button>
+
+</td>
+  </tr>
+))}
 
 </tbody>
         </table>
@@ -243,37 +287,54 @@ const [showModal, setShowModal] = useState(false);
         <p className="text-sm text-gray-500">{selectedUser.email}</p>
         <p>Total Donation: ₹{selectedUser.total_donation || 0}</p>
       </div>
+{/* 📋 Details */}
+<div className="space-y-4 text-sm mt-6">
 
-      {/* 📋 Details */}
-      <div className="space-y-3 text-sm">
+  <div className="flex justify-between items-center">
+    <span className="text-gray-500 font-medium">
+      Phone
+    </span>
+    <span className="text-gray-800 font-semibold">
+      {selectedUser.phone || "-"}
+    </span>
+  </div>
 
-        <div className="flex justify-between">
-          <span className="text-gray-500">Phone</span>
-          <span>{selectedUser.phone || "-"}</span>
-        </div>
+  <div className="flex justify-between items-center">
+    <span className="text-gray-500 font-medium">
+      Role
+    </span>
+    <span className="text-gray-800 font-semibold capitalize">
+      {selectedUser.role || "user"}
+    </span>
+  </div>
 
-        <div className="flex justify-between">
-          <span className="text-gray-500">Role</span>
-          <span className="capitalize">{selectedUser.role}</span>
-        </div>
+  <div className="flex justify-between items-center">
+    <span className="text-gray-500 font-medium">
+      Status
+    </span>
 
-        <div className="flex justify-between">
-          <span className="text-gray-500">Status</span>
-          <span
-            className={`font-semibold ${
-              selectedUser.status === "active"
-                ? "text-green-600"
-                : "text-red-600"
-            }`}
-          >
-            {selectedUser.status || "active"}
-          </span>
-        </div>
+    <span
+      className={`font-semibold ${
+        selectedUser.status === "blocked"
+          ? "text-red-600"
+          : "text-green-600"
+      }`}
+    >
+      {selectedUser.status || "active"}
+    </span>
+  </div>
 
-        <div className="flex justify-between">
-          <span className="text-gray-500">Joined</span>
-          <span>{selectedUser.created_at}</span>
-        </div>
+  <div className="flex justify-between items-center">
+    <span className="text-gray-500 font-medium">
+      Joined
+    </span>
+
+    <span className="text-gray-800 font-semibold">
+      {selectedUser.created_at || "-"}
+    </span>
+  </div>
+
+
 
       </div>
 

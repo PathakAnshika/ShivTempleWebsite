@@ -1,11 +1,11 @@
-// app/api/verify-otp/route.js
 import { NextResponse } from "next/server";
-import { getDB } from "@/lib/db";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
     const { phone, otp } = await req.json();
 
+    // 🔹 validation
     if (!phone || !otp) {
       return NextResponse.json(
         { success: false, message: "Phone and OTP required" },
@@ -13,45 +13,68 @@ export async function POST(req) {
       );
     }
 
-    const db = await getDB();
+    // 🔹 latest OTP fetch
+    const { data: otpData, error: otpError } = await supabase
+      .from("otp")
+      .select("*")
+      .eq("phone", phone)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
 
-    // ✅ Latest OTP record check karo
-    const [otpRows] = await db.execute(
-      "SELECT * FROM otp_logins WHERE phone = ? ORDER BY created_at DESC LIMIT 1",
-      [phone]
-    );
+    if (otpError) throw otpError;
 
-    if (otpRows.length === 0 || otpRows[0].otp !== otp) {
+    // ❌ invalid OTP
+    if (!otpData || otpData.otp !== otp) {
       return NextResponse.json(
         { success: false, message: "Invalid or expired OTP" },
         { status: 401 }
       );
     }
 
-    // ✅ Check if user already exists with this phone
-    const [userRows] = await db.execute(
-      "SELECT * FROM users WHERE phone = ?",
-      [phone]
-    );
+    // 🔹 OPTIONAL: expiry check (5 min)
+    const createdAt = new Date(otpData.created_at);
+    const now = new Date();
+    const diff = (now - createdAt) / 1000; // seconds
 
-    let user;
-    if (userRows.length === 0) {
-      // ➕ New user create karo (minimal info)
-      const [result] = await db.execute(
-        "INSERT INTO users (phone) VALUES (?)",
-        [phone]
+    if (diff > 300) {
+      return NextResponse.json(
+        { success: false, message: "OTP expired" },
+        { status: 401 }
       );
-
-      user = {
-        id: result.insertId,
-        name: null,
-        email: null,
-        phone,
-      };
-    } else {
-      user = userRows[0];
     }
 
+    // 🔹 check user exists
+    const { data: existingUser, error: userError } = await supabase
+      .from("users")
+      .select("*")
+      .eq("phone", phone)
+      .maybeSingle();
+
+    if (userError) throw userError;
+
+    let user = existingUser;
+
+    // 🔥 create user if not exists
+    if (!user) {
+      const { data: newUser, error: insertError } = await supabase
+        .from("users")
+        .insert([
+          {
+            phone,
+            login_method: "otp",
+            role: "user",
+          },
+        ])
+        .select()
+        .single();
+
+      if (insertError) throw insertError;
+
+      user = newUser;
+    }
+
+    // 🔒 safe user
     const safeUser = {
       id: user.id,
       name: user.name,
@@ -65,10 +88,16 @@ export async function POST(req) {
       message: "OTP verified",
       user: safeUser,
     });
+
   } catch (err) {
     console.error("verify-otp error:", err);
+
     return NextResponse.json(
-      { success: false, message: "Server error", error: err.message },
+      {
+        success: false,
+        message: "Server error",
+        error: err.message,
+      },
       { status: 500 }
     );
   }

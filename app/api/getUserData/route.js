@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import mysql from "mysql2/promise";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req) {
   try {
-    // ✅ Safe JSON parsing (prevents crash if body is empty)
+    // 🔹 safe JSON parsing
     let body = {};
     try {
       body = await req.json();
@@ -13,6 +13,7 @@ export async function POST(req) {
 
     const { email } = body;
 
+    // 🔹 validation
     if (!email) {
       return NextResponse.json(
         { success: false, message: "Email missing in request" },
@@ -20,53 +21,53 @@ export async function POST(req) {
       );
     }
 
-    // ✅ DB connection
-    const connection = await mysql.createConnection({
-      host: "localhost",
-      user: "root",
-      password: "root@123",
-      database: "devotee_db",
-    });
+    // 🔹 USER FETCH
+    const { data: userData, error: userError } = await supabase
+      .from("users")
+      .select("id, name, email, created_at")
+      .eq("email", email)
+      .single();
 
-    // ✅ Fetch user from 'users'
-    const [userRows] = await connection.execute(
-      "SELECT id, name, email, created_at FROM users WHERE email = ?",
-      [email]
-    );
-
-    if (userRows.length === 0) {
-      await connection.end();
+    if (userError || !userData) {
       return NextResponse.json({
         success: false,
         message: "User not found",
       });
     }
 
-    const user = userRows[0];
+    const user = { ...userData };
 
-    // ✅ Check if user has membership
-    const [memberRows] = await connection.execute(
-      "SELECT id, full_name, email, phone, membership_type, created_at FROM membership WHERE email = ?",
-      [email]
-    );
+    // 🔹 MEMBERSHIP CHECK
+    const { data: memberData, error: memberError } = await supabase
+      .from("membership")
+      .select("full_name, email, phone, membership_type, created_at")
+      .eq("email", email)
+      .maybeSingle(); // 👈 better than single()
 
-    if (memberRows.length > 0) {
-      const membership = memberRows[0];
+    if (memberData) {
       user.is_member = true;
-      user.membership_type = membership.membership_type;
-      user.membership_date = membership.created_at;
-      user.phone = membership.phone;
+      user.membership_type = memberData.membership_type;
+      user.membership_date = memberData.created_at;
+      user.phone = memberData.phone;
     } else {
       user.is_member = false;
     }
 
-    await connection.end();
+    // ✅ success response
+    return NextResponse.json(
+      { success: true, user },
+      { status: 200 }
+    );
 
-    return NextResponse.json({ success: true, user }, { status: 200 });
   } catch (error) {
     console.error("Error fetching user data:", error);
+
     return NextResponse.json(
-      { success: false, message: "Server error", error: error.message },
+      {
+        success: false,
+        message: "Server error",
+        error: error.message,
+      },
       { status: 500 }
     );
   }

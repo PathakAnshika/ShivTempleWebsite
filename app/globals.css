@@ -62,3 +62,24 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  padding: 14px 16px;
+  border-radius: 14px;
+  color: #111827;
+  background: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.input::placeholder {
+  color: #6b7280;
+}
+
+.input:focus {
+  border-color: #9333ea;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.15);
+}
