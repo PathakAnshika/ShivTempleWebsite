@@ -141,22 +141,12 @@ const handleCardSelect = (opt) => {
   <div className="h-screen overflow-hidden bg-[#fafafa] pt-10 px-6">
 
       {/* BACK */}
-    <button
+   <button
   onClick={() => router.push("/")}
-  className="
-    fixed left-6 top-6 z-50
-    bg-white text-gray-800
-    px-5 py-2.5
-    rounded-full
-    shadow-lg
-    border border-gray-200
-    hover:bg-gray-100
-    transition-all
-  "
+  className="fixed left-6 top-6 z-50 bg-white text-gray-800 px-5 py-2.5 rounded-full shadow-lg border border-gray-200 hover:bg-gray-100 transition-all"
 >
   ← Back
 </button>
-
 
       {/* TITLE */}
       <div className="text-center mb-14">
