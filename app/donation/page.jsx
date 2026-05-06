@@ -43,10 +43,6 @@ const donationOptions = [
 
   };
 
-  
-
-
-  
 
   const handleChange = (e) => {
     setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
@@ -142,15 +138,24 @@ const handleCardSelect = (opt) => {
   
   return (
 
-   <div className="min-h-screen bg-[#fafafa] pt-10 pb-20 px-6">
+  <div className="h-screen overflow-hidden bg-[#fafafa] pt-10 px-6">
 
       {/* BACK */}
-      <button
-        onClick={() => router.push("/")}
-        className="fixed left-6 top-6 bg-white px-4 py-2 rounded-full shadow hover:bg-gray-50"
-      >
-        ← Back
-      </button>
+    <button
+  onClick={() => router.push("/")}
+  className="
+    fixed left-6 top-6 z-50
+    bg-white text-gray-800
+    px-5 py-2.5
+    rounded-full
+    shadow-lg
+    border border-gray-200
+    hover:bg-gray-100
+    transition-all
+  "
+>
+  ← Back
+</button>
 
 
       {/* TITLE */}
@@ -169,11 +174,10 @@ const handleCardSelect = (opt) => {
 
 
       {/* MAIN GRID */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 h-[80vh] overflow-hidden">
 
         {/* DONOR FORM */}
-        <div className="bg-white p-8 rounded-2xl shadow-lg">
-
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden border">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">
             Donor Information
           </h2>
@@ -384,38 +388,64 @@ const handleCardSelect = (opt) => {
 </section>
 
 
-      {/* STYLES */}
-      <style jsx>{`
+     <style jsx>{`
 
-        .input{
-          width:100%;
-          padding:12px;
-          border:1px solid #ddd;
-          border-radius:10px;
-          font-size:14px;
-        }
+.input{
+  width:100%;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  font-size:14px;
+  color:#111;
+  background:white;
+}
 
-        .donation_card{
-          border:1px solid #eee;
-          padding:20px;
-          border-radius:14px;
-          cursor:pointer;
-          transition:0.3s;
-          background:white;
-        }
+/* CARD FIX */
+.donation_card{
+  border:1px solid #e5e7eb;
+  padding:20px;
+  border-radius:16px;
+  cursor:pointer;
+  transition:0.3s;
+  background:#ffffff;
+}
 
-        .donation_card:hover{
-          transform:translateY(-4px);
-          box-shadow:0 10px 20px rgba(0,0,0,0.08);
-        }
+/* HOVER */
+.donation_card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  border-color:#facc15; /* yellow */
+}
 
-        .selected{
-          background:#ea580c;
-          color:white;
-          border-color:#ea580c;
-        }
+/* TEXT FIX */
+.donation_card h3{
+  color:#111827; /* dark */
+}
 
-      `}</style>
+.donation_card p{
+  color:#6b7280; /* readable gray */
+}
+
+.donation_card span{
+  color:#16a34a; /* green amount */
+}
+
+/* SELECTED (IMPORTANT FIX) */
+.selected{
+  background:#fff7ed; /* light orange, not full */
+  border:2px solid #f97316;
+  box-shadow:0 8px 20px rgba(249,115,22,0.2);
+}
+
+.selected h3{
+  color:#c2410c;
+}
+
+.selected span{
+  color:#c2410c;
+}
+
+`}</style>
 
     </div>
   );

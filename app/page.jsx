@@ -8,7 +8,7 @@ import { AboutSection } from "./components/AboutSection";
 import {AartiTiming} from "./components/AartiTiming";
 import {AartiSection} from "./components/AartiSection";
 import {EventCalendar} from "./components/EventCalendar";
-import {LiveDarshan } from "./components/LiveDarshan";
+// import {LiveDarshan } from "./components/LiveDarshan";
 import HomeDonationSection from "./components/HomeDonationSection";
 import { ScholarshipPreview } from "./components/ScholarshipPreview";
 
@@ -38,7 +38,7 @@ export default function HomePage() {
       <AartiSection/> */}
       <EventCalendar/>
       <section id="events">
-        <LiveDarshan />
+        {/* <LiveDarshan /> */}
       </section>
       <HomeDonationSection/>
        <section id="about">

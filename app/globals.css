@@ -83,3 +83,18 @@ body {
   border-color: #9333ea;
   box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.15);
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}

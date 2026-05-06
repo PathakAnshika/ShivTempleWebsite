@@ -26,9 +26,9 @@ export function HeroSection() {
         transition={{ duration: 1 }}
         className="relative z-10 text-center text-white px-5 max-w-4xl"
       >
-        <p className="text-xs sm:text-sm tracking-widest uppercase text-gray-200 mb-3">
-          ॐ नमः शिवाय
-        </p>
+       <p className="text-sm sm:text-base md:text-lg tracking-widest uppercase text-gray-200 mb-4 font-semibold">
+  ||ॐ नमः शिवाय||
+</p>
 
         <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4">
           Divine Presence of <span className="text-yellow-400">Mahadev</span>

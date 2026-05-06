@@ -71,7 +71,7 @@ export function AboutSection() {
           className="relative flex justify-center md:justify-end"
         >
           <img
-            src="/images/havankund.jpg"
+            src="/images/MandirStructure.jpeg"
             alt="Temple"
             className="
               rounded-3xl shadow-2xl
