@@ -129,7 +129,7 @@ export default function AboutPage() {
                   className="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-4 border-white shadow"
                 />
                 <h4 className="text-lg font-semibold text-purple-900">
-                  Personality Name
+                  Shri Akhouri Ravindra Prasad
                 </h4>
                 <p className="text-gray-600 text-sm mt-2">
                   Spiritual Leader / Contributor / Guest of Honor
