@@ -112,164 +112,232 @@ export default function AboutPage() {
         </div>
       </section>
 
-    "use client";
-import { useState } from "react";
+      {/* ===== EMINENT PERSONALITIES SECTION ===== */}
 
-export default function EminentPersonsSection() {
+<section className="py-24 px-6 bg-gradient-to-b from-orange-50 via-white to-orange-50">
 
-  // ✅ Separate data for each person
-  const [persons, setPersons] = useState([
-    {
-      id: 1,
-      name: "Mahant Rajesh Giri",
-      role: "Temple Head",
-      image: "/images/person1.jpg",
-      description:
-        "Leading the spiritual vision and temple activities with devotion.",
-    },
+  {/* Heading */}
+  <div className="text-center mb-16">
 
-    {
-      id: 2,
-      name: "Pandit Sharma",
-      role: "Spiritual Guide",
-      image: "/images/person2.jpg",
-      description:
-        "Guiding devotees through sacred rituals and teachings.",
-    },
+    <p className="text-orange-600 font-semibold tracking-[4px] uppercase mb-3">
+      Spiritual Leadership
+    </p>
 
-    {
-      id: 3,
-      name: "Trustee Verma",
-      role: "Trust Member",
-      image: "/images/person3.jpg",
-      description:
-        "Managing temple welfare and community development initiatives.",
-    },
-  ]);
+    <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+      Eminent <span className="text-orange-600">Personalities</span>
+    </h2>
 
-  // ✅ Update specific person
-  const handleChange = (id, field, value) => {
-    setPersons((prev) =>
-      prev.map((person) =>
-        person.id === id
-          ? { ...person, [field]: value }
-          : person
-      )
-    );
-  };
+    <div className="w-28 h-1 bg-orange-500 mx-auto rounded-full mt-5"></div>
 
-  return (
-    <section className="py-20 px-6 bg-gradient-to-b from-orange-50 to-white">
+    <p className="text-gray-600 mt-6 max-w-3xl mx-auto leading-8 text-lg">
+      Meet the respected personalities behind Shri Chandreshwar Dham
+      who continue to inspire devotees through spirituality,
+      service, and cultural values.
+    </p>
 
-      {/* Heading */}
-      <div className="text-center mb-14">
-        <h2 className="text-4xl font-bold text-orange-700">
-          Eminent Personalities
-        </h2>
+  </div>
 
-        <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-          Meet the respected spiritual leaders and trustees guiding
-          our temple community with devotion and dedication.
+  {/* Cards */}
+  <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+
+    {/* ===== PERSON 1 ===== */}
+    <div
+      className="
+        group bg-white rounded-[30px]
+        overflow-hidden border border-orange-100
+        shadow-md hover:shadow-2xl
+        transition-all duration-500
+        hover:-translate-y-3
+      "
+    >
+
+      {/* Image */}
+      <div className="relative h-[380px] overflow-hidden">
+
+        <img
+          src="/images/person1.jpg"
+          alt="Akhoury Ravindra Prasad"
+          className="
+            w-full h-full object-cover
+            transition-transform duration-700
+            group-hover:scale-110
+          "
+        />
+
+        <div className="
+          absolute inset-0
+          bg-gradient-to-t
+          from-black/60 via-black/10 to-transparent
+        "></div>
+
+        {/* Role Badge */}
+        <div className="
+          absolute bottom-5 left-5
+          bg-white/90 backdrop-blur-md
+          px-4 py-2 rounded-full
+          text-sm font-semibold text-orange-700
+          shadow-md
+        ">
+          Founder & Spiritual Visionary
+        </div>
+
+      </div>
+
+      {/* Content */}
+      <div className="p-7">
+
+        <h3 className="text-2xl font-bold text-gray-800">
+          Akhoury Ravindra Prasad
+        </h3>
+
+        <p className="text-orange-600 font-medium mt-2">
+          Founder of Shri Chandreshwar Dham
         </p>
-      </div>
 
-      {/* Cards */}
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-
-        {persons.map((person) => (
-          <div
-            key={person.id}
-            className="
-              bg-white rounded-3xl overflow-hidden
-              shadow-lg border border-orange-100
-              hover:shadow-2xl hover:-translate-y-2
-              transition-all duration-300
-            "
-          >
-
-            {/* Image */}
-            <div className="relative h-72 overflow-hidden">
-              <img
-                src={person.image}
-                alt={person.name}
-                className="w-full h-full object-cover"
-              />
-
-              <div className="absolute inset-0 bg-black/20"></div>
-            </div>
-
-            {/* Content */}
-            <div className="p-6">
-
-              {/* Name */}
-              <input
-                type="text"
-                value={person.name}
-                onChange={(e) =>
-                  handleChange(
-                    person.id,
-                    "name",
-                    e.target.value
-                  )
-                }
-                className="
-                  w-full text-2xl font-bold
-                  text-gray-800 bg-transparent
-                  border-b border-gray-200
-                  focus:outline-none focus:border-orange-500
-                  mb-3
-                "
-              />
-
-              {/* Role */}
-              <input
-                type="text"
-                value={person.role}
-                onChange={(e) =>
-                  handleChange(
-                    person.id,
-                    "role",
-                    e.target.value
-                  )
-                }
-                className="
-                  w-full text-orange-600 font-medium
-                  bg-transparent
-                  border-b border-gray-200
-                  focus:outline-none focus:border-orange-500
-                  mb-4
-                "
-              />
-
-              {/* Description */}
-              <textarea
-                rows={4}
-                value={person.description}
-                onChange={(e) =>
-                  handleChange(
-                    person.id,
-                    "description",
-                    e.target.value
-                  )
-                }
-                className="
-                  w-full text-gray-600 text-sm leading-6
-                  bg-transparent
-                  border border-gray-200 rounded-xl
-                  p-3
-                  focus:outline-none focus:border-orange-500
-                  resize-none
-                "
-              />
-
-            </div>
-          </div>
-        ))}
+        <p className="text-gray-600 text-sm leading-7 mt-5">
+          Akhoury Ravindra Prasad Ji is the revered founder of
+          Shri Chandreshwar Dham. With deep devotion toward
+          Sanatan Dharma and unwavering faith in Mahadev,
+          he established the temple as a sacred spiritual space
+          for devotees and community welfare.
+        </p>
 
       </div>
-    </section>
-  );
-  
+    </div>
+
+    {/* ===== PERSON 2 ===== */}
+    <div
+      className="
+        group bg-white rounded-[30px]
+        overflow-hidden border border-orange-100
+        shadow-md hover:shadow-2xl
+        transition-all duration-500
+        hover:-translate-y-3
+      "
+    >
+
+      {/* Image */}
+      <div className="relative h-[380px] overflow-hidden">
+
+        <img
+          src="/images/person2.jpg"
+          alt="Dr. A.K Raghvan"
+          className="
+            w-full h-full object-cover
+            transition-transform duration-700
+            group-hover:scale-110
+          "
+        />
+
+        <div className="
+          absolute inset-0
+          bg-gradient-to-t
+          from-black/60 via-black/10 to-transparent
+        "></div>
+
+        {/* Role Badge */}
+        <div className="
+          absolute bottom-5 left-5
+          bg-white/90 backdrop-blur-md
+          px-4 py-2 rounded-full
+          text-sm font-semibold text-orange-700
+          shadow-md
+        ">
+          Managing Trustee & Cultural Guide
+        </div>
+
+      </div>
+
+      {/* Content */}
+      <div className="p-7">
+
+        <h3 className="text-2xl font-bold text-gray-800">
+          Dr. A.K Raghvan
+        </h3>
+
+        <p className="text-orange-600 font-medium mt-2">
+          Managing Trustee
+        </p>
+
+        <p className="text-gray-600 text-sm leading-7 mt-5">
+          Dr. A.K Raghvan, son of the founder, continues the
+          spiritual legacy of Shri Chandreshwar Dham through
+          his leadership, devotion, and dedication toward
+          preserving temple traditions, religious programs,
+          and community service initiatives.
+        </p>
+
+      </div>
+    </div>
+
+    {/* ===== PERSON 3 ===== */}
+    <div
+      className="
+        group bg-white rounded-[30px]
+        overflow-hidden border border-orange-100
+        shadow-md hover:shadow-2xl
+        transition-all duration-500
+        hover:-translate-y-3
+      "
+    >
+
+      {/* Image */}
+      <div className="relative h-[380px] overflow-hidden">
+
+        <img
+          src="/images/person3.jpg"
+          alt="Dr. Nidhi Bharti"
+          className="
+            w-full h-full object-cover
+            transition-transform duration-700
+            group-hover:scale-110
+          "
+        />
+
+        <div className="
+          absolute inset-0
+          bg-gradient-to-t
+          from-black/60 via-black/10 to-transparent
+        "></div>
+
+        {/* Role Badge */}
+        <div className="
+          absolute bottom-5 left-5
+          bg-white/90 backdrop-blur-md
+          px-4 py-2 rounded-full
+          text-sm font-semibold text-orange-700
+          shadow-md
+        ">
+          Youth & Community Development Head
+        </div>
+
+      </div>
+
+      {/* Content */}
+      <div className="p-7">
+
+        <h3 className="text-2xl font-bold text-gray-800">
+          Dr. Nidhi Bharti
+        </h3>
+
+        <p className="text-orange-600 font-medium mt-2">
+          Community Development Head
+        </p>
+
+        <p className="text-gray-600 text-sm leading-7 mt-5">
+          Dr. Nidhi Bharti actively contributes toward the
+          spiritual and social growth initiatives of the temple.
+          Her compassionate leadership supports youth engagement,
+          educational programs, women empowerment, and stronger
+          community connections through seva and cultural values.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
       {/* ===== FOUNDER MESSAGE ===== */}
 <section className="bg-gradient-to-r from-purple-50 via-white to-purple-100 py-24">
   <div className="max-w-6xl mx-auto px-6">
