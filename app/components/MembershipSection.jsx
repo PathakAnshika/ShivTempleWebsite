@@ -33,7 +33,7 @@ export function MembershipSection() {
           </h2>
 
           <p className="mt-5 text-gray-200 text-lg leading-relaxed">
-            Register today and join our chandreshwar divine family. Get spiritual updates,
+            Register today and join our divine chandreshwar family. Get spiritual updates,
             participate in Seva programs, and access your exclusive member dashboard.
           </p>
 
