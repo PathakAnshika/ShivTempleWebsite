@@ -112,35 +112,164 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== EMINENT PERSONALITIES ===== */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-semibold text-purple-900 mb-12 text-center">
-            Eminent Personalities
-          </h2>
+    "use client";
+import { useState } from "react";
 
-          <div className="grid md:grid-cols-3 gap-10">
+export default function EminentPersonsSection() {
 
-            {[1,2,3].map((item, index) => (
-              <div key={index} className="bg-purple-50 p-6 rounded-2xl shadow-md text-center">
-                <img
-                  src="/images/about2.jpg"
-                  alt="Personality"
-                  className="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-4 border-white shadow"
-                />
-                <h4 className="text-lg font-semibold text-purple-900">
-                  Shri Akhouri Ravindra Prasad
-                </h4>
-                <p className="text-gray-600 text-sm mt-2">
-                  Spiritual Leader / Contributor / Guest of Honor
-                </p>
-              </div>
-            ))}
+  // ✅ Separate data for each person
+  const [persons, setPersons] = useState([
+    {
+      id: 1,
+      name: "Mahant Rajesh Giri",
+      role: "Temple Head",
+      image: "/images/person1.jpg",
+      description:
+        "Leading the spiritual vision and temple activities with devotion.",
+    },
 
+    {
+      id: 2,
+      name: "Pandit Sharma",
+      role: "Spiritual Guide",
+      image: "/images/person2.jpg",
+      description:
+        "Guiding devotees through sacred rituals and teachings.",
+    },
+
+    {
+      id: 3,
+      name: "Trustee Verma",
+      role: "Trust Member",
+      image: "/images/person3.jpg",
+      description:
+        "Managing temple welfare and community development initiatives.",
+    },
+  ]);
+
+  // ✅ Update specific person
+  const handleChange = (id, field, value) => {
+    setPersons((prev) =>
+      prev.map((person) =>
+        person.id === id
+          ? { ...person, [field]: value }
+          : person
+      )
+    );
+  };
+
+  return (
+    <section className="py-20 px-6 bg-gradient-to-b from-orange-50 to-white">
+
+      {/* Heading */}
+      <div className="text-center mb-14">
+        <h2 className="text-4xl font-bold text-orange-700">
+          Eminent Personalities
+        </h2>
+
+        <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
+          Meet the respected spiritual leaders and trustees guiding
+          our temple community with devotion and dedication.
+        </p>
+      </div>
+
+      {/* Cards */}
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+
+        {persons.map((person) => (
+          <div
+            key={person.id}
+            className="
+              bg-white rounded-3xl overflow-hidden
+              shadow-lg border border-orange-100
+              hover:shadow-2xl hover:-translate-y-2
+              transition-all duration-300
+            "
+          >
+
+            {/* Image */}
+            <div className="relative h-72 overflow-hidden">
+              <img
+                src={person.image}
+                alt={person.name}
+                className="w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-black/20"></div>
+            </div>
+
+            {/* Content */}
+            <div className="p-6">
+
+              {/* Name */}
+              <input
+                type="text"
+                value={person.name}
+                onChange={(e) =>
+                  handleChange(
+                    person.id,
+                    "name",
+                    e.target.value
+                  )
+                }
+                className="
+                  w-full text-2xl font-bold
+                  text-gray-800 bg-transparent
+                  border-b border-gray-200
+                  focus:outline-none focus:border-orange-500
+                  mb-3
+                "
+              />
+
+              {/* Role */}
+              <input
+                type="text"
+                value={person.role}
+                onChange={(e) =>
+                  handleChange(
+                    person.id,
+                    "role",
+                    e.target.value
+                  )
+                }
+                className="
+                  w-full text-orange-600 font-medium
+                  bg-transparent
+                  border-b border-gray-200
+                  focus:outline-none focus:border-orange-500
+                  mb-4
+                "
+              />
+
+              {/* Description */}
+              <textarea
+                rows={4}
+                value={person.description}
+                onChange={(e) =>
+                  handleChange(
+                    person.id,
+                    "description",
+                    e.target.value
+                  )
+                }
+                className="
+                  w-full text-gray-600 text-sm leading-6
+                  bg-transparent
+                  border border-gray-200 rounded-xl
+                  p-3
+                  focus:outline-none focus:border-orange-500
+                  resize-none
+                "
+              />
+
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
 
+      </div>
+    </section>
+  );
+  
       {/* ===== FOUNDER MESSAGE ===== */}
 <section className="bg-gradient-to-r from-purple-50 via-white to-purple-100 py-24">
   <div className="max-w-6xl mx-auto px-6">
