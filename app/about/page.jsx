@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   FaFacebook,
   FaInstagram,
@@ -9,6 +10,34 @@ import {
 
 export default function AboutPage() {
   const router = useRouter();
+  const [persons, setPersons] = useState([
+  {
+    id: 1,
+    name: "Akhoury Ravindra Prasad",
+    role: "Founder & Spiritual Visionary",
+    image: "/images/person1.jpg",
+    description:
+      "Akhoury Ravindra Prasad Ji is the revered founder of Shri Chandreshwar Dham. With deep devotion toward Sanatan Dharma and unwavering faith in Mahadev, he established the temple as a sacred spiritual space for devotees and community welfare.",
+  },
+
+  {
+    id: 2,
+    name: "Dr. A.K Raghvan",
+    role: "Managing Trustee & Cultural Guide",
+    image: "/images/person2.jpg",
+    description:
+      "Dr. A.K Raghvan, son of the founder, continues the spiritual legacy of Shri Chandreshwar Dham through his leadership, devotion, and dedication toward preserving temple traditions and community service initiatives.",
+  },
+
+  {
+    id: 3,
+    name: "Dr. Nidhi Bharti",
+    role: "Youth & Community Development Head",
+    image: "/images/person3.jpg",
+    description:
+      "Dr. Nidhi Bharti actively contributes toward the spiritual and social growth initiatives of the temple through youth engagement, educational programs, and community development activities.",
+  },
+]);
 
   return (
     <main className="text-gray-800">
