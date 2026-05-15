@@ -44,7 +44,7 @@ export function HeroSection() {
 
   {/* Darshan Timings Button */}
   <button
-  onClick={() => router.push("/darshanTiming/page.jsx")}
+  onClick={() => router.push("/darshan-timings")}
   className="
     group w-full sm:w-auto
     px-10 py-4
