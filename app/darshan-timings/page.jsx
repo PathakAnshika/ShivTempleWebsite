@@ -15,21 +15,21 @@ export default function DarshanTimingsPage() {
   const darshanTimings = [
     {
       title: "Morning Darshan",
-      time: "5:00 AM - 12:00 PM",
+      time: "4:00 AM - 10:45 PM",
       icon: <Sun className="w-8 h-8 text-yellow-500" />,
       desc: "Begin your day with divine blessings and peaceful spiritual energy.",
     },
 
     {
       title: "Temple Break",
-      time: "12:00 PM - 4:00 PM",
+      time: "11:00 PM - 4:00 PM",
       icon: <Clock className="w-8 h-8 text-orange-500" />,
       desc: "Temple remains closed for bhog rituals and maintenance.",
     },
 
     {
       title: "Evening Darshan",
-      time: "4:00 PM - 9:00 PM",
+      time: "7:00 PM - 11:00 PM",
       icon: <Moon className="w-8 h-8 text-purple-500" />,
       desc: "Experience the divine aura of evening prayers and aarti.",
     },
