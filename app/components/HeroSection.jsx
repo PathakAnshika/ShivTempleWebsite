@@ -44,25 +44,24 @@ export function HeroSection() {
 
   {/* Darshan Timings Button */}
   <button
-    onClick={() =>
-      document
-        .getElementById("darshan-timings")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }
-    className="
-      group w-full sm:w-auto
-      px-10 py-4
-      bg-gradient-to-r from-yellow-300 to-yellow-500
-      text-purple-900 font-bold text-lg
-      rounded-full shadow-xl
-      hover:shadow-yellow-400/40 hover:scale-105
-      active:scale-95 transition-all
-      flex items-center justify-center gap-2
-    "
-  >
-    Darshan Timings
-    <span className="transition-transform group-hover:translate-x-1">→</span>
-  </button>
+  onClick={() => router.push("/app/DarshanTiming/page.jsx")}
+  className="
+    group w-full sm:w-auto
+    px-10 py-4
+    bg-gradient-to-r from-yellow-300 to-yellow-500
+    text-purple-900 font-bold text-lg
+    rounded-full shadow-xl
+    hover:shadow-yellow-400/40 hover:scale-105
+    active:scale-95 transition-all
+    flex items-center justify-center gap-2
+  "
+>
+  Darshan Timings
+
+  <span className="transition-transform group-hover:translate-x-1">
+    →
+  </span>
+</button>
 
   {/* Membership Button */}
   <button

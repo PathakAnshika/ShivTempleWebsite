@@ -5,13 +5,9 @@ import { Navbar } from "./components/Navbar";
 import {HeroSection }from "./components/HeroSection";
  import {MarqueeStrip} from "./components/MarqueeStrip";
 import { AboutSection } from "./components/AboutSection";
-import {AartiTiming} from "./components/AartiTiming";
-import {AartiSection} from "./components/AartiSection";
 import {EventCalendar} from "./components/EventCalendar";
-// import {LiveDarshan } from "./components/LiveDarshan";
 import HomeDonationSection from "./components/HomeDonationSection";
 import { ScholarshipPreview } from "./components/ScholarshipPreview";
-
 import { GallerySection } from "./components/GallerySection";
 import { MembershipSection } from "./components/MembershipSection";
 import { ContactSection } from "./components/ContactSection";
