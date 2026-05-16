@@ -400,7 +400,7 @@ export default function AboutPage() {
 </section>
 {/* ===== FOUNDER MESSAGE SECTION ===== */}
 
-<section className="py-24 bg-[#fdf8f2] relative overflow-hidden">
+<section className="py-14 bg-[#fdf8f2] relative overflow-hidden">
 
   {/* Background Glow */}
   <div className="
@@ -429,7 +429,7 @@ export default function AboutPage() {
       </p>
 
       <h2 className="
-        text-4xl md:text-6xl
+        text-4xl md:text-4xl
         font-bold text-gray-800
       ">
         संस्थापक का संदेश
@@ -458,14 +458,14 @@ export default function AboutPage() {
       <div className="relative z-10">
 
         {/* Main Quote */}
-      <p className="
-  text-3xl md:text-5xl
-  leading-[70px]
-  font-bold
+     <p className="
+  text-1xl md:text-3xl
+  leading-[50px]
+  font-semibold
   text-gray-800
   text-center
-  max-w-3xl mx-auto
-  mb-16
+  max-w-4xl mx-auto
+  mb-10
 ">
           “श्री चंद्रेश्वर धाम केवल ईश्वर आराधना का स्थान नहीं,
           बल्कि मानवता, सेवा, संस्कार और राष्ट्र निर्माण की
