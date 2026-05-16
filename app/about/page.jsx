@@ -464,7 +464,7 @@ export default function AboutPage() {
   font-bold
   text-gray-800
   text-center
-  max-w-5xl mx-auto
+  max-w-3xl mx-auto
   mb-16
 ">
           “श्री चंद्रेश्वर धाम केवल ईश्वर आराधना का स्थान नहीं,
