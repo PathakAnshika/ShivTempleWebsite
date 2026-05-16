@@ -458,15 +458,15 @@ export default function AboutPage() {
       <div className="relative z-10">
 
         {/* Main Quote */}
-        <p className="
-          text-2xl md:text-4xl
-          leading-[60px]
-          font-semibold
-          text-gray-800
-          text-center
-          max-w-5xl mx-auto
-          mb-16
-        ">
+      <p className="
+  text-3xl md:text-5xl
+  leading-[70px]
+  font-bold
+  text-gray-800
+  text-center
+  max-w-5xl mx-auto
+  mb-16
+">
           “श्री चंद्रेश्वर धाम केवल ईश्वर आराधना का स्थान नहीं,
           बल्कि मानवता, सेवा, संस्कार और राष्ट्र निर्माण की
           एक जीवंत प्रेरणा है।”
