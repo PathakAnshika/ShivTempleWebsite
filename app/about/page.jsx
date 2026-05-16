@@ -398,6 +398,173 @@ export default function AboutPage() {
     </div>
   </div>
 </section>
+{/* ===== FOUNDER MESSAGE SECTION ===== */}
+
+<section className="py-24 bg-[#fdf8f2] relative overflow-hidden">
+
+  {/* Background Glow */}
+  <div className="
+    absolute top-0 left-0
+    w-72 h-72 bg-orange-100
+    rounded-full blur-3xl opacity-40
+  "></div>
+
+  <div className="
+    absolute bottom-0 right-0
+    w-96 h-96 bg-purple-100
+    rounded-full blur-3xl opacity-40
+  "></div>
+
+  <div className="max-w-6xl mx-auto px-6 relative z-10">
+
+    {/* Heading */}
+    <div className="text-center mb-10">
+
+      <p className="
+        uppercase tracking-[5px]
+        text-orange-600 text-sm
+        font-semibold mb-4
+      ">
+        सेवा • संस्कार • समर्पण
+      </p>
+
+      <h2 className="
+        text-4xl md:text-6xl
+        font-bold text-gray-800
+      ">
+        संस्थापक का संदेश
+      </h2>
+
+    </div>
+
+    {/* Main Card */}
+    <div className="
+      bg-white/80 backdrop-blur-md
+      border border-orange-100
+      shadow-2xl rounded-[40px]
+      p-8 md:p-16
+      relative overflow-hidden
+    ">
+
+      {/* Quote Symbol */}
+      <div className="
+        absolute top-6 left-8
+        text-[120px] leading-none
+        text-orange-100 font-serif
+      ">
+        “
+      </div>
+
+      <div className="relative z-10">
+
+        {/* Main Quote */}
+        <p className="
+          text-2xl md:text-4xl
+          leading-[60px]
+          font-semibold
+          text-gray-800
+          text-center
+          max-w-5xl mx-auto
+          mb-16
+        ">
+          “श्री चंद्रेश्वर धाम केवल ईश्वर आराधना का स्थान नहीं,
+          बल्कि मानवता, सेवा, संस्कार और राष्ट्र निर्माण की
+          एक जीवंत प्रेरणा है।”
+        </p>
+
+        {/* Paragraphs */}
+        <div className="
+          space-y-8
+          text-gray-700
+          leading-[42px]
+          text-lg
+          max-w-5xl mx-auto
+        ">
+
+          <p>
+            हमारा विश्वास है कि जब समाज आध्यात्मिक रूप से जागृत होता है,
+            तभी वास्तविक विकास, शांति और सद्भाव संभव होता है।
+            यह धाम आने वाली पीढ़ियों को भारतीय संस्कृति,
+            सनातन मूल्यों और सेवा की भावना से जोड़ने का
+            एक विनम्र प्रयास है।
+          </p>
+
+          <p>
+            श्री चंद्रेश्वर धाम केवल एक मंदिर नहीं,
+            बल्कि आध्यात्मिक जागरण, मानव सेवा,
+            सांस्कृतिक संरक्षण और राष्ट्र निर्माण
+            की एक पवित्र भावना है।
+            संस्था का मूल मंत्र —
+            <span className="font-semibold text-orange-700">
+              {" "}“सेवा एवं समर्पण”
+            </span>
+            — प्रत्येक कार्य का आधार है।
+          </p>
+
+          <p>
+            धाम का उद्देश्य केवल पूजा-अर्चना तक सीमित नहीं,
+            बल्कि समाज में नैतिकता, अनुशासन, एकता,
+            संस्कार और आध्यात्मिक चेतना का प्रसार करना है।
+            श्री चंद्रेश्वर धाम यह मानता है कि
+            <span className="italic font-semibold text-gray-900">
+              {" "}“मंदिर और विकास एक ही सिक्के के दो पहलू हैं।”{" "}
+            </span>
+            क्योंकि आध्यात्मिक रूप से जागृत समाज ही
+            शांति, संस्कृति, सामाजिक समरसता और
+            राष्ट्र की प्रगति का मार्ग प्रशस्त करता है।
+          </p>
+
+          <p>
+            यह धाम भारतीय संस्कृति, सनातन परंपराओं
+            और मानवीय मूल्यों को संरक्षित एवं सशक्त
+            बनाने के लिए निरंतर कार्यरत है।
+            संस्था का विश्वास है कि सच्ची भक्ति केवल
+            आराधना में नहीं, बल्कि मानवता की सेवा,
+            त्याग, करुणा और राष्ट्र के प्रति समर्पण में निहित है।
+          </p>
+
+          <p>
+            श्री चंद्रेश्वर धाम समाज के प्रत्येक वर्ग को
+            आध्यात्मिक प्रेरणा, सांस्कृतिक जागरूकता
+            और सेवा की भावना से जोड़ने का प्रयास करता है,
+            ताकि आने वाली पीढ़ियाँ संस्कार, सदाचार
+            और भारतीय आध्यात्मिक विरासत से जुड़ी रहें।
+          </p>
+
+          <p>
+            मानव सेवा एवं राष्ट्र के प्रति समर्पण की भावना
+            के साथ यह धाम शिक्षा, सामाजिक सहयोग,
+            सांस्कृतिक उत्थान और आध्यात्मिक विकास
+            के माध्यम से एक ऐसे समाज की कल्पना करता है
+            जो शांति, सद्भाव, नैतिकता और आत्मिक चेतना
+            से परिपूर्ण हो।
+          </p>
+
+        </div>
+
+        {/* Signature */}
+        <div className="mt-16 text-right">
+
+          <p className="
+            text-2xl font-semibold
+            text-gray-800
+          ">
+            — संस्थापक
+          </p>
+
+          <p className="text-orange-600 mt-2">
+            श्री चंद्रेश्वर धाम
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
     {/* ===== FOOTER (SAME AS YOURS) ===== */} <footer className="bg-[#0A1A2F] py-10 mt-16 text-white"> <div className="max-w-6xl mx-auto px-4"> <div className="flex flex-col md:flex-row items-center justify-between gap-5"> <div> <h3 className="text-xl font-bold text-center md:text-left"> Sri Chandreshwar Dham Mandir </h3> <p className="text-white/70 text-sm mt-1 text-center md:text-left"> Govind Nagar, Vrindavan, Uttar Pradesh 281121, India </p> </div> <div className="flex gap-4 text-white/80"> {[FaFacebook, FaInstagram, FaYoutube, FaTwitter].map((Icon, i) => ( <a key={i} href="#" className="hover:text-white transition"> <Icon className="text-xl" /> </a> ))} </div> </div> <div className="border-t border-white/20 mt-6 mb-4"></div> <div className="flex flex-col md:flex-row justify-between text-sm text-white/70 gap-3"> <p>© {new Date().getFullYear()} All rights reserved.</p> <div className="flex gap-6"> <a href="#" className="hover:text-white transition"> Privacy Policy </a> <a href="#" className="hover:text-white transition"> Terms & Conditions </a> <a href="#" className="hover:text-white transition"> Contact </a> </div> </div> </div> </footer>
