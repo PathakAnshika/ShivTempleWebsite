@@ -682,46 +682,24 @@ export default function AboutPage() {
 </section>
       {/* ===== FOUNDER MESSAGE ===== */}
 {/* ===== FOUNDER MESSAGE ===== */}
-{/* ===== FOUNDER MESSAGE ===== */}
-<section className="bg-[#f8f8f6] py-20 overflow-hidden relative">
+<section className="bg-[#f8f8f6] py-16 overflow-hidden">
 
-  {/* Soft Background Glow */}
-  <div className="
-    absolute -top-24 -left-24
-    w-72 h-72
-    bg-slate-200/40
-    rounded-full
-    blur-3xl
-  "></div>
-
-  <div className="
-    absolute -bottom-24 -right-24
-    w-80 h-80
-    bg-gray-200/40
-    rounded-full
-    blur-3xl
-  "></div>
-
-  <div className="
-    relative z-10
-    max-w-6xl mx-auto
-    px-6
-  ">
+  <div className="max-w-6xl mx-auto px-6">
 
     {/* Heading */}
-    <div className="text-center mb-14">
+    <div className="text-center mb-12">
 
       <p className="
         uppercase tracking-[5px]
         text-slate-500
         text-xs font-semibold
-        mb-4
+        mb-3
       ">
         Founder’s Vision
       </p>
 
       <h2 className="
-        text-3xl md:text-5xl
+        text-3xl md:text-4xl
         font-bold
         text-gray-900
       ">
@@ -730,91 +708,52 @@ export default function AboutPage() {
 
     </div>
 
-    {/* Main Card */}
+    {/* Main Layout */}
     <div className="
-      bg-white/80
-      backdrop-blur-xl
-      border border-white
-      shadow-[0_20px_50px_rgba(0,0,0,0.06)]
-      rounded-[38px]
+      bg-white
+      rounded-[34px]
+      shadow-lg
+      border border-gray-100
       overflow-hidden
-      grid lg:grid-cols-2
+      grid lg:grid-cols-[420px_1fr]
       items-center
     ">
 
-      {/* ===== LEFT IMAGE ===== */}
+      {/* ===== IMAGE ===== */}
       <div className="
         relative
         h-full
-        flex items-center
-        justify-center
-        p-8
       ">
 
+        <img
+          src="/images/Founder'sImage.jpeg"
+          alt="Founder"
+          className="
+            w-full
+            h-[480px]
+            object-cover
+            object-top
+          "
+        />
+
+        {/* Soft Overlay */}
         <div className="
-          relative
-          w-full
-          rounded-[30px]
-          overflow-hidden
-          shadow-xl
-        ">
-
-          <img
-            src="/images/Founder'sImage.jpeg"
-            alt="Founder"
-            className="
-              w-full
-              h-[520px]
-              object-cover
-              object-top
-            "
-          />
-
-          {/* Soft Overlay */}
-          <div className="
-            absolute inset-0
-            bg-gradient-to-t
-            from-black/35 via-transparent to-transparent
-          "></div>
-
-          {/* Floating Quote */}
-          <div className="
-            absolute bottom-6 left-6 right-6
-            bg-white/10
-            backdrop-blur-md
-            border border-white/20
-            rounded-[24px]
-            p-5
-          ">
-
-            <p className="
-              text-white
-              text-base
-              leading-7
-              italic
-            ">
-              “A temple is not merely a place of worship,
-              but a sanctuary of peace, devotion and hope.”
-            </p>
-
-          </div>
-
-        </div>
+          absolute inset-0
+          bg-gradient-to-t
+          from-black/30 via-transparent to-transparent
+        "></div>
 
       </div>
 
-      {/* ===== RIGHT CONTENT ===== */}
-      <div className="
-        p-10 md:p-12
-        flex flex-col justify-center
-      ">
+      {/* ===== CONTENT ===== */}
+      <div className="p-8 md:p-10">
 
-        {/* Big Quote */}
-        <div className="relative mb-8">
+        {/* Quote */}
+        <div className="relative mb-6">
 
           <div className="
-            absolute -top-8 left-0
-            text-[90px]
+            absolute -top-6 left-0
+            text-[70px]
             text-slate-100
             font-bold
             leading-none
@@ -824,33 +763,26 @@ export default function AboutPage() {
 
           <p className="
             relative z-10
-            text-xl md:text-2xl
-            leading-[42px]
+            text-lg md:text-xl
+            leading-[38px]
             font-semibold
             text-gray-800
           ">
             Shri Chandreshwar Dham was established
             with a sacred vision — to create a divine
-            space where devotion, discipline and
-            spirituality guide every soul toward inner peace.
+            space where devotion and spirituality guide
+            every soul toward inner peace.
           </p>
 
         </div>
 
-        {/* Divider */}
-        <div className="
-          w-16 h-[2px]
-          bg-slate-300
-          mb-8
-        "></div>
-
         {/* Message */}
-        <div className="space-y-6">
+        <div className="space-y-5">
 
           <p className="
             text-gray-600
             leading-8
-            text-base md:text-lg
+            text-base
           ">
             The temple is not merely a place of worship,
             but a spiritual center for cultural preservation,
@@ -860,25 +792,23 @@ export default function AboutPage() {
           <p className="
             text-gray-600
             leading-8
-            text-base md:text-lg
+            text-base
           ">
-            Every initiative taken under this sacred roof
-            is dedicated to service, faith and divine purpose —
-            inspiring future generations to remain connected
-            with spirituality and humanity.
+            Every initiative under this sacred roof
+            is dedicated to service, faith and divine purpose.
           </p>
 
         </div>
 
         {/* Signature */}
         <div className="
-          mt-12
-          pt-6
+          mt-8
+          pt-5
           border-t border-slate-200
         ">
 
           <h3 className="
-            text-xl
+            text-lg
             font-semibold
             text-gray-900
           ">
@@ -887,9 +817,8 @@ export default function AboutPage() {
 
           <p className="
             text-slate-500
-            mt-2
+            mt-1
             text-sm
-            tracking-wide
           ">
             Founder, Shri Chandreshwar Dham
           </p>
