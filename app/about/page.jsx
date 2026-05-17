@@ -16,26 +16,155 @@ export default function AboutPage() {
     <main className="text-gray-800">
 
       {/* ===== HERO ===== */}
-      <section className="relative bg-gradient-to-r from-purple-50 via-white to-purple-100 border-b">
-        <button
-          onClick={() => router.back()}
-          className="absolute left-6 top-6 px-5 py-2 bg-white/70 rounded-full border shadow-md hover:bg-white transition"
-        >
-          ← Back
-        </button>
+<section className="
+  relative overflow-hidden
+  bg-[#faf6ef]
+  border-b border-orange-100
+">
 
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <h1 className="text-4xl md:text-5xl font-bold text-purple-900">
-            About Shri Chandreshwar Dham
-          </h1>
-          <div className="w-24 h-1 bg-purple-300 mt-6 mb-8"></div>
+  {/* Soft Glow */}
+  <div className="
+    absolute -top-24 -left-24
+    w-72 h-72
+    bg-orange-200/30
+    rounded-full
+    blur-3xl
+  "></div>
 
-          <p className="text-lg text-gray-700 max-w-3xl leading-relaxed">
-            A sacred abode of Lord Shiva, dedicated to devotion,
-            cultural preservation, and community upliftment.
-          </p>
-        </div>
-      </section>
+  <div className="
+    absolute -bottom-24 -right-24
+    w-80 h-80
+    bg-yellow-100/40
+    rounded-full
+    blur-3xl
+  "></div>
+
+  {/* Back Button */}
+  <button
+    onClick={() => router.back()}
+    className="
+      absolute left-6 top-6 z-20
+      px-5 py-2.5
+      rounded-full
+      bg-white/80
+      backdrop-blur-md
+      border border-orange-100
+      shadow-lg
+      text-gray-700
+      hover:bg-white
+      hover:scale-105
+      transition-all duration-300
+    "
+  >
+    ← Back
+  </button>
+
+  {/* Content */}
+  <div className="
+    relative z-10
+    max-w-6xl mx-auto
+    px-6
+    py-28
+    text-center
+  ">
+
+    {/* Small Label */}
+    <p className="
+      uppercase tracking-[6px]
+      text-orange-500
+      text-sm font-semibold
+      mb-6
+    ">
+      Shri Chandreshwar Dham
+    </p>
+
+    {/* Heading */}
+    <h1 className="
+      text-5xl md:text-7xl
+      font-bold
+      text-gray-900
+      leading-[1.1]
+      max-w-5xl
+      mx-auto
+    ">
+      About
+      <span className="block text-orange-500 mt-2">
+        Shri Chandreshwar Dham
+      </span>
+    </h1>
+
+    {/* Decorative Line */}
+    <div className="
+      w-28 h-[3px]
+      bg-gradient-to-r
+      from-orange-300 to-orange-500
+      mx-auto
+      rounded-full
+      mt-8 mb-10
+    "></div>
+
+    {/* Paragraph */}
+    <p className="
+      text-lg md:text-xl
+      text-gray-600
+      leading-9
+      max-w-3xl
+      mx-auto
+    ">
+      A sacred abode of Lord Shiva, dedicated to devotion,
+      spiritual awakening, cultural preservation
+      and community upliftment.
+    </p>
+
+    {/* Bottom Pills */}
+    <div className="
+      flex flex-wrap
+      justify-center
+      gap-4
+      mt-12
+    ">
+
+      <div className="
+        px-5 py-3
+        rounded-full
+        bg-white
+        border border-orange-100
+        shadow-md
+        text-gray-700
+        font-medium
+      ">
+        🕉️ Spirituality
+      </div>
+
+      <div className="
+        px-5 py-3
+        rounded-full
+        bg-white
+        border border-orange-100
+        shadow-md
+        text-gray-700
+        font-medium
+      ">
+        🌸 Devotion
+      </div>
+
+      <div className="
+        px-5 py-3
+        rounded-full
+        bg-white
+        border border-orange-100
+        shadow-md
+        text-gray-700
+        font-medium
+      ">
+        🔱 Culture
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* ===== TEMPLE HISTORY ===== */}
       <section className="py-24 bg-white">
@@ -68,53 +197,264 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+{/* ===== VISION / MISSION / BELIEF ===== */}
+{/* ===== VISION / MISSION / BELIEF ===== */}
+<section className="bg-[#f8f8f6] py-20 overflow-hidden">
 
-      {/* ===== VISION / MISSION / BELIEF (NEW LAYOUT) ===== */}
-      <section className="bg-purple-50 py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-semibold text-purple-900 text-center mb-16">
-            Vision • Mission • Belief
-          </h2>
+  <div className="max-w-7xl mx-auto px-6">
 
-          <div className="grid md:grid-cols-3 gap-10 text-center">
+    {/* Heading */}
+    <div className="text-center mb-16">
 
-            <div className="bg-white p-10 rounded-3xl shadow-lg">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">
-                Vision
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                To build a spiritually vibrant community where faith,
-                harmony, and devotion flourish across generations.
-              </p>
+      <p className="
+        uppercase tracking-[5px]
+        text-slate-500
+        text-xs font-semibold
+        mb-4
+      ">
+        Spiritual Foundation
+      </p>
+
+      <h2 className="
+        text-3xl md:text-5xl
+        font-bold
+        text-gray-900
+        leading-tight
+      ">
+        Vision • Mission • Belief
+      </h2>
+
+    </div>
+
+    {/* Layout */}
+    <div className="
+      grid lg:grid-cols-3
+      gap-6
+      items-stretch
+    ">
+
+      {/* LEFT TALL CARD */}
+      <div className="
+        relative
+        rounded-[32px]
+        overflow-hidden
+        p-8
+        bg-gradient-to-b
+        from-slate-700
+        to-slate-900
+        text-white
+        min-h-[420px]
+        flex flex-col justify-between
+        shadow-xl
+      ">
+
+        {/* Blur Glow */}
+        <div className="
+          absolute -top-20 -right-20
+          w-48 h-48
+          bg-white/10
+          rounded-full
+          blur-3xl
+        "></div>
+
+        <div className="relative z-10">
+
+          <div className="
+            w-14 h-14
+            rounded-2xl
+            bg-white/10
+            backdrop-blur-md
+            flex items-center justify-center
+            text-2xl
+            mb-8
+          ">
+            🕉️
+          </div>
+
+          <h3 className="
+            text-3xl
+            font-bold
+            leading-tight
+            mb-5
+          ">
+            Vision
+          </h3>
+
+          <p className="
+            text-base
+            leading-8
+            text-slate-200
+          ">
+            To build a spiritually vibrant community
+            where faith, harmony, and devotion
+            flourish across generations.
+          </p>
+
+        </div>
+
+        <div className="
+          relative z-10
+          text-5xl
+          opacity-10
+          font-bold
+          self-end
+        ">
+          01
+        </div>
+
+      </div>
+
+      {/* RIGHT SIDE */}
+      <div className="
+        lg:col-span-2
+        grid md:grid-cols-2
+        gap-6
+      ">
+
+        {/* Mission */}
+        <div className="
+          bg-white
+          rounded-[30px]
+          p-8
+          border border-gray-100
+          shadow-md
+          hover:-translate-y-2
+          hover:shadow-xl
+          transition-all duration-500
+          min-h-[210px]
+          flex flex-col justify-between
+        ">
+
+          <div>
+
+            <div className="
+              w-14 h-14
+              rounded-2xl
+              bg-slate-100
+              flex items-center justify-center
+              text-2xl
+              mb-6
+            ">
+              🌸
             </div>
 
-            <div className="bg-white p-10 rounded-3xl shadow-lg">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">
-                Mission
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                To preserve sacred traditions, conduct rituals with purity,
-                promote spiritual education, and support society through
-                meaningful initiatives.
-              </p>
-            </div>
+            <h3 className="
+              text-2xl
+              font-bold
+              text-gray-900
+              mb-4
+            ">
+              Mission
+            </h3>
 
-            <div className="bg-white p-10 rounded-3xl shadow-lg">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">
-                Belief
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                True devotion lies in compassion, service, humility,
-                and inner discipline. All paths guided by sincerity
-                lead to the divine.
-              </p>
-            </div>
+            <p className="
+              text-gray-600
+              leading-7
+              text-base
+            ">
+              To preserve sacred traditions,
+              conduct rituals with purity and
+              support society through meaningful initiatives.
+            </p>
 
           </div>
-        </div>
-      </section>
 
-      {/* ===== EMINENT PERSONALITIES SECTION ===== */}
+        </div>
+
+        {/* Belief */}
+        <div className="
+          bg-[#f3f4f6]
+          rounded-[30px]
+          p-8
+          border border-gray-100
+          shadow-md
+          hover:-translate-y-2
+          hover:shadow-xl
+          transition-all duration-500
+          min-h-[210px]
+          flex flex-col justify-between
+        ">
+
+          <div>
+
+            <div className="
+              w-14 h-14
+              rounded-2xl
+              bg-slate-200
+              flex items-center justify-center
+              text-2xl
+              mb-6
+            ">
+              🔱
+            </div>
+
+            <h3 className="
+              text-2xl
+              font-bold
+              text-gray-900
+              mb-4
+            ">
+              Belief
+            </h3>
+
+            <p className="
+              text-gray-600
+              leading-7
+              text-base
+            ">
+              True devotion lies in compassion,
+              humility, service and inner discipline
+              guided by sincerity.
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* Bottom Wide Quote Card */}
+        <div className="
+          md:col-span-2
+          bg-white
+          rounded-[30px]
+          p-8 md:p-10
+          border border-gray-100
+          shadow-lg
+          relative overflow-hidden
+        ">
+
+          {/* Quote Glow */}
+          <div className="
+            absolute -right-6 -top-10
+            text-[120px]
+            text-slate-100
+            font-bold
+            leading-none
+          ">
+            ”
+          </div>
+
+          <p className="
+            relative z-10
+            text-xl md:text-2xl
+            font-semibold
+            text-gray-800
+            leading-[42px]
+            max-w-3xl
+          ">
+            “Spirituality is not only devotion,
+            but also service, compassion and
+            preserving the values of humanity.”
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>      {/* ===== EMINENT PERSONALITIES SECTION ===== */}
 
 <section className="py-24 px-6 bg-gradient-to-b from-orange-50 via-white to-orange-50">
 
