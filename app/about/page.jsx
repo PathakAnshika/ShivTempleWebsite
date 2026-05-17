@@ -681,62 +681,227 @@ export default function AboutPage() {
 
 </section>
       {/* ===== FOUNDER MESSAGE ===== */}
-<section className="bg-gradient-to-r from-purple-50 via-white to-purple-100 py-24">
-  <div className="max-w-6xl mx-auto px-6">
+{/* ===== FOUNDER MESSAGE ===== */}
+{/* ===== FOUNDER MESSAGE ===== */}
+<section className="bg-[#f8f8f6] py-20 overflow-hidden relative">
 
-    <h2 className="text-3xl font-semibold text-purple-900 text-center mb-16">
-      Founder’s Message
-    </h2>
+  {/* Soft Background Glow */}
+  <div className="
+    absolute -top-24 -left-24
+    w-72 h-72
+    bg-slate-200/40
+    rounded-full
+    blur-3xl
+  "></div>
 
-    <div className="grid md:grid-cols-2 gap-14 items-center">
+  <div className="
+    absolute -bottom-24 -right-24
+    w-80 h-80
+    bg-gray-200/40
+    rounded-full
+    blur-3xl
+  "></div>
 
-      {/* LEFT SIDE – FOUNDER IMAGE */}
-      <div className="flex justify-center">
-        <div className="relative">
-           <img
-      src="/images/Founder'sImage.jpeg"
-      alt="Founder"
-      className="
-        w-[600px]
-        h-[420px] 
-        object-cover 
-        rounded-3xl 
-        shadow-2xl 
-        border-4 border-white
-      "
-    />
+  <div className="
+    relative z-10
+    max-w-6xl mx-auto
+    px-6
+  ">
 
-          {/* soft glow effect */}
-          <div className="absolute inset-0 rounded-3xl bg-purple-200/10 blur-xl"></div>
+    {/* Heading */}
+    <div className="text-center mb-14">
+
+      <p className="
+        uppercase tracking-[5px]
+        text-slate-500
+        text-xs font-semibold
+        mb-4
+      ">
+        Founder’s Vision
+      </p>
+
+      <h2 className="
+        text-3xl md:text-5xl
+        font-bold
+        text-gray-900
+      ">
+        Founder’s Message
+      </h2>
+
+    </div>
+
+    {/* Main Card */}
+    <div className="
+      bg-white/80
+      backdrop-blur-xl
+      border border-white
+      shadow-[0_20px_50px_rgba(0,0,0,0.06)]
+      rounded-[38px]
+      overflow-hidden
+      grid lg:grid-cols-2
+      items-center
+    ">
+
+      {/* ===== LEFT IMAGE ===== */}
+      <div className="
+        relative
+        h-full
+        flex items-center
+        justify-center
+        p-8
+      ">
+
+        <div className="
+          relative
+          w-full
+          rounded-[30px]
+          overflow-hidden
+          shadow-xl
+        ">
+
+          <img
+            src="/images/Founder'sImage.jpeg"
+            alt="Founder"
+            className="
+              w-full
+              h-[520px]
+              object-cover
+              object-top
+            "
+          />
+
+          {/* Soft Overlay */}
+          <div className="
+            absolute inset-0
+            bg-gradient-to-t
+            from-black/35 via-transparent to-transparent
+          "></div>
+
+          {/* Floating Quote */}
+          <div className="
+            absolute bottom-6 left-6 right-6
+            bg-white/10
+            backdrop-blur-md
+            border border-white/20
+            rounded-[24px]
+            p-5
+          ">
+
+            <p className="
+              text-white
+              text-base
+              leading-7
+              italic
+            ">
+              “A temple is not merely a place of worship,
+              but a sanctuary of peace, devotion and hope.”
+            </p>
+
+          </div>
+
         </div>
+
       </div>
 
-      {/* RIGHT SIDE – MESSAGE */}
-      <div className="text-gray-700 leading-relaxed text-lg space-y-6">
-        <p>
-          Shri Chandreshwar Dham was established with a sacred vision —
-          to create a divine space where devotion, discipline, and
-          spirituality guide every soul toward inner peace.
-        </p>
+      {/* ===== RIGHT CONTENT ===== */}
+      <div className="
+        p-10 md:p-12
+        flex flex-col justify-center
+      ">
 
-        <p>
-          The temple is not merely a place of worship, but a spiritual
-          center for cultural preservation, social upliftment, and
-          community harmony. Every initiative taken under this sacred
-          roof is dedicated to service, faith, and divine purpose.
-        </p>
+        {/* Big Quote */}
+        <div className="relative mb-8">
 
-        <p className="text-purple-900 font-semibold text-xl pt-4">
-          —  Shri Akhoury Ravindra Prasad
-        </p>
+          <div className="
+            absolute -top-8 left-0
+            text-[90px]
+            text-slate-100
+            font-bold
+            leading-none
+          ">
+            “
+          </div>
 
-        <p className="text-sm text-gray-500">
-          Founder, Shri Chandreshwar Dham
-        </p>
+          <p className="
+            relative z-10
+            text-xl md:text-2xl
+            leading-[42px]
+            font-semibold
+            text-gray-800
+          ">
+            Shri Chandreshwar Dham was established
+            with a sacred vision — to create a divine
+            space where devotion, discipline and
+            spirituality guide every soul toward inner peace.
+          </p>
+
+        </div>
+
+        {/* Divider */}
+        <div className="
+          w-16 h-[2px]
+          bg-slate-300
+          mb-8
+        "></div>
+
+        {/* Message */}
+        <div className="space-y-6">
+
+          <p className="
+            text-gray-600
+            leading-8
+            text-base md:text-lg
+          ">
+            The temple is not merely a place of worship,
+            but a spiritual center for cultural preservation,
+            social upliftment and community harmony.
+          </p>
+
+          <p className="
+            text-gray-600
+            leading-8
+            text-base md:text-lg
+          ">
+            Every initiative taken under this sacred roof
+            is dedicated to service, faith and divine purpose —
+            inspiring future generations to remain connected
+            with spirituality and humanity.
+          </p>
+
+        </div>
+
+        {/* Signature */}
+        <div className="
+          mt-12
+          pt-6
+          border-t border-slate-200
+        ">
+
+          <h3 className="
+            text-xl
+            font-semibold
+            text-gray-900
+          ">
+            — Shri Akhoury Ravindra Prasad
+          </h3>
+
+          <p className="
+            text-slate-500
+            mt-2
+            text-sm
+            tracking-wide
+          ">
+            Founder, Shri Chandreshwar Dham
+          </p>
+
+        </div>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
 {/* ===== FOUNDER MESSAGE SECTION ===== */}
 
