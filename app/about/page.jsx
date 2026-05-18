@@ -166,38 +166,159 @@ export default function AboutPage() {
 
 </section>
 
-      {/* ===== TEMPLE HISTORY ===== */}
-      <section className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-semibold text-purple-900 mb-8">
-            Temple History
-          </h2>
+  {/* ===== TEMPLE HISTORY ===== */}
+<section className="bg-[#f8f8f6] py-16 overflow-hidden">
 
-          <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
-            <p>
-              Shri Chandreshwar Dham was established with a divine vision
-              to create a spiritual sanctuary where devotees can experience
-              peace, devotion, and inner awakening. Over the years, the temple
-              has evolved into a center of faith, drawing devotees from
-              surrounding regions and beyond.
-            </p>
+  <div className="max-w-6xl mx-auto px-6">
 
-            <p>
-              The temple stands as a symbol of unwavering devotion to Lord
-              Shiva and has become a sacred destination for spiritual
-              gatherings, rituals, and major Hindu festivals.
-            </p>
+    {/* Heading */}
+    <div className="text-center mb-14">
 
-            <p>
-              With continuous efforts from temple management and devotees,
-              Shri Chandreshwar Dham has expanded its role beyond worship,
-              embracing social and cultural initiatives for the betterment
-              of society.
-            </p>
-          </div>
+      <p className="
+        uppercase tracking-[5px]
+        text-slate-500
+        text-xs font-semibold
+        mb-3
+      ">
+        Sacred Journey
+      </p>
+
+      <h2 className="
+        text-3xl md:text-4xl
+        font-bold
+        text-gray-900
+      ">
+        Temple History
+      </h2>
+
+    </div>
+
+    {/* Main Layout */}
+    <div className="
+      grid lg:grid-cols-[1.1fr_0.9fr]
+      gap-10
+      items-center
+    ">
+
+      {/* ===== LEFT CONTENT ===== */}
+      <div className="
+        bg-white
+        rounded-[34px]
+        p-8 md:p-10
+        shadow-lg
+        border border-gray-100
+      ">
+
+        <div className="space-y-6">
+
+          <p className="
+            text-gray-600
+            leading-8
+            text-base md:text-lg
+          ">
+            Shri Chandreshwar Dham was established
+            with a divine vision to create a spiritual
+            sanctuary where devotees can experience
+            peace, devotion, and inner awakening.
+          </p>
+
+          <p className="
+            text-gray-600
+            leading-8
+            text-base md:text-lg
+          ">
+            Over the years, the temple has evolved
+            into a center of faith, drawing devotees
+            from surrounding regions and beyond.
+          </p>
+
+          <p className="
+            text-gray-600
+            leading-8
+            text-base md:text-lg
+          ">
+            With continuous efforts from temple
+            management and devotees, Shri Chandreshwar
+            Dham has expanded its role beyond worship,
+            embracing social and cultural initiatives
+            for the betterment of society.
+          </p>
+
         </div>
-      </section>
-{/* ===== VISION / MISSION / BELIEF ===== */}
+
+      </div>
+
+      {/* ===== RIGHT SIDE ===== */}
+      <div className="relative">
+
+        {/* Main Image */}
+        <div className="
+          rounded-[34px]
+          overflow-hidden
+          shadow-xl
+          relative
+        ">
+
+          <img
+            src="/images/MandirStructure.jpeg"
+            alt="Temple"
+            className="
+              w-full
+              h-[450px]
+              object-cover
+            "
+          />
+
+          {/* Overlay */}
+          <div className="
+            absolute inset-0
+            bg-gradient-to-t
+            from-black/30 via-transparent to-transparent
+          "></div>
+
+        </div>
+
+        {/* Floating Small Card */}
+        <div className="
+          absolute -bottom-6 left-6
+          bg-white/95
+          backdrop-blur-md
+          rounded-[24px]
+          p-5
+          shadow-lg
+          border border-gray-100
+          max-w-[240px]
+        ">
+
+          <p className="
+            text-sm
+            text-slate-500
+            uppercase tracking-[3px]
+            mb-2
+          ">
+            Established With Faith
+          </p>
+
+          <p className="
+            text-gray-800
+            text-base
+            leading-7
+            font-medium
+          ">
+            A sacred destination preserving
+            spirituality, culture and devotion.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 {/* ===== VISION / MISSION / BELIEF ===== */}
 <section className="bg-[#f8f8f6] py-20 overflow-hidden">
 
