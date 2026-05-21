@@ -2,77 +2,427 @@
 
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { FaGoogle, FaMobileAlt, FaEnvelope } from "react-icons/fa";
+
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaLock,
+  FaUser,
+} from "react-icons/fa";
+
+import { useState } from "react";
 
 export default function RegisterPage() {
+
   const router = useRouter();
 
+  const [registerType, setRegisterType] = useState("phone");
+
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-200/40 via-purple-50 to-white relative overflow-hidden">
 
-      {/* Soft Background Blurs */}
-      <div className="absolute top-10 left-10 w-48 h-48 bg-purple-300/30 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-64 h-64 bg-pink-300/30 blur-3xl rounded-full"></div>
+    <section className="
+      min-h-screen
+      flex items-center justify-center
+      bg-gradient-to-br
+      from-purple-300/20
+      via-purple-100/40
+      to-white
+      relative overflow-hidden
+      px-4
+    ">
 
-      {/* Sign Up Card */}
+      {/* Soft Floating Blobs */}
+      <div className="
+        absolute top-0 left-0
+        w-72 h-72
+        bg-purple-300/30
+        blur-3xl
+        rounded-full
+        animate-pulse
+      "></div>
+
+      <div className="
+        absolute bottom-0 right-0
+        w-96 h-96
+        bg-pink-300/30
+        blur-[120px]
+        rounded-full
+        animate-pulse
+      "></div>
+
+      {/* REGISTER CARD */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white/60 backdrop-blur-xl p-10 rounded-3xl shadow-2xl w-full max-w-md border border-white/20 z-10"
+        transition={{ duration: 0.7 }}
+        className="
+          bg-white/50
+          backdrop-blur-2xl
+          p-6 md:p-7
+          rounded-3xl
+          shadow-2xl
+          border border-white/30
+          w-full
+          max-w-2xl
+          z-10
+        "
       >
-        <h2 className="text-3xl font-bold text-center text-purple-900 mb-8 tracking-wide">
+
+        {/* Header */}
+        <motion.h2
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="
+            text-2xl
+            font-bold
+            text-center
+            text-purple-900
+            mb-3
+            tracking-wide
+          "
+        >
           Create Your Account 🙏
-        </h2>
+        </motion.h2>
 
-        <div className="space-y-5">
+        <p className="
+          text-center
+          text-gray-600
+          mb-5
+          leading-7
+        ">
+          Begin your spiritual journey with
+          Shri Chandreshwar Dham.
+        </p>
 
-          {/* SIGN UP WITH MOBILE */}
+        {/* REGISTER TYPE SWITCH */}
+        <div className="
+          flex
+          bg-purple-100/70
+          p-1.5
+          rounded-2xl
+          mb-5
+        ">
+
           <button
-            onClick={() => router.push("/DevoteeCorner/register-mobile")}
-            className="w-full flex items-center justify-center gap-3 border border-purple-400 text-purple-700 py-3 rounded-xl bg-white/70 hover:bg-purple-100 transition-all shadow-sm hover:shadow-lg"
+            onClick={() => setRegisterType("phone")}
+            className={`
+              flex-1
+              py-2.5
+              rounded-xl
+              text-sm
+              font-medium
+              transition-all
+
+              ${
+                registerType === "phone"
+                  ? "bg-white text-purple-700 shadow-md"
+                  : "text-gray-600"
+              }
+            `}
           >
-            <FaMobileAlt className="text-lg" />
-            Sign Up with Mobile (OTP)
+            Register with Phone Number
           </button>
 
-          {/* SIGN UP WITH GOOGLE */}
           <button
-            onClick={() => alert("➡ Google SignUp implement karenge")}
-            className="w-full flex items-center justify-center gap-3 border border-purple-400 text-purple-700 py-3 rounded-xl bg-white/70 hover:bg-purple-100 transition-all shadow-sm hover:shadow-lg"
+            onClick={() => setRegisterType("email")}
+            className={`
+              flex-1
+              py-2.5
+              rounded-xl
+              text-sm
+              font-medium
+              transition-all
+
+              ${
+                registerType === "email"
+                  ? "bg-white text-purple-700 shadow-md"
+                  : "text-gray-600"
+              }
+            `}
           >
-            <FaGoogle className="text-lg" />
-            Continue with Google
+            Register with Email
           </button>
 
-          {/* SIGN UP WITH EMAIL / PASSWORD */}
-          <button
-            onClick={() => router.push("/DevoteeCorner/register-email")}
-            className="w-full flex items-center justify-center gap-3 border border-purple-400 text-purple-700 py-3 rounded-xl bg-white/70 hover:bg-purple-100 transition-all shadow-sm hover:shadow-lg"
-          >
-            <FaEnvelope className="text-lg" />
-            Sign Up with Email & Password
-          </button>
         </div>
 
-        {/* Already account */}
-        <p className="text-center text-gray-700 mt-6">
+        {/* FORM */}
+        <div className="grid md:grid-cols-2 gap-4">
+
+          {/* FULL NAME */}
+          <div>
+
+            <label className="
+              block
+              text-sm
+              font-medium
+              text-purple-900
+              mb-1.5
+            ">
+              Full Name
+            </label>
+
+            <div className="relative">
+
+              <FaUser className="
+                absolute left-4 top-1/2
+                -translate-y-1/2
+                text-purple-500
+              " />
+
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                className="
+                  w-full
+                  pl-12 pr-4 py-3
+                  rounded-2xl
+                  border border-purple-200
+                  bg-white/80
+                  text-gray-700
+                  outline-none
+                  focus:ring-2 focus:ring-purple-300
+                "
+              />
+
+            </div>
+
+          </div>
+
+          {/* PHONE REGISTER */}
+          {registerType === "phone" && (
+            <>
+
+              {/* Phone */}
+              <div>
+
+                <label className="
+                  block
+                  text-sm
+                  font-medium
+                  text-purple-900
+                  mb-1.5
+                ">
+                  Phone Number
+                </label>
+
+                <div className="relative">
+
+                  <FaPhoneAlt className="
+                    absolute left-4 top-1/2
+                    -translate-y-1/2
+                    text-purple-500
+                  " />
+
+                  <input
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    className="
+                      w-full
+                      pl-12 pr-4 py-3
+                      rounded-2xl
+                      border border-purple-200
+                      bg-white/80
+                      text-gray-700
+                      outline-none
+                      focus:ring-2 focus:ring-purple-300
+                    "
+                  />
+
+                </div>
+
+              </div>
+
+            </>
+          )}
+
+          {/* EMAIL REGISTER */}
+          {registerType === "email" && (
+            <>
+
+              {/* Email */}
+              <div>
+
+                <label className="
+                  block
+                  text-sm
+                  font-medium
+                  text-purple-900
+                  mb-1.5
+                ">
+                  Email Address
+                </label>
+
+                <div className="relative">
+
+                  <FaEnvelope className="
+                    absolute left-4 top-1/2
+                    -translate-y-1/2
+                    text-purple-500
+                  " />
+
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    className="
+                      w-full
+                      pl-12 pr-4 py-3
+                      rounded-2xl
+                      border border-purple-200
+                      bg-white/80
+                      text-gray-700
+                      outline-none
+                      focus:ring-2 focus:ring-purple-300
+                    "
+                  />
+
+                </div>
+
+              </div>
+
+            </>
+          )}
+
+          {/* Password */}
+          <div>
+
+            <label className="
+              block
+              text-sm
+              font-medium
+              text-purple-900
+              mb-1.5
+            ">
+              Password
+            </label>
+
+            <div className="relative">
+
+              <FaLock className="
+                absolute left-4 top-1/2
+                -translate-y-1/2
+                text-purple-500
+              " />
+
+              <input
+                type="password"
+                placeholder="Create your password"
+                className="
+                  w-full
+                  pl-12 pr-4 py-3
+                  rounded-2xl
+                  border border-purple-200
+                  bg-white/80
+                  text-gray-700
+                  outline-none
+                  focus:ring-2 focus:ring-purple-300
+                "
+              />
+
+            </div>
+
+          </div>
+
+          {/* Confirm Password */}
+          <div>
+
+            <label className="
+              block
+              text-sm
+              font-medium
+              text-purple-900
+              mb-1.5
+            ">
+              Confirm Password
+            </label>
+
+            <div className="relative">
+
+              <FaLock className="
+                absolute left-4 top-1/2
+                -translate-y-1/2
+                text-purple-500
+              " />
+
+              <input
+                type="password"
+                placeholder="Confirm your password"
+                className="
+                  w-full
+                  pl-12 pr-4 py-3
+                  rounded-2xl
+                  border border-purple-200
+                  bg-white/80
+                  text-gray-700
+                  outline-none
+                  focus:ring-2 focus:ring-purple-300
+                "
+              />
+
+            </div>
+
+          </div>
+
+          {/* Continue Button */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            className="
+              md:col-span-2
+              w-full
+              py-3
+              rounded-2xl
+              bg-purple-700
+              hover:bg-purple-800
+              text-white
+              font-semibold
+              shadow-lg
+              transition-all
+              mt-2
+            "
+          >
+            Create Account
+          </motion.button>
+
+        </div>
+
+        {/* Login */}
+        <p className="
+          text-center
+          text-gray-700
+          mt-4
+        ">
           Already have an account?{" "}
+
           <button
             onClick={() => router.push("/DevoteeCorner/login")}
-            className="text-purple-700 font-semibold hover:underline"
+            className="
+              text-purple-700
+              font-semibold
+              hover:underline
+            "
           >
             Login
           </button>
+
         </p>
 
         {/* Back */}
         <button
           onClick={() => router.push("/")}
-          className="mt-4 w-full text-purple-700 hover:underline font-medium"
+          className="
+            mt-3
+            w-full
+            text-purple-700
+            hover:underline
+            font-medium
+          "
         >
           ← Back to Website
         </button>
+
       </motion.div>
+
     </section>
   );
 }
