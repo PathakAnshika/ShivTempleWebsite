@@ -1,8 +1,8 @@
 "use client";
 
 import { FcGoogle } from "react-icons/fc";
-import { supabase } from "@/lib/supabaseClient";
-
+import { supabase } from "@/lib/supabase.js";
+import { FaGoogle } from "react-icons/fa";
 
 export default function RegisterGooglePage() {
 

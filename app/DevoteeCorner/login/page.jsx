@@ -4,6 +4,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaLock,
+  FaGoogle
 } from "react-icons/fa";
 
 import { motion } from "framer-motion";
