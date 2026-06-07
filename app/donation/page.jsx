@@ -38,6 +38,8 @@ const donationOptions = [
 
     const res = await fetch("/api/darpan");
     const data = await res.json();
+      console.log("DONORS DATA:", data);
+  console.log("IS ARRAY:", Array.isArray(data));
 
     setDonors(data);
 
