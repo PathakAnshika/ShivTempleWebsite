@@ -41,7 +41,12 @@ const donationOptions = [
       console.log("DONORS DATA:", data);
   console.log("IS ARRAY:", Array.isArray(data));
 
-    setDonors(data);
+    if (Array.isArray(data)) {
+  setDonors(data);
+} else {
+  console.error("API Error:", data);
+  setDonors([]);
+}
 
   };
 
@@ -140,7 +145,7 @@ const handleCardSelect = (opt) => {
   
   return (
 
-  <div className="h-screen overflow-hidden bg-[#fafafa] pt-10 px-6">
+  <div className="h-screen bg-[#fafafa] pt-10 px-6">
 
       {/* BACK */}
    <button
@@ -341,7 +346,8 @@ const handleCardSelect = (opt) => {
 
       <tbody>
 
-        {donors.map((d, i) => (
+      {Array.isArray(donors) &&
+  donors.map((d, i) => (
 
           <tr
             key={i}
