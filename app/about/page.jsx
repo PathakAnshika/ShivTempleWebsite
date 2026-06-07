@@ -869,89 +869,110 @@ export default function AboutPage() {
       {/* ===== CONTENT ===== */}
       <div className="p-8 md:p-10">
 
-        {/* Quote */}
-        <div className="relative mb-6">
+      {/* Quote */}
+{/* Heading */}
+<div className="relative mb-6">
 
-          <div className="
-            absolute -top-6 left-0
-            text-[70px]
-            text-slate-100
-            font-bold
-            leading-none
-          ">
-            “
-          </div>
-
-          <p className="
-            relative z-10
-            text-lg md:text-xl
-            leading-[38px]
-            font-semibold
-            text-gray-800
-          ">
-            Shri Chandreshwar Dham was established
-            with a sacred vision — to create a divine
-            space where devotion and spirituality guide
-            every soul toward inner peace.
-          </p>
-
-        </div>
-
-        {/* Message */}
-        <div className="space-y-5">
-
-          <p className="
-            text-gray-600
-            leading-8
-            text-base
-          ">
-            The temple is not merely a place of worship,
-            but a spiritual center for cultural preservation,
-            social upliftment and community harmony.
-          </p>
-
-          <p className="
-            text-gray-600
-            leading-8
-            text-base
-          ">
-            Every initiative under this sacred roof
-            is dedicated to service, faith and divine purpose.
-          </p>
-
-        </div>
-
-        {/* Signature */}
-        <div className="
-          mt-8
-          pt-5
-          border-t border-slate-200
-        ">
-
-          <h3 className="
-            text-lg
-            font-semibold
-            text-gray-900
-          ">
-            — Shri Akhoury Ravindra Prasad
-          </h3>
-
-          <p className="
-            text-slate-500
-            mt-1
-            text-sm
-          ">
-            Founder, Shri Chandreshwar Dham
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
+  <div
+    className="
+      absolute
+      -top-6
+      left-0
+      text-[70px]
+      text-slate-100
+      font-bold
+      leading-none
+    "
+  >
+    “
   </div>
 
+  <h3
+    className="
+      relative z-10
+      text-3xl
+      font-bold
+      text-slate-800
+      pl-4
+    "
+  >
+    प्रिय साथियों,
+  </h3>
+
+</div>
+
+{/* Highlight Line */}
+<p
+  className="
+    text-xl
+    leading-[42px]
+    font-semibold
+    text-gray-800
+    mb-6
+  "
+>
+  हमारा उद्देश्य केवल एक संस्था का निर्माण करना नहीं,
+  बल्कि समाज के प्रत्येक व्यक्ति तक शिक्षा, जागरूकता
+  और विकास के अवसर पहुँचाना है।
+</p>
+
+{/* Main Message */}
+{/* Message */}
+<p
+  className="
+    text-gray-600
+    leading-9
+    text-lg
+    text-justify
+  "
+>
+  हमारा उद्देश्य केवल एक संस्था का निर्माण करना नहीं,
+  बल्कि समाज के प्रत्येक व्यक्ति तक शिक्षा, जागरूकता
+  और विकास के अवसर पहुँचाना है। हमारा विश्वास है कि
+  वास्तविक प्रगति ज्ञान, संस्कार और आत्मनिर्भरता से
+  आती है। शिक्षा, सामाजिक सहयोग एवं जनकल्याण के
+  माध्यम से हम एक सशक्त, जागरूक और समृद्ध समाज के
+  निर्माण के लिए निरंतर कार्यरत हैं। पारदर्शिता,
+  समर्पण और सेवा हमारे मूल मूल्य हैं, और आप सभी के
+  सहयोग एवं विश्वास से ही हम अपने इस संकल्प को आगे
+  बढ़ा रहे हैं।
+</p>
+
+{/* Signature */}
+<div
+  className="
+    mt-6
+    pt-4
+    border-t border-slate-200
+    w-full
+    flex
+    flex-col
+    items-end
+  "
+>
+  <h3
+    className="
+      text-xl
+      font-semibold
+      text-gray-900
+    "
+  >
+    — Shri Akhoury Ravindra Prasad
+  </h3>
+
+  <p
+    className="
+      text-slate-500
+      mt-1
+      text-sm
+    "
+  >
+    Founder, Shri Chandreshwar Dham
+  </p>
+  </div>
+  </div>
+  </div>
+</div> {/* ✅ CONTENT DIV YAHAN CLOSE HOGA */}
 </section>
 {/* ===== FOUNDER MESSAGE SECTION ===== */}
 
@@ -1118,6 +1139,7 @@ export default function AboutPage() {
     </div>
 
   </div>
+  
 
 </section>
 
