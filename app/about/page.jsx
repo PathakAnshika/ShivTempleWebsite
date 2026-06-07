@@ -706,7 +706,7 @@ export default function AboutPage() {
           text-sm font-semibold text-orange-700
           shadow-md
         ">
-        Youth Engagement & Cultural Programs
+       Community Welfare & Education Lead
         </div>
 
       </div>
@@ -715,18 +715,18 @@ export default function AboutPage() {
       <div className="p-7">
 
         <h3 className="text-2xl font-bold text-gray-800">
-          Mughda Singh
+          Dr. Nidhi Bharti
         </h3>
 
         <p className="text-orange-600 font-medium mt-2">
-       Coordinator – Youth & Cultural Affairs
+        Director of Social Initiatives
         </p>
 
         <p className="text-gray-600 text-sm leading-7 mt-5">
-          Mugdha Singh contributes to youth engagement, cultural activities,
-          and devotional programs at Shri Chandreshwar Dham. Through her
-          active involvement in organizing events and community initiatives,
-          she helps promote spiritual values among younger generations.
+        Dr. Nidhi Bharti actively supports educational, social welfare,
+        and community engagement initiatives associated with the temple.
+        Her dedication towards service, empowerment, and cultural
+        awareness helps strengthen the temple's mission of social upliftment.
         </p>
 
       </div>
@@ -748,7 +748,7 @@ export default function AboutPage() {
 
         <img
           src="/images/person3.jpg"
-          alt="Dr. Nidhi Bharti"
+          alt="Mughda Singh"
           className="
             w-full h-full object-cover
             transition-transform duration-700
@@ -770,7 +770,7 @@ export default function AboutPage() {
           text-sm font-semibold text-orange-700
           shadow-md
         ">
-          Youth & Community Development Head
+          Youth Engagement & Cultural Programs
         </div>
 
       </div>
@@ -779,19 +779,18 @@ export default function AboutPage() {
       <div className="p-7">
 
         <h3 className="text-2xl font-bold text-gray-800">
-          Dr. Nidhi Bharti
+          Mughda Singh
         </h3>
 
         <p className="text-orange-600 font-medium mt-2">
-          Community Development Head
+          Coordinator – Youth & Cultural Affairs
         </p>
 
         <p className="text-gray-600 text-sm leading-7 mt-5">
-          Dr. Nidhi Bharti actively contributes toward the
-          spiritual and social growth initiatives of the temple.
-          Her compassionate leadership supports youth engagement,
-          educational programs, women empowerment, and stronger
-          community connections through seva and cultural values.
+          Mugdha Singh contributes to youth engagement, cultural activities,
+          and devotional programs at Shri Chandreshwar Dham. Through her
+          active involvement in organizing events and community initiatives,
+          she helps promote spiritual values among younger generations.
         </p>
 
       </div>
