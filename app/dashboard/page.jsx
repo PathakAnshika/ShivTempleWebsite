@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { useRouter } from "next/navigation";
-
+import ScholarshipApplyPage from "@/app/scholarship/apply/page";
 export default function Dashboard() {
  
   const [activeTab, setActiveTab] = useState("home");
@@ -25,15 +25,64 @@ export default function Dashboard() {
   /* -----------------------------------------
       🌙 APPLY DARK MODE ON LOAD OR CHANGE
   ------------------------------------------- */
-useEffect(() => {
-  fetchEvents();
-}, []);
 
+  async () => {
 
+    try {
+       
+      const res = await fetch(
+        "/api/scholarship/my",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+
+          body: JSON.stringify({
+           user_id: userData?.id,
+          }),
+        }
+      );
+
+      const data =
+        await res.json();
+
+        console.log(data);
+
+      if (data.success) {
+
+        setApplication(
+          data.application
+        );
+      }
+
+    } catch (err) {
+
+      console.error(err);
+
+    } finally {
+
+      setLoading(false);
+    }
+};
 
   useEffect(() => {
   const stored = localStorage.getItem("user");
 
+    const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const tab =
+    params.get("tab");
+
+  if (tab) {
+
+    setActiveTab(tab);
+  }
   if (!stored) {
     router.replace("/DevoteeCorner/login");
     return;
@@ -49,7 +98,7 @@ useEffect(() => {
     return;
   }
 
-  if (!parsedUser?.email || !parsedUser?.role) {
+ if (!parsedUser) { 
     localStorage.removeItem("user");
     router.replace("/DevoteeCorner/login");
     return;
@@ -180,6 +229,7 @@ useEffect(() => {
           { key: "membership", icon: "💳", label: "My Membership" },
           { key: "offerings", icon: "🎁", label: "Offerings" },
           { key: "notifications", icon: "🔔", label: "Notifications" },
+          { key: "scholarship", icon: "🎓", label: "Scholarship" },
           { key: "settings", icon: "⚙️", label: "Settings" },
         ].map((item) => (
          <button
@@ -238,6 +288,12 @@ useEffect(() => {
         )}
         {activeTab === "offerings" && <OfferingsPage />}
         {activeTab === "notifications" && <NotificationsPage />}
+        {activeTab === "scholarship" && (
+
+  <ScholarshipSection
+    user={userData}
+  />
+)}
        {activeTab === "settings" && 
   <SettingsPage 
     user={userData} 
@@ -336,7 +392,7 @@ function HomePage({ user, stats, events }) {
 function ProfilePage({ user }) {
   const [isEditing, setIsEditing] = React.useState(false);
   const [form, setForm] = React.useState({
-    name: user?.name || "",
+    name: user?.fullname || "",
     email: user?.email || "",
   });
 
@@ -508,84 +564,180 @@ function MembershipCard({ user, setUser }) {
               </h3>
 
               {/* FORM */}
-              <form
-                onSubmit={async (e) => {
-                  e.preventDefault();
+<form
+  onSubmit={async (e) => {
+    e.preventDefault();
 
-                  const formData = new FormData(e.target);
+    const formData = new FormData(e.target);
 
-                 const payload = {
-  user_id: user.id,        // ⭐ ADD THIS
-  full_name: formData.get("full_name"),
-  email: user.email,
-  phone: formData.get("phone"),
-  membership_type: formData.get("membership_type"),
-};
+    const payload = {
+      user_id: user.id,
+      full_name: formData.get("full_name"),
+      email: user.email || formData.get("email"),
+      phone: formData.get("phone"),
+      membership_type: formData.get("membership_type"),
+    };
 
+    try {
 
-                  try {
-                    const res = await fetch("/api/membership", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(payload),
-                    });
+      const res = await fetch("/api/membership", {
+        method: "POST",
 
-                    const data = await res.json();
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-                    if (data.success) {
-                      alert("🎉 Membership Registered Successfully!");
-                      setUser({
-                        ...user,
-                        is_member: true,
-                        membership_type: payload.membership_type,
-                        membership_date: new Date().toISOString(),
-                      });
-                      setShowPopup(false);
-                    } else {
-                      alert(data.message);
-                    }
-                  } catch (err) {
-                    console.error(err);
-                    alert("Something went wrong");
-                  }
-                }}
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="full_name"
-                  placeholder="Full Name"
-                  required
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-400"
-                />
+        body: JSON.stringify(payload),
+      });
 
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone Number"
-                  required
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-400"
-                />
+      const data = await res.json();
 
-                <select
-                  name="membership_type"
-                  required
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-400"
-                >
-                  <option value="">Select Membership Type</option>
-                  <option value="Basic">Basic</option>
-                  <option value="Premium">Premium</option>
-                  <option value="Lifetime">Lifetime</option>
-                </select>
+      if (data.success) {
 
-                {/* BUTTON — FIXED */}
-                <button
-                  type="submit"
-                  className="bg-purple-600 text-white w-full py-3 rounded-xl font-semibold hover:bg-purple-700 transition"
-                >
-                  Confirm Membership 🙏
-                </button>
-              </form>
+        alert("🎉 Membership Registered Successfully!");
+
+        setUser({
+          ...user,
+          is_member: true,
+          membership_type: payload.membership_type,
+          membership_date: new Date().toISOString(),
+        });
+
+        setShowPopup(false);
+
+      } else {
+
+        alert(data.message);
+      }
+
+    } catch (err) {
+
+      console.error(err);
+
+      alert("Something went wrong");
+    }
+  }}
+
+  className="space-y-4"
+>
+
+  {/* FULL NAME */}
+  <input
+    type="text"
+    name="full_name"
+    placeholder="Enter Full Name"
+    required
+
+    className="
+      w-full
+      px-4 py-3
+      border border-purple-200
+      rounded-xl
+      bg-white
+      text-gray-800
+      placeholder:text-gray-500
+      outline-none
+      focus:ring-2
+      focus:ring-purple-400
+    "
+  />
+
+  {/* PHONE */}
+  <input
+    type="text"
+    name="phone"
+    placeholder="Enter Phone Number"
+    required
+
+    className="
+      w-full
+      px-4 py-3
+      border border-purple-200
+      rounded-xl
+      bg-white
+      text-gray-800
+      placeholder:text-gray-500
+      outline-none
+      focus:ring-2
+      focus:ring-purple-400
+    "
+  />
+
+  {/* EMAIL */}
+  <input
+    type="email"
+    name="email"
+    placeholder="Enter Email Address"
+    required
+
+    className="
+      w-full
+      px-4 py-3
+      border border-purple-200
+      rounded-xl
+      bg-white
+      text-gray-800
+      placeholder:text-gray-500
+      outline-none
+      focus:ring-2
+      focus:ring-purple-400
+    "
+  />
+
+  {/* MEMBERSHIP TYPE */}
+  <select
+    name="membership_type"
+    required
+
+    className="
+      w-full
+      px-4 py-3
+      border border-purple-200
+      rounded-xl
+      bg-white
+      text-gray-800
+      outline-none
+      focus:ring-2
+      focus:ring-purple-400
+    "
+  >
+    <option value="">
+      Select Membership Type
+    </option>
+
+    <option value="Basic">
+      Basic
+    </option>
+
+    <option value="Premium">
+      Premium
+    </option>
+
+    <option value="Lifetime">
+      Lifetime
+    </option>
+  </select>
+
+  {/* SUBMIT BUTTON */}
+  <button
+    type="submit"
+
+    className="
+      bg-purple-600
+      hover:bg-purple-700
+      text-white
+      w-full
+      py-3
+      rounded-xl
+      font-semibold
+      transition
+      shadow-md
+    "
+  >
+    Confirm Membership 🙏
+  </button>
+
+</form>
             </div>
           </div>
         )}
@@ -733,6 +885,320 @@ console.log("USER ID:", user?.id);
           </p>
         </div>
       ))}
+    </div>
+  );
+}
+
+function ScholarshipSection({ user }) {
+
+  const [applied, setApplied] =
+    useState(false);
+  const [application, setApplication] =
+  useState(null);
+
+const [loading, setLoading] =
+  useState(true);
+
+const [showForm, setShowForm] =
+  useState(false);
+  useEffect(() => {
+
+  if (user?.id) {
+
+    fetchApplication();
+  }
+
+}, [user]);
+
+const fetchApplication =
+  async () => {
+
+    try {
+
+      const res = await fetch(
+        "/api/scholarship/my",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+
+          body: JSON.stringify({
+            user_id: user.id,
+          }),
+        }
+      );
+
+      const data =
+        await res.json();
+
+      console.log(data);
+
+      if (data.success) {
+
+        setApplication(
+          data.application
+        );
+      }
+
+    } catch (err) {
+
+      console.error(err);
+
+    } finally {
+
+      setLoading(false);
+    }
+};
+  return (
+
+    <div className="space-y-8">
+
+      {/* HEADER */}
+      <div className="
+        bg-gradient-to-r
+        from-purple-600
+        to-fuchsia-600
+
+        text-white
+        p-8
+        rounded-3xl
+        shadow-lg
+      ">
+
+        <h1 className="
+          text-3xl
+          font-bold
+        ">
+          🎓 Medha Scholarship
+        </h1>
+
+        <p className="
+          mt-2
+          text-purple-100
+        ">
+          Apply for academic support
+          through Shri Chandreshwar
+          Dham
+        </p>
+
+      </div>
+
+    {/* NOT APPLIED */}
+{!application && !showForm && (
+
+  <div className="
+    bg-white
+    rounded-3xl
+    shadow-lg
+    p-10
+    text-center
+  ">
+
+    <h2 className="
+      text-2xl
+      font-bold
+      text-purple-700
+      mb-4
+    ">
+      Scholarship Application
+    </h2>
+
+    <p className="
+      text-gray-600
+      mb-8
+    ">
+      Complete your application
+      form to apply for the
+      Medha Scholarship Program.
+    </p>
+
+    <button
+      onClick={() =>
+        setShowForm(true)
+      }
+
+      className="
+        px-8 py-4
+        bg-purple-700
+        text-white
+        rounded-2xl
+        hover:bg-purple-800
+        transition
+        font-semibold
+      "
+    >
+      Continue Application →
+    </button>
+
+  </div>
+)}
+
+     {showForm && (
+
+ <ScholarshipApplyPage
+
+  onSuccess={(newApplication) => {
+
+    setApplication(
+      newApplication
+    );
+
+    setShowForm(false);
+  }}
+/>
+)}
+{application && (
+
+  <div className="
+    bg-white
+    rounded-3xl
+    shadow-lg
+    p-8
+    space-y-6
+  ">
+
+    <div className="
+      flex items-center
+      justify-between
+    ">
+
+      <div>
+
+        <h2 className="
+          text-2xl
+          font-bold
+          text-purple-700
+        ">
+          🎓 My Scholarship
+        </h2>
+
+        <p className="
+          text-gray-500
+          mt-1
+        ">
+          Application ID:
+          {" "}
+          {
+            application.application_id
+          }
+        </p>
+
+      </div>
+
+      <span
+        className={`
+          px-4 py-2
+          rounded-full
+          text-sm
+          font-semibold
+
+          ${
+            application.status ===
+            "approved"
+
+              ? "bg-green-100 text-green-700"
+
+              : application.status ===
+                "rejected"
+
+              ? "bg-red-100 text-red-700"
+
+              : application.status ===
+                "paid"
+
+              ? "bg-purple-100 text-purple-700"
+
+              : "bg-yellow-100 text-yellow-700"
+          }
+        `}
+      >
+        {application.status}
+      </span>
+
+    </div>
+
+    {/* DETAILS */}
+    <div className="
+      grid
+      md:grid-cols-2
+      gap-4
+    ">
+
+      <Info
+        label="Course"
+        value={
+          application.course
+        }
+      />
+
+      <Info
+        label="College"
+        value={
+          application.college
+        }
+      />
+
+      <Info
+        label="Marks"
+        value={`${application.marks}%`}
+      />
+
+      <Info
+        label="Family Income"
+        value={`₹${application.income}`}
+      />
+
+      <Info
+        label="Scholarship Amount"
+        value={`₹${
+          application.amount || 0
+        }`}
+      />
+
+      <Info
+        label="Applied Date"
+        value={
+          application.created_at
+        }
+      />
+
+      <Info
+        label="Paid Date"
+        value={
+          application.paid_at ||
+          "Pending"
+        }
+      />
+
+    </div>
+
+    {/* REASON */}
+    <div>
+
+      <h3 className="
+        text-lg
+        font-semibold
+        text-purple-700
+        mb-2
+      ">
+        Reason
+      </h3>
+
+      <p className="
+        text-gray-700
+      ">
+        {
+          application.reason
+        }
+      </p>
+
+    </div>
+
+  </div>
+)}
     </div>
   );
 }
@@ -977,6 +1443,35 @@ const SoftStatCard = ({ icon, title, value, subtitle }) => (
     <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
   </div>
 );
+function Info({ label, value }) {
+
+  return (
+
+    <div className="
+      bg-purple-50
+      rounded-2xl
+      p-4
+    ">
+
+      <p className="
+        text-sm
+        text-gray-500
+      ">
+        {label}
+      </p>
+
+      <p className="
+        text-lg
+        font-semibold
+        text-purple-700
+        mt-1
+      ">
+        {value || "-"}
+      </p>
+
+    </div>
+  );
+}
 
 const fetchHomeStats = async (user_id) => {
   try {

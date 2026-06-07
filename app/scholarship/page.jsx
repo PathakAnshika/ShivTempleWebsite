@@ -192,15 +192,47 @@ export default function ScholarshipPage() {
           a brighter academic future with the blessings of Shri Chandreshwar Dham.
         </p>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => router.push("/scholarship/apply")} // future page
-          className="px-10 py-4 bg-purple-700 text-white rounded-full shadow-lg hover:bg-purple-800 transition"
-        >
-          Apply for Scholarship →
-        </motion.button>
-      </section>
+     <motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+
+ onClick={() => {
+
+  const user =
+    localStorage.getItem("user");
+
+  // ❌ NOT LOGGED IN
+  if (!user) {
+
+    alert(
+      "To apply for the Medha Scholarship, please continue through your devotee dashboard 🙏"
+    );
+
+    router.push(
+      "/DevoteeCorner/login?redirect=scholarship"
+    );
+
+    return;
+  }
+
+  // ✅ ALREADY LOGGED IN
+  router.push(
+    "/dashboard?tab=scholarship"
+  );
+}}
+  className="
+    px-10 py-4
+    bg-purple-700
+    text-white
+    rounded-full
+    shadow-lg
+    hover:bg-purple-800
+    transition
+  "
+>
+  Apply for Scholarship →
+</motion.button>   
+ </section>
 
     </main>
   );

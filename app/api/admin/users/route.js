@@ -5,7 +5,7 @@ export async function GET() {
   try {
     // 🔹 Fetch users
     const { data: users, error: userError } = await supabase
-      .from("users")
+      .from("devotees")
       .select("*")
       .order("created_at", { ascending: false });
 

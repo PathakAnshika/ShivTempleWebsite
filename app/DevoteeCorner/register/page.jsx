@@ -16,8 +16,53 @@ export default function RegisterPage() {
 
   const router = useRouter();
 
-  const [registerType, setRegisterType] = useState("phone");
+const [registerType, setRegisterType] = useState("phone");
+const [fullName, setFullName] = useState("");
+const [phone, setPhone] = useState("");
+const [password, setPassword] = useState("");
+const [email, setEmail] = useState("");
 
+const handlePhoneRegister = async () => {
+
+  try {
+
+    const response = await fetch(
+      "/api/register-phone",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+       body: JSON.stringify({
+  full_name: fullName,
+  email,
+  phone,
+  password,
+})
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+
+      alert(data.error);
+      return;
+    }
+
+    alert("Account Created Successfully 🙏");
+
+    router.push("/DevoteeCorner/login");
+
+  } catch (error) {
+
+    console.log(error);
+
+    alert("Something went wrong");
+  }
+};
   return (
 
     <section className="
@@ -172,6 +217,10 @@ export default function RegisterPage() {
 
               <input
                 type="text"
+                value={fullName}
+onChange={(e) =>
+  setFullName(e.target.value)
+}
                 placeholder="Enter your full name"
                 className="
                   w-full
@@ -216,6 +265,10 @@ export default function RegisterPage() {
 
                   <input
                     type="tel"
+                    value={phone}
+onChange={(e) =>
+  setPhone(e.target.value)
+}
                     placeholder="Enter your phone number"
                     className="
                       w-full
@@ -261,20 +314,28 @@ export default function RegisterPage() {
                     text-purple-500
                   " />
 
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="
-                      w-full
-                      pl-12 pr-4 py-3
-                      rounded-2xl
-                      border border-purple-200
-                      bg-white/80
-                      text-gray-700
-                      outline-none
-                      focus:ring-2 focus:ring-purple-300
-                    "
-                  />
+                 <input
+  type="email"
+
+  value={email}
+
+  onChange={(e) =>
+    setEmail(e.target.value)
+  }
+
+  placeholder="Enter your email address"
+
+  className="
+    w-full
+    pl-12 pr-4 py-3
+    rounded-2xl
+    border border-purple-200
+    bg-white/80
+    text-gray-700
+    outline-none
+    focus:ring-2 focus:ring-purple-300
+  "
+/>
 
                 </div>
 
@@ -306,6 +367,10 @@ export default function RegisterPage() {
 
               <input
                 type="password"
+                value={password}
+onChange={(e) =>
+  setPassword(e.target.value)
+}
                 placeholder="Create your password"
                 className="
                   w-full
@@ -380,6 +445,7 @@ export default function RegisterPage() {
               transition-all
               mt-2
             "
+            onClick={handlePhoneRegister}
           >
             Create Account
           </motion.button>

@@ -19,19 +19,13 @@ export async function GET() {
       amount: d.amount,
       
       // 🔥 FIXED MAPPING
-      seva_type: d.purpose || "-",  
+    purpose: d.purpose || "-",
       status: d.payment_id ? "success" : "pending",
 
       payment_id: d.payment_id,
       show_public: d.show_public,
 
-      created_at: new Date(d.created_at).toLocaleString("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
+    created_at: d.created_at,
     }));
 
     return NextResponse.json({

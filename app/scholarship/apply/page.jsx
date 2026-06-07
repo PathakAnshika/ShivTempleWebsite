@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
 
-export default function ScholarshipApplyPage() {
+export default function ScholarshipApplyPage({
+  onSuccess,
+}) {
+
   const [step, setStep] = useState(1);
   const totalSteps = 6;
 
@@ -66,23 +69,80 @@ export default function ScholarshipApplyPage() {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-
+      const user =
+  JSON.parse(
+    localStorage.getItem("user")
+  );
       const res = await fetch("/api/scholarship/apply", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+       body: JSON.stringify({
+
+  ...form,
+
+  user_id: user.id,
+}),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        alert("Application Submitted Successfully 🎓");
-        window.location.reload();
-      } else {
-        alert(data.message || "Failed");
-      }
+
+  alert(
+    "🎓 Scholarship Application Submitted Successfully!"
+  );
+
+  // RESET FORM
+  setForm({
+    name: "",
+    email: "",
+    phone: "",
+    dob: "",
+    gender: "",
+    address: "",
+
+    city: "",
+    state: "",
+    pincode: "",
+
+    course: "",
+    college: "",
+    year: "",
+    marks: "",
+
+    income: "",
+    fatherOccupation: "",
+    motherOccupation: "",
+    dependents: "",
+    feeAmount: "",
+
+    bankName: "",
+    accountNumber: "",
+    ifsc: "",
+    reason: "",
+
+    agree: false,
+  });
+
+  // RESET STEP
+  setStep(1);
+
+  // SEND DATA TO DASHBOARD
+  if (onSuccess) {
+
+    onSuccess(
+      data.application
+    );
+  }
+
+} else {
+
+  alert(
+    data.message || "Failed"
+  );
+} 
 
     } catch (err) {
       console.error(err);

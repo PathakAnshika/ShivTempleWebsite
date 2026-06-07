@@ -53,7 +53,8 @@ export async function POST(req) {
 
   } catch (error) {
     console.error("Membership API Error:", error);
-
+console.log(error);
+console.log(error.message);
     return NextResponse.json(
       {
         success: false,

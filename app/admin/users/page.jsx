@@ -34,7 +34,7 @@ const [showModal, setShowModal] = useState(false);
 
   const testDB = async () => {
   const { data, error } = await supabase
-    .from("users")
+    .from("devotees")
     .select("*");
 
   console.log("DATA:", data);
@@ -121,7 +121,7 @@ const [showModal, setShowModal] = useState(false);
   ------------------------------------------- */
   const filteredUsers = users.filter(
     (u) =>
-      u.name.toLowerCase().includes(search.toLowerCase()) ||
+      u.full_name.toLowerCase().includes(search.toLowerCase()) ||
       u.email.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -187,7 +187,7 @@ const [showModal, setShowModal] = useState(false);
     {/* Name */}
     <td className="px-6 py-4">
       <p className="font-semibold text-gray-800">
-        {u.name || "-"}
+        {u.full_name || "-"}
       </p>
     </td>
 
@@ -282,7 +282,7 @@ const [showModal, setShowModal] = useState(false);
           👤
         </div>
         <h2 className="text-xl font-bold text-purple-700 mt-2">
-          {selectedUser.name}
+          {selectedUser.full_name}
         </h2>
         <p className="text-sm text-gray-500">{selectedUser.email}</p>
         <p>Total Donation: ₹{selectedUser.total_donation || 0}</p>

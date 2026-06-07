@@ -10,7 +10,7 @@ export async function GET() {
 
     // 🔹 TOTAL USERS
     const { data: usersData, error: usersError } = await supabase
-      .from("users")
+      .from("devotees")
       .select("id");
 
     // 🔹 TODAY DONATION
@@ -27,12 +27,12 @@ export async function GET() {
     }
 
     // 🔥 CALCULATIONS (manual)
-    const totalDonation = donationData.reduce(
-      (sum, d) => sum + (d.amount || 0),
-      0
-    );
-
-    const totalUsers = usersData.length;
+   const totalDonation = (donationData || []).reduce(
+  (sum, d) => sum + Number(d.amount || 0),
+  0
+);
+      
+    const totalUsers = usersData?.length || 0;
 
     const todayDonation = todayData.reduce(
       (sum, d) => sum + (d.amount || 0),

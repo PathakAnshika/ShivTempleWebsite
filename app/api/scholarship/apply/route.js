@@ -6,6 +6,8 @@ export async function POST(req) {
     const body = await req.json();
 
     const {
+      user_id,
+      application_id,
       name,
       email,
       phone,
@@ -62,8 +64,10 @@ export async function POST(req) {
       .from("scholarships")
       .insert([
         {
-          application_id: applicationId,
+           user_id,
 
+    application_id,
+    
           name,
           email,
           phone,
@@ -103,11 +107,12 @@ export async function POST(req) {
     /* =====================================
        RESPONSE
     ===================================== */
-    return NextResponse.json({
-      success: true,
-      message: "Application submitted successfully",
-      application: data,
-    });
+   return NextResponse.json({
+
+  success: true,
+
+  application: data[0],
+});
 
   } catch (err) {
     console.error("Scholarship Apply Error:", err);

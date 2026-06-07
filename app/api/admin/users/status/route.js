@@ -6,7 +6,7 @@ export async function POST(req) {
     const { userId, status } = await req.json();
 
     const { data, error } = await supabase
-      .from("users")
+      .from("devotees")
       .update({ status })
       .eq("id", userId);
 

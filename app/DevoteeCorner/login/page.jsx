@@ -4,7 +4,6 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaLock,
-  FaGoogle
 } from "react-icons/fa";
 
 import { motion } from "framer-motion";
@@ -17,6 +16,171 @@ export default function LoginPage() {
   const router = useRouter();
 
   const [loginType, setLoginType] = useState("phone");
+
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  /* -----------------------------
+      PHONE LOGIN
+  ----------------------------- */
+  const handlePhoneLogin = async () => {
+
+    try {
+
+      const response = await fetch(
+        "/api/login-phone",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            phone,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log("FULL DATA:", data);
+console.log("USER:", data.user);
+console.log("ROLE:", data.user?.role);
+      if (!response.ok) {
+
+        alert(data.error);
+        return;
+      }
+
+      // SAVE USER
+      localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+      );
+
+      alert("Login Successful 🙏");
+
+      setTimeout(() => {
+
+       if (data.user.role === "admin") {
+
+  router.push("/admin/dashboard");
+
+} else {
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const redirect =
+    params.get("redirect");
+
+  if (
+    redirect === "scholarship"
+  ) {
+
+    router.push(
+      "/dashboard?tab=scholarship"
+    );
+
+  } else {
+
+    router.push("/dashboard");
+  }
+}
+      }, 1000);
+
+    } catch (error) {
+
+      console.log(error);
+
+      alert("Something went wrong");
+    }
+  };
+
+  /* -----------------------------
+      EMAIL LOGIN
+  ----------------------------- */
+  const handleEmailLogin = async () => {
+
+    try {
+
+      const response = await fetch(
+        "/api/login-email",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+console.log(data.user);
+
+      if (!response.ok) {
+
+        alert(data.error);
+        return;
+      }
+
+      // SAVE USER
+      localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+      );
+
+      alert("Login Successful 🙏");
+
+     setTimeout(() => {
+
+ if (data?.user?.role === "admin") {
+
+  router.push("/admin/dashboard");
+
+} else {
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const redirect =
+    params.get("redirect");
+
+  if (
+    redirect === "scholarship"
+  ) {
+
+    router.push(
+      "/dashboard?tab=scholarship"
+    );
+
+  } else {
+
+    router.push("/dashboard");
+  }
+}
+
+}, 1000);
+
+    } catch (error) {
+
+      console.log(error);
+
+      alert("Something went wrong");
+    }
+  };
 
   return (
 
@@ -31,14 +195,13 @@ export default function LoginPage() {
       px-4
     ">
 
-      {/* Soft Floating Blobs */}
+      {/* BG BLOBS */}
       <div className="
         absolute top-0 left-0
         w-72 h-72
         bg-purple-300/30
         blur-3xl
         rounded-full
-        animate-pulse
       "></div>
 
       <div className="
@@ -47,14 +210,13 @@ export default function LoginPage() {
         bg-pink-300/30
         blur-[120px]
         rounded-full
-        animate-pulse
       "></div>
 
-      {/* LOGIN CARD */}
+      {/* CARD */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+
         className="
           bg-white/50
           backdrop-blur-2xl
@@ -68,34 +230,27 @@ export default function LoginPage() {
         "
       >
 
-        {/* Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="
-            text-2xl
-            font-bold
-            text-center
-            text-purple-900
-            mb-3
-            tracking-wide
-          "
-        >
+        {/* HEADING */}
+        <h2 className="
+          text-2xl
+          font-bold
+          text-center
+          text-purple-900
+          mb-3
+        ">
           Welcome Back, Devotee 🙏
-        </motion.h2>
+        </h2>
 
         <p className="
           text-center
           text-gray-600
           mb-5
-          leading-7
         ">
-          Continue your spiritual journey with
-          Shri Chandreshwar Dham.
+          Continue your spiritual journey
+          with Shri Chandreshwar Dham.
         </p>
 
-        {/* LOGIN TYPE SWITCH */}
+        {/* SWITCH */}
         <div className="
           flex
           bg-purple-100/70
@@ -106,13 +261,13 @@ export default function LoginPage() {
 
           <button
             onClick={() => setLoginType("phone")}
+
             className={`
               flex-1
               py-2.5
               rounded-xl
               text-sm
               font-medium
-              transition-all
 
               ${
                 loginType === "phone"
@@ -121,18 +276,18 @@ export default function LoginPage() {
               }
             `}
           >
-            Login with Phone Number
+            Login with Phone
           </button>
 
           <button
             onClick={() => setLoginType("email")}
+
             className={`
               flex-1
               py-2.5
               rounded-xl
               text-sm
               font-medium
-              transition-all
 
               ${
                 loginType === "email"
@@ -141,7 +296,7 @@ export default function LoginPage() {
               }
             `}
           >
-            Login with Email & Password
+            Login with Email
           </button>
 
         </div>
@@ -152,13 +307,10 @@ export default function LoginPage() {
           {/* PHONE LOGIN */}
           {loginType === "phone" && (
             <>
-
-              {/* Phone Number */}
               <div>
 
                 <label className="
-                  block
-                  text-sm
+                  block text-sm
                   font-medium
                   text-purple-900
                   mb-1.5
@@ -176,7 +328,15 @@ export default function LoginPage() {
 
                   <input
                     type="tel"
-                    placeholder="Enter your phone number"
+                  
+                    value={phone}
+
+                    onChange={(e) =>
+                      setPhone(e.target.value.trim())
+                    }
+
+                    placeholder="Enter phone number"
+
                     className="
                       w-full
                       pl-12 pr-4 py-3
@@ -185,67 +345,21 @@ export default function LoginPage() {
                       bg-white/80
                       text-gray-700
                       outline-none
-                      focus:ring-2 focus:ring-purple-300
                     "
                   />
 
                 </div>
-
               </div>
-
-              {/* Password */}
-              <div>
-
-                <label className="
-                  block
-                  text-sm
-                  font-medium
-                  text-purple-900
-                  mb-1.5
-                ">
-                  Password
-                </label>
-
-                <div className="relative">
-
-                  <FaLock className="
-                    absolute left-4 top-1/2
-                    -translate-y-1/2
-                    text-purple-500
-                  " />
-
-                  <input
-                    type="password"
-                    placeholder="Enter your password"
-                    className="
-                      w-full
-                      pl-12 pr-4 py-3
-                      rounded-2xl
-                      border border-purple-200
-                      bg-white/80
-                      text-gray-700
-                      outline-none
-                      focus:ring-2 focus:ring-purple-300
-                    "
-                  />
-
-                </div>
-
-              </div>
-
             </>
           )}
 
           {/* EMAIL LOGIN */}
           {loginType === "email" && (
             <>
-
-              {/* Email */}
               <div>
 
                 <label className="
-                  block
-                  text-sm
+                  block text-sm
                   font-medium
                   text-purple-900
                   mb-1.5
@@ -263,7 +377,15 @@ export default function LoginPage() {
 
                   <input
                     type="email"
-                    placeholder="Enter your email address"
+
+                    value={email}
+
+                    onChange={(e) =>
+                      setEmail(e.target.value)
+                    }
+
+                    placeholder="Enter email address"
+
                     className="
                       w-full
                       pl-12 pr-4 py-3
@@ -272,77 +394,64 @@ export default function LoginPage() {
                       bg-white/80
                       text-gray-700
                       outline-none
-                      focus:ring-2 focus:ring-purple-300
                     "
                   />
 
                 </div>
-
               </div>
-
-              {/* Password */}
-              <div>
-
-                <label className="
-                  block
-                  text-sm
-                  font-medium
-                  text-purple-900
-                  mb-1.5
-                ">
-                  Password
-                </label>
-
-                <div className="relative">
-
-                  <FaLock className="
-                    absolute left-4 top-1/2
-                    -translate-y-1/2
-                    text-purple-500
-                  " />
-
-                  <input
-                    type="password"
-                    placeholder="Enter your password"
-                    className="
-                      w-full
-                      pl-12 pr-4 py-3
-                      rounded-2xl
-                      border border-purple-200
-                      bg-white/80
-                      text-gray-700
-                      outline-none
-                      focus:ring-2 focus:ring-purple-300
-                    "
-                  />
-
-                </div>
-
-              </div>
-
             </>
           )}
 
-          {/* Forgot Password */}
-          <div className="
-            text-right
-            md:col-span-2
-          ">
+          {/* PASSWORD */}
+          <div>
 
-            <button className="
-              text-sm
-              text-purple-700
-              hover:underline
+            <label className="
+              block text-sm
+              font-medium
+              text-purple-900
+              mb-1.5
             ">
-              Forgot Password?
-            </button>
+              Password
+            </label>
 
+            <div className="relative">
+
+              <FaLock className="
+                absolute left-4 top-1/2
+                -translate-y-1/2
+                text-purple-500
+              " />
+
+              <input
+                type="password"
+
+                value={password}
+
+                onChange={(e) =>
+                  setPassword(e.target.value)
+                }
+
+                placeholder="Enter password"
+
+                className="
+                  w-full
+                  pl-12 pr-4 py-3
+                  rounded-2xl
+                  border border-purple-200
+                  bg-white/80
+                  text-gray-700
+                  outline-none
+                "
+              />
+
+            </div>
           </div>
 
-          {/* Continue Button */}
+          {/* BUTTON */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
+
             className="
               md:col-span-2
               w-full
@@ -355,13 +464,19 @@ export default function LoginPage() {
               shadow-lg
               transition-all
             "
+
+            onClick={
+              loginType === "phone"
+                ? handlePhoneLogin
+                : handleEmailLogin
+            }
           >
             Continue
           </motion.button>
 
         </div>
 
-        {/* Sign Up */}
+        {/* SIGNUP */}
         <p className="
           text-center
           text-gray-700
@@ -371,6 +486,7 @@ export default function LoginPage() {
 
           <Link
             href="/DevoteeCorner/register"
+
             className="
               text-purple-700
               font-semibold
@@ -379,10 +495,7 @@ export default function LoginPage() {
           >
             Create Account
           </Link>
-
-        </p>
-
-        {/* Back */}
+ {/* Back */}
         <button
           onClick={() => router.push("/")}
           className="
@@ -395,6 +508,8 @@ export default function LoginPage() {
         >
           ← Back to Website
         </button>
+
+        </p>
 
       </motion.div>
 
