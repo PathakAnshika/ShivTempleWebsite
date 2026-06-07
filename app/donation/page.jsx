@@ -174,49 +174,82 @@ const handleCardSelect = (opt) => {
      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 h-[80vh] overflow-hidden">
 
         {/* DONOR FORM */}
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden border">
-          <h2 className="text-xl font-semibold mb-6 text-gray-800">
-            Donor Information
-          </h2>
+      <div className="mb-8">
+
+  <h2 className="text-2xl font-bold text-gray-800">
+    Donor Information
+  </h2>
+
+  <p className="text-gray-500 mt-2">
+    Please provide your details to complete your seva contribution.
+  </p>
+
 
           <div className="space-y-4">
 
-            <input
-              name="name"
-              placeholder="Full Name"
-              onChange={handleChange}
-              className="input"
-            />
+           <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Full Name *
+  </label>
 
-            <input
-              name="email"
-              placeholder="Email"
-              onChange={handleChange}
-              className="input"
-            />
+  <input
+    name="name"
+    placeholder="Enter your full name"
+    onChange={handleChange}
+    className="input"
+  />
+</div>
 
-            <input
-              name="phone"
-              placeholder="Phone"
-              onChange={handleChange}
-              className="input"
-            />
+           <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Email Address *
+  </label>
 
-            <input
-              name="amount"
-              placeholder="Donation Amount"
-              value={formData.amount}
-              onChange={handleChange}
-              className="input"
-            />
+  <input
+    name="email"
+    placeholder="Enter your email"
+    onChange={handleChange}
+    className="input"
+  />
+</div>
 
-            <textarea
-              name="message"
-              placeholder="Message"
-              onChange={handleChange}
-              className="input"
-            />
+         <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Mobile Number *
+  </label>
 
+  <input
+    name="phone"
+    placeholder="Enter your mobile number"
+    onChange={handleChange}
+    className="input"
+  />
+</div>
+           <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Donation Amount *
+  </label>
+
+  <input
+    name="amount"
+    placeholder="Enter donation amount"
+    value={formData.amount}
+    onChange={handleChange}
+    className="input"
+  />
+</div>
+          <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Message / Seva Purpose
+  </label>
+
+  <textarea
+    name="message"
+    placeholder="Write a message..."
+    onChange={handleChange}
+    className="input min-h-[120px]"
+  />
+</div>
             <label className="flex items-center gap-2 text-sm text-gray-600">
   <input
     type="checkbox"
