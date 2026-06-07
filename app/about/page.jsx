@@ -641,7 +641,7 @@ export default function AboutPage() {
           text-sm font-semibold text-orange-700
           shadow-md
         ">
-          Founder & Spiritual Visionary
+         Temple Administration & Strategic Advisor
         </div>
 
       </div>
@@ -650,19 +650,19 @@ export default function AboutPage() {
       <div className="p-7">
 
         <h3 className="text-2xl font-bold text-gray-800">
-          Akhoury Ravindra Prasad
+          Dr. A.K Raghvan
         </h3>
 
         <p className="text-orange-600 font-medium mt-2">
-          Founder of Shri Chandreshwar Dham
+        Chief Administrative Advisor
         </p>
 
         <p className="text-gray-600 text-sm leading-7 mt-5">
-          Akhoury Ravindra Prasad Ji is the revered founder of
-          Shri Chandreshwar Dham. With deep devotion toward
-          Sanatan Dharma and unwavering faith in Mahadev,
-          he established the temple as a sacred spiritual space
-          for devotees and community welfare.
+         Dr. A.K Raghvan plays a key role in guiding the administrative
+         and developmental activities of Shri Chandreshwar Dham.
+         His leadership and vision contribute to strengthening temple
+         operations, community outreach initiatives, and long-term
+         spiritual and cultural development programs.
         </p>
 
       </div>
@@ -706,7 +706,7 @@ export default function AboutPage() {
           text-sm font-semibold text-orange-700
           shadow-md
         ">
-          Managing Trustee & Cultural Guide
+        Youth Engagement & Cultural Programs
         </div>
 
       </div>
@@ -715,19 +715,18 @@ export default function AboutPage() {
       <div className="p-7">
 
         <h3 className="text-2xl font-bold text-gray-800">
-          Dr. A.K Raghvan
+          Mughda Singh
         </h3>
 
         <p className="text-orange-600 font-medium mt-2">
-          Managing Trustee
+       Coordinator – Youth & Cultural Affairs
         </p>
 
         <p className="text-gray-600 text-sm leading-7 mt-5">
-          Dr. A.K Raghvan, son of the founder, continues the
-          spiritual legacy of Shri Chandreshwar Dham through
-          his leadership, devotion, and dedication toward
-          preserving temple traditions, religious programs,
-          and community service initiatives.
+          Mugdha Singh contributes to youth engagement, cultural activities,
+          and devotional programs at Shri Chandreshwar Dham. Through her
+          active involvement in organizing events and community initiatives,
+          she helps promote spiritual values among younger generations.
         </p>
 
       </div>
