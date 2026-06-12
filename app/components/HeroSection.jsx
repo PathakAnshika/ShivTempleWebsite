@@ -10,12 +10,14 @@ export function HeroSection() {
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       
       {/* Background */}
-      <img
+     <img
   src="/images/44.png"
   alt="Shiv Mandir"
- className="absolute inset-0 w-full h-full object-cover object-center"
+  className="absolute inset-0 w-full h-full object-cover"
+  style={{
+    objectPosition: "center 15%",
+  }}
 />
-
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
