@@ -188,107 +188,76 @@ const handleCardSelect = (opt) => {
 
           <div className="space-y-4">
 
-           <div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Full Name *
-  </label>
+           <div className="grid grid-cols-2 gap-4">
 
   <input
     name="name"
-    placeholder="Enter your full name"
+    placeholder="Full Name"
     onChange={handleChange}
     className="input"
   />
-</div>
-
-           <div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Email Address *
-  </label>
 
   <input
     name="email"
-    placeholder="Enter your email"
+    placeholder="Email"
     onChange={handleChange}
     className="input"
   />
+
 </div>
 
-         <div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Mobile Number *
-  </label>
+         <div className="grid grid-cols-2 gap-4">
 
   <input
     name="phone"
-    placeholder="Enter your mobile number"
+    placeholder="Mobile Number"
     onChange={handleChange}
     className="input"
   />
-</div>
-           <div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Donation Amount *
-  </label>
 
   <input
     name="amount"
-    placeholder="Enter donation amount"
+    placeholder="Amount"
     value={formData.amount}
     onChange={handleChange}
     className="input"
   />
-</div>
 
-<label className="block text-sm font-medium text-gray-700 mb-2">
-  Purpose of Donation *
-</label>
+</div>
 
 <textarea
   name="message"
-  placeholder="Example: Gau Seva, Annadan, Temple Development, Festival Support, Education Support, or any other purpose"
+  placeholder="Purpose of Donation (Optional)"
   onChange={handleChange}
-  className="input min-h-[100px]"
+  className="input min-h-[70px]"
 />
-          <div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Message / Seva Purpose
-  </label>
-
+         <div>
   <textarea
     name="message"
-    placeholder="Write a message..."
+    placeholder="Purpose of Donation (Optional)"
     onChange={handleChange}
-    className="input min-h-[120px]"
+    className="input min-h-[60px]"
   />
 </div>
            <div className="mt-4">
 
   <div className="p-4 bg-purple-50 border border-purple-100 rounded-xl">
+<label className="flex items-center gap-2 text-xs text-gray-600">
 
-    <label className="flex items-start gap-3 cursor-pointer">
+ <input
+  type="checkbox"
+  checked={formData.show_public}
+  onChange={(e) =>
+    setFormData((p) => ({
+      ...p,
+      show_public: e.target.checked,
+    }))
+  }
+/>
 
-      <input
-        type="checkbox"
-        checked={formData.show_public}
-        onChange={(e) =>
-          setFormData((p) => ({
-            ...p,
-            show_public: e.target.checked,
-          }))
-        }
-        className="mt-1 h-4 w-4 accent-purple-600"
-      />
+  Show my name in Darpan Transparency Section
 
-      <span className="text-sm text-gray-700 leading-6">
-        Display my name in the{" "}
-        <span className="font-semibold text-purple-700">
-          Darpan Transparency Section
-        </span>
-        . Leave unchecked if you wish to remain anonymous.
-      </span>
-
-    </label>
+</label>
 
   </div>
 
