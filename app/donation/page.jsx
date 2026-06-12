@@ -172,7 +172,7 @@ const handleCardSelect = (opt) => {
 
 
       {/* MAIN GRID */}
-     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 h-[80vh] overflow-hidden">
+     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
 
         {/* DONOR FORM */}
      <div className="mb-8 max-w-[620px]">
