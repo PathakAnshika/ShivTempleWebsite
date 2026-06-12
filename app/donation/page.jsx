@@ -239,11 +239,11 @@ const handleCardSelect = (opt) => {
   />
 </div>
          <div>
-  <textarea
+ <textarea
   name="message"
   placeholder="Write a message..."
   onChange={handleChange}
-  className="input min-h-[120px]"
+  className="input h-[60px] resize-none"
 />
 </div>
            <div className="mt-4">
