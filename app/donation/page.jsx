@@ -283,83 +283,15 @@ const handleCardSelect = (opt) => {
 
 </div>
 
-{/* {/* <div className="mt-4">
-
-  <div className="
-    p-4
-    bg-purple-50
-    border
-    border-purple-100
-    rounded-xl
-  ">
-
-    <label
-      className="
-        flex
-        items-start
-        gap-3
-        cursor-pointer
-      "
-    >
-
-      <input
-        type="checkbox"
-        checked={formData.show_public}
-        onChange={(e) =>
-          setFormData((p) => ({
-            ...p,
-            show_public: e.target.checked,
-          }))
-        }
-        className="
-          mt-1
-          h-4
-          w-4
-          accent-purple-600
-        "
-      />
-
-      <span
-        className="
-          text-sm
-          text-gray-700
-          leading-6
-        "
-      >
-        Display my name in the{" "}
-        <span className="font-semibold text-purple-700">
-          Darpan Transparency Section
-        </span>
-        . Leave unchecked if you wish to remain anonymous.
-      </span>
-
-    </label>
-
-  </div> *
-
-</div> */}
-
           </div>
 
-          <button
-            onClick={handleDonate}
-            disabled={loading}
-           className="
-  w-full
-  mt-6
-  py-4
-  rounded-xl
-  font-semibold
-  text-white
-  bg-gradient-to-r
-  from-purple-600
-  to-purple-700
-  shadow-lg
-  hover:scale-[1.02]
-  transition-all
-">
-            {loading ? "Processing..." : "Donate Securely"}
-          </button>
+         <button
+  onClick={handleDonate}
+  disabled={loading}
+  className="w-full mt-6 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 shadow-lg hover:scale-[1.02] transition-all"
+>
+  {loading ? "Processing..." : "Donate Securely"}
+</button>
 
         </div>
 
