@@ -11,13 +11,14 @@ export default function DonationPage() {
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    amount: "",
-    message: "",
-  });
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  amount: "",
+  message: "",
+  show_public: true,
+});
 
 const donationOptions = [
   { id: 1, title: "Aarti Seva", amount: 501, desc: "Offer your devotion in daily Aarti." },
@@ -145,7 +146,7 @@ const handleCardSelect = (opt) => {
   
   return (
 
-  <div className="h-screen bg-[#fafafa] pt-10 px-6">
+  <div className="min-h-screen bg-[#fafafa] pt-10 px-6">
 
       {/* BACK */}
    <button
@@ -174,7 +175,7 @@ const handleCardSelect = (opt) => {
      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 h-[80vh] overflow-hidden">
 
         {/* DONOR FORM */}
-      <div className="mb-8">
+      <div className="mb-8 max-w-[620px]">
 
   <h2 className="text-2xl font-bold text-gray-800">
     Donor Information
@@ -250,7 +251,33 @@ const handleCardSelect = (opt) => {
     className="input min-h-[120px]"
   />
 </div>
-            <label className="flex items-center gap-2 text-sm text-gray-600">
+           <div className="mt-4 p-4 bg-purple-50 border border-purple-100 rounded-xl">
+
+  <label className="flex items-start gap-3 cursor-pointer">
+
+    <input
+      type="checkbox"
+      checked={formData.show_public}
+      onChange={(e) =>
+        setFormData((p) => ({
+          ...p,
+          show_public: e.target.checked
+        }))
+      }
+      className="mt-1 h-4 w-4 accent-purple-600"
+    />
+
+    <span className="text-sm text-gray-700 leading-6">
+      Display my name in the
+      <span className="font-semibold text-purple-700">
+        {" "}Darpan Transparency Section
+      </span>.
+      Leave unchecked if you wish to remain anonymous.
+    </span>
+
+  </label>
+
+</div>
   <input
     type="checkbox"
     name="show_public"
