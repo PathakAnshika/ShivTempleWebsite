@@ -240,18 +240,16 @@ const handleCardSelect = (opt) => {
   />
 </div>
 
-<div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Selected Seva
-  </label>
+<label className="block text-sm font-medium text-gray-700 mb-2">
+  Purpose of Donation *
+</label>
 
-  <input
-    value={formData.message}
-    readOnly
-    className="input bg-gray-50"
-    placeholder="Select a seva from the right side"
-  />
-</div>
+<textarea
+  name="message"
+  placeholder="Example: Gau Seva, Annadan, Temple Development, Festival Support, Education Support, or any other purpose"
+  onChange={handleChange}
+  className="input min-h-[100px]"
+/>
           <div>
   <label className="block text-sm font-medium text-gray-700 mb-2">
     Message / Seva Purpose
