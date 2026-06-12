@@ -7,7 +7,7 @@ export function HeroSection() {
   const router = useRouter(); // ✅ router yahin
 
   return (
-   <section className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
+   <section className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
       
       {/* Background */}
      <img
