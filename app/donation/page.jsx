@@ -283,7 +283,7 @@ const handleCardSelect = (opt) => {
 
 </div>
 
-<div className="mt-4">
+{/* {/* <div className="mt-4">
 
   <div className="
     p-4
@@ -335,9 +335,9 @@ const handleCardSelect = (opt) => {
 
     </label>
 
-  </div>
+  </div> *
 
-</div>
+</div> */}
 
           </div>
 
