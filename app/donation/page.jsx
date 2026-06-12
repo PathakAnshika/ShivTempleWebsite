@@ -230,7 +230,18 @@ const handleCardSelect = (opt) => {
   <label className="block text-sm font-medium text-gray-700 mb-2">
     Donation Amount *
   </label>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Selected Seva
+  </label>
 
+  <input
+    value={formData.message}
+    readOnly
+    className="input bg-gray-50"
+    placeholder="Select a seva from the right side"
+  />
+</div>
   <input
     name="amount"
     placeholder="Enter donation amount"
