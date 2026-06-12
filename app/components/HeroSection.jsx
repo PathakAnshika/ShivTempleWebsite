@@ -13,7 +13,7 @@ export function HeroSection() {
       <img
   src="/images/44.png"
   alt="Shiv Mandir"
-  className="absolute inset-0 w-full h-full object-cover object-center"
+ className="absolute inset-0 w-full h-full object-cover object-center"
 />
 
       {/* Overlay */}
