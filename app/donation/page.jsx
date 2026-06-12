@@ -225,14 +225,7 @@ const handleCardSelect = (opt) => {
 
 </div>
 
-<textarea
-  name="message"
-  placeholder="Purpose of Donation (Optional)"
-  onChange={handleChange}
-  className="input min-h-[70px]"
-/>
-         <div>
-  <div>
+<div>
   <label className="block text-sm font-medium text-gray-700 mb-2">
     Purpose of Donation
   </label>
@@ -245,6 +238,13 @@ const handleCardSelect = (opt) => {
     className="input"
   />
 </div>
+         <div>
+  <textarea
+    name="message"
+    placeholder="Purpose of Donation (Optional)"
+    onChange={handleChange}
+    className="input min-h-[60px]"
+  />
 </div>
            <div className="mt-4">
 
