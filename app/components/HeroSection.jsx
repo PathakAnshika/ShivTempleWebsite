@@ -11,7 +11,7 @@ export function HeroSection() {
       
       {/* Background */}
      <img
-  src="/images/44.png"
+  src="/images/shiv.jpeg"
   alt="Shiv Mandir"
   className="absolute inset-0 w-full h-full object-cover"
   style={{
