@@ -43,6 +43,7 @@ export function Navbar({ setShowLogin }) {
           <li><Link href="/" className="hover:text-[#b76e79]">Home</Link></li>
           <li><Link href="#about" className="hover:text-[#b76e79]">About</Link></li>
           <li><Link href="#events" className="hover:text-[#b76e79]">Events</Link></li>
+          <li><Link href="#donations" className="hover:text-[#b76e79]">Donations</Link></li>
 
           {/* 🔥 DROPDOWN */}
 <li className="relative" ref={dropdownRef}>
