@@ -35,7 +35,7 @@ export default function HomeDonationSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-20 flex justify-center items-center text-center px-4">
+      <div className="relative z-20 flex justify-center items-center text-center px-4 -translate-y-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
