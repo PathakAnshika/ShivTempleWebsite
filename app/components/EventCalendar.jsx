@@ -155,16 +155,30 @@ export function EventCalendar() {
       </div>
 
       {/* Button */}
-      <div className="text-center mt-16 relative z-10">
-        <motion.button
-          onClick={() => router.push("/events")}
-          whileHover={{ scale: 1.07 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-12 py-4 bg-[#e8c27d] text-black font-semibold rounded-full shadow-lg hover:shadow-yellow-400/20 transition"
-        >
-          View Full Festival Calendar →
-        </motion.button>
-      </div>
+      {/* Button */}
+<div className="text-center mt-10 sm:mt-16 relative z-10 px-4">
+  <motion.button
+    onClick={() => router.push("/events")}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="
+      w-full sm:w-auto
+      max-w-[340px]
+      px-6 sm:px-12
+      py-3 sm:py-4
+      bg-[#e8c27d]
+      text-black
+      text-sm sm:text-base
+      font-semibold
+      rounded-full
+      shadow-lg
+      hover:shadow-yellow-400/20
+      transition
+    "
+  >
+    View Full Festival Calendar →
+  </motion.button>
+</div>
     </section>
   );
 }
