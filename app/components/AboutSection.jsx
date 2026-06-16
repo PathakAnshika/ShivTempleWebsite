@@ -47,20 +47,22 @@ export function AboutSection() {
             </span>
           </h2>
 
-          {/* Paragraph */}
-          <p className="
-            text-gray-600
-            text-lg
-            leading-9
-            max-w-xl
-            mb-10
-          ">
-            Shri Chandreshwar Dham welcomes devotees
-            into a divine atmosphere of spirituality,
-            devotion and inner peace — preserving
-            Sanatan traditions while inspiring
-            humanity through faith, culture and service.
-          </p>
+        {/* Paragraph */}
+<p
+  className="
+    text-gray-600
+    text-base sm:text-lg
+    leading-7 sm:leading-9
+    max-w-xl
+    mb-8 sm:mb-10
+  "
+>
+  Shri Chandreshwar Dham welcomes devotees
+  into a divine atmosphere of spirituality,
+  devotion and inner peace — preserving
+  Sanatan traditions while inspiring
+  humanity through faith, culture and service.
+</p>
 
          {/* Features */}
 <div className="flex flex-wrap gap-2 sm:gap-4 mb-8">
