@@ -20,6 +20,9 @@ export function HeroSection() {
     w-full h-full
     object-cover
   "
+  style={{
+    objectPosition: "center 25%",
+  }}
 />
 
 {/* Mobile Hero */}
