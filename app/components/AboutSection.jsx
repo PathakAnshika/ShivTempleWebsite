@@ -152,6 +152,7 @@ export function AboutSection() {
           <div className="
             absolute top-0 right-0
            w-[85%]
+w-[85%]
 h-[300px]
 sm:h-[380px]
 lg:h-[500px]
@@ -172,16 +173,24 @@ lg:h-[500px]
           </div>
 
           {/* Small Floating Image */}
-          <div className="
-            absolute bottom-0 left-0
-            w-[55%]
-            h-[260px]
-            rounded-[30px]
-            overflow-hidden
-            shadow-2xl
-            border-[10px] border-[#f8f5ef]
-          ">
-
+         <div
+  className="
+    absolute bottom-0 left-0
+    w-[58%]
+    h-[200px]
+    sm:h-[240px]
+    lg:h-[260px]
+    rounded-[20px]
+    sm:rounded-[25px]
+    lg:rounded-[30px]
+    overflow-hidden
+    shadow-2xl
+    border-[6px]
+    sm:border-[8px]
+    lg:border-[10px]
+    border-[#f8f5ef]
+  "
+>
             <img
               src="/images/Rudraksh.jpg"
               alt="Mahadev"
@@ -194,43 +203,57 @@ lg:h-[500px]
           </div>
 
           {/* Floating Card */}
-          <div className="
-            absolute top-10 left-0
-            bg-white
-            rounded-3xl
-            shadow-xl
-            px-8 py-6
-            border border-orange-100
-          ">
+         <div
+  className="
+    absolute
+    top-3 left-2
+    sm:top-6 sm:left-0
+    bg-white
+    rounded-2xl
+    shadow-lg
+    px-4 py-3
+    sm:px-5 sm:py-4
+    border border-orange-100
+    max-w-[200px]
+    sm:max-w-[260px]
+  "
+>
 
-            <p className="
-              text-orange-600
-              uppercase
-              tracking-[3px]
-              text-xs
-              font-semibold
-              mb-2
-            ">
-              Sacred Legacy
-            </p>
+           <p
+  className="
+    text-orange-600
+    uppercase
+    tracking-[2px]
+    text-[10px] sm:text-xs
+    font-semibold
+    mb-1
+  "
+>
+  Sacred Legacy
+</p>
 
-            <h3 className="
-              text-2xl
-              font-bold
-              text-gray-800
-              mb-2
-            ">
-              Shri Chandreshwar Dham
-            </h3>
+<h3
+  className="
+    text-base sm:text-xl lg:text-2xl
+    font-bold
+    text-gray-800
+    mb-1
+    leading-tight
+  "
+>
+  Shri Chandreshwar Dham
+</h3>
 
-            <p className="
-              text-sm
-              text-gray-600
-              leading-6
-            ">
-              Established with devotion,
-              service and spiritual awakening.
-            </p>
+<p
+  className="
+    text-[11px] sm:text-sm
+    text-gray-600
+    leading-4 sm:leading-6
+  "
+>
+  Established with devotion,
+  service and spiritual awakening.
+</p>
 
           </div>
 
