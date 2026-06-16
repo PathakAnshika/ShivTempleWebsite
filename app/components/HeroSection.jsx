@@ -7,7 +7,7 @@ export function HeroSection() {
   const router = useRouter(); // ✅ router yahin
 
   return (
- <section className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">   
+ <section className="relative w-full h-[73vh] flex items-center justify-center overflow-hidden">   
       {/* Background */}
     {/* Desktop Hero */}
 <img
@@ -43,7 +43,14 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative z-10 text-center text-white px-5 max-w-4xl"
+       className="
+  relative z-10
+  text-center text-white
+  px-6 sm:px-8
+  max-w-6xl mx-auto
+  translate-y-10
+  sm:translate-y-12
+"
       >
       <p className="text-xs sm:text-sm md:text-lg tracking-[3px] sm:tracking-widest uppercase text-gray-200 mb-3 sm:mb-4 font-semibold">
   ||ॐ नमः शिवाय||
