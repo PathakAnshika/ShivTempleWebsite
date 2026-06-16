@@ -11,7 +11,8 @@ export function HeroSection() {
   relative z-10
   text-center text-white
   px-6 sm:px-8
-  max-w-5xl
+  md:px-10
+  max-w-6xl
   mx-auto
 ">
       
@@ -55,18 +56,32 @@ export function HeroSection() {
       <p className="text-xs sm:text-sm md:text-lg tracking-[3px] sm:tracking-widest uppercase text-gray-200 mb-3 sm:mb-4 font-semibold">
   ||ॐ नमः शिवाय||
 </p>
-       <h1 className="
-  text-4xl
-  sm:text-5xl
-  md:text-6xl
-  font-bold
-  mb-4
-  leading-tight
-">
+       <h1
+  className="
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    font-bold
+    mb-4
+    leading-tight
+  "
+>
           Divine Presence of <span className="text-yellow-400">Mahadev</span>
         </h1>
 
-      <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto leading-7">
+      <p
+  className="
+    text-base
+    sm:text-lg
+    md:text-xl
+    text-gray-200
+    mb-8
+    max-w-3xl
+    mx-auto
+    leading-8
+  "
+>
   Experience peace, devotion, and spiritual awakening at our sacred
   Shiv Mandir — a place where faith and divine energy unite.
 </p>
