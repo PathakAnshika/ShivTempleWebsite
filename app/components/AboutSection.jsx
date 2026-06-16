@@ -264,19 +264,22 @@ lg:h-[515px]
         </motion.div>
 
       </div>
-<div className="lg:hidden mt-8 flex justify-center">
+<div className="lg:hidden mt-6 sm:mt-8 px-4 flex justify-center">
   <button
     onClick={() => router.push("/about")}
     className="
-      w-full max-w-sm
-      px-7 py-3.5
+      w-full
+      max-w-[320px]
+      py-3
+      text-sm sm:text-base
+      font-semibold
       bg-orange-500
       text-white
       rounded-full
-      shadow-xl
+      shadow-lg
       hover:bg-orange-600
+      active:scale-95
       transition-all duration-300
-      font-semibold
     "
   >
     Discover Our Journey →

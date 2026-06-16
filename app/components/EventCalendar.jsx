@@ -47,13 +47,23 @@ export function EventCalendar() {
 
       {/* Heading */}
       <div className="text-center mb-16 relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold text-[#e8c27d]"
-        >
-          Upcoming Festivals & Events 🪔
-        </motion.h2>
+<motion.h2
+  initial={{ opacity: 0, y: -30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  className="
+    text-2xl
+    sm:text-3xl
+    md:text-4xl
+    lg:text-5xl
+    font-bold
+    text-[#e8c27d]
+    text-center
+    leading-tight
+    px-4
+  "
+>
+  Upcoming Festivals & Events 🪔
+</motion.h2>
 
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
           Join upcoming spiritual celebrations and receive divine blessings.
