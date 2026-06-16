@@ -7,7 +7,7 @@ export function HeroSection() {
   const router = useRouter(); // ✅ router yahin
 
   return (
-   <section className="relative w-full h-[88vh] flex items-center justify-center overflow-hidden">
+   <section className="relative z-10 text-center text-white px-4 sm:px-5 max-w-4xl">
       
       {/* Background */}
     {/* Desktop Hero */}
@@ -46,33 +46,39 @@ export function HeroSection() {
         transition={{ duration: 1 }}
         className="relative z-10 text-center text-white px-5 max-w-4xl"
       >
-       <p className="text-sm sm:text-base md:text-lg tracking-widest uppercase text-gray-200 mb-4 font-semibold">
+      <p className="text-xs sm:text-sm md:text-lg tracking-[3px] sm:tracking-widest uppercase text-gray-200 mb-3 sm:mb-4 font-semibold">
   ||ॐ नमः शिवाय||
 </p>
-
-        <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
           Divine Presence of <span className="text-yellow-400">Mahadev</span>
         </h1>
 
-        <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-8">
-          Experience peace, devotion, and spiritual awakening at our sacred
-          Shiv Mandir — a place where faith and divine energy unite.
-        </p>
+      <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto leading-7">
+  Experience peace, devotion, and spiritual awakening at our sacred
+  Shiv Mandir — a place where faith and divine energy unite.
+</p>
 
         {/* Buttons with PATH */}
-        <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-center items-center mt-8">
+       <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center mt-6 sm:mt-8">
 
   {/* Darshan Timings Button */}
-  <button
+ <button
   onClick={() => router.push("/darshan-timing")}
   className="
-    group w-full sm:w-auto
-    px-10 py-4
+    group
+    w-full sm:w-auto
+    px-6 sm:px-10
+    py-3 sm:py-4
     bg-gradient-to-r from-yellow-300 to-yellow-500
-    text-purple-900 font-bold text-lg
-    rounded-full shadow-xl
-    hover:shadow-yellow-400/40 hover:scale-105
-    active:scale-95 transition-all
+    text-purple-900
+    font-bold
+    text-sm sm:text-lg
+    rounded-full
+    shadow-xl
+    hover:shadow-yellow-400/40
+    hover:scale-105
+    active:scale-95
+    transition-all
     flex items-center justify-center gap-2
   "
 >
@@ -84,25 +90,32 @@ export function HeroSection() {
 </button>
 
   {/* Membership Button */}
-  <button
-    onClick={() =>
-      document
-        .getElementById("membership")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }
-    className="
-      group w-full sm:w-auto
-      px-10 py-4
-      bg-white/10 backdrop-blur-md
-      border border-white/30
-      text-white font-bold text-lg
-      rounded-full shadow-xl
-      hover:bg-white hover:text-purple-900
-      hover:scale-105 active:scale-95
-      transition-all
-      flex items-center justify-center gap-2
-    "
-  >
+ <button
+  onClick={() =>
+    document
+      .getElementById("membership")
+      ?.scrollIntoView({ behavior: "smooth" })
+  }
+  className="
+    group
+    w-full sm:w-auto
+    px-6 sm:px-10
+    py-3 sm:py-4
+    bg-white/10 backdrop-blur-md
+    border border-white/30
+    text-white
+    font-bold
+    text-sm sm:text-lg
+    rounded-full
+    shadow-xl
+    hover:bg-white
+    hover:text-purple-900
+    hover:scale-105
+    active:scale-95
+    transition-all
+    flex items-center justify-center gap-2
+  "
+>
     Become a Family Member
     <span className="transition-transform group-hover:translate-x-1">→</span>
   </button>
