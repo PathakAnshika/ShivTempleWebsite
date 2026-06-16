@@ -154,8 +154,8 @@ export function AboutSection() {
            w-[85%]
 w-[85%]
 h-[300px]
-sm:h-[380px]
-lg:h-[510px]
+sm:h-[385px]
+lg:h-[515px]
             rounded-[35px]
             overflow-hidden
             shadow-2xl
