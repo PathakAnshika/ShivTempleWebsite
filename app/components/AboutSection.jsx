@@ -116,27 +116,24 @@ export function AboutSection() {
   </div>
 
 </div>
-         {/* Button */}
-<button
-  onClick={() => router.push("/about")}
-  className="
-    w-full sm:w-auto
-    px-6 sm:px-8
-    py-3 sm:py-4
-    bg-orange-500
-    text-white
-    text-sm sm:text-base
-    rounded-full
-    shadow-xl
-    hover:bg-orange-600
-    hover:scale-105
-    transition-all duration-300
-    font-semibold
-  "
->
-  Discover Our Journey →
-</button>
-        </motion.div>
+       <div className="order-3 lg:order-none mt-8">
+  <button
+    onClick={() => router.push("/about")}
+    className="
+      w-full sm:w-auto
+      px-7 py-3.5
+      bg-orange-500
+      text-white
+      rounded-full
+      shadow-xl
+      hover:bg-orange-600
+      transition-all duration-300
+      font-semibold
+    "
+  >
+    Discover Our Journey →
+  </button>
+</div>     </motion.div>
 
         {/* RIGHT IMAGES */}
         <motion.div
