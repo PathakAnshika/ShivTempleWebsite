@@ -36,7 +36,7 @@ export function HeroSection() {
   "
 />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/45"></div>
 
       {/* Content */}
       <motion.div
