@@ -14,8 +14,7 @@ export default function HomeDonationSection() {
   // };
 
   return (
-   <section className="relative overflow-hidden bg-gradient-to-br from-[#f6e7ff] via-[#fff0f9] to-white py-10 sm:py-14 md:py-24">
-
+  <section className="relative overflow-hidden bg-gradient-to-br from-[#f6e7ff] via-[#fff0f9] to-white py-20 sm:py-24 md:py-28">
       {/* Background Grid */}
       <div className="absolute inset-0 flex justify-center items-center opacity-60 pointer-events-none">
        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-10 gap-2 sm:gap-4 md:gap-6">
@@ -35,7 +34,7 @@ export default function HomeDonationSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-20 flex justify-center items-center text-center px-4 -translate-y-6">
+      <div className="relative z-20 flex justify-center items-center text-center px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
