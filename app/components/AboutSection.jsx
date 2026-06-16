@@ -7,16 +7,14 @@ export function AboutSection() {
   const router = useRouter();
 
   return (
-    <section className="py-24 bg-[#f8f5ef] overflow-hidden">
-
-      <div className="
-        max-w-7xl mx-auto
-        px-6
-        grid lg:grid-cols-2
-        gap-16
-        items-center
-      ">
-
+   <section className="py-16 md:py-24 bg-[#f8f5ef] overflow-hidden">
+     <div className="
+  max-w-7xl mx-auto
+  px-4 sm:px-6
+  grid lg:grid-cols-2
+  gap-12 lg:gap-16
+  items-center
+">
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -134,14 +132,22 @@ export function AboutSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative h-[650px]"
+         className="
+  relative
+  order-1 lg:order-2
+  h-[420px]
+  sm:h-[500px]
+  lg:h-[650px]
+"
         >
 
           {/* Main Image */}
           <div className="
             absolute top-0 right-0
-            w-[85%]
-            h-[500px]
+           w-[85%]
+h-[300px]
+sm:h-[380px]
+lg:h-[500px]
             rounded-[35px]
             overflow-hidden
             shadow-2xl
