@@ -117,24 +117,24 @@ export function AboutSection() {
 
 </div>
 
-       <div className="order-3 lg:order-none mt-8">
+      <div className="hidden lg:block">
   <button
     onClick={() => router.push("/about")}
     className="
-      w-full sm:w-auto
-      px-7 py-3.5
+      px-8 py-4
       bg-orange-500
       text-white
       rounded-full
       shadow-xl
       hover:bg-orange-600
+      hover:scale-105
       transition-all duration-300
       font-semibold
     "
   >
     Discover Our Journey →
   </button>
-</div>    
+</div>
  </motion.div>
         {/* RIGHT IMAGES */}
         <motion.div
@@ -204,6 +204,7 @@ lg:h-[515px]
 
           </div>
 
+
           {/* Floating Card */}
          <div
   className="
@@ -258,6 +259,24 @@ lg:h-[515px]
 </p>
 
           </div>
+          <div className="lg:hidden mt-8 flex justify-center">
+  <button
+    onClick={() => router.push("/about")}
+    className="
+      w-full max-w-sm
+      px-7 py-3.5
+      bg-orange-500
+      text-white
+      rounded-full
+      shadow-xl
+      hover:bg-orange-600
+      transition-all duration-300
+      font-semibold
+    "
+  >
+    Discover Our Journey →
+  </button>
+</div>
 
         </motion.div>
 
