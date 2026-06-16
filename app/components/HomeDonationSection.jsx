@@ -14,7 +14,7 @@ export default function HomeDonationSection() {
   // };
 
   return (
-   <section className="relative overflow-hidden bg-gradient-to-br from-[#f6e7ff] via-[#fff0f9] to-white py-16 sm:py-20 md:py-28">
+   <section className="relative overflow-hidden bg-gradient-to-br from-[#f6e7ff] via-[#fff0f9] to-white py-10 sm:py-14 md:py-24">
 
       {/* Background Grid */}
       <div className="absolute inset-0 flex justify-center items-center opacity-60 pointer-events-none">
@@ -40,14 +40,15 @@ export default function HomeDonationSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-        className="
+       className="
   bg-white
   rounded-3xl
   shadow-2xl
   px-5 sm:px-8 md:px-16
   py-8 sm:py-10 md:py-16
-  max-w-3xl
-  mx-4
+  w-full
+  max-w-md
+  mx-auto
 "
         >
           <motion.h2
@@ -70,13 +71,18 @@ export default function HomeDonationSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="
-  mt-4 sm:mt-5
-  text-sm sm:text-base md:text-xl
+           className="
+  mt-4
+  text-sm
+  sm:text-base
+  md:text-xl
   text-[#5b507a]
-  leading-7
+  leading-8
+  max-w-[280px]
+  sm:max-w-none
+  mx-auto
 "
-          >
+>
             Be part of our growing community of kind-hearted supporters whose generosity
             keeps the divine seva alive.
           </motion.p>
@@ -88,14 +94,17 @@ export default function HomeDonationSection() {
     router.push("/donation");
   }}
  className="
-  mt-6 sm:mt-8
-  w-full sm:w-auto
-  px-6 sm:px-8
+  mt-6
+  w-full
+  max-w-[260px]
+  mx-auto
   py-3
-  text-sm sm:text-base
+  text-sm
+  sm:text-base
   bg-purple-700
   text-white
   rounded-full
+  font-medium
 "
 >
   Become a Donor
