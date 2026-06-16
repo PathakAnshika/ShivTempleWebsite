@@ -7,16 +7,7 @@ export function HeroSection() {
   const router = useRouter(); // ✅ router yahin
 
   return (
-  <section
-  className="
-    relative z-10
-    text-center text-white
-    px-6 sm:px-8 md:px-10
-    max-w-7xl
-    mx-auto
-    w-full
-  "
->
+  <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       
       {/* Background */}
     {/* Desktop Hero */}
