@@ -259,7 +259,10 @@ lg:h-[515px]
 </p>
 
           </div>
-          <div className="lg:hidden mt-8 flex justify-center">
+          
+
+        </motion.div>
+<div className="lg:hidden mt-8 flex justify-center">
   <button
     onClick={() => router.push("/about")}
     className="
@@ -277,9 +280,6 @@ lg:h-[515px]
     Discover Our Journey →
   </button>
 </div>
-
-        </motion.div>
-
       </div>
 
     </section>
