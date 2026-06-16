@@ -71,15 +71,33 @@ export function EventCalendar() {
       </div>
 
       {/* Cards */}
-      <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div
+  className="
+    relative z-10
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-4
+    gap-5 sm:gap-7 lg:gap-10
+  "
+>
         {events.map((event, i) => (
           <motion.div
             key={i}
             whileHover={{ y: -8 }}
-            className="group rounded-3xl overflow-hidden bg-[#1c1823] border border-[#2a2434] shadow-xl hover:shadow-2xl transition"
+            className="
+  group
+  rounded-2xl sm:rounded-3xl
+  overflow-hidden
+  bg-[#1c1823]
+  border border-[#2a2434]
+  shadow-lg sm:shadow-xl
+  hover:shadow-2xl
+  transition
+"
           >
             {/* IMAGE */}
-            <div className="relative h-52 overflow-hidden">
+            <div className="relative h-44 sm:h-52 overflow-hidden">
               <img
                 src={event.image}
                 alt={event.title}
@@ -90,22 +108,45 @@ export function EventCalendar() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
               {/* Upcoming badge */}
-              <span className="absolute top-3 left-3 bg-[#e8c27d] text-black text-xs font-semibold px-3 py-1 rounded-full">
+             <span
+  className="
+    absolute top-3 left-3
+    bg-[#e8c27d]
+    text-black
+    text-[10px] sm:text-xs
+    font-semibold
+    px-2 py-1 sm:px-3
+    rounded-full
+  "
+>
                 Upcoming
               </span>
             </div>
 
             {/* CONTENT */}
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-[#e8c27d] mb-1">
+           <div className="p-4 sm:p-6">
+             <h3
+  className="
+    text-lg sm:text-xl
+    font-semibold
+    text-[#e8c27d]
+    mb-1
+  "
+>
                 {event.title}
               </h3>
 
-              <p className="text-purple-400 text-sm mb-3">
+             <p className="text-purple-400 text-xs sm:text-sm mb-2 sm:mb-3">
                 {event.date}
               </p>
 
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p
+  className="
+    text-gray-400
+    text-xs sm:text-sm
+    leading-6
+  "
+>
                 {event.description}
               </p>
             </div>
