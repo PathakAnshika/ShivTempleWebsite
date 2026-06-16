@@ -10,13 +10,28 @@ export function HeroSection() {
    <section className="relative w-full h-[88vh] flex items-center justify-center overflow-hidden">
       
       {/* Background */}
-     <img
+    {/* Desktop Hero */}
+<img
+  src="/images/HeroPage.png"
+  alt="Shiv Parivar"
+  className="
+    hidden md:block
+    absolute inset-0
+    w-full h-full
+    object-cover
+  "
+/>
+
+{/* Mobile Hero */}
+<img
   src="/images/about2.jpg"
-  alt="Shiv Mandir"
-  className="absolute inset-0 w-full h-full object-cover"
-  style={{
-    objectPosition: "center 15%",
-  }}
+  alt="Shiv Parivar"
+  className="
+    block md:hidden
+    absolute inset-0
+    w-full h-full
+    object-cover
+  "
 />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
