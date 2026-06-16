@@ -116,6 +116,7 @@ export function AboutSection() {
   </div>
 
 </div>
+ </motion.div>
        <div className="order-3 lg:order-none mt-8">
   <button
     onClick={() => router.push("/about")}
@@ -133,7 +134,7 @@ export function AboutSection() {
   >
     Discover Our Journey →
   </button>
-</div>     </motion.div>
+</div>    
 
         {/* RIGHT IMAGES */}
         <motion.div
