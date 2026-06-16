@@ -5,6 +5,11 @@
 /* -------------------------------
 🌸 Root Theme Colors
 --------------------------------*/
+html,
+body {
+  overflow-x: hidden;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
