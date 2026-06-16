@@ -7,7 +7,13 @@ export function HeroSection() {
   const router = useRouter(); // ✅ router yahin
 
   return (
-   <section className="relative z-10 text-center text-white px-4 sm:px-5 max-w-4xl">
+   <section className="
+  relative z-10
+  text-center text-white
+  px-6 sm:px-8
+  max-w-5xl
+  mx-auto
+">
       
       {/* Background */}
     {/* Desktop Hero */}
@@ -49,7 +55,14 @@ export function HeroSection() {
       <p className="text-xs sm:text-sm md:text-lg tracking-[3px] sm:tracking-widest uppercase text-gray-200 mb-3 sm:mb-4 font-semibold">
   ||ॐ नमः शिवाय||
 </p>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
+       <h1 className="
+  text-4xl
+  sm:text-5xl
+  md:text-6xl
+  font-bold
+  mb-4
+  leading-tight
+">
           Divine Presence of <span className="text-yellow-400">Mahadev</span>
         </h1>
 
