@@ -62,51 +62,58 @@ export function AboutSection() {
             humanity through faith, culture and service.
           </p>
 
-          {/* Features */}
-          <div className="
-            flex flex-wrap
-            gap-4
-            mb-10
-          ">
+         {/* Features */}
+<div className="flex flex-wrap gap-2 sm:gap-4 mb-8">
 
-            <div className="
-              bg-white
-              px-5 py-3
-              rounded-full
-              shadow-md
-              border border-orange-100
-              text-gray-700
-              font-medium
-            ">
-              🕉️ Spirituality
-            </div>
+  <div
+    className="
+      bg-white
+      px-3 py-2
+      sm:px-5 sm:py-3
+      rounded-full
+      shadow-md
+      border border-orange-100
+      text-xs sm:text-base
+      text-gray-700
+      font-medium
+    "
+  >
+    🕉️ Spirituality
+  </div>
 
-            <div className="
-              bg-white
-              px-5 py-3
-              rounded-full
-              shadow-md
-              border border-orange-100
-              text-gray-700
-              font-medium
-            ">
-              🌸 Devotion
-            </div>
+  <div
+    className="
+      bg-white
+      px-3 py-2
+      sm:px-5 sm:py-3
+      rounded-full
+      shadow-md
+      border border-orange-100
+      text-xs sm:text-base
+      text-gray-700
+      font-medium
+    "
+  >
+    🌸 Devotion
+  </div>
 
-            <div className="
-              bg-white
-              px-5 py-3
-              rounded-full
-              shadow-md
-              border border-orange-100
-              text-gray-700
-              font-medium
-            ">
-              🔱 Culture
-            </div>
+  <div
+    className="
+      bg-white
+      px-3 py-2
+      sm:px-5 sm:py-3
+      rounded-full
+      shadow-md
+      border border-orange-100
+      text-xs sm:text-base
+      text-gray-700
+      font-medium
+    "
+  >
+    🔱 Culture
+  </div>
 
-          </div>
-
+</div>
           {/* Button */}
           <button
             onClick={() => router.push("/about")}
