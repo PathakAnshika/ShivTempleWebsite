@@ -193,64 +193,46 @@ lg:h-[500px]
 
           </div>
 
-         {/* Floating Card */}
-<div
-  className="
-    absolute
-    top-3 left-2
-    sm:top-6 sm:left-0
-    bg-white
-    rounded-2xl sm:rounded-3xl
-    shadow-xl
-    px-4 py-3
-    sm:px-6 sm:py-5
-    lg:px-8 lg:py-6
-    border border-orange-100
-    max-w-[220px]
-    sm:max-w-[280px]
-  "
->
+          {/* Floating Card */}
+          <div className="
+            absolute top-10 left-0
+            bg-white
+            rounded-3xl
+            shadow-xl
+            px-8 py-6
+            border border-orange-100
+          ">
 
-  <p
-    className="
-      text-orange-600
-      uppercase
-      tracking-[2px]
-      text-[10px]
-      sm:text-xs
-      font-semibold
-      mb-1
-    "
-  >
-    Sacred Legacy
-  </p>
+            <p className="
+              text-orange-600
+              uppercase
+              tracking-[3px]
+              text-xs
+              font-semibold
+              mb-2
+            ">
+              Sacred Legacy
+            </p>
 
-  <h3
-    className="
-      text-lg
-      sm:text-xl
-      lg:text-2xl
-      font-bold
-      text-gray-800
-      mb-1
-    "
-  >
-    Shri Chandreshwar Dham
-  </h3>
+            <h3 className="
+              text-2xl
+              font-bold
+              text-gray-800
+              mb-2
+            ">
+              Shri Chandreshwar Dham
+            </h3>
 
-  <p
-    className="
-      text-xs
-      sm:text-sm
-      text-gray-600
-      leading-5
-    "
-  >
-    Established with devotion,
-    service and spiritual awakening.
-  </p>
+            <p className="
+              text-sm
+              text-gray-600
+              leading-6
+            ">
+              Established with devotion,
+              service and spiritual awakening.
+            </p>
 
-</div>
+          </div>
 
         </motion.div>
 
