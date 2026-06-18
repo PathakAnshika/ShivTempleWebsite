@@ -164,10 +164,18 @@ ${formData.message}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-semibold text-purple-700 mb-6">
-              ❓ Frequently Asked Questions
-            </h3>
-
+          <h3
+  className="
+    text-lg
+    sm:text-2xl
+    font-semibold
+    text-purple-700
+    mb-4 sm:mb-6
+    text-center md:text-left
+  "
+>
+  ❓ Frequently Asked Questions
+</h3>
             <div className="space-y-4">
               {faqs.map((item, index) => (
                 <div
