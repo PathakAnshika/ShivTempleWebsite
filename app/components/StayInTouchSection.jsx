@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export function StayInTouchSection() {
   return (
@@ -59,7 +59,11 @@ export function StayInTouchSection() {
           { icon: <FaFacebook />, color: "text-blue-600", bg: "hover:bg-blue-100" },
           { icon: <FaInstagram />, color: "text-pink-600", bg: "hover:bg-pink-100" },
           { icon: <FaYoutube />, color: "text-red-600", bg: "hover:bg-red-100" },
-          { icon: <FaTwitter />, color: "text-sky-500", bg: "hover:bg-sky-100" },
+          {
+    icon: <FaWhatsapp />,
+    color: "text-green-600",
+    bg: "hover:bg-green-100",
+  },
           { icon: <FaEnvelope />, color: "text-yellow-500", bg: "hover:bg-yellow-100" },
         ].map((item, index) => (
           <motion.div
@@ -79,7 +83,9 @@ export function StayInTouchSection() {
   transition-all
 `}
           >
-           <div className={`text-3xl sm:text-4xl ${item.color}`}> </div>
+          <div className={`text-3xl sm:text-4xl ${item.color}`}>
+  {item.icon}
+</div>
           </motion.div>
         ))}
       </motion.div>
