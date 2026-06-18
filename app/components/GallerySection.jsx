@@ -47,21 +47,7 @@ export function GallerySection() {
   text-base sm:text-lg
   leading-7
 ">
-  </p>
-          <button
-  className="
-    bg-black text-white
-    rounded-full
-    px-5 sm:px-6
-    py-2.5
-    text-sm sm:text-base
-    w-full sm:w-fit
-    hover:bg-gray-800
-    transition
-  "
->
-  Our Services
-    </button>
+  </p><button className="bg-black text-white rounded-full px-6 py-2 w-fit hover:bg-gray-800 transition"> Our Services </button>
         </motion.div>
 
         {/* Image Top Right */}
