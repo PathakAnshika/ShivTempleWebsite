@@ -101,16 +101,16 @@ const handlePhoneRegister = async () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         className="
-          bg-white/50
-          backdrop-blur-2xl
-          p-6 md:p-7
-          rounded-3xl
-          shadow-2xl
-          border border-white/30
-          w-full
-          max-w-2xl
-          z-10
-        "
+  bg-white/50
+  backdrop-blur-2xl
+  p-4 sm:p-6 md:p-7
+  rounded-2xl sm:rounded-3xl
+  shadow-2xl
+  border border-white/30
+  w-full
+  max-w-2xl
+  z-10
+"
       >
 
         {/* Header */}
@@ -118,24 +118,23 @@ const handlePhoneRegister = async () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="
-            text-2xl
-            font-bold
-            text-center
-            text-purple-900
-            mb-3
-            tracking-wide
-          "
+        className="
+  md:col-span-2
+  w-full
+  py-3
+  text-sm sm:text-base"
         >
           Create Your Account 🙏
         </motion.h2>
 
         <p className="
-          text-center
-          text-gray-600
-          mb-5
-          leading-7
-        ">
+  text-center
+  text-gray-600
+  text-sm sm:text-base
+  mb-5
+  leading-6 sm:leading-7
+"
+>
           Begin your spiritual journey with
           Shri Chandreshwar Dham.
         </p>
@@ -153,9 +152,9 @@ const handlePhoneRegister = async () => {
             onClick={() => setRegisterType("phone")}
             className={`
               flex-1
-              py-2.5
+             py-2 sm:py-2.5
               rounded-xl
-              text-sm
+            text-xs sm:text-sm
               font-medium
               transition-all
 
@@ -192,8 +191,7 @@ const handlePhoneRegister = async () => {
         </div>
 
         {/* FORM */}
-        <div className="grid md:grid-cols-2 gap-4">
-
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* FULL NAME */}
           <div>
 
@@ -454,10 +452,11 @@ onChange={(e) =>
 
         {/* Login */}
         <p className="
-          text-center
-          text-gray-700
-          mt-4
-        ">
+  text-center
+  text-gray-700
+  text-sm sm:text-base
+  mt-4
+">
           Already have an account?{" "}
 
           <button
@@ -474,19 +473,24 @@ onChange={(e) =>
         </p>
 
         {/* Back */}
-        <button
-          onClick={() => router.push("/")}
-          className="
-            mt-3
-            w-full
-            text-purple-700
-            hover:underline
-            font-medium
-          "
-        >
-          ← Back to Website
-        </button>
-
+       <button
+  onClick={() => router.push("/")}
+  className="
+    mt-3 sm:mt-4
+    w-full
+    py-2.5 sm:py-3
+    text-sm sm:text-base
+    text-purple-700
+    font-medium
+    rounded-xl
+    border border-purple-200
+    bg-purple-50/50
+    hover:bg-purple-100
+    transition-all
+  "
+>
+  ← Back to Website
+</button>
       </motion.div>
 
     </section>
