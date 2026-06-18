@@ -89,10 +89,19 @@ ${formData.message}
             transition={{ duration: 0.6 }}
             className="bg-white shadow-xl rounded-2xl p-8 border border-purple-100"
           >
-            <h3 className="text-2xl font-semibold text-purple-700 mb-6">
-              📩 Send Us a Message
-            </h3>
-
+            <h3
+  className="
+    text-xl
+    sm:text-2xl
+    font-semibold
+    text-purple-700
+    mb-4 sm:mb-6
+    leading-tight
+    text-center md:text-left
+  "
+>
+  📩 Send Us a Message
+</h3>
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label className="text-sm text-gray-700 font-medium">
