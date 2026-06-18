@@ -106,12 +106,12 @@ const handlePhoneRegister = async () => {
         className="
   bg-white/50
   backdrop-blur-2xl
-  p-4 sm:p-4 sm:p-5 md:p-6
+ p-3 sm:p-4 md:p-5
   rounded-2xl sm:rounded-3xl
   shadow-2xl
   border border-white/30
   w-full
-  max-w-2xl
+  max-w-xl
   z-10
 "
       >
@@ -140,7 +140,7 @@ const handlePhoneRegister = async () => {
   text-center
   text-gray-600
   text-sm sm:text-base
-  mb-5
+  mb-3
   leading-6 sm:leading-7
 "
 >
@@ -200,7 +200,7 @@ const handlePhoneRegister = async () => {
         </div>
 
         {/* FORM */}
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {/* FULL NAME */}
           <div>
 
@@ -209,7 +209,7 @@ const handlePhoneRegister = async () => {
               text-sm
               font-medium
               text-purple-900
-              mb-1.5
+              mb-1
             ">
               Full Name
             </label>
@@ -257,7 +257,7 @@ onChange={(e) =>
                   text-sm
                   font-medium
                   text-purple-900
-                  mb-1.5
+                  mb-1
                 ">
                   Phone Number
                 </label>
@@ -308,7 +308,7 @@ onChange={(e) =>
                   text-sm
                   font-medium
                   text-purple-900
-                  mb-1.5
+                  mb-1
                 ">
                   Email Address
                 </label>
@@ -359,7 +359,7 @@ onChange={(e) =>
               text-sm
               font-medium
               text-purple-900
-              mb-1.5
+              mb-1
             ">
               Password
             </label>
@@ -403,7 +403,7 @@ onChange={(e) =>
               text-sm
               font-medium
               text-purple-900
-              mb-1.5
+              mb-1
             ">
               Confirm Password
             </label>
@@ -464,7 +464,7 @@ onChange={(e) =>
   text-center
   text-gray-700
   text-sm sm:text-base
-  mt-4
+  mt-2
 ">
           Already have an account?{" "}
 
@@ -485,7 +485,7 @@ onChange={(e) =>
        <button
   onClick={() => router.push("/")}
   className="
-    mt-3 sm:mt-4
+    mt-2
     w-full
     py-2.5 sm:py-3
     text-sm sm:text-base
