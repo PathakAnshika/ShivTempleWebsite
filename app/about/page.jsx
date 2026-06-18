@@ -419,7 +419,7 @@ export default function AboutPage() {
   Vision
 </h3>
 
-         <p
+        <p
   className="
     text-sm
     sm:text-base
@@ -427,6 +427,12 @@ export default function AboutPage() {
     text-slate-200
   "
 >
+  To build a spiritually vibrant community
+  where faith, harmony, and devotion
+  flourish across generations.
+</p>
+
+</div>
 
         </div>
 
