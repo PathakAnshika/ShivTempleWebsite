@@ -121,7 +121,7 @@ export default function AboutPage() {
       and community upliftment.
     </p>
 
-    {/* Bottom Pills */}
+  {/* Bottom Pills */}
     <div className="
       flex flex-wrap
       justify-center
@@ -166,6 +166,7 @@ export default function AboutPage() {
       </div>
 
     </div>
+
 
   </div>
 
