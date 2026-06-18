@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import FestivalCountdown from "../components/FestivalCountdown";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+  FaTwitter,
+} from "react-icons/fa";
 
 export default function EventsPage() {
   const router = useRouter();
