@@ -15,14 +15,15 @@ export default function HomeDonationSection() {
   // };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#f6e7ff] via-[#fff0f9] to-white py-16 sm:py-20 md:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#f6e7ff] via-[#fff0f9] to-white py-28">
+
       {/* Background Grid */}
       <div className="absolute inset-0 flex justify-center items-center opacity-60 pointer-events-none">
-       <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-10 gap-2 sm:gap-4 md:gap-6">
+        <div className="grid grid-cols-6 md:grid-cols-10 gap-4 md:gap-6">
           {Array.from({ length: 60 }).map((_, i) => (
             <div
               key={i}
-             className={`w-6 h-6 sm:w-10 sm:h-10 md:w-14 md:h-14 rounded-[35%] ${
+              className={`w-10 h-10 md:w-14 md:h-14 rounded-[35%] ${
                 i % 3 === 0
                   ? "bg-[#8750a6]"
                   : i % 2 === 0
@@ -35,34 +36,18 @@ export default function HomeDonationSection() {
       </div>
 
       {/* Main Content */}
-     <div className="relative z-20 flex justify-center items-center text-center px-4 sm:px-6">
+      <div className="relative z-20 flex justify-center items-center text-center px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="
-  bg-white
-  rounded-3xl
-  shadow-2xl
-  px-5 sm:px-8 md:px-16
-  py-8 sm:py-12 md:py-16
-  w-full
-  max-w-md sm:max-w-2xl md:max-w-3xl
-  mx-auto
-"
+          className="bg-white rounded-3xl shadow-2xl px-8 md:px-16 py-12 md:py-16 max-w-3xl"
         >
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-           className="
-  text-2xl
-  sm:text-3xl
-  md:text-5xl
-  font-semibold
-  text-[#3b0064]
-  leading-tight
-"
+            className="text-3xl md:text-5xl font-semibold text-[#3b0064]"
           >
             Join Thousands of Happy Donors
           </motion.h2>
@@ -71,45 +56,23 @@ export default function HomeDonationSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-           className="
-  mt-4 sm:mt-5
-  text-sm sm:text-base md:text-xl
-  text-[#5b507a]
-  leading-7
-  max-w-[280px]
-  sm:max-w-2xl
-  mx-auto
-"
+            className="mt-5 text-lg md:text-xl text-[#5b507a]"
           >
             Be part of our growing community of kind-hearted supporters whose generosity
             keeps the divine seva alive.
           </motion.p>
 
           {/* BUTTON — Redirect to Donate Page */}
-      <motion.button
+       <motion.button
   onClick={() => {
     console.log("Redirecting to donate page...");
     router.push("/donation");
   }}
-  className="
-    mt-6 sm:mt-8
-    w-full sm:w-auto
-    max-w-[260px]
-    mx-auto
-    px-6 sm:px-8
-    py-3
-    text-sm sm:text-base
-    font-semibold
-    bg-purple-700
-    text-white
-    rounded-full
-    shadow-lg
-    hover:bg-purple-800
-    transition-all duration-300
-  "
+  className="mt-8 px-8 py-3 bg-purple-700 text-white rounded-full"
 >
   Become a Donor
 </motion.button>
+
         </motion.div>
       </div>
     </section>
