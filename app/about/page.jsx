@@ -78,20 +78,25 @@ export default function AboutPage() {
       Shri Chandreshwar Dham
     </p>
 
-    {/* Heading */}
-    <h1 className="
-      text-5xl md:text-7xl
-      font-bold
-      text-gray-900
-      leading-[1.1]
-      max-w-5xl
-      mx-auto
-    ">
-      About
-      <span className="block text-orange-500 mt-2">
-        Shri Chandreshwar Dham
-      </span>
-    </h1>
+   <h1
+  className="
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    lg:text-7xl
+    font-bold
+    text-gray-900
+    leading-tight
+    max-w-5xl
+    mx-auto
+    px-4
+  "
+>
+  About
+  <span className="block text-orange-500 mt-1 sm:mt-2">
+    Shri Chandreshwar Dham
+  </span>
+</h1>
 
     {/* Decorative Line */}
     <div className="
@@ -949,24 +954,27 @@ export default function AboutPage() {
   "
 >
   <h3
-    className="
-      text-xl
-      font-semibold
-      text-gray-900
-    "
-  >
-    — Shri Akhoury Ravindra Prasad
-  </h3>
+  className="
+    text-lg
+    sm:text-xl
+    font-semibold
+    text-gray-900
+    leading-tight
+  "
+>
+  — Shri Akhoury Ravindra Prasad
+</h3>
 
-  <p
-    className="
-      text-slate-500
-      mt-1
-      text-sm
-    "
-  >
-    Founder, Shri Chandreshwar Dham
-  </p>
+<p
+  className="
+    text-slate-500
+    mt-1
+    text-xs sm:text-sm
+    leading-relaxed
+  "
+>
+  Founder, Shri Chandreshwar Dham
+</p>
   </div>
   </div>
   </div>
