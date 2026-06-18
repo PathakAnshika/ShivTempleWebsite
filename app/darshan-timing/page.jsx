@@ -78,7 +78,7 @@ export default function DarshanTimingsPage() {
           onClick={() => router.back()}
           className="
             fixed top-6 left-6 z-50
-            bg-white/90 backdrop-blur-md
+            bg-black/90 backdrop-blur-md
             border border-gray-200
             px-5 py-2 rounded-full
             shadow-lg hover:scale-105
