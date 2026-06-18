@@ -72,26 +72,62 @@ export function ScholarshipPreview() {
           to education, spiritual growth, and community upliftment.
         </motion.p>
 
-        {/* feature highlights */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mt-8 sm:mt-10 text-purple-800 font-medium">
-          <span className="
-  flex items-center gap-2
-  bg-white
-  px-3 py-2
-  sm:px-4
-  rounded-full
-  shadow
-  text-xs sm:text-base
-">
-            🎓 Merit-Based
-          </span>
-          <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow">
-            📚 Education Support
-          </span>
-          <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow">
-            🌍 Community Upliftment
-          </span>
-        </div>
+       {/* feature highlights */}
+<div
+  className="
+    flex flex-wrap
+    justify-center
+    gap-2 sm:gap-4 md:gap-6
+    mt-6 sm:mt-10
+    text-purple-800
+    font-medium
+  "
+>
+  <span
+    className="
+      flex items-center gap-2
+      bg-white
+      px-3 py-2
+      sm:px-4 sm:py-2.5
+      rounded-full
+      shadow
+      text-xs sm:text-sm md:text-base
+      whitespace-nowrap
+    "
+  >
+    🎓 Merit-Based
+  </span>
+
+  <span
+    className="
+      flex items-center gap-2
+      bg-white
+      px-3 py-2
+      sm:px-4 sm:py-2.5
+      rounded-full
+      shadow
+      text-xs sm:text-sm md:text-base
+      whitespace-nowrap
+    "
+  >
+    📚 Education Support
+  </span>
+
+  <span
+    className="
+      flex items-center gap-2
+      bg-white
+      px-3 py-2
+      sm:px-4 sm:py-2.5
+      rounded-full
+      shadow
+      text-xs sm:text-sm md:text-base
+      whitespace-nowrap
+    "
+  >
+    🌍 Community Upliftment
+  </span>
+</div>
 
         {/* button */}
         <motion.button
