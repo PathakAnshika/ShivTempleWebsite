@@ -48,10 +48,20 @@ export function MembershipSection() {
     Member 🪔
   </span>
 </h2>
-          <p className="mt-5 text-gray-200 text-lg leading-relaxed">
-            Register today and join our divine chandreshwar family. Get spiritual updates,
-            participate in Seva programs, and access your exclusive member dashboard.
-          </p>
+        <p
+  className="
+    mt-4 sm:mt-5
+    text-gray-200
+    text-base sm:text-lg
+    leading-7 sm:leading-relaxed
+    max-w-xl
+    mx-auto md:mx-0
+  "
+>
+  Register today and join our divine Chandreshwar family.
+  Get spiritual updates, participate in Seva programs,
+  and access your exclusive member dashboard.
+</p>
 
           {/* GLASSMORPHIC BOX */}
           <div className="mt-10 p-6 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl">
