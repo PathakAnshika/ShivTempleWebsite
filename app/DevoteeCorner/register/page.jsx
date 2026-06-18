@@ -65,21 +65,24 @@ const handlePhoneRegister = async () => {
 };
   return (
 
-    <section className="
-      min-h-screen
-      flex items-center justify-center
-      bg-gradient-to-br
-      from-purple-300/20
-      via-purple-100/40
-      to-white
-      relative overflow-hidden
-      px-4
-    ">
+    <section
+  className="
+    h-screen
+    flex items-center justify-center
+    overflow-hidden
+    bg-gradient-to-br
+    from-purple-300/20
+    via-purple-100/40
+    to-white
+    relative
+    px-4
+  "
+>
 
       {/* Soft Floating Blobs */}
       <div className="
         absolute top-0 left-0
-        w-72 h-72
+        w-40 h-40 sm:w-72 sm:h-72
         bg-purple-300/30
         blur-3xl
         rounded-full
@@ -88,7 +91,7 @@ const handlePhoneRegister = async () => {
 
       <div className="
         absolute bottom-0 right-0
-        w-96 h-96
+       w-52 h-52 sm:w-96 sm:h-96
         bg-pink-300/30
         blur-[120px]
         rounded-full
@@ -103,7 +106,7 @@ const handlePhoneRegister = async () => {
         className="
   bg-white/50
   backdrop-blur-2xl
-  p-4 sm:p-6 md:p-7
+  p-4 sm:p-4 sm:p-5 md:p-6
   rounded-2xl sm:rounded-3xl
   shadow-2xl
   border border-white/30
@@ -114,18 +117,24 @@ const handlePhoneRegister = async () => {
       >
 
         {/* Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        className="
-  md:col-span-2
-  w-full
-  py-3
-  text-sm sm:text-base"
-        >
-          Create Your Account 🙏
-        </motion.h2>
+       <motion.h2
+  initial={{ opacity: 0, y: -10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3 }}
+  className="
+    text-2xl
+    sm:text-3xl
+    md:text-4xl
+    font-bold
+    text-center
+    text-purple-900
+    mb-3
+    tracking-wide
+    leading-tight
+  "
+>
+  Create Your Account 🙏
+</motion.h2>
 
         <p className="
   text-center
