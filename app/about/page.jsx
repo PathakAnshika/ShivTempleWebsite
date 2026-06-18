@@ -325,51 +325,61 @@ export default function AboutPage() {
 </section>
 
 {/* ===== VISION / MISSION / BELIEF ===== */}
-<section className="bg-[#f8f8f6] py-20 overflow-hidden">
+<section className="bg-[#f8f8f6] py-14 sm:py-16 md:py-20 overflow-hidden">
 
-  <div className="max-w-7xl mx-auto px-6">
-
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
     {/* Heading */}
-    <div className="text-center mb-16">
+   <div className="text-center mb-10 sm:mb-16">
 
-      <p className="
-        uppercase tracking-[5px]
-        text-slate-500
-        text-xs font-semibold
-        mb-4
-      ">
+      <p
+  className="
+    uppercase
+    tracking-[3px] sm:tracking-[5px]
+    text-slate-500
+    text-[10px] sm:text-xs
+    font-semibold
+    mb-3 sm:mb-4
+  "
+>
         Spiritual Foundation
       </p>
 
-      <h2 className="
-        text-3xl md:text-5xl
-        font-bold
-        text-gray-900
-        leading-tight
-      ">
-        Vision • Mission • Belief
-      </h2>
-
+     <h2
+  className="
+    text-2xl
+    sm:text-3xl
+    md:text-5xl
+    font-bold
+    text-gray-900
+    leading-tight
+  "
+>
+  Vision • Mission • Belief
+</h2>
     </div>
 
     {/* Layout */}
-    <div className="
-      grid lg:grid-cols-3
-      gap-6
-      items-stretch
-    ">
+   <div
+  className="
+    grid
+    grid-cols-1
+    lg:grid-cols-3
+    gap-4 sm:gap-6
+    items-stretch
+  "
+>
 
       {/* LEFT TALL CARD */}
       <div className="
         relative
         rounded-[32px]
         overflow-hidden
-        p-8
+        p-5 sm:p-8
         bg-gradient-to-b
         from-slate-700
         to-slate-900
         text-white
-        min-h-[420px]
+       min-h-[320px] sm:min-h-[420px]
         flex flex-col justify-between
         shadow-xl
       ">
@@ -397,24 +407,26 @@ export default function AboutPage() {
             🕉️
           </div>
 
-          <h3 className="
-            text-3xl
-            font-bold
-            leading-tight
-            mb-5
-          ">
-            Vision
-          </h3>
+          <h3
+  className="
+    text-2xl
+    sm:text-3xl
+    font-bold
+    leading-tight
+    mb-3 sm:mb-5
+  "
+>
+  Vision
+</h3>
 
-          <p className="
-            text-base
-            leading-8
-            text-slate-200
-          ">
-            To build a spiritually vibrant community
-            where faith, harmony, and devotion
-            flourish across generations.
-          </p>
+         <p
+  className="
+    text-sm
+    sm:text-base
+    leading-7 sm:leading-8
+    text-slate-200
+  "
+>
 
         </div>
 
@@ -432,13 +444,13 @@ export default function AboutPage() {
         <div className="
           bg-white
           rounded-[30px]
-          p-8
+          p-5 sm:p-8
           border border-gray-100
           shadow-md
           hover:-translate-y-2
           hover:shadow-xl
           transition-all duration-500
-          min-h-[210px]
+          min-h-[320px] sm:min-h-[420px]
           flex flex-col justify-between
         ">
 
