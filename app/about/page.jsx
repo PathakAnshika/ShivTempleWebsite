@@ -25,7 +25,7 @@ export default function AboutPage() {
   {/* Soft Glow */}
   <div className="
     absolute -top-24 -left-24
-    w-72 h-72
+    w-72 h-65
     bg-orange-200/30
     rounded-full
     blur-3xl
