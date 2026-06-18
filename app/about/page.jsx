@@ -480,7 +480,7 @@ export default function AboutPage() {
 
         {/* Belief */}
         <div className="
-          bg-[#CCE7FF]
+          bg-[#F0F8FF ]
           rounded-[30px]
           p-8
           border border-gray-100
