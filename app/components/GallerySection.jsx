@@ -16,40 +16,7 @@ export function GallerySection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl p-4 sm:p-6 w-full">
         
         {/* Large Text Box */}
-        <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="
-  md:col-span-2
-  bg-white
-  rounded-2xl sm:rounded-3xl
-  p-5 sm:p-8 md:p-10
-  flex flex-col justify-center
-  shadow-md hover:shadow-lg
-  transition
-"
-        >
-          <h1 className="
-  text-3xl
-  sm:text-4xl
-  md:text-5xl
-  font-bold
-  text-gray-800
-  mb-3 sm:mb-4
-">
-  </h1>
-          <p className="
-  text-gray-600
-  mb-5 sm:mb-6
-  text-base sm:text-lg
-  leading-7
-">
-  </p><button className="bg-black text-white rounded-full px-6 py-2 w-fit hover:bg-gray-800 transition"> Our Services </button>
-        </motion.div>
-
+        {/* Large Text Box */} <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="md:col-span-2 bg-white rounded-3xl p-10 flex flex-col justify-center shadow-md hover:shadow-lg transition" > <h1 className="text-5xl font-bold text-gray-800 mb-4">Blessings of Mahadev </h1> <p className="text-gray-600 mb-6 text-lg leading-relaxed"> Experience peace, devotion, and spiritual awakening in the sacred presence of Mahadev, where faith, rituals, and divine energy unite. </p> <button className="bg-black text-white rounded-full px-6 py-2 w-fit hover:bg-gray-800 transition"> Our Services </button> </motion.div>
         {/* Image Top Right */}
         <motion.div
           custom={1}
