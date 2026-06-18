@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
 
 export function TempleFooter() {
   return (
-    <footer className="bg-[#0A1A2F] py-12 mt-16 text-white">
+    <footer className="bg-[#0A1A2F] py-12 text-white">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* 🔥 3 COLUMN GRID */}
