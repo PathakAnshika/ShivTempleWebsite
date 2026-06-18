@@ -2,6 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+  FaTwitter,
+} from "react-icons/fa";
 
 
 export default function DonationPage() {
@@ -423,7 +429,26 @@ const handleCardSelect = (opt) => {
   </p>
 
 </section>
-
+{/* ===== FOOTER (SAME AS YOURS) ===== */} <footer className="bg-[#0A1A2F] py-10 text-white"> 
+       <div className="max-w-6xl mx-auto px-4"> 
+         <div className="flex flex-col md:flex-row items-center justify-between gap-5"> 
+           <div> 
+             <h3 className="text-xl font-bold text-center md:text-left"> Sri Chandreshwar Dham Mandir </h3>
+              <p className="text-white/70 text-sm mt-1 text-center md:text-left"> 10Km from St.Columbus College, Hazaribagh, eas in churchu road, just before right to devi mandir mandap,chandwar,Hazaribagh,Jharkhand 825301 </p> 
+              </div> 
+              <div className="flex gap-4 text-white/80"> {[FaFacebook, FaInstagram, FaYoutube, FaTwitter].map((Icon, i) => ( <a key={i} href="#" className="hover:text-white transition"> <Icon className="text-xl" /> </a> ))} 
+              
+              </div> 
+              </div> 
+              <div className="border-t border-white/20 mt-6 mb-4"></div>
+               <div className="flex flex-col md:flex-row justify-between text-sm text-white/70 gap-3"> <p>© {new Date().getFullYear()} All rights reserved.</p>
+                <div className="flex gap-6"> <a href="#" className="hover:text-white transition"> Privacy Policy </a> 
+                <a href="#" className="hover:text-white transition"> Terms & Conditions </a> 
+                <a href="#" className="hover:text-white transition"> Contact </a> 
+                </div>
+                 </div> 
+                 </div> 
+                 </footer>
 
      <style jsx>{`
 
