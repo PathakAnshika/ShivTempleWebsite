@@ -155,29 +155,9 @@ const handleCardSelect = (opt) => {
  <div className="min-h-screen bg-[#fafafa] pt-20 sm:pt-10 px-4 sm:px-6">
 
       {/* BACK */}
-   <button
+  <button
   onClick={() => router.push("/")}
-  className={`
-    fixed
-    left-3 top-3
-    sm:left-6 sm:top-6
-    z-50
-
-    bg-white
-    text-gray-800
-
-    px-3 py-2
-    sm:px-5 sm:py-2.5
-
-    text-sm sm:text-base
-
-    rounded-full
-    shadow-lg
-    border border-gray-200
-
-    hover:bg-gray-100
-    transition-all
-  `}
+  className="fixed left-3 top-3 sm:left-6 sm:top-6 z-50 bg-white text-gray-800 px-3 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base rounded-full shadow-lg border border-gray-200 hover:bg-gray-100 transition-all"
 >
   ← Back
 </button>
