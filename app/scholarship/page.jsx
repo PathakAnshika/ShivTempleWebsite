@@ -7,19 +7,29 @@ export default function ScholarshipPage() {
   const router = useRouter();
 
   return (
-    <main className="bg-gradient-to-b from-purple-50 via-white to-purple-100 text-gray-800">
+<main className="bg-gradient-to-b from-purple-50 via-white to-purple-100 text-gray-800">
     
-{/* Back Button */}
 <button
   onClick={() => router.back()}
   className="
-    fixed top-6 left-6 z-50
-    px-5 py-2
-    bg-white/80 backdrop-blur-md
+    fixed
+    top-3 left-3
+    sm:top-6 sm:left-6
+    z-50
+
+    px-3 py-2
+    sm:px-5 sm:py-2
+
+    text-sm sm:text-base
+
+    bg-white/80
+    backdrop-blur-md
     text-purple-900
+
     rounded-full
     shadow-md
     border border-purple-100
+
     hover:bg-white
     hover:shadow-lg
     transition
@@ -29,27 +39,44 @@ export default function ScholarshipPage() {
 </button>
 
    {/* HERO SECTION */}
-<section className="py-24 px-6 max-w-6xl mx-auto">
-  <div className="grid md:grid-cols-2 gap-14 items-center">
+<section className="pt-20 sm:pt-24 pb-14 sm:pb-20 px-4 sm:px-6 max-w-6xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-14 items-center">
 
     {/* LEFT CONTENT */}
     <div>
       <motion.h1
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-4xl md:text-5xl font-bold text-purple-900"
-      >
-        Medha Scholarship Program 🎓
-      </motion.h1>
+  initial={{ opacity: 0, y: -40 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    font-bold
+    text-purple-900
+    leading-tight
+  "
+>
+  Medha Scholarship Program 🎓
+</motion.h1>
 
-      <div className="w-24 h-1 bg-purple-300 mt-6 mb-8"></div>
+      <div className="w-16 sm:w-24 h-1 bg-purple-300 mt-4 sm:mt-6 mb-5 sm:mb-8"></div>
 
-      <p className="text-lg text-gray-700 leading-relaxed">
-        Shri Chandreshwar Dham proudly supports academic excellence through the
-        <span className="font-semibold text-purple-800"> Medha Scholarship Program</span>.
-        This initiative empowers deserving students to pursue education
-        confidently with structured academic support.
-      </p>
+     <p
+  className="
+    text-sm
+    sm:text-base
+    md:text-lg
+    text-gray-700
+    leading-7 sm:leading-relaxed
+  "
+>
+  Shri Chandreshwar Dham proudly supports academic excellence through the
+  <span className="font-semibold text-purple-800">
+    {" "}Medha Scholarship Program
+  </span>.
+  This initiative empowers deserving students to pursue education
+  confidently with structured academic support.
+</p>
     </div>
 
     {/* RIGHT IMAGE */}
@@ -95,12 +122,21 @@ export default function ScholarshipPage() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="pb-24 px-6">
-        <h2 className="text-3xl font-semibold text-purple-900 text-center mb-14">
-          Scholarship Categories
-        </h2>
+    <section className="pb-14 sm:pb-20 md:pb-24 px-4 sm:px-6">
+        <h2
+  className="
+    text-2xl
+    sm:text-3xl
+    font-semibold
+    text-purple-900
+    text-center
+    mb-8 sm:mb-14
+  "
+>
+  Scholarship Categories
+</h2>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
 
           {/* Card */}
           {[
@@ -120,15 +156,43 @@ export default function ScholarshipPage() {
             <motion.div
               key={i}
               whileHover={{ y: -8 }}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-purple-100"
-            >
-              <h3 className="text-xl font-semibold text-purple-800 mb-3">
-                {cat.title}
-              </h3>
+              className="
+  bg-white
+  p-5 sm:p-8
+  rounded-2xl sm:rounded-3xl
 
-              <p className="text-gray-700 leading-relaxed">
-                {cat.desc}
-              </p>
+  border border-purple-100
+
+  shadow-md
+  hover:shadow-xl
+
+  transition-all
+  duration-300
+
+  hover:-translate-y-1
+"
+            >
+             <h3
+  className="
+    text-lg
+    sm:text-xl
+    font-semibold
+    text-purple-800
+    mb-2 sm:mb-3
+  "
+>
+  {cat.title}
+</h3>
+
+             <p
+  className="
+    text-gray-700
+    text-sm sm:text-base
+    leading-7
+  "
+>
+  {cat.desc}
+</p>
             </motion.div>
           ))}
         </div>
