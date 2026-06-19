@@ -115,18 +115,18 @@ export default function ShivalayaPage() {
 </section>
 
       {/* FLOOR PLAN */}
-      <section className="py-20 bg-orange-50 px-6">
-        <h2 className="text-2xl font-semibold text-center mb-12 text-purple-700">
-          Floor Plan Overview
-        </h2>
+      <section className="py-14 sm:py-20 bg-orange-50 px-4 sm:px-6">
+        <h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-8 sm:mb-12 text-purple-700 leading-tight ">
+  Floor Plan Overview
+</h2>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 max-w-6xl mx-auto">
 
-          <div className="bg-white p-6 rounded-xl shadow-sm">
-            <h3 className="font-semibold text-lg text-purple-700 mb-3">
-              Ground Floor
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+          <div className=" bg-white p-5 sm:p-6 rounded-2xl border border-orange-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <h3 className=" text-lg sm:text-xl font-semibold text-purple-700 mb-3 sm:mb-4 leading-tight ">
+  Ground Floor
+</h3>
+            <p className=" text-gray-600 text-sm sm:text-base leading-7 ">
               The ground floor will house the main prayer hall and Shivling
               sanctum, providing space for daily worship, rituals, and
               religious ceremonies.
@@ -134,10 +134,10 @@ export default function ShivalayaPage() {
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm">
-            <h3 className="font-semibold text-lg text-purple-700 mb-3">
-              First Floor
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+           <h3 className=" text-lg sm:text-xl font-semibold text-purple-700 mb-3 sm:mb-4 leading-tight ">
+  First Floor
+</h3>
+             <p className=" text-gray-600 text-sm sm:text-base leading-7 ">
               The first floor will include a meditation hall and space for
               spiritual discourses, allowing devotees to engage in reflection,
               prayer, and devotional gatherings.
@@ -145,10 +145,10 @@ export default function ShivalayaPage() {
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm">
-            <h3 className="font-semibold text-lg text-purple-700 mb-3">
-              Second Floor
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <h3 className=" text-lg sm:text-xl font-semibold text-purple-700 mb-3 sm:mb-4 leading-tight ">
+  Second Floor
+</h3>
+             <p className=" text-gray-600 text-sm sm:text-base leading-7 ">
               The second floor is proposed to include a spiritual library and
               study area dedicated to scriptural learning and knowledge sharing.
             </p>
@@ -157,84 +157,149 @@ export default function ShivalayaPage() {
         </div>
       </section>
 
-     <section className="py-20 px-6 bg-white">
+     <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
   <div className="max-w-5xl mx-auto text-center">
 
-    <h2 className="text-2xl font-semibold text-purple-700 mb-6">
+    {/* Heading */}
+    <h2
+      className=" text-xl sm:text-2xl md:text-3xl font-semibold text-purple-700 mb-4 sm:mb-6 ">
       Sacred Purpose
     </h2>
 
-    <p className="text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+    {/* Divider */}
+    <div className="w-16 sm:w-20 h-1 bg-purple-300 mx-auto rounded-full mb-6 sm:mb-8"></div>
+
+    {/* Description */}
+    <p
+      className=" text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto mb-8 sm:mb-12 leading-7 sm:leading-relaxedpx-2"
+    >
       The Shivalaya is envisioned as more than a place of worship. It is designed
       to serve as a spiritual sanctuary that nurtures devotion, promotes cultural
       values, encourages learning, and strengthens community harmony.
+   </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 text-left">
+
+  <div className="bg-orange-50 p-5 sm:p-6 rounded-2xl border border-orange-100 shadow-sm hover:shadow-md transition">
+    <h3 className="text-lg sm:text-xl font-semibold text-purple-700 mb-3">
+      🪔 Daily Worship & Rituals
+    </h3>
+
+    <p className="text-gray-600 text-sm sm:text-base leading-7">
+      Provide a serene and sacred environment for daily prayers, rituals,
+      and religious ceremonies, allowing devotees to connect with divine
+      energy and spiritual peace.
     </p>
+  </div>
 
-    <div className="grid md:grid-cols-2 gap-8 text-left">
+  <div className="bg-orange-50 p-5 sm:p-6 rounded-2xl border border-orange-100 shadow-sm hover:shadow-md transition">
+    <h3 className="text-lg sm:text-xl font-semibold text-purple-700 mb-3">
+      🧘 Meditation & Spiritual Growth
+    </h3>
 
-      <div className="bg-orange-50 p-6 rounded-xl">
-        <h3 className="font-semibold text-purple-700 mb-2">
-          🪔 Daily Worship & Rituals
-        </h3>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          Provide a serene and sacred environment for daily prayers, rituals,
-          and religious ceremonies, allowing devotees to connect with divine
-          energy and spiritual peace.
-        </p>
-      </div>
+    <p className="text-gray-600 text-sm sm:text-base leading-7">
+      Offer a peaceful space for meditation, reflection, and spiritual
+      practices that help individuals attain inner calm and mental clarity.
+    </p>
+  </div>
 
-      <div className="bg-orange-50 p-6 rounded-xl">
-        <h3 className="font-semibold text-purple-700 mb-2">
-          🧘 Meditation & Spiritual Growth
-        </h3>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          Offer a peaceful space for meditation, reflection, and spiritual
-          practices that help individuals attain inner calm and mental clarity.
-        </p>
-      </div>
+  <div className="bg-orange-50 p-5 sm:p-6 rounded-2xl border border-orange-100 shadow-sm hover:shadow-md transition">
+    <h3 className="text-lg sm:text-xl font-semibold text-purple-700 mb-3">
+      📚 Spiritual Education & Learning
+    </h3>
 
-      <div className="bg-orange-50 p-6 rounded-xl">
-        <h3 className="font-semibold text-purple-700 mb-2">
-          📚 Spiritual Education & Learning
-        </h3>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          Promote spiritual education through scriptures, teachings, and
-          knowledge-sharing to inspire moral values and cultural awareness.
-        </p>
-      </div>
+    <p className="text-gray-600 text-sm sm:text-base leading-7">
+      Promote spiritual education through scriptures, teachings, and
+      knowledge-sharing to inspire moral values and cultural awareness.
+    </p>
+  </div>
 
-      <div className="bg-orange-50 p-6 rounded-xl">
-        <h3 className="font-semibold text-purple-700 mb-2">
-          👥 Community & Cultural Harmony
-        </h3>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          Foster unity by hosting cultural programs, spiritual gatherings,
-          and community activities that strengthen social harmony and shared values.
-        </p>
-      </div>
+  <div className="bg-orange-50 p-5 sm:p-6 rounded-2xl border border-orange-100 shadow-sm hover:shadow-md transition">
+    <h3 className="text-lg sm:text-xl font-semibold text-purple-700 mb-3">
+      👥 Community & Cultural Harmony
+    </h3>
 
+    <p className="text-gray-600 text-sm sm:text-base leading-7">
+      Foster unity by hosting cultural programs, spiritual gatherings,
+      and community activities that strengthen social harmony and shared values.
+    </p>
+</div>
     </div>
   </div>
 </section>
 
       {/* DONATION */}
-     <section className="py-24 text-center bg-gradient-to-r from-purple-600 to-purple-300 text-gray-800">
-        <h3 className="text-3xl font-semibold mb-4">
-          Be a Part of the Sacred Journey
-        </h3>
+<section
+  className="
+    py-14 sm:py-20 md:py-24
+    px-4 sm:px-6
+    text-center
+    bg-gradient-to-r
+    from-purple-600
+    to-purple-300
+    text-gray-800
+  "
+>
+  <div className="max-w-4xl mx-auto">
 
-        <p className="mb-8 text-lg max-w-2xl mx-auto">
-          Your generous support will help in building the Shivalaya and
-          creating a spiritual sanctuary for devotees and future generations.
-        </p>
+    <h3
+      className="
+        text-2xl
+        sm:text-3xl
+        md:text-4xl
+        font-semibold
+        mb-4 sm:mb-5
+        leading-tight
+      "
+    >
+      Be a Part of the Sacred Journey
+    </h3>
 
-        <button
-          onClick={() => router.push("/donate")}
-          className="px-12 py-3 bg-white text-purple-600 font-semibold rounded-full hover:scale-105 transition"
-        >
-          Donate Now
-        </button>
-      </section>
+    <div className="w-16 sm:w-20 h-1 bg-white/40 mx-auto rounded-full mb-5 sm:mb-6"></div>
+
+    <p
+      className="
+        text-sm
+        sm:text-base
+        md:text-lg
+        max-w-2xl
+        mx-auto
+        mb-6 sm:mb-8
+        leading-7
+        px-2
+      "
+    >
+      Your generous support will help in building the Shivalaya and
+      creating a spiritual sanctuary for devotees and future generations.
+    </p>
+
+    <button
+      onClick={() => router.push("/donate")}
+      className="
+        px-6 sm:px-10 md:px-12
+        py-2.5 sm:py-3.5
+
+        text-sm sm:text-base
+
+        bg-white
+        text-purple-600
+        font-semibold
+
+        rounded-full
+
+        shadow-lg
+        hover:shadow-xl
+        hover:scale-105
+        active:scale-95
+
+        transition-all
+      "
+    >
+      Donate Now
+    </button>
+
+  </div>
+</section>
 
     </main>
   );
