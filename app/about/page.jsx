@@ -669,10 +669,15 @@ export default function AboutPage() {
     >
 
       {/* Image */}
-      <div className="relativeh-[280px]
-sm:h-[340px]
-lg:h-[380px] overflow-hidden">
-
+      <div
+  className="
+    relative
+    h-[280px]
+    sm:h-[340px]
+    lg:h-[380px]
+    overflow-hidden
+  "
+>
         <img
           src="/images/person1.jpg"
           alt="A.K Raghvan"
@@ -690,15 +695,21 @@ lg:h-[380px] overflow-hidden">
         "></div>
 
         {/* Role Badge */}
-        <div className="
-          absolute bottom-5 left-5
-          bg-white/90 backdrop-blur-md
-         px-3 py-1.5 rounded-full
-         sm:px-4 sm:py-2
-text-[11px] sm:text-sm
-max-w-[85%] font-semibold text-orange-700
-          shadow-md
-        ">
+        <div
+  className="
+    absolute
+    bottom-3 left-3
+    sm:bottom-5 sm:left-5
+    bg-white/90 backdrop-blur-md
+    px-3 py-1.5
+    sm:px-4 sm:py-2
+    rounded-full
+    text-[10px] sm:text-sm
+    font-semibold text-orange-700
+    shadow-md
+    max-w-[80%]
+  "
+>
          Temple Administration & Strategic Advisor
         </div>
 
@@ -740,9 +751,15 @@ mt-3 sm:mt-5">
     >
 
       {/* Image */}
-      <div className="relativeh-[280px]
-sm:h-[340px]
-lg:h-[380px] overflow-hidden">
+      <div
+  className="
+    relative
+    h-[280px]
+    sm:h-[340px]
+    lg:h-[380px]
+    overflow-hidden
+  "
+>
 
         <img
           src="/images/person2.jpg"
@@ -754,22 +771,27 @@ lg:h-[380px] overflow-hidden">
           "
         />
 
-        <div className="
+         <div className="
           absolute inset-0
           bg-gradient-to-t
           from-black/60 via-black/10 to-transparent
         "></div>
 
         {/* Role Badge */}
-        <div className="
-          absolute bottom-5 left-5
-          bg-white/90 backdrop-blur-md
-          px-3 py-1.5 rounded-full
-          sm:px-4 sm:py-2
-text-[11px] sm:text-sm
-max-w-[85%]font-semibold text-orange-700
-          shadow-md
-        ">
+       <div className="
+    absolute
+    bottom-3 left-3
+    sm:bottom-5 sm:left-5
+    bg-white/90 backdrop-blur-md
+    px-3 py-1.5
+    sm:px-4 sm:py-2
+    rounded-full
+    text-[10px] sm:text-sm
+    font-semibold text-orange-700
+    shadow-md
+    max-w-[80%]
+  "
+>
        Community Welfare & Education Lead
         </div>
 
