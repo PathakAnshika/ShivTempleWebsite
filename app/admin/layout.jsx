@@ -285,17 +285,17 @@ export default function AdminLayout({ children }) {
         </header>
 
         {/* Main Content */}
-        <main
-          className="
-            flex-1
-            p-4 md:p-8
-            overflow-y-auto
-            bg-gradient-to-br
-            from-purple-50
-            via-white
-            to-purple-100
-          "
-        >
+   <main
+  className="
+    flex-1
+    p-4 md:p-8
+    overflow-auto
+    bg-gradient-to-br
+    from-purple-50
+    via-white
+    to-purple-100
+  "
+>
           {children}
         </main>
       </div>
