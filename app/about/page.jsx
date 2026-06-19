@@ -828,59 +828,70 @@ export default function AboutPage() {
 </section>
       {/* ===== FOUNDER MESSAGE ===== */}
 {/* ===== FOUNDER MESSAGE ===== */}
-<section className="bg-[#f8f8f6] py-16 overflow-hidden">
+<section className="bg-[#f8f8f6] py-10 sm:py-16 overflow-hidden">
 
-  <div className="max-w-6xl mx-auto px-6">
-
+  <div className="max-w-6xl mx-auto px-4 sm:px-6">
     {/* Heading */}
-    <div className="text-center mb-12">
+    <div className="text-center mb-8 sm:mb-12">
 
-      <p className="
-        uppercase tracking-[5px]
-        text-slate-500
-        text-xs font-semibold
-        mb-3
-      ">
+     <p
+  className="
+    uppercase
+    tracking-[2px] sm:tracking-[5px]
+    text-slate-500
+    text-[10px] sm:text-xs
+    font-semibold
+    mb-2 sm:mb-3
+  "
+>
         Founder’s Vision
       </p>
 
-      <h2 className="
-        text-3xl md:text-4xl
-        font-bold
-        text-gray-900
-      ">
-        Founder’s Message
-      </h2>
+     <h2
+  className="
+    text-2xl
+    sm:text-3xl
+    md:text-4xl
+    font-bold
+    text-gray-900
+  "
+>
+  Founder’s Message
+</h2>
 
     </div>
 
     {/* Main Layout */}
-    <div className="
-      bg-white
-      rounded-[34px]
-      shadow-lg
-      border border-gray-100
-      overflow-hidden
-      grid lg:grid-cols-[420px_1fr]
-      items-center
-    ">
-
+    <div
+  className="
+    bg-white
+    rounded-[24px] sm:rounded-[34px]
+    shadow-lg
+    border border-gray-100
+    overflow-hidden
+    grid
+    lg:grid-cols-[420px_1fr]
+    items-center
+  "
+>
       {/* ===== IMAGE ===== */}
       <div className="
         relative
         h-full
       ">
 
-        <img
-          src="/images/Founder'sImage.jpeg"
-          alt="Founder"
-          className="
-            w-full
-            h-[480px]
-            object-cover
-            object-top
-          "
-        />
+       <img
+  src="/images/Founder'sImage.jpeg"
+  alt="Founder"
+  className="
+    w-full
+    h-[280px]
+    sm:h-[380px]
+    lg:h-[480px]
+    object-cover
+    object-top
+  "
+/>
 
         {/* Soft Overlay */}
         <div className="
@@ -892,48 +903,52 @@ export default function AboutPage() {
       </div>
 
       {/* ===== CONTENT ===== */}
-      <div className="p-8 md:p-10">
+    <div className="p-5 sm:p-8 md:p-10">
 
       {/* Quote */}
 {/* Heading */}
 <div className="relative mb-6">
 
-  <div
-    className="
-      absolute
-      -top-6
-      left-0
-      text-[70px]
-      text-slate-100
-      font-bold
-      leading-none
-    "
-  >
-    “
+ <div
+  className="
+    absolute
+    -top-3 sm:-top-6
+    left-0
+    text-[45px] sm:text-[70px]
+    text-slate-100
+    font-bold
+    leading-none
+  "
+>
+  “
   </div>
 
   <h3
-    className="
-      relative z-10
-      text-3xl
-      font-bold
-      text-slate-800
-      pl-4
-    "
-  >
-    प्रिय साथियों,
-  </h3>
+  className="
+    relative z-10
+    text-xl
+    sm:text-2xl
+    md:text-3xl
+    font-bold
+    text-slate-800
+    pl-2 sm:pl-4
+  "
+>
+  प्रिय साथियों,
+</h3>
 
 </div>
 
 {/* Highlight Line */}
 <p
   className="
-    text-xl
-    leading-[42px]
+    text-base
+    sm:text-lg
+    md:text-xl
+    leading-8 sm:leading-[42px]
     font-semibold
     text-gray-800
-    mb-6
+    mb-4 sm:mb-6
   "
 >
   हमारा उद्देश्य केवल एक संस्था का निर्माण करना नहीं,
@@ -946,8 +961,8 @@ export default function AboutPage() {
 <p
   className="
     text-gray-600
-    leading-9
-    text-lg
+    leading-7 sm:leading-9
+    text-sm sm:text-base md:text-lg
     text-justify
   "
 >
@@ -966,7 +981,7 @@ export default function AboutPage() {
 {/* Signature */}
 <div
   className="
-    mt-6
+    mt-5 sm:mt-6
     pt-4
     border-t border-slate-200
     w-full
