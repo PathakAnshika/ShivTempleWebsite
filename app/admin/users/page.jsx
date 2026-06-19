@@ -169,8 +169,8 @@ return (
 
     {/* TABLE */}
     
-  <div className="w-full overflow-x-auto rounded-2xl shadow-lg bg-white">
-  <div className="min-w-[1200px]">
+  <div className="hidden md:block">
+  <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
     <table className="w-full">
         <thead className="bg-purple-50 text-purple-700">
           <tr>
