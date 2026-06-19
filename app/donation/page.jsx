@@ -512,50 +512,50 @@ const handleCardSelect = (opt) => {
   background:white;
 }
 
-/* CARD FIX */
-.donation_card{
-  border:1px solid #e5e7eb;
-  padding:20px;
-  border-radius:16px;
-  cursor:pointer;
-  transition:0.3s;
-  background:#ffffff;
-}
+// /* CARD FIX */
+// .donation_card{
+//   border:1px solid #e5e7eb;
+//   padding:20px;
+//   border-radius:16px;
+//   cursor:pointer;
+//   transition:0.3s;
+//   background:#ffffff;
+// }
 
-/* HOVER */
-.donation_card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  border-color:#facc15; /* yellow */
-}
+// /* HOVER */
+// .donation_card:hover{
+//   transform:translateY(-4px);
+//   box-shadow:0 10px 25px rgba(0,0,0,0.08);
+//   border-color:#facc15; /* yellow */
+// }
 
 /* TEXT FIX */
-.donation_card h3{
-  color:#111827; /* dark */
-}
+// .donation_card h3{
+//   color:#111827; /* dark */
+// }
 
-.donation_card p{
-  color:#6b7280; /* readable gray */
-}
+// .donation_card p{
+//   color:#6b7280; /* readable gray */
+// }
 
-.donation_card span{
-  color:#16a34a; /* green amount */
-}
+// .donation_card span{
+//   color:#16a34a; /* green amount */
+// }
 
-/* SELECTED (IMPORTANT FIX) */
-.selected{
-  background:#fff7ed; /* light orange, not full */
-  border:2px solid #f97316;
-  box-shadow:0 8px 20px rgba(249,115,22,0.2);
-}
+// /* SELECTED (IMPORTANT FIX) */
+// .selected{
+//   background:#fff7ed; /* light orange, not full */
+//   border:2px solid #f97316;
+//   box-shadow:0 8px 20px rgba(249,115,22,0.2);
+// }
 
-.selected h3{
-  color:#c2410c;
-}
+// .selected h3{
+//   color:#c2410c;
+// }
 
-.selected span{
-  color:#c2410c;
-}
+// .selected span{
+//   color:#c2410c;
+// }
 
 `}</style>
 
