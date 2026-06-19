@@ -142,8 +142,7 @@ if (loading) {
 }
 
 return (
-  <div className="space-y-5 md:space-y-6 px-4 md:px-6">
-
+ <div className="space-y-5 md:space-y-6 w-full">
     {/* HEADER */}
     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
@@ -175,8 +174,22 @@ return (
 <p className="text-red-500">
   Users: {filteredUsers.length}
 </p>
-  <div className="bg-white rounded-2xl shadow-lg overflow-x-scroll">
-  <table className="w-[1200px]">
+  <div
+  className="
+    w-full
+    overflow-x-auto
+    rounded-2xl
+    shadow-lg
+    bg-white
+    touch-pan-x
+  "
+>
+  <table
+    className="
+      min-w-[1300px]
+      border-collapse
+    "
+  >
         <thead className="bg-purple-50 text-purple-700">
           <tr>
             <th className="px-6 py-4 text-left">Name</th>
