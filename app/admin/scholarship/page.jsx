@@ -166,21 +166,9 @@ setScholarshipAmount] =
       </div>
 
       {/* TABLE */}
-     <div
-  className="
-    bg-white
-    rounded-2xl
-    shadow-lg
-    overflow-x-auto
-  "
->
-  <table
-    className="
-      min-w-[900px]
-      w-full
-      text-sm
-    "
-  >
+    <div className="hidden md:block">
+  <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
+    <table className="w-full">
 
           <thead className="
             bg-purple-50
@@ -316,6 +304,93 @@ setScholarshipAmount] =
 </tbody>
 
 </table>
+</div>
+</div>
+
+{/* MOBILE VIEW */}
+<div className="md:hidden space-y-4">
+
+  {data.length === 0 && (
+    <div className="bg-white rounded-xl p-6 text-center text-gray-500">
+      No applications found
+    </div>
+  )}
+
+  {data.map((s) => (
+    <div
+      key={s.id}
+      className="bg-white rounded-2xl shadow-md border p-4"
+    >
+      {/* Header */}
+      <div className="flex justify-between items-start gap-3">
+
+        <div>
+          <h3 className="font-semibold text-gray-800 text-lg">
+            {s.name}
+          </h3>
+
+          <p className="text-xs text-gray-500 break-all">
+            {s.email}
+          </p>
+        </div>
+
+        <StatusBadge status={s.status} />
+      </div>
+
+      {/* Details */}
+      <div className="mt-4 space-y-2 text-sm">
+
+        <div className="flex justify-between">
+          <span className="text-gray-500">
+            Course
+          </span>
+
+          <span className="font-medium">
+            {s.course}
+          </span>
+        </div>
+
+        <div className="flex justify-between">
+          <span className="text-gray-500">
+            Income
+          </span>
+
+          <span className="font-medium">
+            ₹{s.income}
+          </span>
+        </div>
+
+        <div className="flex justify-between">
+          <span className="text-gray-500">
+            College
+          </span>
+
+          <span className="font-medium text-right">
+            {s.college}
+          </span>
+        </div>
+
+      </div>
+
+      {/* Action */}
+      <button
+        onClick={() => setSelected(s)}
+        className="
+          mt-4
+          w-full
+          bg-purple-100
+          text-purple-700
+          py-2.5
+          rounded-xl
+          font-semibold
+          hover:bg-purple-200
+          transition
+        "
+      >
+        View Details
+      </button>
+    </div>
+  ))}
 
 </div>
 
