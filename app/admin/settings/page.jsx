@@ -101,182 +101,234 @@ export default function AdminSettingsPage() {
     setSaving(false);
   }
 };
-  if (loading) {
-    return (
-      <p className="text-purple-700 animate-pulse">
+ if (loading) {
+  return (
+    <div className="flex justify-center items-center min-h-[40vh]">
+      <p className="text-sm md:text-base text-purple-700 animate-pulse">
         Loading settings...
       </p>
-    );
-  }
-
-  return (
-    <div className="space-y-8">
-
-      {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-purple-700">
-          ⚙️ Admin Settings
-        </h1>
-
-        <p className="text-gray-600 mt-1">
-          Manage website settings, payments & notifications
-        </p>
-      </div>
-
-      {/* Main Card */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 space-y-8">
-
-        {/* =====================================
-            GENERAL SETTINGS
-        ===================================== */}
-        <section>
-          <h2 className="text-xl font-semibold text-purple-700 mb-4">
-            🏛 General Settings
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-4">
-
-            <input
-              type="text"
-              name="templeName"
-              value={settings.templeName}
-              onChange={handleChange}
-              placeholder="Temple Name"
-              className="border border-gray-300 px-4 py-3 rounded-xl
-                         text-gray-800 placeholder-gray-500
-                         focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-
-            <input
-              type="email"
-              name="email"
-              value={settings.email}
-              onChange={handleChange}
-              placeholder="Admin Email"
-              className="border border-gray-300 px-4 py-3 rounded-xl
-                         text-gray-800 placeholder-gray-500
-                         focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-
-            <input
-              type="text"
-              name="phone"
-              value={settings.phone}
-              onChange={handleChange}
-              placeholder="Phone Number"
-              className="border border-gray-300 px-4 py-3 rounded-xl
-                         text-gray-800 placeholder-gray-500
-                         focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-
-            <input
-              type="text"
-              name="footerText"
-              value={settings.footerText}
-              onChange={handleChange}
-              placeholder="Footer Text"
-              className="border border-gray-300 px-4 py-3 rounded-xl
-                         text-gray-800 placeholder-gray-500
-                         focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-
-          </div>
-        </section>
-
-        {/* =====================================
-            FEATURE TOGGLES
-        ===================================== */}
-        <section>
-          <h2 className="text-xl font-semibold text-purple-700 mb-4">
-            🔔 Features
-          </h2>
-
-          <div className="space-y-4">
-
-            <label className="flex justify-between items-center border border-gray-300 p-4 rounded-xl">
-              <span className="text-gray-700 font-medium">
-                Enable Donations
-              </span>
-
-              <input
-                type="checkbox"
-                name="donationEnabled"
-                checked={settings.donationEnabled}
-                onChange={handleChange}
-                className="w-5 h-5 accent-purple-600"
-              />
-            </label>
-
-            <label className="flex justify-between items-center border border-gray-300 p-4 rounded-xl">
-              <span className="text-gray-700 font-medium">
-                Enable Notifications
-              </span>
-
-              <input
-                type="checkbox"
-                name="notificationsEnabled"
-                checked={settings.notificationsEnabled}
-                onChange={handleChange}
-                className="w-5 h-5 accent-purple-600"
-              />
-            </label>
-
-            <label className="flex justify-between items-center border border-gray-300 p-4 rounded-xl">
-              <span className="text-gray-700 font-medium">
-                Dark Mode
-              </span>
-
-              <input
-                type="checkbox"
-                name="darkMode"
-                checked={settings.darkMode}
-                onChange={handleChange}
-                className="w-5 h-5 accent-purple-600"
-              />
-            </label>
-
-          </div>
-        </section>
-
-        {/* =====================================
-            THEME SETTINGS
-        ===================================== */}
-        <section>
-          <h2 className="text-xl font-semibold text-purple-700 mb-4">
-            🎨 Theme Settings
-          </h2>
-
-          <select
-            name="theme"
-            value={settings.theme}
-            onChange={handleChange}
-            className="w-full md:w-1/2 border border-gray-300 px-4 py-3 rounded-xl
-                       text-gray-800 bg-white
-                       focus:outline-none focus:ring-2 focus:ring-purple-500"
-          >
-            <option value="purple">Purple</option>
-            <option value="gold">Gold</option>
-            <option value="orange">Orange</option>
-            <option value="blue">Blue</option>
-          </select>
-        </section>
-
-        {/* =====================================
-            SAVE BUTTON
-        ===================================== */}
-        <div>
-          <button
-            onClick={handleSave}
-            disabled={saving}
-            className="bg-gradient-to-r from-purple-600 to-fuchsia-600
-                       text-white font-semibold px-8 py-3 rounded-xl
-                       hover:scale-[1.02] transition disabled:opacity-50"
-          >
-            {saving ? "Saving..." : "Save Settings"}
-          </button>
-        </div>
-
-      </div>
     </div>
   );
+}
+
+  return (
+  <div className="space-y-6 md:space-y-8 px-4 md:px-6">
+    
+    {/* Header */}
+    <div>
+      <h1 className="text-2xl md:text-3xl font-bold text-purple-700">
+        ⚙️ Admin Settings
+      </h1>
+
+      <p className="text-sm md:text-base text-gray-600 mt-1">
+        Manage website settings, payments & notifications
+      </p>
+    </div>
+
+    {/* Main Card */}
+    <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8 space-y-8">
+
+      {/* GENERAL SETTINGS */}
+      <section>
+        <h2 className="text-lg md:text-xl font-semibold text-purple-700 mb-4">
+          🏛 General Settings
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <input
+            type="text"
+            name="templeName"
+            value={settings.templeName}
+            onChange={handleChange}
+            placeholder="Temple Name"
+            className="
+              w-full
+              border border-gray-300
+              px-4 py-3
+              rounded-xl
+              text-sm md:text-base
+              focus:outline-none
+              focus:ring-2
+              focus:ring-purple-500
+            "
+          />
+
+          <input
+            type="email"
+            name="email"
+            value={settings.email}
+            onChange={handleChange}
+            placeholder="Admin Email"
+            className="
+              w-full
+              border border-gray-300
+              px-4 py-3
+              rounded-xl
+              text-sm md:text-base
+              focus:outline-none
+              focus:ring-2
+              focus:ring-purple-500
+            "
+          />
+
+          <input
+            type="text"
+            name="phone"
+            value={settings.phone}
+            onChange={handleChange}
+            placeholder="Phone Number"
+            className="
+              w-full
+              border border-gray-300
+              px-4 py-3
+              rounded-xl
+              text-sm md:text-base
+              focus:outline-none
+              focus:ring-2
+              focus:ring-purple-500
+            "
+          />
+
+          <input
+            type="text"
+            name="footerText"
+            value={settings.footerText}
+            onChange={handleChange}
+            placeholder="Footer Text"
+            className="
+              w-full
+              border border-gray-300
+              px-4 py-3
+              rounded-xl
+              text-sm md:text-base
+              focus:outline-none
+              focus:ring-2
+              focus:ring-purple-500
+            "
+          />
+
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section>
+        <h2 className="text-lg md:text-xl font-semibold text-purple-700 mb-4">
+          🔔 Features
+        </h2>
+
+        <div className="space-y-4">
+
+          <label className="
+            flex justify-between items-center
+            border border-gray-300
+            p-4 rounded-xl
+          ">
+            <span className="text-sm md:text-base text-gray-700 font-medium">
+              Enable Donations
+            </span>
+
+            <input
+              type="checkbox"
+              name="donationEnabled"
+              checked={settings.donationEnabled}
+              onChange={handleChange}
+              className="w-5 h-5 accent-purple-600"
+            />
+          </label>
+
+          <label className="
+            flex justify-between items-center
+            border border-gray-300
+            p-4 rounded-xl
+          ">
+            <span className="text-sm md:text-base text-gray-700 font-medium">
+              Enable Notifications
+            </span>
+
+            <input
+              type="checkbox"
+              name="notificationsEnabled"
+              checked={settings.notificationsEnabled}
+              onChange={handleChange}
+              className="w-5 h-5 accent-purple-600"
+            />
+          </label>
+
+          <label className="
+            flex justify-between items-center
+            border border-gray-300
+            p-4 rounded-xl
+          ">
+            <span className="text-sm md:text-base text-gray-700 font-medium">
+              Dark Mode
+            </span>
+
+            <input
+              type="checkbox"
+              name="darkMode"
+              checked={settings.darkMode}
+              onChange={handleChange}
+              className="w-5 h-5 accent-purple-600"
+            />
+          </label>
+
+        </div>
+      </section>
+
+      {/* THEME SETTINGS */}
+      <section>
+        <h2 className="text-lg md:text-xl font-semibold text-purple-700 mb-4">
+          🎨 Theme Settings
+        </h2>
+
+        <select
+          name="theme"
+          value={settings.theme}
+          onChange={handleChange}
+          className="
+            w-full md:w-80
+            border border-gray-300
+            px-4 py-3
+            rounded-xl
+            text-sm md:text-base
+            bg-white
+            focus:outline-none
+            focus:ring-2
+            focus:ring-purple-500
+          "
+        >
+          <option value="purple">Purple</option>
+          <option value="gold">Gold</option>
+          <option value="orange">Orange</option>
+          <option value="blue">Blue</option>
+        </select>
+      </section>
+
+      {/* SAVE BUTTON */}
+      <div>
+        <button
+          onClick={handleSave}
+          disabled={saving}
+          className="
+            w-full md:w-auto
+            bg-gradient-to-r
+            from-purple-600
+            to-fuchsia-600
+            text-white
+            font-semibold
+            px-8 py-3
+            rounded-xl
+            hover:scale-[1.02]
+            transition
+            disabled:opacity-50
+          "
+        >
+          {saving ? "Saving..." : "Save Settings"}
+        </button>
+      </div>
+
+    </div>
+  </div>
+);
 }

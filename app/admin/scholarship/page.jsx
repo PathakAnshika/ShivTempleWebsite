@@ -166,17 +166,21 @@ setScholarshipAmount] =
       </div>
 
       {/* TABLE */}
-      <div className="
-        bg-white
-        rounded-2xl
-        shadow-lg
-        overflow-hidden
-      ">
-
-        <table className="
-          w-full
-          text-sm
-        ">
+     <div
+  className="
+    bg-white
+    rounded-2xl
+    shadow-lg
+    overflow-x-auto
+  "
+>
+  <table
+    className="
+      min-w-[900px]
+      w-full
+      text-sm
+    "
+  >
 
           <thead className="
             bg-purple-50
@@ -214,363 +218,286 @@ setScholarshipAmount] =
 
           <tbody>
 
-            {data.map((s) => (
+{data.map((s) => (
+  <tr
+    key={s.id}
+    className="
+      border-t
+      hover:bg-purple-50
+      transition
+    "
+  >
+    {/* STUDENT */}
+    <td
+      className="
+        px-3 md:px-4
+        py-3
+      "
+    >
+      <p
+        className="
+          font-semibold
+          text-gray-800
+        "
+      >
+        {s.name}
+      </p>
 
-              <tr
-                key={s.id}
+      <p
+        className="
+          text-xs
+          text-gray-500
+          break-all
+        "
+      >
+        {s.email}
+      </p>
+    </td>
 
-                className="
-                  border-t
-                  hover:bg-purple-50
-                  transition
-                "
-              >
+    {/* COURSE */}
+    <td
+      className="
+        text-gray-700
+        px-2 md:px-4
+      "
+    >
+      {s.course}
+    </td>
 
-                {/* STUDENT */}
-                <td className="
-                  px-4 py-3
-                ">
+    {/* INCOME */}
+    <td
+      className="
+        text-gray-700
+        px-2 md:px-4
+        whitespace-nowrap
+      "
+    >
+      ₹{s.income}
+    </td>
 
-                  <p className="
-                    font-semibold
-                    text-gray-800
-                  ">
-                    {s.name}
-                  </p>
+    {/* STATUS */}
+    <td
+      className="
+        text-center
+        px-2
+      "
+    >
+      <StatusBadge status={s.status} />
+    </td>
 
-                  <p className="
-                    text-xs
-                    text-gray-500
-                  ">
-                    {s.email}
-                  </p>
+    {/* ACTION */}
+    <td
+      className="
+        text-center
+        px-2
+      "
+    >
+      <button
+        onClick={() => setSelected(s)}
+        className="
+          px-3 md:px-4
+          py-2
+          rounded-xl
+          bg-purple-100
+          text-purple-700
+          text-xs md:text-sm
+          font-semibold
+          hover:bg-purple-200
+          transition
+          whitespace-nowrap
+        "
+      >
+        View Details
+      </button>
+    </td>
+  </tr>
+))}
 
-                </td>
+</tbody>
 
-                {/* COURSE */}
-                <td className="
-                  text-gray-700
-                ">
-                  {s.course}
-                </td>
+</table>
 
-                {/* INCOME */}
-                <td className="
-                  text-gray-700
-                ">
-                  ₹{s.income}
-                </td>
-
-                {/* STATUS */}
-                <td className="
-                  text-center
-                ">
-                  <StatusBadge
-                    status={s.status}
-                  />
-                </td>
-
-                {/* ACTION */}
-                <td className="
-                  text-center
-                ">
-
-                  <button
-                    onClick={() =>
-                      setSelected(s)
-                    }
-
-                    className="
-                      px-4 py-2
-                      rounded-xl
-                      bg-purple-100
-                      text-purple-700
-                      text-xs
-                      font-semibold
-                      hover:bg-purple-200
-                      transition
-                    "
-                  >
-                    View Details
-                  </button>
-
-                </td>
-
-              </tr>
-            ))}
-
-          </tbody>
-
-        </table>
-
-      </div>
+</div>
 
       {/* =====================================
          MODAL
       ===================================== */}
 
-      {selected && (
-
-        <div className="
-          fixed inset-0
-          bg-black/50
-          z-50
-          flex items-center
-          justify-center
-          px-4
-        ">
-
-          <div className="
-            bg-white
-            rounded-2xl
-            shadow-xl
-            w-full
-            max-w-4xl
-            max-h-[90vh]
-            overflow-y-auto
-            p-6
-          ">
-
-            {/* HEADER */}
-            <div className="
-              flex justify-between
-              items-center
-              border-b
-              pb-4
-              mb-5
-            ">
-
-              <div>
-
-                <h2 className="
-                  text-2xl
-                  font-bold
-                  text-purple-700
-                ">
-                  {selected.name}
-                </h2>
-
-                <p className="
-                  text-sm
-                  text-gray-500
-                ">
-                  {
-                    selected.application_id
-                  }
-                </p>
-
-              </div>
-
-              <button
-                onClick={() =>
-                  setSelected(null)
-                }
-
-                className="
-                  text-gray-500
-                  text-xl
-                "
-              >
-                ✕
-              </button>
-
-            </div>
-
-            {/* DETAILS */}
-            <div className="
-              grid
-              md:grid-cols-2
-              gap-4
-              text-sm
-            ">
-
-              <Info
-                label="Email"
-                value={selected.email}
-              />
-
-              <Info
-                label="Phone"
-                value={selected.phone}
-              />
-
-              <Info
-                label="Gender"
-                value={selected.gender}
-              />
-
-              <Info
-                label="DOB"
-                value={selected.dob}
-              />
-
-              <Info
-                label="Course"
-                value={selected.course}
-              />
-
-              <Info
-                label="College"
-                value={selected.college}
-              />
-
-              <Info
-                label="Current Year"
-                value={
-                  selected.current_year
-                }
-              />
-
-              <Info
-                label="Marks"
-                value={`${selected.marks}%`}
-              />
-
-              <Info
-                label="Income"
-                value={`₹${selected.income}`}
-              />
-
-              <Info
-                label="Dependents"
-                value={
-                  selected.dependents
-                }
-              />
-
-              <Info
-                label="Fee Amount"
-                value={`₹${selected.fee_amount}`}
-              />
-
-              <Info
-                label="Bank Name"
-                value={
-                  selected.bank_name
-                }
-              />
-
-              <Info
-                label="Account No"
-                value={
-                  selected.account_number
-                }
-              />
-
-              <Info
-                label="IFSC"
-                value={selected.ifsc}
-              />
-
-            </div>
-
-            {/* ADDRESS */}
-            <div className="mt-5">
-
-              <p className="
-                font-semibold
-                text-gray-700
-              ">
-                Address
-              </p>
-
-              <p className="text-gray-600">
-
-                {selected.address},
-                {" "}
-                {selected.city},
-                {" "}
-                {selected.state}
-                {" "}
-                -
-                {" "}
-                {selected.pincode}
-
-              </p>
-
-            </div>
-
-            {/* REASON */}
-            <div className="mt-5">
-
-              <p className="
-                font-semibold
-                text-gray-700
-              ">
-                Reason
-              </p>
-
-              <p className="text-gray-600">
-                {selected.reason}
-              </p>
-
-            </div>
-
-            {/* ACTIONS */}
-            <div className="
-              mt-8
-              border-t
-              pt-6
-            ">
-
-              <h3 className="
-                text-lg
-                font-semibold
-                text-purple-700
-                mb-4
-              ">
-                Application Actions
-              </h3>
-<div className="mb-4">
-
-  <label className="
-    block
-    text-sm
-    font-semibold
-    text-purple-700
-    mb-2
-  ">
-    Scholarship Amount
-  </label>
-
-  <input
-    type="number"
-
-    placeholder="Enter amount"
-
-    value={scholarshipAmount}
-
-    onChange={(e) =>
-      setScholarshipAmount(
-        e.target.value
-      )
-    }
-
+     {selected && (
+  <div
     className="
-      w-full
-      md:w-80
-
-      bg-white
-      text-gray-800
-      placeholder-gray-400
-
-      border
-      border-gray-300
-
-      px-4 py-3
-
-      rounded-xl
-
-      focus:outline-none
-      focus:ring-2
-      focus:ring-purple-500
+      fixed inset-0
+      bg-black/50
+      z-50
+      flex items-center
+      justify-center
+      p-3 md:p-4
     "
-  />
+  >
+    <div
+      className="
+        bg-white
+        rounded-2xl
+        shadow-xl
+        w-full
+        max-w-5xl
+        max-h-[90vh]
+        overflow-y-auto
+        p-4 md:p-6
+      "
+    >
+      {/* HEADER */}
+      <div
+        className="
+          flex flex-col
+          md:flex-row
+          md:items-center
+          justify-between
+          gap-3
+          border-b
+          pb-4
+          mb-5
+        "
+      >
+        <div>
+          <h2
+            className="
+              text-xl md:text-2xl
+              font-bold
+              text-purple-700
+              break-words
+            "
+          >
+            {selected.name}
+          </h2>
 
-</div>   <div className="
-                flex flex-wrap
-                gap-3
-              ">
+          <p className="text-sm text-gray-500">
+            {selected.application_id}
+          </p>
+        </div>
+
+        <button
+          onClick={() => setSelected(null)}
+          className="
+            self-end md:self-auto
+            text-gray-500
+            text-xl
+          "
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* DETAILS */}
+      <div
+        className="
+          grid
+          grid-cols-1
+          md:grid-cols-2
+          gap-4
+          text-sm
+        "
+      >
+        <Info label="Email" value={selected.email} />
+        <Info label="Phone" value={selected.phone} />
+        <Info label="Gender" value={selected.gender} />
+        <Info label="DOB" value={selected.dob} />
+        <Info label="Course" value={selected.course} />
+        <Info label="College" value={selected.college} />
+        <Info label="Current Year" value={selected.current_year} />
+        <Info label="Marks" value={`${selected.marks}%`} />
+        <Info label="Income" value={`₹${selected.income}`} />
+        <Info label="Dependents" value={selected.dependents} />
+        <Info label="Fee Amount" value={`₹${selected.fee_amount}`} />
+        <Info label="Bank Name" value={selected.bank_name} />
+        <Info label="Account No" value={selected.account_number} />
+        <Info label="IFSC" value={selected.ifsc} />
+      </div>
+
+      {/* ADDRESS */}
+      <div className="mt-5">
+        <p className="font-semibold text-gray-700">
+          Address
+        </p>
+
+        <p className="text-gray-600 break-words">
+          {selected.address}, {selected.city},{" "}
+          {selected.state} - {selected.pincode}
+        </p>
+      </div>
+
+      {/* REASON */}
+      <div className="mt-5">
+        <p className="font-semibold text-gray-700">
+          Reason
+        </p>
+
+        <p className="text-gray-600 break-words">
+          {selected.reason}
+        </p>
+      </div>
+
+      {/* ACTIONS */}
+      <div className="mt-8 border-t pt-6">
+        <h3
+          className="
+            text-base md:text-lg
+            font-semibold
+            text-purple-700
+            mb-4
+          "
+        >
+          Application Actions
+        </h3>
+
+        <div className="mb-4">
+          <label
+            className="
+              block
+              text-sm
+              font-semibold
+              text-purple-700
+              mb-2
+            "
+          >
+            Scholarship Amount
+          </label>
+
+          <input
+            type="number"
+            placeholder="Enter amount"
+            value={scholarshipAmount}
+            onChange={(e) =>
+              setScholarshipAmount(
+                e.target.value
+              )
+            }
+            className="
+              w-full
+              md:w-80
+              bg-white
+              border
+              border-gray-300
+              px-4 py-3
+              rounded-xl
+              focus:outline-none
+              focus:ring-2
+              focus:ring-purple-500
+            "
+          />
+        </div>
+
+        <div
+          className="
+            flex
+            flex-col
+            sm:flex-row
+            flex-wrap
+            gap-3
+          "
+        >
+
+
 
                 {/* APPROVE */}
                 {selected.status ===
@@ -705,62 +632,53 @@ setScholarshipAmount] =
    COMPONENTS
 ===================================== */
 
-function Card({
-  title,
-  value,
-}) {
-
+function Card({ title, value }) {
   return (
-
-    <div className="
-      bg-white
-      rounded-xl
-      shadow
-      p-5
-    ">
-
-      <p className="
-        text-gray-500
-        text-sm
-      ">
+    <div
+      className="
+        bg-white
+        rounded-xl
+        shadow
+        p-4 md:p-5
+      "
+    >
+      <p
+        className="
+          text-xs md:text-sm
+          text-gray-500
+        "
+      >
         {title}
       </p>
 
-      <h3 className="
-        text-3xl
-        font-bold
-        text-purple-700
-        mt-1
-      ">
+      <h3
+        className="
+          text-2xl md:text-3xl
+          font-bold
+          text-purple-700
+          mt-1
+        "
+      >
         {value}
       </h3>
-
     </div>
   );
 }
 
-function StatusBadge({
-  status,
-}) {
-
+function StatusBadge({ status }) {
   return (
-
     <span
       className={`
-        px-3 py-1
+        px-2 md:px-3 py-1
         rounded-full
         text-xs
         font-semibold
 
         ${
           status === "approved"
-
             ? "bg-green-100 text-green-700"
-
             : status === "rejected"
-
             ? "bg-red-100 text-red-700"
-
             : "bg-yellow-100 text-yellow-700"
         }
       `}
@@ -770,34 +688,36 @@ function StatusBadge({
   );
 }
 
-function Info({
-  label,
-  value,
-}) {
-
+function Info({ label, value }) {
   return (
-
-    <div className="
-      bg-gray-50
-      rounded-xl
-      p-3
-    ">
-
-      <p className="
-        text-xs
-        text-gray-500
-      ">
+    <div
+      className="
+        bg-gray-50
+        rounded-xl
+        p-3
+        break-words
+      "
+    >
+      <p
+        className="
+          text-xs
+          text-gray-500
+        "
+      >
         {label}
       </p>
 
-      <p className="
-        font-medium
-        text-gray-800
-        mt-1
-      ">
+      <p
+        className="
+          font-medium
+          text-sm md:text-base
+          text-gray-800
+          mt-1
+          break-words
+        "
+      >
         {value || "-"}
       </p>
-
     </div>
   );
 }
