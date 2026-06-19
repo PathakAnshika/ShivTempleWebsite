@@ -169,8 +169,11 @@ return (
     </div>
 
     {/* TABLE */}
-   <div className="bg-white rounded-2xl shadow-lg overflow-x-auto w-full">
-     <table className="min-w-[1200px] w-full">
+    <p className="md:hidden text-xs text-gray-500 mb-2">
+  ← Swipe left/right to view full table →
+</p>
+  <div className="bg-white rounded-2xl shadow-lg overflow-x-scroll">
+  <table className="w-[1400px]">
         <thead className="bg-purple-50 text-purple-700">
           <tr>
             <th className="px-6 py-4 text-left">Name</th>
