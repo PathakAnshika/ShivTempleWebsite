@@ -99,24 +99,32 @@ export default function ScholarshipPage() {
 
 
       {/* ABOUT SCHOLARSHIP */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="bg-white rounded-3xl shadow-xl p-10 border border-purple-100">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-14 sm:pb-20">
+        <div
+  className=" bg-white rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl  p-5 sm:p-8 md:p-10 border border-purple-100 "
+>
 
-          <h2 className="text-2xl font-semibold text-purple-900 mb-6">
-            About The Program
-          </h2>
+          <h2
+  className="text-xl sm:text-2xl font-semibold text-purple-900 mb-4 sm:mb-6 leading-tight"
+>
+  About The Program
+</h2>
 
-          <p className="text-gray-700 leading-relaxed mb-4">
-            The Medha Scholarship reflects the temple’s commitment towards
-            education, growth, and social upliftment. It recognizes hardworking
-            students and provides them with opportunities to continue their
-            academic journey without financial obstacles.
-          </p>
+         <p
+  className="text-gray-700 text-sm sm:text-base leading-7 sm:leading-relaxed mb-4"
+>
+  The Medha Scholarship reflects the temple’s commitment towards
+  education, growth, and social upliftment. It recognizes hardworking
+  students and provides them with opportunities to continue their
+  academic journey without financial obstacles.
+</p>
 
-          <p className="text-gray-700 leading-relaxed">
-            Scholarships are offered twice every year through a structured
-            evaluation process that ensures fairness, transparency, and merit-based selection.
-          </p>
+         <p className="text-gray-700 text-sm sm:text-base leading-7 sm:leading-relaxed"
+>
+  Scholarships are offered twice every year through a structured
+  evaluation process that ensures fairness, transparency,
+  and merit-based selection.
+</p>
 
         </div>
       </section>
