@@ -29,14 +29,14 @@ export default function GoshalaPage() {
 
   {/* Desktop Image */}
   <img
-    src="/images/cowhero.jpg"
+    src="/images/GoshalaHome.jpg"
     alt="Goshala"
     className="hidden md:block absolute inset-0 w-full h-full object-cover"
   />
 
   {/* Mobile Image */}
   <img
-    src="/images/GoshalaHomeMobile.jpg"
+    src="/images/cowhero.jpg"
     alt="Goshala"
     className="block md:hidden absolute inset-0 w-full h-full object-cover"
   />
