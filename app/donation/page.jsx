@@ -427,7 +427,7 @@ const handleCardSelect = (opt) => {
             className="border-t hover:bg-orange-50 transition"
           >
 
-            <td className="p-3 sm:p-5 font-medium text-sm sm:text-base">
+            <td className="p-3 sm:p-5 font-semibold text-slate-800">
   {d.name}
 </td>
 
