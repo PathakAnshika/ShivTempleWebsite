@@ -30,56 +30,74 @@ export default function SamvaadSubmit() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const data = new FormData();
+    const data = new FormData();
 
-  Object.keys(form).forEach((key) => {
-    data.append(key, form[key]);
-  });
+    Object.keys(form).forEach((key) => {
+      data.append(key, form[key]);
+    });
 
-  const res = await fetch("/api/samvaad-submit", {
-    method: "POST",
-    body: data,
-  });
+    const res = await fetch("/api/samvaad-submit", {
+      method: "POST",
+      body: data,
+    });
 
-  const result = await res.json();
+    const result = await res.json();
 
-  if (result.success) {
-    setShowPopup(true);
-  }
-};
+    if (result.success) {
+      setShowPopup(true);
+
+      setForm({
+        name: "",
+        location: "",
+        category: "",
+        title: "",
+        description: "",
+        phone: "",
+        email: "",
+        file: null,
+      });
+    }
+  };
 
   return (
     <main className="bg-[#f6f3ee] min-h-screen text-gray-800">
-
       {/* Back */}
-      <div className="max-w-5xl mx-auto px-6 pt-6">
+      <div className="max-w-5xl mx-auto px-4 md:px-6 pt-4 md:pt-6">
         <button
           onClick={() => router.back()}
-          className="text-sm text-gray-600 hover:text-black"
+          className="
+            text-sm md:text-base
+            text-gray-600 hover:text-black
+            bg-white px-3 py-2
+            rounded-full shadow-sm border
+          "
         >
           ← Back
         </button>
       </div>
 
       {/* Header */}
-      <section className="text-center py-14 px-6 max-w-3xl mx-auto">
-        <h1 className="text-3xl font-semibold text-[#c59d45]">
+      <section className="text-center py-10 md:py-14 px-4 md:px-6 max-w-3xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#c59d45]">
           Submit Your Contribution
         </h1>
 
-        <p className="mt-4 text-gray-700">
+        <p className="mt-4 text-sm md:text-base text-gray-700 leading-relaxed">
           Share your devotional poem, essay, thought, or spiritual message
           to inspire society through Samvaad.
         </p>
       </section>
 
       {/* Guidelines */}
-      <section className="max-w-3xl mx-auto px-6 mb-10">
-        <div className="bg-white border rounded-lg p-6 shadow-sm">
-          <h2 className="font-semibold mb-3">Submission Guidelines</h2>
-          <ul className="text-sm text-gray-600 space-y-1">
+      <section className="max-w-3xl mx-auto px-4 md:px-6 mb-8 md:mb-10">
+        <div className="bg-white border rounded-xl p-5 md:p-6 shadow-sm">
+          <h2 className="font-semibold mb-3 text-base md:text-lg">
+            Submission Guidelines
+          </h2>
+
+          <ul className="text-sm text-gray-600 space-y-2">
             <li>• Content must be original.</li>
             <li>• Languages accepted: Hindi, English, Sanskrit.</li>
             <li>• Avoid political or offensive content.</li>
@@ -89,44 +107,51 @@ export default function SamvaadSubmit() {
       </section>
 
       {/* FORM */}
-      <section className="max-w-3xl mx-auto px-6 pb-20">
+      <section className="max-w-3xl mx-auto px-4 md:px-6 pb-14 md:pb-20">
         <form
           onSubmit={handleSubmit}
-          className="bg-white border rounded-lg p-8 space-y-5 shadow-sm"
+          className="bg-white border rounded-xl p-5 md:p-8 space-y-5 shadow-sm"
         >
           <div>
-            <label className="block mb-1 font-medium">Full Name *</label>
+            <label className="block mb-1 font-medium text-sm md:text-base">
+              Full Name *
+            </label>
+
             <input
               type="text"
               name="name"
               required
               value={form.name}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded-md"
+              className="w-full border px-3 py-3 rounded-md text-sm md:text-base"
             />
           </div>
 
           <div>
-            <label className="block mb-1 font-medium">
+            <label className="block mb-1 font-medium text-sm md:text-base">
               City / Country
             </label>
+
             <input
               type="text"
               name="location"
               value={form.location}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded-md"
+              className="w-full border px-3 py-3 rounded-md text-sm md:text-base"
             />
           </div>
 
           <div>
-            <label className="block mb-1 font-medium">Category *</label>
+            <label className="block mb-1 font-medium text-sm md:text-base">
+              Category *
+            </label>
+
             <select
               name="category"
               required
               value={form.category}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded-md"
+              className="w-full border px-3 py-3 rounded-md text-sm md:text-base"
             >
               <option value="">Select</option>
               <option>Poem</option>
@@ -137,98 +162,118 @@ export default function SamvaadSubmit() {
           </div>
 
           <div>
-            <label className="block mb-1 font-medium">Title *</label>
+            <label className="block mb-1 font-medium text-sm md:text-base">
+              Title *
+            </label>
+
             <input
               type="text"
               name="title"
               required
               value={form.title}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded-md"
+              className="w-full border px-3 py-3 rounded-md text-sm md:text-base"
             />
           </div>
 
-          {/* Short Description */}
           <div>
-            <label className="block mb-1 font-medium">
+            <label className="block mb-1 font-medium text-sm md:text-base">
               Short Description (Optional)
             </label>
+
             <textarea
               name="description"
-              rows="3"
+              rows="4"
               placeholder="Briefly describe your submission"
               value={form.description}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded-md"
+              className="w-full border px-3 py-3 rounded-md text-sm md:text-base"
             />
           </div>
 
-          {/* File Upload */}
           <div>
-            <label className="block mb-1 font-medium">
+            <label className="block mb-1 font-medium text-sm md:text-base">
               Upload Your Contribution *
             </label>
+
             <input
               type="file"
               required
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded-md bg-white"
+              className="w-full border px-3 py-3 rounded-md bg-white text-sm"
             />
-            <p className="text-xs text-gray-500 mt-1">
+
+            <p className="text-xs text-gray-500 mt-2">
               Accepted formats: PDF, DOC, JPG, PNG (Max 5MB)
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block mb-1 font-medium">Phone</label>
+              <label className="block mb-1 font-medium text-sm md:text-base">
+                Phone
+              </label>
+
               <input
                 type="tel"
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
-                className="w-full border px-3 py-2 rounded-md"
+                className="w-full border px-3 py-3 rounded-md text-sm md:text-base"
               />
             </div>
 
             <div>
-              <label className="block mb-1 font-medium">Email</label>
+              <label className="block mb-1 font-medium text-sm md:text-base">
+                Email
+              </label>
+
               <input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full border px-3 py-2 rounded-md"
+                className="w-full border px-3 py-3 rounded-md text-sm md:text-base"
               />
             </div>
           </div>
 
-          <button className="w-full bg-[#c59d45] text-white py-3 rounded-md hover:opacity-90">
+          <button
+            type="submit"
+            className="
+              w-full bg-[#c59d45]
+              text-white py-3 md:py-4
+              rounded-md
+              text-sm md:text-base
+              hover:opacity-90 transition
+            "
+          >
             Submit Contribution
           </button>
         </form>
       </section>
 
-      {/* SUCCESS POPUP */}
+      {/* Success Popup */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm">
-            <h2 className="text-xl font-semibold mb-2">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center w-full max-w-sm">
+            <h2 className="text-lg md:text-xl font-semibold mb-2">
               ✅ Submitted Successfully
             </h2>
-            <p className="text-gray-600 mb-6">
+
+            <p className="text-gray-600 text-sm md:text-base mb-6">
               Thank you for your contribution.
             </p>
+
             <button
               onClick={() => setShowPopup(false)}
-              className="px-6 py-2 bg-gray-900 text-white rounded-md"
+              className="px-6 py-2 bg-gray-900 text-white rounded-md hover:bg-black transition"
             >
               OK
             </button>
           </div>
         </div>
       )}
-
     </main>
   );
 }

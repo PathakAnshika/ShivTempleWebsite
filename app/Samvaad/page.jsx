@@ -31,63 +31,73 @@ export default function SamvaadPage() {
 
   return (
     <main className="bg-[#f6f3ee] text-gray-800 min-h-screen">
-
       {/* Back */}
-      <div className="max-w-6xl mx-auto px-6 pt-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 pt-4 md:pt-6">
         <button
           onClick={() => router.back()}
-          className="text-sm text-gray-600 hover:text-black"
+          className="
+            text-sm md:text-base
+            text-gray-600 hover:text-black
+            bg-white px-3 py-2
+            rounded-full shadow-sm border
+          "
         >
           ← Back
         </button>
       </div>
 
       {/* HERO */}
-      <section className="max-w-4xl mx-auto text-center px-6 py-16">
-        <h1 className="text-4xl font-semibold text-[#c59d45]">
+      <section className="max-w-4xl mx-auto text-center px-4 md:px-6 py-12 md:py-16">
+        <h1 className="text-3xl md:text-5xl font-semibold text-[#c59d45]">
           Samvaad
         </h1>
 
-        <p className="mt-6 text-lg text-gray-700 leading-relaxed">
+        <p className="mt-5 md:mt-6 text-base md:text-lg text-gray-700 leading-relaxed">
           Samvaad is a cultural and spiritual expression platform that
           preserves devotional creativity and meaningful reflections.
-          Devotees, students, scholars, and well-wishers contribute
-          poems, essays, thoughts, and spiritual messages.
+          Devotees, students, scholars, and well-wishers contribute poems,
+          essays, thoughts, and spiritual messages.
         </p>
       </section>
 
       {/* CONTENT CATEGORIES */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-semibold text-center mb-12">
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
+        <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 md:mb-12">
           Content Categories
         </h2>
 
-        <div className="grid md:grid-cols-4 gap-6 text-center">
-          {["Poems", "Essays", "Thoughts", "Video Messages"].map((item, i) => (
-            <div
-              key={i}
-              className="bg-white border border-gray-200 rounded-lg py-6 shadow-sm"
-            >
-              <h3 className="font-semibold">{item}</h3>
-            </div>
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+          {["Poems", "Essays", "Thoughts", "Video Messages"].map(
+            (item, i) => (
+              <div
+                key={i}
+                className="bg-white border border-gray-200 rounded-lg py-5 md:py-6 shadow-sm"
+              >
+                <h3 className="font-semibold text-sm md:text-base">
+                  {item}
+                </h3>
+              </div>
+            )
+          )}
         </div>
       </section>
 
       {/* FEATURED EXPRESSIONS */}
-      <section className="bg-white py-16 border-y border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-
-          <h2 className="text-2xl font-semibold text-center mb-12">
+      <section className="bg-white py-12 md:py-16 border-y border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 md:mb-12">
             Featured Expressions
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {posts.map((post, i) => (
-              <div key={i} className="border rounded-lg p-6 bg-white shadow-sm">
+              <div
+                key={i}
+                className="border rounded-lg p-5 md:p-6 bg-white shadow-sm"
+              >
                 <p className="text-sm text-gray-500">{post.type}</p>
 
-                <h3 className="font-semibold text-lg mt-1">
+                <h3 className="font-semibold text-lg mt-2">
                   {post.title}
                 </h3>
 
@@ -101,88 +111,91 @@ export default function SamvaadPage() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-     {/* WINNERS SECTION */}
-<section className="py-20 px-6 bg-[#f0ece6]">
-  <div className="max-w-6xl mx-auto text-center">
+      {/* WINNERS */}
+      <section className="py-14 md:py-20 px-4 md:px-6 bg-[#f0ece6]">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-[#c59d45]">
+            Vidha Competition Winners
+          </h2>
 
-    <h2 className="text-2xl font-semibold mb-4 text-[#c59d45]">
-      Vidha Competition Winners
-    </h2>
+          <p className="text-gray-700 max-w-2xl mx-auto mb-8 md:mb-12 text-sm md:text-base">
+            Selected essays and poems from Vidha Competition winners are
+            published to honor creativity, devotion, and cultural excellence.
+          </p>
 
-    <p className="text-gray-700 max-w-2xl mx-auto mb-12">
-      Selected essays and poems from Vidha Competition winners are
-      published to honor creativity, devotion, and cultural excellence.
-    </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="bg-white p-5 md:p-6 rounded-lg shadow-sm border border-gray-200">
+              <p className="text-xs text-[#c59d45] font-semibold uppercase">
+                Essay Writing • 2025
+              </p>
 
-    <div className="grid md:grid-cols-3 gap-8">
+              <h3 className="font-semibold text-lg mt-2">
+                धर्म और जीवन का संतुलन
+              </h3>
 
-      {/* Winner 1 */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-        <p className="text-xs text-[#c59d45] font-semibold uppercase">
-          Essay Writing • 2025
-        </p>
-        <h3 className="font-semibold text-lg mt-2">
-          धर्म और जीवन का संतुलन
-        </h3>
-        <p className="text-gray-500 text-sm mt-3">
-          by Ananya Sharma
-        </p>
-      </div>
+              <p className="text-gray-500 text-sm mt-3">
+                by Ananya Sharma
+              </p>
+            </div>
 
-      {/* Winner 2 */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-        <p className="text-xs text-[#c59d45] font-semibold uppercase">
-          Poetry • 2025
-        </p>
-        <h3 className="font-semibold text-lg mt-2">
-          भक्ति की ज्योति
-        </h3>
-        <p className="text-gray-500 text-sm mt-3">
-          by Rahul Verma
-        </p>
-      </div>
+            <div className="bg-white p-5 md:p-6 rounded-lg shadow-sm border border-gray-200">
+              <p className="text-xs text-[#c59d45] font-semibold uppercase">
+                Poetry • 2025
+              </p>
 
-      {/* Winner 3 */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-        <p className="text-xs text-[#c59d45] font-semibold uppercase">
-          Art & Expression • 2025
-        </p>
-        <h3 className="font-semibold text-lg mt-2">
-          दिव्यता का अनुभव
-        </h3>
-        <p className="text-gray-500 text-sm mt-3">
-          by Meera Gupta
-        </p>
-      </div>
+              <h3 className="font-semibold text-lg mt-2">
+                भक्ति की ज्योति
+              </h3>
 
-    </div>
+              <p className="text-gray-500 text-sm mt-3">
+                by Rahul Verma
+              </p>
+            </div>
 
-  </div>
-</section>
+            <div className="bg-white p-5 md:p-6 rounded-lg shadow-sm border border-gray-200">
+              <p className="text-xs text-[#c59d45] font-semibold uppercase">
+                Art & Expression • 2025
+              </p>
+
+              <h3 className="font-semibold text-lg mt-2">
+                दिव्यता का अनुभव
+              </h3>
+
+              <p className="text-gray-500 text-sm mt-3">
+                by Meera Gupta
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
-      <section className="text-center py-20 px-6">
-        <h3 className="text-2xl font-semibold mb-4">
+      <section className="text-center py-14 md:py-20 px-4 md:px-6">
+        <h3 className="text-2xl md:text-3xl font-semibold mb-4">
           Share Your Expression
         </h3>
 
-        <p className="text-gray-700 mb-8 max-w-xl mx-auto">
+        <p className="text-gray-700 mb-8 max-w-xl mx-auto text-sm md:text-base">
           Devotees, students, and well-wishers are welcome to contribute
           poems, essays, thoughts, and devotional messages.
         </p>
 
         <button
           onClick={() => router.push("/samvaad-submit")}
-          className="px-8 py-3 bg-[#c59d45] text-white rounded-full hover:scale-105 transition"
+          className="
+            px-6 md:px-8 py-3
+            bg-[#c59d45] text-white
+            rounded-full
+            hover:scale-105 transition
+            text-sm md:text-base
+          "
         >
           Submit Contribution
         </button>
       </section>
-
     </main>
   );
 }
