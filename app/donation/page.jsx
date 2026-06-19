@@ -384,39 +384,38 @@ const handleCardSelect = (opt) => {
 
 {/* DARPAN – TRANSPARENCY */}
 
-<section className="max-w-6xl mx-auto mt-28">
+<section className="max-w-6xl mx-auto mt-16 sm:mt-20 md:mt-28 px-4 sm:px-6">
 
   {/* HEADER */}
-  <div className="text-center mb-12">
+ <div className="text-center mb-8 sm:mb-12">
 
-    <h2 className="text-4xl font-semibold text-orange-700 mb-4">
-      Darpan – Transparency
-    </h2>
+  <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-orange-700 mb-3 sm:mb-4">
+    Darpan – Transparency
+  </h2>
 
-    <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-      Shri Chandreshwar Dham believes in transparency and accountability.
-      All donations received for temple activities and seva are recorded
-      and reflected here. Donors who prefer privacy may choose to remain
-      anonymous.
-    </p>
+  <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-7 px-2">
+    Shri Chandreshwar Dham believes in transparency and accountability.
+    All donations received for temple activities and seva are recorded
+    and reflected here. Donors who prefer privacy may choose to remain
+    anonymous.
+  </p>
 
-  </div>
+</div>
 
 
   {/* TABLE */}
-  <div className="bg-white rounded-2xl shadow-lg overflow-hidden border">
+ <div className="bg-white rounded-3xl shadow-xl border border-orange-100 overflow-hidden">
+  <div className="overflow-x-auto">
 
-    <table className="w-full text-left">
+   <table className="min-w-[650px] w-full text-left">
 
-      <thead className="bg-orange-50 text-gray-700">
-
-        <tr>
-          <th className="p-5">Donor Name</th>
-          <th className="p-5">Donation</th>
-          <th className="p-5">Purpose</th>
-        </tr>
-
-      </thead>
+     <thead className="bg-orange-50 text-gray-700">
+  <tr>
+    <th className="p-3 sm:p-5 text-sm sm:text-base">Donor Name</th>
+    <th className="p-3 sm:p-5 text-sm sm:text-base">Donation</th>
+    <th className="p-3 sm:p-5 text-sm sm:text-base">Purpose</th>
+  </tr>
+</thead>
 
       <tbody>
 
@@ -428,17 +427,17 @@ const handleCardSelect = (opt) => {
             className="border-t hover:bg-orange-50 transition"
           >
 
-            <td className="p-5 font-medium">
-              {d.name}
-            </td>
+            <td className="p-3 sm:p-5 font-medium text-sm sm:text-base">
+  {d.name}
+</td>
 
-            <td className="p-5 text-orange-600 font-semibold">
-              {d.amount}
-            </td>
+<td className="p-3 sm:p-5 text-orange-600 font-semibold text-sm sm:text-base">
+  ₹{d.amount}
+</td>
 
-            <td className="p-5 text-gray-600">
-              {d.purpose}
-            </td>
+<td className="p-3 sm:p-5 text-gray-600 text-sm sm:text-base">
+  {d.purpose}
+</td>
 
           </tr>
 
@@ -447,15 +446,15 @@ const handleCardSelect = (opt) => {
       </tbody>
 
     </table>
-
+</div>
   </div>
 
 
   {/* NOTE */}
 
-  <p className="text-center text-sm text-gray-500 mt-6">
-    *Donors may choose to remain anonymous if they prefer privacy.
-  </p>
+  <p className="text-center text-xs sm:text-sm text-gray-500 mt-4 sm:mt-6 px-2">
+  *Donors may choose to remain anonymous if they prefer privacy.
+</p>
 
 
 </section>
