@@ -122,52 +122,65 @@ export default function AboutPage() {
     </p>
 
   {/* Bottom Pills */}
-    <div className="
-      flex flex-wrap
-      justify-center
-      gap-4
-      mt-12
-    ">
+<div
+  className="
+    flex flex-wrap
+    justify-center
+    gap-2 sm:gap-4
+    mt-8 sm:mt-12
+  "
+>
+  <div
+    className="
+      px-3 py-2
+      sm:px-5 sm:py-3
+      rounded-full
+      bg-white
+      border border-orange-100
+      shadow-md
+      text-gray-700
+      font-medium
+      text-xs sm:text-sm md:text-base
+      whitespace-nowrap
+    "
+  >
+    🕉️ Spirituality
+  </div>
 
-      <div className="
-        px-5 py-3
-        rounded-full
-        bg-white
-        border border-orange-100
-        shadow-md
-        text-gray-700
-        font-medium
-      ">
-        🕉️ Spirituality
-      </div>
+  <div
+    className="
+      px-3 py-2
+      sm:px-5 sm:py-3
+      rounded-full
+      bg-white
+      border border-orange-100
+      shadow-md
+      text-gray-700
+      font-medium
+      text-xs sm:text-sm md:text-base
+      whitespace-nowrap
+    "
+  >
+    🌸 Devotion
+  </div>
 
-      <div className="
-        px-5 py-3
-        rounded-full
-        bg-white
-        border border-orange-100
-        shadow-md
-        text-gray-700
-        font-medium
-      ">
-        🌸 Devotion
-      </div>
-
-      <div className="
-        px-5 py-3
-        rounded-full
-        bg-white
-        border border-orange-100
-        shadow-md
-        text-gray-700
-        font-medium
-      ">
-        🔱 Culture
-      </div>
-
-    </div>
-
-
+  <div
+    className="
+      px-3 py-2
+      sm:px-5 sm:py-3
+      rounded-full
+      bg-white
+      border border-orange-100
+      shadow-md
+      text-gray-700
+      font-medium
+      text-xs sm:text-sm md:text-base
+      whitespace-nowrap
+    "
+  >
+    🔱 Culture
+  </div>
+</div>
   </div>
 
 </section>
