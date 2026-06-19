@@ -157,7 +157,7 @@ const handleCardSelect = (opt) => {
       {/* BACK */}
    <button
   onClick={() => router.push("/")}
-  className="
+  className={`
     fixed
     left-3 top-3
     sm:left-6 sm:top-6
@@ -177,7 +177,7 @@ const handleCardSelect = (opt) => {
 
     hover:bg-gray-100
     transition-all
-  "
+  `}
 >
   ← Back
 </button>
