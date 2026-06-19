@@ -166,10 +166,120 @@ return (
         "
       />
     </div>
+{/* MOBILE USERS CARDS */}
+<div className="md:hidden space-y-4">
+  {filteredUsers.length === 0 ? (
+    <div className="bg-white rounded-xl p-5 shadow text-center text-gray-500">
+      No users found
+    </div>
+  ) : (
+    filteredUsers.map((u) => (
+      <div
+        key={u.id}
+        className="bg-white rounded-xl p-4 shadow border border-gray-100"
+      >
+        {/* Header */}
+        <div className="flex justify-between items-start gap-3">
+          <div>
+            <h3 className="font-semibold text-gray-800">
+              {u.full_name || "-"}
+            </h3>
 
+            <p className="text-sm text-gray-500 break-all">
+              {u.email || "-"}
+            </p>
+          </div>
+
+          <span
+            className={`px-2 py-1 rounded-full text-xs font-medium ${
+              u.role === "admin"
+                ? "bg-purple-100 text-purple-700"
+                : "bg-gray-100 text-gray-700"
+            }`}
+          >
+            {u.role || "user"}
+          </span>
+        </div>
+
+        {/* Details */}
+        <div className="mt-4 space-y-2 text-sm">
+          <div className="flex justify-between">
+            <span className="text-gray-500">Status</span>
+
+            <span
+              className={`font-medium ${
+                u.status === "blocked"
+                  ? "text-red-600"
+                  : "text-green-600"
+              }`}
+            >
+              {u.status || "active"}
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-500">Donation</span>
+
+            <span className="font-medium text-purple-700">
+              ₹{u.total_donation || 0}
+            </span>
+          </div>
+
+          <div className="flex justify-between gap-3">
+            <span className="text-gray-500">
+              Joined
+            </span>
+
+            <span className="text-right text-xs">
+              {u.created_at || "-"}
+            </span>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="mt-4 flex gap-2">
+          <button
+            onClick={() => {
+              setSelectedUser(u);
+              setShowModal(true);
+            }}
+            className="
+              flex-1
+              py-2
+              rounded-lg
+              bg-blue-50
+              text-blue-600
+              font-medium
+            "
+          >
+            View
+          </button>
+
+          <button
+            onClick={() =>
+              toggleStatus(u.id, u.status)
+            }
+            className="
+              flex-1
+              py-2
+              rounded-lg
+              bg-red-50
+              text-red-600
+              font-medium
+            "
+          >
+            {u.status === "blocked"
+              ? "Unblock"
+              : "Block"}
+          </button>
+        </div>
+      </div>
+    ))
+  )}
+</div>
     {/* TABLE */}
     
-  <div className="hidden md:block">
+ <div className="hidden md:block">
   <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
     <table className="w-full">
         <thead className="bg-purple-50 text-purple-700">
@@ -279,83 +389,6 @@ return (
           ))}
         </tbody>
       </table>
-
-      <div className="md:hidden space-y-4">
-  {filteredUsers.map((u) => (
-    <div
-      key={u.id}
-      className="bg-white rounded-xl p-4 shadow border"
-    >
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="font-semibold text-gray-800">
-            {u.full_name}
-          </h3>
-
-          <p className="text-sm text-gray-500 break-all">
-            {u.email || "-"}
-          </p>
-        </div>
-
-        <span
-          className={`px-2 py-1 rounded-full text-xs ${
-            u.role === "admin"
-              ? "bg-purple-100 text-purple-700"
-              : "bg-gray-100 text-gray-700"
-          }`}
-        >
-          {u.role || "user"}
-        </span>
-      </div>
-
-      <div className="mt-3 space-y-2 text-sm">
-        <div className="flex justify-between">
-          <span>Status</span>
-          <span
-            className={
-              u.status === "blocked"
-                ? "text-red-600 font-medium"
-                : "text-green-600 font-medium"
-            }
-          >
-            {u.status || "active"}
-          </span>
-        </div>
-
-        <div className="flex justify-between">
-          <span>Donation</span>
-          <span>₹{u.total_donation || 0}</span>
-        </div>
-
-        <div className="flex justify-between">
-          <span>Joined</span>
-          <span>{u.created_at || "-"}</span>
-        </div>
-      </div>
-
-      <div className="mt-4 flex gap-3">
-        <button
-          onClick={() => {
-            setSelectedUser(u);
-            setShowModal(true);
-          }}
-          className="flex-1 bg-blue-50 text-blue-600 py-2 rounded-lg"
-        >
-          View
-        </button>
-
-        <button
-          onClick={() => toggleStatus(u.id, u.status)}
-          className="flex-1 bg-red-50 text-red-600 py-2 rounded-lg"
-        >
-          {u.status === "blocked"
-            ? "Unblock"
-            : "Block"}
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
     </div>
     </div>
       {showModal && selectedUser && (
