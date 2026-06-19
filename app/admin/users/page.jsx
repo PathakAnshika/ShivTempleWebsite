@@ -231,7 +231,7 @@ return (
           </div>
 
           <div className="flex justify-between gap-3">
-            <span className="text-gray-500">
+            <span className="text-black-500">
               Joined
             </span>
 
