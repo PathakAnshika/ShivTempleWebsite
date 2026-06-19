@@ -255,15 +255,15 @@ export default function ScholarshipPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center px-6 bg-gradient-to-r from-purple-500 to-purple-300">
-        <h2 className="text-3xl font-semibold text-purple-900 mb-6">
-          Begin Your Scholarship Journey
-        </h2>
+      <section className="py-14 sm:py-20 md:py-24 px-4 sm:px-6 text-center bg-gradient-to-r from-purple-500 to-purple-300 ">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-purple-900 mb-4 sm:mb-6 leading-tight ">
+            Begin Your Scholarship Journey
+            </h2>
 
-        <p className="text-gray-700 max-w-2xl mx-auto mb-10">
-          Eligible students are encouraged to apply and take the next step toward
-          a brighter academic future with the blessings of Shri Chandreshwar Dham.
-        </p>
+       <p className="text-gray-700 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 leading-7 px-2 ">
+  Eligible students are encouraged to apply and take the next step toward
+  a brighter academic future with the blessings of Shri Chandreshwar Dham.
+</p>
 
      <motion.button
   whileHover={{ scale: 1.05 }}
