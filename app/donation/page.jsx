@@ -152,27 +152,66 @@ const handleCardSelect = (opt) => {
   
   return (
 <>
-  <div className="min-h-screen bg-[#fafafa] pt-10 px-6">
+ <div className="min-h-screen bg-[#fafafa] pt-20 sm:pt-10 px-4 sm:px-6">
 
       {/* BACK */}
    <button
   onClick={() => router.push("/")}
-  className="fixed left-6 top-6 z-50 bg-white text-gray-800 px-5 py-2.5 rounded-full shadow-lg border border-gray-200 hover:bg-gray-100 transition-all"
+  className="
+    fixed
+    left-3 top-3
+    sm:left-6 sm:top-6
+    z-50
+
+    bg-white
+    text-gray-800
+
+    px-3 py-2
+    sm:px-5 sm:py-2.5
+
+    text-sm sm:text-base
+
+    rounded-full
+    shadow-lg
+    border border-gray-200
+
+    hover:bg-gray-100
+    transition-all
+  "
 >
   ← Back
 </button>
 
       {/* TITLE */}
-      <div className="text-center mb-14">
+      <div className="text-center mb-10 sm:mb-14">
 
-        <h1 className="text-4xl md:text-5xl font-semibold text-purple-700">
-          Offer Your Seva
-        </h1>
+       <h1
+  className="
+    text-2xl
+    sm:text-4xl
+    md:text-5xl
+    font-semibold
+    text-purple-700
+    leading-tight
+  "
+>
+  Offer Your Seva
+</h1>
 
-        <p className="text-gray-600 mt-4 max-w-xl mx-auto">
-          Your contribution supports temple rituals, community service,
-          and preservation of spiritual traditions.
-        </p>
+       <p
+  className="
+    text-gray-600
+    mt-3 sm:mt-4
+    max-w-xl
+    mx-auto
+    text-sm sm:text-base
+    leading-7
+    px-2
+  "
+>
+  Your contribution supports temple rituals, community service,
+  and preservation of spiritual traditions.
+</p>
 
       </div>
 
@@ -278,25 +317,47 @@ const handleCardSelect = (opt) => {
 
           </div>
 
-         <button
+        <button
   onClick={handleDonate}
   disabled={loading}
-  className="w-full mt-6 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 shadow-lg hover:scale-[1.02] transition-all"
+  className="
+    w-full
+    mt-5 sm:mt-6
+
+    py-3 sm:py-4
+    px-4
+
+    rounded-xl
+
+    text-sm sm:text-base
+    font-semibold
+
+    text-white
+    bg-gradient-to-r
+    from-purple-600
+    to-purple-700
+
+    shadow-lg
+
+    hover:scale-[1.02]
+    active:scale-95
+
+    transition-all
+  "
 >
   {loading ? "Processing..." : "Donate Securely"}
 </button>
-
         </div>
 
 
        {/* SEVA OPTIONS */}
 <div>
 
-  <h2 className="text-xl font-semibold mb-6 text-gray-800">
-    Choose a Seva
-  </h2>
+ <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-gray-800">
+  Choose a Seva
+</h2>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
 
     {donationOptions.map((opt) => {
 
@@ -304,14 +365,41 @@ const handleCardSelect = (opt) => {
 
       return (
 
-        <div
-          key={opt.id}
-          onClick={() => handleCardSelect(opt)}
-          className={`
-            donation_card
-            ${isSelected ? "selected" : ""}
-          `}
-        >
+       <div
+  key={opt.id}
+  onClick={() => handleCardSelect(opt)}
+  className={`
+    relative
+    cursor-pointer
+    p-5 sm:p-6
+    rounded-3xl
+    border
+    transition-all
+    duration-300
+    backdrop-blur-md
+
+    ${
+      isSelected
+        ? `
+          bg-gradient-to-br
+          from-purple-600
+          to-purple-700
+          text-white
+          border-purple-400
+          ring-2 ring-purple-300
+          shadow-xl
+        `
+        : `
+          bg-white
+          text-gray-800
+          border-purple-100
+          hover:border-purple-300
+          hover:shadow-xl
+          hover:-translate-y-1
+        `
+    }
+  `}
+>
 
           {/* TITLE */}
           <div className="flex justify-between items-center">
