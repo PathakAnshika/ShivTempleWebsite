@@ -25,39 +25,46 @@ export default function GoshalaPage() {
       </button>
 
       {/* HERO */}
-      <section className="relative h-[80vh] md:h-[570px]">
-        <img
-          src="/images/GoshalaHome.jpg"
-          alt="Goshala"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+    <section className="relative h-[80vh] md:h-[570px]">
 
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <div className="text-center text-white max-w-3xl px-4 md:px-6">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold mb-4 md:mb-6">
-              Goshala
-            </h1>
+  {/* Desktop Image */}
+  <img
+    src="/images/cowhero.jpg"
+    alt="Goshala"
+    className="hidden md:block absolute inset-0 w-full h-full object-cover"
+  />
 
-            <p className="text-sm sm:text-base md:text-lg mb-5 md:mb-6 leading-relaxed">
-              The proposed Goshala at Shri Chandreshwar Dham is a sacred
-              initiative dedicated to the protection, care, and wellbeing of
-              cows. It reflects the values of compassion, sustainability, and
-              spiritual service.
-            </p>
+  {/* Mobile Image */}
+  <img
+    src="/images/GoshalaHomeMobile.jpg"
+    alt="Goshala"
+    className="block md:hidden absolute inset-0 w-full h-full object-cover"
+  />
 
-            <div className="flex flex-wrap justify-center gap-3 md:gap-6 text-xs sm:text-sm mb-6 md:mb-8">
-              <span>🐄 Cow Protection</span>
-              <span>🌿 Eco-Friendly Shelter</span>
-              <span>🙏 Gau Seva</span>
-            </div>
+  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+    <div className="text-center text-white max-w-3xl px-4 md:px-6">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold mb-4 md:mb-6">
+        Goshala
+      </h1>
 
-            <button className="px-5 py-2 md:px-8 md:py-3 bg-purple-500 hover:bg-orange-600 rounded-full text-white font-medium text-sm md:text-base transition">
-              Support Gau Seva
-            </button>
-          </div>
-        </div>
-      </section>
+      <p className="text-sm sm:text-base md:text-lg mb-5 md:mb-6 leading-relaxed">
+        The proposed Goshala at Shri Chandreshwar Dham is a sacred initiative
+        dedicated to the protection, care, and wellbeing of cows.
+      </p>
 
+      <div className="flex flex-wrap justify-center gap-3 md:gap-6 text-xs sm:text-sm mb-6 md:mb-8">
+        <span>🐄 Cow Protection</span>
+        <span>🌿 Eco-Friendly Shelter</span>
+        <span>🙏 Gau Seva</span>
+      </div>
+
+      <button className="px-5 py-2 md:px-8 md:py-3 bg-purple-500 hover:bg-orange-600 rounded-full text-white font-medium">
+        Support Gau Seva
+      </button>
+    </div>
+  </div>
+
+</section>
       {/* ABOUT */}
       <section className="py-12 md:py-16 px-4 md:px-6 text-center bg-white">
         <div className="max-w-3xl mx-auto">
