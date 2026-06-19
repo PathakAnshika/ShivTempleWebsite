@@ -341,7 +341,7 @@ setScholarshipAmount] =
       <div className="mt-4 space-y-2 text-sm">
 
         <div className="flex justify-between">
-          <span className="text-gray-500">
+          <span className="text-black-500">
             Course
           </span>
 
@@ -351,7 +351,7 @@ setScholarshipAmount] =
         </div>
 
         <div className="flex justify-between">
-          <span className="text-gray-500">
+          <span className="text-black-500">
             Income
           </span>
 
@@ -361,7 +361,7 @@ setScholarshipAmount] =
         </div>
 
         <div className="flex justify-between">
-          <span className="text-gray-500">
+          <span className="text-black-500">
             College
           </span>
 
