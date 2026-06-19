@@ -664,7 +664,7 @@ export default function AboutPage() {
         overflow-hidden border border-orange-100
         shadow-md hover:shadow-2xl
         transition-all duration-500
-       md:hover:-translate-y-3
+        hover:-translate-y-3
       "
     >
 
@@ -735,7 +735,7 @@ mt-3 sm:mt-5">
         overflow-hidden border border-orange-100
         shadow-md hover:shadow-2xl
         transition-all duration-500
-       md:hover:-translate-y-3
+        hover:-translate-y-3
       "
     >
 
@@ -805,7 +805,7 @@ mt-3 sm:mt-5">
         overflow-hidden border border-orange-100
         shadow-md hover:shadow-2xl
         transition-all duration-500
-        md:hover:-translate-y-3
+        hover:-translate-y-3
       "
     >
 
