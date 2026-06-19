@@ -358,7 +358,7 @@ setScholarshipAmount] =
 </div>
 
 <div className="flex justify-between gap-3">
-  <span className="text-gray-600 font-medium">
+  <span className="text-gray-600 font-40px">
     College
   </span>
 
@@ -542,18 +542,21 @@ setScholarshipAmount] =
                 e.target.value
               )
             }
-            className="
-              w-full
-              md:w-80
-              bg-white
-              border
-              border-gray-300
-              px-4 py-3
-              rounded-xl
-              focus:outline-none
-              focus:ring-2
-              focus:ring-purple-500
-            "
+           className="
+  w-full
+  md:w-80
+  bg-white
+  border
+  border-gray-300
+  px-4 py-3
+  rounded-xl
+  text-gray-900
+  placeholder:text-gray-500
+  placeholder:font-35px
+  focus:outline-none
+  focus:ring-2
+  focus:ring-purple-500
+"
           />
         </div>
 
@@ -595,7 +598,7 @@ setScholarshipAmount] =
   className="
     bg-green-600
     hover:bg-green-700
-    text-white
+    text-black
     px-5 py-2
     rounded-xl
   "
