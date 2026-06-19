@@ -207,22 +207,23 @@ export default function ScholarshipPage() {
       </section>
 
       {/* CYCLE + TEST */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-white py-14 sm:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
 
-          <h2 className="text-3xl font-semibold text-purple-900 text-center mb-14">
-            Scholarship Cycle & Examination
-          </h2>
+         <h2 className="text-2xl sm:text-3xl font-semibold text-purple-900 text-center mb-8 sm:mb-14"
+>
+  Scholarship Cycle & Examination
+</h2>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
 
             {/* Cycle */}
-            <div className="bg-purple-50 p-8 rounded-2xl border border-purple-100">
-              <h3 className="text-xl font-semibold text-purple-800 mb-4">
-                Scholarship Cycle
-              </h3>
-
-              <ul className="space-y-3 text-gray-700">
+            <div className="bg-purple-50 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-purple-100 shadow-sm">
+              <h3
+  className="text-lg sm:text-xl font-semibold text-purple-800 mb-3 sm:mb-4 ">
+  Scholarship Cycle
+</h3>
+              <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-700 leading-7">
                 <li>📘 <strong>April – September Cycle</strong></li>
                 <li>➡ Test conducted in <strong>February (First Week)</strong></li>
 
@@ -232,12 +233,12 @@ export default function ScholarshipPage() {
             </div>
 
             {/* Test Mode */}
-            <div className="bg-purple-50 p-8 rounded-2xl border border-purple-100">
-              <h3 className="text-xl font-semibold text-purple-800 mb-4">
-                Examination Mode
-              </h3>
+            <div className="bg-purple-50 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-purple-100 shadow-sm">
+              <h3 className="text-lg sm:text-xl font-semibold text-purple-800 mb-3 sm:mb-4">
+  Examination Mode
+</h3>
 
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-gray-700 text-sm sm:text-base leading-7 mb-4 ">
                 Students will be evaluated through an objective-type questionnaire
                 designed to assess academic understanding and aptitude.
               </p>
