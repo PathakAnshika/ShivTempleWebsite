@@ -168,37 +168,20 @@ return (
     </div>
 
     {/* TABLE */}
-    <p className="md:hidden text-xs text-gray-500 mb-2">
-  ← Swipe left/right to view full table →
-</p>
-<p className="text-red-500">
-  Users: {filteredUsers.length}
-</p>
-  <div
-  className="
-    w-full
-    overflow-x-auto
-    rounded-2xl
-    shadow-lg
-    bg-white
-    touch-pan-x
-  "
->
-  <table
-    className="
-      min-w-[1300px]
-      border-collapse
-    "
-  >
+    
+  <div className="w-full overflow-x-auto rounded-2xl shadow-lg bg-white">
+  <div className="min-w-[1200px]">
+    <table className="w-full">
         <thead className="bg-purple-50 text-purple-700">
           <tr>
-            <th className="px-6 py-4 text-left">Name</th>
+           <th className="px-6 py-4 text-left">Name</th>
             <th className="px-6 py-4 text-left">Email</th>
             <th className="px-6 py-4">Role</th>
             <th className="px-6 py-4">Status</th>
             <th className="px-6 py-4">Joined</th>
             <th className="px-6 py-4">Donation</th>
             <th className="px-6 py-4 text-center">Action</th>
+      
           </tr>
         </thead>
 
@@ -296,6 +279,7 @@ return (
           ))}
         </tbody>
       </table>
+    </div>
     </div>
       {showModal && selectedUser && (
   <div
