@@ -165,8 +165,8 @@ const handleCardSelect = (opt) => {
       {/* TITLE */}
       <div className="text-center mb-10 sm:mb-14">
 
-       <h1
-className="text-2xl sm:text-4xl md:text-5xl font-semibold text-purple-700 leading-tight">
+       
+       <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-purple-700 leading-tight">
   Offer Your Seva
 </h1>
  
@@ -188,8 +188,6 @@ className="text-2xl sm:text-4xl md:text-5xl font-semibold text-purple-700 leadin
 </p>
 
       </div>
-
-
       {/* MAIN GRID */}
      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
 
