@@ -10,77 +10,82 @@ export default function ShivalayaPage() {
     <main className="min-h-screen bg-[#f9fafb] text-gray-800">
   {/* BACK BUTTON */}
       <button
-        onClick={() => router.back()}
-        className="fixed top-6 left-6 bg-black/10 px-5 py-2 rounded-full border border-black/20 hover:bg-white/20 transition"
-      >
-        ← Back
-      </button>
+  onClick={() => router.back()}
+  className="fixed top-3 left-3 sm:top-6 sm:left-6 z-50 px-3 py-2 sm:px-5 sm:py-2 text-sm sm:text-base bg-black/10 backdrop-blur-md rounded-full border border-black/20 hover:bg-black/20 transition ">
+  ← Back
+</button>
       {/* HERO */}
-      <section className="py-24 px-6 bg-gradient-to-r from-orange-50 via-amber-100 to-orange-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
+      <section className="pt-20 sm:pt-24 pb-14 sm:pb-20 px-4 sm:px-6 bg-gradient-to-r from-orange-50 via-amber-100 to-orange-50">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div>
-            <h1 className="text-5xl font-semibold text-purple-700 leading-tight">
-              Shivalaya
-            </h1>
+           <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-purple-700 leading-tight ">
+  Shivalaya
+</h1>
 
-            <p className="mt-6 text-lg text-gray-700">
-              The proposed Shivalaya at Shri Chandreshwar Dham is envisioned as a sacred
-              architectural space dedicated to devotion, meditation, and spiritual upliftment.
-              It will provide a peaceful environment where devotees can connect with divine
-              energy and experience spiritual harmony.
-            </p>
+           <p className=" mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-gray-700 leading-7 sm:leading-relaxed">
+  The proposed Shivalaya at Shri Chandreshwar Dham is envisioned as a sacred
+  architectural space dedicated to devotion, meditation, and spiritual upliftment.
+  It will provide a peaceful environment where devotees can connect with divine
+  energy and experience spiritual harmony.
+</p>
           </div>
 
-          <div className="bg-white shadow-lg rounded-xl h-56 flex items-center justify-center text-5xl">
-            🛕
-          </div>
+        <div className=" bg-white shadow-lg rounded-2xl h-40 sm:h-56 flex items-center justify-center text-4xl sm:text-5xl">
+  🛕
+</div>
 
         </div>
       </section>
 
       {/* VISION */}
-      <section className="py-16 text-center bg-white">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-semibold text-purple-700 mb-4">
-            A Spiritual Vision for the Future
-          </h2>
+     <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold text-purple-700 mb-3 sm:mb-4 leading-tight ">
+  A Spiritual Vision for the Future
+</h2>
 
-          <p className="text-gray-600 leading-relaxed">
-            The Shivalaya is designed to become a divine center for worship,
-            meditation, and spiritual learning. It aims to nurture faith,
-            promote cultural values, and strengthen community harmony while
-            preserving sacred traditions for future generations.
-          </p>
+          <p className=" text-gray-600 text-sm sm:text-base md:text-lg leading-7 sm:leading-relaxed">
+  The Shivalaya is designed to become a divine center for worship,
+  meditation, and spiritual learning. It aims to nurture faith,
+  promote cultural values, and strengthen community harmony while
+  preserving sacred traditions for future generations.
+</p>
         </div>
       </section>
 
-      <section className="py-20 px-6">
+      <section className="py-14 sm:py-20 px-4 sm:px-6">
   <div className="max-w-5xl mx-auto text-center">
+    <h2 className=" text-xl sm:text-2xl md:text-3xl font-semibold text-purple-700 mb-4 sm:mb-6 leading-tight ">
+  Proposed Temple Layout
+</h2>
 
-    <h2 className="text-2xl font-semibold text-purple-700 mb-6">
-      Proposed Temple Layout
-    </h2>
-
-    <p className="text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-      The architectural layout of the Shivalaya combines traditional temple
-      design principles with modern structural planning to create a peaceful,
-      spiritually uplifting, and accessible environment for all devotees.
-    </p>
-
+   <p className=" text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto mb-8 sm:mb-10 leading-7 sm:leading-relaxed ">
+  The architectural layout of the Shivalaya combines traditional temple
+  design principles with modern structural planning to create a peaceful,
+  spiritually uplifting, and accessible environment for all devotees.
+</p>
     {/* IMAGE */}
-    <div className="bg-white rounded-xl shadow-md p-6 mb-10">
-      <img
-        src="/temple-layout.jpg"
-        alt="Temple Layout"
-        className="rounded-lg mx-auto"
-      />
-    </div>
+   <div
+  className="
+    bg-white
+    rounded-2xl
+    sm:rounded-3xl
+    shadow-lg
+    p-3 sm:p-6
+    mb-8 sm:mb-10
+    border border-orange-100
+  "
+>
+  <img
+    src="/temple-layout.jpg"
+    alt="Temple Layout"
+    className=" rounded-xl mx-auto w-full max-h-[500px] object-cover "/>
+</div>
 
     {/* FEATURES */}
-    <div className="grid md:grid-cols-2 gap-6 text-left">
-
-      <div className="bg-orange-50 p-5 rounded-lg">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 text-left">
+     <div
+  className=" bg-orange-50 p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-orange-100 text-sm sm:text-base text-gray-700 shadow-sm hover:shadow-md transition">
         🛕 Main sanctum designed for sacred worship and rituals
       </div>
 
