@@ -604,22 +604,50 @@ export default function AboutPage() {
 
 </section>      {/* ===== EMINENT PERSONALITIES SECTION ===== */}
 
-<section className="py-24 px-6 bg-gradient-to-b from-orange-50 via-white to-orange-50">
+<section className="py-14 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-orange-50 via-white to-orange-50">
 
   {/* Heading */}
-  <div className="text-center mb-16">
+  <div className="text-center mb-10 sm:mb-16">
 
-    <p className="text-orange-600 font-semibold tracking-[4px] uppercase mb-3">
+    <p
+  className="
+    text-orange-600
+    font-semibold
+    tracking-[2px] sm:tracking-[4px]
+    uppercase
+    text-xs sm:text-sm
+    mb-3
+  "
+>
       Spiritual Leadership
     </p>
 
-    <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
-      Eminent <span className="text-orange-600">Personalities</span>
-    </h2>
+   <h2
+  className="
+    text-2xl
+    sm:text-4xl
+    md:text-5xl
+    font-bold
+    text-gray-800
+    leading-tight
+  "
+>
+  Eminent <span className="text-orange-600">Personalities</span>
+</h2>
 
     <div className="w-28 h-1 bg-orange-500 mx-auto rounded-full mt-5"></div>
 
-    <p className="text-gray-600 mt-6 max-w-3xl mx-auto leading-8 text-lg">
+    <p
+  className="
+    text-gray-600
+    mt-4 sm:mt-6
+    max-w-3xl
+    mx-auto
+    leading-7 sm:leading-8
+    text-sm sm:text-lg
+    px-2
+  "
+>
       Meet the respected personalities behind Shri Chandreshwar Dham
       who continue to inspire devotees through spirituality,
       service, and cultural values.
@@ -628,21 +656,22 @@ export default function AboutPage() {
   </div>
 
   {/* Cards */}
-  <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
-
+ <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
     {/* ===== PERSON 1 ===== */}
     <div
       className="
-        group bg-white rounded-[30px]
+        group bg-white rounded-[24px] sm:rounded-[30px]
         overflow-hidden border border-orange-100
         shadow-md hover:shadow-2xl
         transition-all duration-500
-        hover:-translate-y-3
+       md:hover:-translate-y-3
       "
     >
 
       {/* Image */}
-      <div className="relative h-[380px] overflow-hidden">
+      <div className="relativeh-[280px]
+sm:h-[340px]
+lg:h-[380px] overflow-hidden">
 
         <img
           src="/images/person1.jpg"
@@ -664,8 +693,10 @@ export default function AboutPage() {
         <div className="
           absolute bottom-5 left-5
           bg-white/90 backdrop-blur-md
-          px-4 py-2 rounded-full
-          text-sm font-semibold text-orange-700
+         px-3 py-1.5 rounded-full
+         sm:px-4 sm:py-2
+text-[11px] sm:text-sm
+max-w-[85%] font-semibold text-orange-700
           shadow-md
         ">
          Temple Administration & Strategic Advisor
@@ -674,17 +705,19 @@ export default function AboutPage() {
       </div>
 
       {/* Content */}
-      <div className="p-7">
+      <div className="p-5 sm:p-7">
 
-        <h3 className="text-2xl font-bold text-gray-800">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800">
           Dr. A.K Raghvan
         </h3>
 
-        <p className="text-orange-600 font-medium mt-2">
+        <p className="text-orange-600 font-medium mt-1 sm:mt-2 text-sm sm:text-base">
         Chief Administrative Advisor
         </p>
 
-        <p className="text-gray-600 text-sm leading-7 mt-5">
+        <p className="text-gray-600 text-sm
+leading-6 sm:leading-7
+mt-3 sm:mt-5">
          Dr. A.K Raghvan plays a key role in guiding the administrative
          and developmental activities of Shri Chandreshwar Dham.
          His leadership and vision contribute to strengthening temple
@@ -698,16 +731,18 @@ export default function AboutPage() {
     {/* ===== PERSON 2 ===== */}
     <div
       className="
-        group bg-white rounded-[30px]
+        group bg-white rounded-[24px] sm:rounded-[30px]
         overflow-hidden border border-orange-100
         shadow-md hover:shadow-2xl
         transition-all duration-500
-        hover:-translate-y-3
+       md:hover:-translate-y-3
       "
     >
 
       {/* Image */}
-      <div className="relative h-[380px] overflow-hidden">
+      <div className="relativeh-[280px]
+sm:h-[340px]
+lg:h-[380px] overflow-hidden">
 
         <img
           src="/images/person2.jpg"
@@ -729,8 +764,10 @@ export default function AboutPage() {
         <div className="
           absolute bottom-5 left-5
           bg-white/90 backdrop-blur-md
-          px-4 py-2 rounded-full
-          text-sm font-semibold text-orange-700
+          px-3 py-1.5 rounded-full
+          sm:px-4 sm:py-2
+text-[11px] sm:text-sm
+max-w-[85%]font-semibold text-orange-700
           shadow-md
         ">
        Community Welfare & Education Lead
@@ -739,17 +776,19 @@ export default function AboutPage() {
       </div>
 
       {/* Content */}
-      <div className="p-7">
+      <div className="p-5 sm:p-7">
 
-        <h3 className="text-2xl font-bold text-gray-800">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800">
           Dr. Nidhi Bharti
         </h3>
 
-        <p className="text-orange-600 font-medium mt-2">
+        <p className="text-orange-600 font-medium mt-1 sm:mt-2 text-sm sm:text-base">
         Director of Social Initiatives
         </p>
 
-        <p className="text-gray-600 text-sm leading-7 mt-5">
+        <p className="text-gray-600text-sm
+leading-6 sm:leading-7
+mt-3 sm:mt-5">
         Dr. Nidhi Bharti actively supports educational, social welfare,
         and community engagement initiatives associated with the temple.
         Her dedication towards service, empowerment, and cultural
@@ -762,16 +801,18 @@ export default function AboutPage() {
     {/* ===== PERSON 3 ===== */}
     <div
       className="
-        group bg-white rounded-[30px]
+        group bg-whiterounded-[24px] sm:rounded-[30px]
         overflow-hidden border border-orange-100
         shadow-md hover:shadow-2xl
         transition-all duration-500
-        hover:-translate-y-3
+        md:hover:-translate-y-3
       "
     >
 
       {/* Image */}
-      <div className="relative h-[380px] overflow-hidden">
+      <div className="relativeh-[280px]
+sm:h-[340px]
+lg:h-[380px] overflow-hidden">
 
         <img
           src="/images/person3.jpg"
@@ -793,8 +834,10 @@ export default function AboutPage() {
         <div className="
           absolute bottom-5 left-5
           bg-white/90 backdrop-blur-md
-          px-4 py-2 rounded-full
-          text-sm font-semibold text-orange-700
+          px-3 py-1.5 rounded-full
+          sm:px-4 sm:py-2
+text-[11px] sm:text-sm
+max-w-[85%] font-semibold text-orange-700
           shadow-md
         ">
           Youth Engagement & Cultural Programs
@@ -803,17 +846,19 @@ export default function AboutPage() {
       </div>
 
       {/* Content */}
-      <div className="p-7">
+      <div className="p-5 sm:p-7">
 
-        <h3 className="text-2xl font-bold text-gray-800">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800">
           Mughda Singh
         </h3>
 
-        <p className="text-orange-600 font-medium mt-2">
+        <p className="text-orange-600 font-medium mt-1 sm:mt-2 text-sm sm:text-base">
           Coordinator – Youth & Cultural Affairs
         </p>
 
-        <p className="text-gray-600 text-sm leading-7 mt-5">
+        <p className="text-gray-600 text-sm
+leading-6 sm:leading-7
+mt-3 sm:mt-5">
           Mugdha Singh contributes to youth engagement, cultural activities,
           and devotional programs at Shri Chandreshwar Dham. Through her
           active involvement in organizing events and community initiatives,
