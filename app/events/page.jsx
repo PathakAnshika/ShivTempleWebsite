@@ -55,14 +55,32 @@ export default function EventsPage() {
 
       {/* BACK BUTTON */}
       <button
-        onClick={() => router.back()}
-        className="fixed top-6 left-6 bg-white/10 px-5 py-2 rounded-full border border-white/20 hover:bg-white/20 transition"
-      >
-        ← Back
-      </button>
+  onClick={() => router.back()}
+  className="
+    fixed
+    top-3 left-3
+    sm:top-6 sm:left-6
+    z-50
+
+    bg-white/10
+    backdrop-blur-md
+
+    px-3 py-2
+    sm:px-5 sm:py-2
+
+    text-sm sm:text-base
+
+    rounded-full
+    border border-white/20
+    hover:bg-white/20
+    transition
+  "
+>
+  ← Back
+</button>
 
      {/* HERO */}
-<section className="py-14 sm:py-20 md:py-24 text-center max-w-5xl mx-auto px-4 sm:px-6">
+<section className="py-14 sm:py-20 md:pt-24 pb-14 text-center max-w-5xl mx-auto px-4 sm:px-6">
   <motion.h1
     initial={{ opacity: 0, y: -30 }}
     animate={{ opacity: 1, y: 0 }}
@@ -153,20 +171,37 @@ export default function EventsPage() {
 </section>
 
       {/* CULTURAL COMPETITIONS */}
-      <section className="bg-[#18161d] py-20 px-6">
+      <section className="bg-[#18161d] py-14 sm:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto text-center">
 
-          <h2 className="text-3xl font-semibold text-[#e8c27d] mb-10">
-            Vidha Competitions 🎨
-          </h2>
+         <h2
+  className="
+    text-2xl
+    sm:text-3xl
+    font-semibold
+    text-[#e8c27d]
+    mb-6 sm:mb-10
+  "
+>
+  Vidha Competitions 🎨
+</h2>
 
-          <p className="text-gray-300 max-w-3xl mx-auto mb-14">
+         <p
+  className="
+    text-gray-300
+    max-w-3xl
+    mx-auto
+    mb-10 sm:mb-14
+    text-sm sm:text-base
+    leading-7
+  "
+>
             Shri Chandreshwar Dham organizes cultural competitions to
             encourage creativity, devotion, and spiritual expression
             among children and youth.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
 
             {[
               {
@@ -185,26 +220,49 @@ export default function EventsPage() {
               <motion.div
                 key={i}
                 whileHover={{ y: -8 }}
-                className="bg-[#1e1b24] p-8 rounded-2xl border border-[#2c2735]"
+                className="
+  bg-[#1e1b24]
+  p-5 sm:p-8
+  rounded-2xl
+  border border-[#2c2735]
+"
               >
-                <h3 className="text-xl font-semibold text-[#e8c27d] mb-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-[#e8c27d] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+               <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>
             ))}
           </div>
 
-          <p className="text-gray-400 mt-12 text-sm">
+         <p
+  className="
+    text-gray-400
+    mt-8 sm:mt-12
+    text-xs sm:text-sm
+    leading-6
+  "
+>
             Competitions are organized during major festivals including
             Ram Navami, Hanuman Jayanti, Tulsi Jayanti, Vishwakarma Puja,
             and Geeta Jayanti.
           </p>
 <button
   onClick={() => router.push("/vidha")}
-  className="mt-10 px-10 py-3 bg-[#e8c27d] text-[#111015] rounded-full font-semibold hover:scale-105 transition"
+  className="
+    mt-8 sm:mt-10
+    px-6 sm:px-10
+    py-2.5 sm:py-3
+    text-sm sm:text-base
+    bg-[#e8c27d]
+    text-[#111015]
+    rounded-full
+    font-semibold
+    hover:scale-105
+    transition
+  "
 >
   View Full Vidha Program
 </button>
