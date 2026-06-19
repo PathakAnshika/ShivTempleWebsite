@@ -646,7 +646,7 @@ export default function AboutPage() {
 
         <img
           src="/images/person1.jpg"
-          alt="Akhoury Ravindra Prasad"
+          alt="A.K Raghvan"
           className="
             w-full h-full object-cover
             transition-transform duration-700
@@ -711,7 +711,7 @@ export default function AboutPage() {
 
         <img
           src="/images/person2.jpg"
-          alt="Dr. A.K Raghvan"
+          alt="Nidhi Bharti"
           className="
             w-full h-full object-cover
             transition-transform duration-700
@@ -1004,7 +1004,7 @@ export default function AboutPage() {
 </section>
 {/* ===== FOUNDER MESSAGE SECTION ===== */}
 
-<section className="py-14 bg-[#fdf8f2] relative overflow-hidden">
+<section className="py-10 sm:py-14 md:py-20 bg-[#fdf8f2] relative overflow-hidden">
 
   {/* Background Glow */}
   <div className="
@@ -1019,52 +1019,75 @@ export default function AboutPage() {
     rounded-full blur-3xl opacity-40
   "></div>
 
-  <div className="max-w-6xl mx-auto px-6 relative z-10">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
 
     {/* Heading */}
-    <div className="text-center mb-10">
+   <div className="text-center mb-8 sm:mb-10">
 
-      <p className="
-        uppercase tracking-[5px]
-        text-orange-600 text-sm
-        font-semibold mb-4
-      ">
+      <p
+  className="
+    uppercase
+    tracking-[2px] sm:tracking-[5px]
+    text-orange-600
+    text-[10px] sm:text-sm
+    font-semibold
+    mb-3 sm:mb-4
+  "
+>
         सेवा • संस्कार • समर्पण
       </p>
 
-      <h2 className="
-        text-4xl md:text-4xl
-        font-bold text-gray-800
-      ">
-        संस्थापक का संदेश
-      </h2>
+     <h2
+  className="
+    text-2xl
+    sm:text-3xl
+    md:text-4xl
+    font-bold
+    text-gray-800
+  "
+>
+  संस्थापक का संदेश
+</h2>
 
     </div>
 
     {/* Main Card */}
-    <div className="
-      bg-white/80 backdrop-blur-md
-      border border-orange-100
-      shadow-2xl rounded-[40px]
-      p-8 md:p-16
-      relative overflow-hidden
-    ">
+   <div
+  className="
+    bg-white/80
+    backdrop-blur-md
+    border border-orange-100
+    shadow-2xl
+    rounded-[24px] sm:rounded-[40px]
+    p-5 sm:p-8 md:p-16
+    relative
+    overflow-hidden
+  "
+>
 
       {/* Quote Symbol */}
-      <div className="
-        absolute top-6 left-8
-        text-[120px] leading-none
-        text-orange-100 font-serif
-      ">
-        “
-      </div>
-
+     <div
+  className="
+    absolute
+    top-3 sm:top-6
+    left-4 sm:left-8
+    text-[70px] sm:text-[120px]
+    leading-none
+    text-orange-100
+    font-serif
+  "
+>
+  “
+</div>
       <div className="relative z-10">
 
         {/* Main Quote */}
      <p className="
-  text-1xl md:text-3xl
-  leading-[50px]
+ text-lg
+sm:text-2xl
+md:text-3xl
+leading-8
+sm:leading-[50px]
   font-semibold
   text-gray-800
   text-center
@@ -1078,9 +1101,9 @@ export default function AboutPage() {
 
         {/* Paragraphs */}
         <div className="
-          space-y-8
-          text-gray-700
-          leading-[42px]
+         space-y-5 sm:space-y-8
+leading-7 sm:leading-[42px]
+text-sm sm:text-lg
           text-lg
           max-w-5xl mx-auto
         ">
@@ -1147,18 +1170,22 @@ export default function AboutPage() {
         </div>
 
         {/* Signature */}
-        <div className="mt-16 text-right">
+       <div className="mt-10 sm:mt-16 text-right">
 
-          <p className="
-            text-2xl font-semibold
-            text-gray-800
-          ">
-            — संस्थापक
-          </p>
+         <p
+  className="
+    text-lg
+    sm:text-2xl
+    font-semibold
+    text-gray-800
+  "
+>
+  — संस्थापक
+</p>
 
-          <p className="text-orange-600 mt-2">
-            श्री चंद्रेश्वर धाम
-          </p>
+        <p className="text-orange-600 mt-1 sm:mt-2 text-sm sm:text-base">
+  श्री चंद्रेश्वर धाम
+</p>
 
         </div>
 
