@@ -342,7 +342,7 @@ setScholarshipAmount] =
     Course
   </span>
 
-  <span className="text-gray-900 font-semibold text-right">
+  <span className="text-gray-900 font-40px text-right">
     {s.course}
   </span>
 </div>
