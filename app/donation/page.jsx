@@ -166,14 +166,14 @@ const handleCardSelect = (opt) => {
       <div className="text-center mb-10 sm:mb-14">
 
        <h1
-  className="
+  className={`
     text-2xl
     sm:text-4xl
     md:text-5xl
     font-semibold
     text-purple-700
     leading-tight
-  "
+  `}
 >
   Offer Your Seva
 </h1>
