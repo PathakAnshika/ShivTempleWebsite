@@ -41,8 +41,8 @@ export default function GoshalaPage() {
     className="block md:hidden absolute inset-0 w-full h-full object-cover"
   />
 
-  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-    <div className="text-center text-white max-w-3xl px-4 md:px-6">
+  <div className="absolute inset-0 bg-black/50 flex flex-col justify-center">
+  <div className="text-center text-white max-w-3xl mx-auto px-4 md:px-6 mt-24 md:mt-0">
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold mb-4 md:mb-6">
         Goshala
       </h1>
