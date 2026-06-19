@@ -172,16 +172,8 @@ const handleCardSelect = (opt) => {
  
 
 
-       <p
-  className="
-    text-gray-600
-    mt-3 sm:mt-4
-    max-w-xl
-    mx-auto
-    text-sm sm:text-base
-    leading-7
-    px-2
-  "
+   <p
+  className="text-gray-600 mt-3 sm:mt-4 max-w-xl mx-auto text-sm sm:text-base leading-7 px-2"
 >
   Your contribution supports temple rituals, community service,
   and preservation of spiritual traditions.
@@ -292,30 +284,7 @@ const handleCardSelect = (opt) => {
         <button
   onClick={handleDonate}
   disabled={loading}
-  className="
-    w-full
-    mt-5 sm:mt-6
-
-    py-3 sm:py-4
-    px-4
-
-    rounded-xl
-
-    text-sm sm:text-base
-    font-semibold
-
-    text-white
-    bg-gradient-to-r
-    from-purple-600
-    to-purple-700
-
-    shadow-lg
-
-    hover:scale-[1.02]
-    active:scale-95
-
-    transition-all
-  "
+ className="w-full mt-5 sm:mt-6 py-3 sm:py-4 px-4 rounded-xl text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 shadow-lg hover:scale-[1.02] active:scale-95 transition-all"
 >
   {loading ? "Processing..." : "Donate Securely"}
 </button>
