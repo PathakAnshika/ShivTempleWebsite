@@ -61,49 +61,96 @@ export default function EventsPage() {
         ← Back
       </button>
 
-      {/* HERO */}
-      <section className="py-24 text-center max-w-5xl mx-auto px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold text-[#e8c27d]"
-        >
-          Festivals & Cultural Events 🪔
-        </motion.h1>
+     {/* HERO */}
+<section className="py-14 sm:py-20 md:py-24 text-center max-w-5xl mx-auto px-4 sm:px-6">
+  <motion.h1
+    initial={{ opacity: 0, y: -30 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="
+      text-2xl
+      sm:text-4xl
+      md:text-5xl
+      font-bold
+      text-[#e8c27d]
+      leading-tight
+    "
+  >
+    Festivals & Cultural Events 🪔
+  </motion.h1>
 
-        <div className="w-24 h-1 bg-[#e8c27d] mx-auto mt-6 mb-8"></div>
+  <div className="w-16 sm:w-24 h-1 bg-[#e8c27d] mx-auto mt-4 sm:mt-6 mb-5 sm:mb-8"></div>
 
-        <p className="text-gray-300 text-lg leading-relaxed">
-          Shri Chandreshwar Dham celebrates sacred festivals and cultural
-          traditions that preserve devotion, heritage, and spiritual harmony.
-        </p>
-      </section>
+  <p
+    className="
+      text-gray-300
+      text-sm
+      sm:text-base
+      md:text-lg
+      leading-7 sm:leading-relaxed
+      max-w-3xl
+      mx-auto
+    "
+  >
+    Shri Chandreshwar Dham celebrates sacred festivals and cultural
+    traditions that preserve devotion, heritage, and spiritual harmony.
+  </p>
+</section>
 
       {/* FESTIVAL CALENDAR */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
-        <h2 className="text-3xl font-semibold text-center text-[#e8c27d] mb-12">
-          Festival Calendar 2026
-        </h2>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-         {festivals.map((festival, i) => (
-  <motion.div
-    key={i}
-    whileHover={{ scale: 1.05 }}
-    className="bg-[#1e1b24] border border-[#2c2735] rounded-xl p-5 text-center shadow-lg"
+     {/* FESTIVAL CALENDAR */}
+<section className="max-w-6xl mx-auto px-4 sm:px-6 pb-14 sm:pb-20">
+  
+  <h2
+    className="
+      text-2xl
+      sm:text-3xl
+      font-semibold
+      text-center
+      text-[#e8c27d]
+      mb-8 sm:mb-12
+    "
   >
-    <p className="text-[#e8c27d] font-semibold">
-      {festival.name}
-    </p>
+    Festival Calendar 2026
+  </h2>
 
-    <p className="text-gray-400 text-sm mt-1">
-      {festival.date}
-    </p>
-  </motion.div>
-))}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+    {festivals.map((festival, i) => (
+      <motion.div
+        key={i}
+        whileHover={{ scale: 1.05 }}
+        className="
+          bg-[#1e1b24]
+          border border-[#2c2735]
+          rounded-xl
+          p-4 sm:p-5
+          text-center
+          shadow-lg
+        "
+      >
+        <p
+          className="
+            text-[#e8c27d]
+            font-semibold
+            text-sm sm:text-base
+          "
+        >
+          {festival.name}
+        </p>
 
-        </div>
-      </section>
+        <p
+          className="
+            text-gray-400
+            text-xs sm:text-sm
+            mt-1
+          "
+        >
+          {festival.date}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+
+</section>
 
       {/* CULTURAL COMPETITIONS */}
       <section className="bg-[#18161d] py-20 px-6">
@@ -182,24 +229,42 @@ export default function EventsPage() {
           Back to Home
         </button>
       </section> */}
-<section className="bg-[#f6f3ee] py-24 px-6 text-gray-800 border-t border-gray-200">
+<section className="bg-[#f6f3ee] py-14 sm:py-20 md:py-24 px-4 sm:px-6 text-gray-800 border-t border-gray-200">
   <div className="max-w-6xl mx-auto">
 
     <div className="text-center mb-16">
-      <h2 className="text-3xl font-semibold text-[#c59d45] mb-4">
-        Cultural Expression – Samvaad
-      </h2>
+     <h2
+  className="
+    text-2xl
+    sm:text-3xl
+    font-semibold
+    text-[#c59d45]
+    mb-4
+    leading-tight
+  "
+>
+  Cultural Expression – Samvaad
+</h2>
       <div className="w-20 h-[2px] bg-[#c59d45] mx-auto mb-6 opacity-70"></div>
-      <p className="text-gray-700 max-w-2xl mx-auto">
+      <p
+  className="
+    text-gray-700
+    max-w-2xl
+    mx-auto
+    text-sm sm:text-base
+    leading-7
+    px-2
+  "
+>
         Samvaad is a platform for spiritual reflection and cultural
         expression where devotees share meaningful writings,
         thoughts, and devotional messages.
       </p>
     </div>
 
-    <div className="grid md:grid-cols-2 gap-12 items-center">
+   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
-      <div className="space-y-6 text-gray-700 leading-relaxed">
+     <div className="space-y-4 sm:space-y-6 text-gray-700 leading-7 sm:leading-relaxed text-sm sm:text-base">
         <p>
           Samvaad preserves devotional poetry, thoughtful essays,
           inspirational messages, and spiritual reflections
@@ -210,26 +275,47 @@ export default function EventsPage() {
           Selected essays and poems from Vidha competitions are also
           published here, celebrating creativity and devotion.
         </p>
-
-        <button  onClick={() => router.push("/Samvaad")}className="mt-4 px-8 py-3 bg-[#c59d45] text-white rounded-full font-semibold hover:scale-105 transition">
-          Explore Samvaad
-        </button>
+<button
+  onClick={() => router.push("/Samvaad")}
+  className="
+    mt-4
+    px-6 sm:px-8
+    py-2.5 sm:py-3
+    text-sm sm:text-base
+    bg-[#c59d45]
+    text-white
+    rounded-full
+    font-semibold
+    hover:scale-105
+    transition
+  "
+>
+  Explore Samvaad
+</button>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-md">
-        <p className="text-[#c59d45] text-sm uppercase tracking-widest mb-3">
+      <div
+  className="
+    bg-white
+    border border-gray-200
+    rounded-xl sm:rounded-2xl
+    p-5 sm:p-8
+    shadow-md
+  "
+>
+       <p className="text-[#c59d45] text-xs sm:text-sm uppercase tracking-[2px] sm:tracking-widest mb-3">
           Featured Expression
         </p>
 
-        <p className="italic text-gray-700 leading-relaxed">
+       <p className="italic text-gray-700 leading-7 sm:leading-relaxed text-sm sm:text-base">
           “True devotion is not only expressed through rituals,
           but through words that inspire, thoughts that uplift,
           and actions that serve humanity.”
         </p>
 
-        <p className="text-gray-500 text-sm mt-4">
-          — Shri Chandreshwar Dham
-        </p>
+      <p className="text-gray-500 text-xs sm:text-sm mt-4">
+  — Samvaad, Shri Chandreshwar Dham
+</p>
       </div>
 
     </div>
