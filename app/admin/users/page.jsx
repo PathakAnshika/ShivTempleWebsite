@@ -150,21 +150,26 @@ return (
         👥 Manage Users
       </h1>
 
-      <input
-        type="text"
-        placeholder="Search user..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="
-          w-full md:w-80
-          border
-          px-4 py-3
-          rounded-xl
-          focus:ring-2
-          focus:ring-purple-400
-          outline-none
-        "
-      />
+     <input
+  type="text"
+  placeholder="🔍 Search user..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className="
+    w-full md:w-80
+    bg-white
+    text-gray-800
+    placeholder:text-gray-400
+    border border-gray-300
+    px-4 py-3
+    rounded-xl
+    shadow-sm
+    focus:outline-none
+    focus:ring-2
+    focus:ring-purple-500
+    focus:border-purple-500
+  "
+/>
     </div>
 {/* MOBILE USERS CARDS */}
 <div className="md:hidden space-y-4">
