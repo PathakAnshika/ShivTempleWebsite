@@ -337,40 +337,35 @@ setScholarshipAmount] =
         <StatusBadge status={s.status} />
       </div>
 
-      {/* Details */}
-      <div className="mt-4 space-y-2 text-sm">
+     <div className="flex justify-between gap-3">
+  <span className="text-gray-600 font-medium">
+    Course
+  </span>
 
-        <div className="flex justify-between">
-          <span className="text-black-500">
-            Course
-          </span>
+  <span className="text-gray-900 font-semibold text-right">
+    {s.course}
+  </span>
+</div>
 
-          <span className="font-medium">
-            {s.course}
-          </span>
-        </div>
+<div className="flex justify-between gap-3">
+  <span className="text-gray-600 font-medium">
+    Income
+  </span>
 
-        <div className="flex justify-between">
-          <span className="text-black-500">
-            Income
-          </span>
+  <span className="text-purple-700 font-bold">
+    ₹{s.income}
+  </span>
+</div>
 
-          <span className="font-medium">
-            ₹{s.income}
-          </span>
-        </div>
+<div className="flex justify-between gap-3">
+  <span className="text-gray-600 font-medium">
+    College
+  </span>
 
-        <div className="flex justify-between">
-          <span className="text-black-500">
-            College
-          </span>
-
-          <span className="font-medium text-right">
-            {s.college}
-          </span>
-        </div>
-
-      </div>
+  <span className="text-gray-900 font-semibold text-right break-words max-w-[60%]">
+    {s.college}
+  </span>
+</div>
 
       {/* Action */}
       <button
