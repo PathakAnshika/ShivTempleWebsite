@@ -1,3 +1,136 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+
+export default function AdminUsersPage() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  /* -----------------------------------------
+      FETCH USERS
+  ------------------------------------------- */
+  const fetchUsers = async () => {
+    try {
+      const res = await fetch("/api/admin/users");
+      const data = await res.json();
+
+      if (data.success) {
+        setUsers(data.users);
+      }
+    } catch (err) {
+      console.error("Fetch users failed:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const testDB = async () => {
+    const { data, error } = await supabase
+      .from("devotees")
+      .select("*");
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+  };
+
+  /* -----------------------------------------
+      BLOCK / UNBLOCK USER
+  ------------------------------------------- */
+  const toggleStatus = async (userId, currentStatus) => {
+    try {
+      const newStatus =
+        (currentStatus || "active") === "active"
+          ? "blocked"
+          : "active";
+
+      const res = await fetch("/api/admin/users/status", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          status: newStatus,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setUsers((prev) =>
+          prev.map((u) =>
+            u.id === userId
+              ? { ...u, status: newStatus }
+              : u
+          )
+        );
+      } else {
+        alert("Failed to update status");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error");
+    }
+  };
+
+  /* -----------------------------------------
+      CHANGE ROLE
+  ------------------------------------------- */
+  const changeRole = async (id, role) => {
+    try {
+      const res = await fetch("/api/admin/update-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: id,
+          role: role === "admin" ? "user" : "admin",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setUsers((prev) =>
+          prev.map((u) =>
+            u.id === id
+              ? {
+                  ...u,
+                  role:
+                    role === "admin"
+                      ? "user"
+                      : "admin",
+                }
+              : u
+          )
+        );
+      }
+    } catch (err) {
+      console.error("Role update failed:", err);
+    }
+  };
+
+  /* -----------------------------------------
+      SEARCH FILTER
+  ------------------------------------------- */
+  const filteredUsers = users.filter(
+    (u) =>
+      u.full_name
+        ?.toLowerCase()
+        .includes(search.toLowerCase()) ||
+      u.email
+        ?.toLowerCase()
+        .includes(search.toLowerCase())
+  );
 if (loading) {
   return (
     <div className="flex justify-center items-center min-h-[40vh]">
@@ -304,4 +437,6 @@ return (
   </div>
 )}
 </div>
-)
+);
+
+}
