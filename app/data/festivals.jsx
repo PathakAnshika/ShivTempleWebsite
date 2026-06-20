@@ -94,7 +94,7 @@ export const festivals = [
   {
     name: "Durga Ashtami",
     date: "16 October 2026",
-    image: "/images/durga.jpg",
+    image: "/images/Ashtmi.jpg",
     description: "Special worship of Maa Durga.",
   },
 
