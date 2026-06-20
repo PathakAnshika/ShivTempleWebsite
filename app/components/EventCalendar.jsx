@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { festivals } from "@/data/festivals";
+import { festivals } from "../data/festivals";
 export function EventCalendar() {
   const router = useRouter();
 

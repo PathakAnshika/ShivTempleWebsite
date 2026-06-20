@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import FestivalCountdown from "../components/FestivalCountdown";
+import { festivals } from "../data/festivals";
 import {
   FaFacebook,
   FaInstagram,
