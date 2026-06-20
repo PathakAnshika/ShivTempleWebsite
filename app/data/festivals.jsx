@@ -78,20 +78,6 @@ export const festivals = [
 
 
   {
-    name: "Haritaalika Vrat",
-    date: "6 September 2026",
-    image: "/images/haritaalika.jpg",
-    description: "Sacred vrat dedicated to Maa Parvati.",
-  },
-
-  {
-    name: "Jeevitputrika Vrat",
-    date: "17 September 2026",
-    image: "/images/jivitputrika.jpg",
-    description: "Traditional vrat observed for children’s wellbeing.",
-  },
-
-  {
     name: "Vishwakarma Puja",
     date: "17 September 2026",
     image: "/images/vishwakarma.jpg",
