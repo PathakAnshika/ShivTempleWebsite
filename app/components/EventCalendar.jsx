@@ -1,40 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-
+import { festivals } from "@/data/festivals";
 export function EventCalendar() {
   const router = useRouter();
 
-  const events = [
-    {
-      title: "Hanuman Jayanti",
-      date: "2 April 2026",
-      description:
-        "Experience powerful Hanuman Chalisa chanting and divine blessings.",
-      image: "/images/Hanuman.jpg",
-    },
-    {
-      title: "Ram Navami",
-      date: "6 April 2026",
-      description:
-        "Celebrate the birth of Lord Rama with bhajans and spiritual rituals.",
-      image: "/images/Ram.jpg",
-    },
-    {
-      title: "Navratri Celebrations",
-      date: "11 Oct – 20 Oct 2026",
-      description:
-        "Nine days of devotion and blessings of Maa Durga.",
-      image: "/images/navratri.jpg",
-    },
-    {
-      title: "Diwali Mahotsav",
-      date: "8 November 2026",
-      description:
-        "Temple illuminated with diyas and divine festive energy.",
-      image: "/images/diwali.jpg",
-    },
-  ];
+ const upcomingEvents = festivals
+  .filter((festival) => {
+    const eventDate = new Date(festival.date);
+    const today = new Date();
+
+    today.setHours(0, 0, 0, 0);
+
+    return eventDate >= today;
+  })
+  .slice(0, 4);
 
   return (
     <section
@@ -81,7 +61,7 @@ export function EventCalendar() {
     gap-5 sm:gap-7 lg:gap-10
   "
 >
-        {events.map((event, i) => (
+       {upcomingEvents.map((event, i) => (
           <motion.div
             key={i}
             whileHover={{ y: -8 }}
@@ -100,7 +80,7 @@ export function EventCalendar() {
             <div className="relative h-44 sm:h-52 overflow-hidden">
               <img
                 src={event.image}
-                alt={event.title}
+                alt={event.name}
                 className="h-full w-full object-cover group-hover:scale-110 transition duration-500"
               />
 
@@ -133,7 +113,7 @@ export function EventCalendar() {
     mb-1
   "
 >
-                {event.title}
+                {event.name}
               </h3>
 
              <p className="text-purple-400 text-xs sm:text-sm mb-2 sm:mb-3">
@@ -148,6 +128,7 @@ export function EventCalendar() {
   "
 >
                 {event.description}
+              
               </p>
             </div>
           </motion.div>

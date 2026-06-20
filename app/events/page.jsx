@@ -19,36 +19,6 @@ export default function EventsPage() {
 
 </section>
   // ===== FESTIVAL CALENDAR 2026 =====
-  const festivals = [
-  { name: "Makar Sankranti", date: "14 January 2026" },
-  { name: "Basant Panchami", date: "23 January 2026" },
-  { name: "Maha Shivratri", date: "15 February 2026" },
-  { name: "Holika Dahan", date: "2 March 2026" },
-  { name: "Holi", date: "3 March 2026" },
-  { name: "Chaitra Navratri Begins", date: "19 March 2026" },
-  { name: "Ram Navami", date: "27 March 2026" },
-  { name: "Hanuman Jayanti", date: "2 April 2026" },
-  { name: "Buddha Purnima", date: "1 May 2026" },
-  { name: "Ganga Dussehra", date: "28 May 2026" },
-  { name: "Janmashtami", date: "10 August 2026" },
-  { name: "Swatantrata Diwas", date: "15 August 2026" },
-  { name: "Haritaalika Vrat", date: "6 September 2026" },
-  { name: "Jeevitputrika Vrat", date: "17 September 2026" },
-  { name: "Sharadiya Navratri Begins", date: "9 October 2026" },
-  { name: "Durga Ashtami", date: "16 October 2026" },
-  { name: "Durga Navami", date: "17 October 2026" },
-  { name: "Vijayadashami (Dussehra)", date: "18 October 2026" },
-  { name: "Vishwakarma Puja", date: "17 September 2026" },
-  { name: "Deepawali", date: "8 November 2026" },
-  { name: "Govardhan Puja", date: "9 November 2026" },
-  { name: "Chitragupta Puja", date: "10 November 2026" },
-  { name: "Chhath Puja", date: "12 November 2026" },
-  { name: "Dev Deepavali", date: "15 November 2026" },
-  { name: "Vivaah Panchami", date: "5 December 2026" },
-  { name: "Tulsi Jayanti", date: "25 December 2026" },
-  { name: "Geeta Jayanti", date: "25 December 2026" },
-];
-
 
   return (
     <main className="bg-[#111015] text-white min-h-screen">
