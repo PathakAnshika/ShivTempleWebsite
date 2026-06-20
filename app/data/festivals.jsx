@@ -72,16 +72,10 @@ export const festivals = [
   {
     name: "Janmashtami",
     date: "10 August 2026",
-    image: "/images/krishna.jpg",
+    image: "/images/janmashtmi.jpg",
     description: "Birth celebration of Lord Krishna.",
   },
 
-  {
-    name: "Swatantrata Diwas",
-    date: "15 August 2026",
-    image: "/images/india.jpg",
-    description: "Celebrating India's Independence Day.",
-  },
 
   {
     name: "Haritaalika Vrat",
