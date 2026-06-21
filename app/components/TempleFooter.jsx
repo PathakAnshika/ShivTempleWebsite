@@ -62,52 +62,16 @@ export function TempleFooter() {
         {/* Divider */}
         <div className="border-t border-white/20 mt-6 mb-4"></div>
 
-       {/* Designer Credit */}
-<div className="border-t border-white/10 mt-8 pt-5 text-center">
+       <div className="border-t border-white/10 mt-6 pt-3 text-center">
 
-  <p className="text-sm text-white/50">
-    Website Designed & Developed with ❤️ by
+  <p className="text-xs text-white/50">
+    Crafted with ❤️ by
+    <span className="ml-1 font-semibold text-[#e8c27d]">
+      Anshika Pathak
+    </span>
+    <span className="mx-2 text-white/20">•</span>
+    9798417750
   </p>
-
-  <h3
-    className="
-      text-lg md:text-xl
-      font-semibold
-      text-[#e8c27d]
-      mt-1
-    "
-  >
-    Anshika Pathak
-  </h3>
-
-  <div
-    className="
-      flex
-      flex-col sm:flex-row
-      justify-center
-      items-center
-      gap-2 sm:gap-5
-      mt-2
-      text-xs md:text-sm
-      text-white/60
-    "
-  >
-    <a
-      href="tel:+919798417750"
-      className="hover:text-[#e8c27d] transition"
-    >
-      📞 +91 9798417750
-    </a>
-
-    <span className="hidden sm:block">•</span>
-
-    <a
-      href="mailto:pthkanshika@gmail.com"
-      className="hover:text-[#e8c27d] transition"
-    >
-      📧 pthkanshika@gmail.com
-    </a>
-  </div>
 
 </div>
 </div>
