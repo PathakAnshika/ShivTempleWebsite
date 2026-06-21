@@ -122,23 +122,51 @@ export default function DarshanTimingsPage() {
       and sacred rituals.
     </p>
 
-    {/* Premium Chips */}
-    <div className="mt-8 flex flex-wrap justify-center gap-3">
+   <div className="mt-8 flex flex-wrap justify-center gap-3 relative z-20">
 
-      <div className="bg-white shadow-md px-4 py-2 rounded-full text-sm">
-        🕉 Daily Darshan
-      </div>
+  <div
+    className="
+      bg-white
+      text-gray-800
+      border border-orange-200
+      shadow-lg
+      px-4 py-2
+      rounded-full
+      text-sm font-medium
+    "
+  >
+    🕉 Daily Darshan
+  </div>
 
-      <div className="bg-white shadow-md px-4 py-2 rounded-full text-sm">
-        🔔 5 Aartis Daily
-      </div>
+  <div
+    className="
+      bg-white
+      text-gray-800
+      border border-orange-200
+      shadow-lg
+      px-4 py-2
+      rounded-full
+      text-sm font-medium
+    "
+  >
+    🔔 5 Aartis Daily
+  </div>
 
-      <div className="bg-white shadow-md px-4 py-2 rounded-full text-sm">
-        🙏 Divine Blessings
-      </div>
+  <div
+    className="
+      bg-white
+      text-gray-800
+      border border-orange-200
+      shadow-lg
+      px-4 py-2
+      rounded-full
+      text-sm font-medium
+    "
+  >
+    🙏 Divine Blessings
+  </div>
 
-    </div>
-
+</div>
   </div>
 </section>
 
