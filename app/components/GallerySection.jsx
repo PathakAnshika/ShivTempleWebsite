@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 
 export function GallerySection() {
+  const router = useRouter();
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: (i) => ({
