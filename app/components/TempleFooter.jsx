@@ -62,23 +62,130 @@ export function TempleFooter() {
         {/* Divider */}
         <div className="border-t border-white/20 mt-6 mb-4"></div>
 
-        {/* Bottom */}
-        <div className="flex flex-col md:flex-row justify-between text-sm text-white/70 gap-3 text-center md:text-left">
-          <p>© {new Date().getFullYear()} All rights reserved.</p>
+       {/* Premium Designer Credit */}
+<div className="mt-10">
 
-          <div className="flex justify-center md:justify-end gap-6 flex-wrap">
-            <a href="#" className="hover:text-white transition">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition">
-              Terms & Conditions
-            </a>
-            <a href="#" className="hover:text-white transition">
-              Contact
-            </a>
-          </div>
-        </div>
+  <div
+    className="
+      max-w-2xl
+      mx-auto
 
+      bg-gradient-to-r
+      from-[#1a2942]
+      via-[#223654]
+      to-[#1a2942]
+
+      border border-[#e8c27d]/30
+
+      rounded-3xl
+
+      px-6 md:px-10
+      py-6
+
+      shadow-2xl
+      backdrop-blur-lg
+
+      text-center
+    "
+  >
+
+    <p
+      className="
+        uppercase
+        tracking-[3px]
+        text-xs
+        text-[#e8c27d]/80
+      "
+    >
+      Website Crafted By
+    </p>
+
+    <h3
+      className="
+        text-2xl md:text-3xl
+        font-bold
+        text-[#e8c27d]
+        mt-2
+      "
+    >
+      Anshika Pathak
+    </h3>
+
+    <div
+      className="
+        w-20 h-[2px]
+        bg-[#e8c27d]
+        mx-auto
+        mt-3
+      "
+    />
+
+    <p
+      className="
+        text-white/70
+        text-sm
+        mt-4
+      "
+    >
+      Full Stack Developer • UI/UX Designer
+    </p>
+
+    <div
+      className="
+        mt-5
+
+        flex
+        flex-col
+        md:flex-row
+
+        justify-center
+        items-center
+
+        gap-3 md:gap-8
+      "
+    >
+
+      <a
+        href="tel:+919798417750"
+        className="
+          bg-white/10
+          border border-white/10
+
+          px-4 py-2
+          rounded-full
+
+          text-white/90
+          hover:text-[#e8c27d]
+
+          transition
+        "
+      >
+        📞 +91 9798417750
+      </a>
+
+      <a
+        href="mailto:pthkanshika@gmail.com"
+        className="
+          bg-white/10
+          border border-white/10
+
+          px-4 py-2
+          rounded-full
+
+          text-white/90
+          hover:text-[#e8c27d]
+
+          transition
+        "
+      >
+        📧 pthkanshika@gmail.com
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
       </div>
     </footer>
   );
