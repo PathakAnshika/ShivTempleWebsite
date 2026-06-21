@@ -85,7 +85,11 @@ return ( <main className="min-h-screen bg-gradient-to-b from-[#f2e6ff] via-white
   </button>
 
   {/* Hero */}
-  <section className="pt-24 pb-16 px-4 text-center">
+ {/* Hero */}
+<section className="pt-24 md:pt-32 pb-14 md:pb-20 px-4 text-center">
+
+  <div className="max-w-5xl mx-auto">
+
     <h1
       className="
         text-3xl
@@ -93,74 +97,142 @@ return ( <main className="min-h-screen bg-gradient-to-b from-[#f2e6ff] via-white
         md:text-6xl
         font-bold
         text-purple-800
+        leading-tight
       "
     >
       Our Divine Services
     </h1>
 
-    <div className="w-20 h-1 bg-purple-400 mx-auto rounded-full mt-6 mb-6"></div>
+    <div className="w-20 h-1 bg-purple-400 mx-auto rounded-full mt-5 md:mt-6 mb-5 md:mb-6"></div>
 
     <p
       className="
         max-w-3xl
         mx-auto
         text-gray-600
-
         text-sm
-        sm:text-lg
-
+        sm:text-base
+        md:text-lg
         leading-7
       "
     >
-      Serving devotees through worship, education, seva,
-      culture, and community welfare at Shri Chandreshwar Dham.
+      Serving devotees through worship, education,
+      seva, culture, and community welfare at
+      Shri Chandreshwar Dham.
     </p>
-  </section>
+
+    {/* Chips */}
+    <div className="mt-8 flex flex-wrap justify-center gap-3">
+
+      <div className="bg-white border border-purple-100 shadow-md px-4 py-2 rounded-full text-sm font-medium text-purple-700">
+        🛕 9+ Services
+      </div>
+
+      <div className="bg-white border border-purple-100 shadow-md px-4 py-2 rounded-full text-sm font-medium text-purple-700">
+        🙏 Daily Seva
+      </div>
+
+      <div className="bg-white border border-purple-100 shadow-md px-4 py-2 rounded-full text-sm font-medium text-purple-700">
+        🎓 Scholarship Program
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
   {/* Services */}
   <section className="pb-20 px-4 sm:px-6">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+    <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
       {services.map((service, index) => (
         <motion.div
-          key={index}
-          whileHover={{ y: -8 }}
-          className="
-            bg-white
-            rounded-3xl
-            p-6
+  key={index}
+  whileHover={{ y: -8 }}
+  className="
+    bg-white
+    rounded-3xl
+    p-5 md:p-7
 
-            border border-purple-100
+    border border-purple-100
 
-            shadow-md
-            hover:shadow-xl
+    shadow-md
+    hover:shadow-2xl
+    hover:border-purple-300
 
-            transition-all
-          "
-        >
-          <div className="text-5xl mb-4">
-            {service.icon}
-          </div>
+    transition-all
+    duration-300
+    group
+  "
+>
 
-          <h3 className="text-xl font-semibold text-purple-800 mb-3">
-            {service.title}
-          </h3>
+  {/* Icon */}
+  <div
+    className="
+      w-16 h-16 md:w-20 md:h-20
+      rounded-2xl
+      bg-purple-50
+      flex items-center justify-center
+      text-4xl md:text-5xl
+      mb-5
+      group-hover:scale-110
+      transition
+    "
+  >
+    {service.icon}
+  </div>
 
-          <p className="text-gray-600 leading-7">
-            {service.desc}
-          </p>
-        </motion.div>
+  {/* Title */}
+  <h3
+    className="
+      text-lg md:text-xl
+      font-semibold
+      text-purple-800
+      mb-3
+      leading-snug
+    "
+  >
+    {service.title}
+  </h3>
+
+  {/* Description */}
+  <p
+    className="
+      text-sm md:text-base
+      text-gray-600
+      leading-7
+    "
+  >
+    {service.desc}
+  </p>
+
+  {/* Bottom Line */}
+  <div
+    className="
+      mt-5
+      h-1
+      w-12
+      bg-purple-300
+      rounded-full
+      group-hover:w-20
+      transition-all
+    "
+  />
+</motion.div>
       ))}
 
     </div>
   </section>
 
   {/* CTA */}
-  <section className="pb-20 px-4">
-    <div
-      className="
-        max-w-5xl
-        mx-auto
+ <section className="pb-16 md:pb-20 px-4 sm:px-6">
+   <div
+  className="
+    max-w-5xl
+    mx-auto
+
+    rounded-[24px]
+    md:rounded-[32px]
 
         bg-gradient-to-r
         from-purple-600
@@ -175,7 +247,7 @@ return ( <main className="min-h-screen bg-gradient-to-b from-[#f2e6ff] via-white
         text-white
       "
     >
-      <h2 className="text-2xl sm:text-4xl font-semibold mb-4">
+      <h2 className="text-2xl md:text-4xl font-semibold mb-4 leading-tight">
         Join Us in Service & Devotion
       </h2>
 
@@ -184,40 +256,44 @@ return ( <main className="min-h-screen bg-gradient-to-b from-[#f2e6ff] via-white
         spread spirituality, education, and community welfare.
       </p>
 
-      <div className="flex flex-wrap justify-center gap-4">
+    <div className="flex flex-wrap justify-center gap-4">
         <button
           onClick={() => router.push("/DevoteeCorner/login")}
-          className="
-            bg-white
-            text-purple-700
+        className="
+  w-full sm:w-auto
 
-            px-8 py-3
-            rounded-full
+  bg-white
+  text-purple-700
 
-            font-semibold
+  px-8 py-3
+  rounded-full
 
-            hover:scale-105
-            transition
-          "
+  font-semibold
+
+  hover:scale-105
+  transition
+"
         >
           Become a Devotee
         </button>
 
         <button
           onClick={() => router.push("/donation")}
-          className="
-            border border-white
+         className="
+  w-full sm:w-auto
 
-            px-8 py-3
-            rounded-full
+  border border-white
 
-            font-semibold
+  px-8 py-3
+  rounded-full
 
-            hover:bg-white
-            hover:text-purple-700
+  font-semibold
 
-            transition
-          "
+  hover:bg-white
+  hover:text-purple-700
+
+  transition
+"
         >
           Donate Now
         </button>
