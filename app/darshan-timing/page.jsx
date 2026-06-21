@@ -71,230 +71,548 @@ export default function DarshanTimingsPage() {
     <main className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-purple-50 overflow-hidden">
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden">
+    {/* ===== HERO ===== */}
+<section className="relative overflow-hidden">
 
-        {/* Back Button */}
-        <button
-          onClick={() => router.back()}
+  <button
+    onClick={() => router.back()}
+    className="
+      fixed top-3 left-3 md:top-6 md:left-6
+      z-50
+      bg-white
+      text-gray-800
+      border border-gray-200
+      px-3 md:px-5
+      py-2
+      rounded-full
+      shadow-lg
+      hover:scale-105
+      transition-all
+      flex items-center gap-2
+      text-sm md:text-base
+    "
+  >
+    <ArrowLeft className="w-4 h-4" />
+    Back
+  </button>
+
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 text-center">
+
+    <div
+      className="
+        inline-flex items-center gap-2
+        bg-orange-100 text-orange-700
+        px-4 md:px-5 py-2
+        rounded-full
+        text-xs md:text-sm
+        font-semibold
+        mb-6
+      "
+    >
+      <Bell className="w-4 h-4" />
+      Temple Darshan Schedule
+    </div>
+
+    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
+      Darshan <span className="text-orange-600">Timings</span>
+    </h1>
+
+    <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-5 leading-7">
+      Plan your spiritual visit to Shri Chandreshwar Dham
+      and immerse yourself in divine peace, devotion,
+      and sacred rituals.
+    </p>
+
+    {/* Premium Chips */}
+    <div className="mt-8 flex flex-wrap justify-center gap-3">
+
+      <div className="bg-white shadow-md px-4 py-2 rounded-full text-sm">
+        🕉 Daily Darshan
+      </div>
+
+      <div className="bg-white shadow-md px-4 py-2 rounded-full text-sm">
+        🔔 5 Aartis Daily
+      </div>
+
+      <div className="bg-white shadow-md px-4 py-2 rounded-full text-sm">
+        🙏 Divine Blessings
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{/* ===== DARSHAN TIMINGS ===== */}
+<section className="pb-20 md:pb-24 px-4 sm:px-6">
+
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
+
+    {darshanTimings.map((item, index) => (
+      <div
+        key={index}
+        className="
+          bg-white
+          rounded-3xl
+          p-5 md:p-8
+          border border-orange-100
+          shadow-lg
+          hover:shadow-2xl
+          hover:-translate-y-2
+          transition-all duration-500
+          group
+        "
+      >
+
+        <div
           className="
-            fixed top-6 left-6 z-50
-            bg-black/90 backdrop-blur-md
-            border border-gray-200
-            px-5 py-2 rounded-full
-            shadow-lg hover:scale-105
-            transition-all
-            flex items-center gap-2
+            w-14 h-14 md:w-16 md:h-16
+            rounded-2xl
+            bg-orange-50
+            flex items-center justify-center
+            mb-5
+            group-hover:scale-110
+            transition
           "
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back
-        </button>
+          {item.icon}
+        </div>
 
-        <div className="max-w-6xl mx-auto px-6 py-28 text-center">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+          {item.title}
+        </h2>
 
+        <div
+          className="
+            inline-block
+            bg-orange-100
+            text-orange-700
+            px-4 py-2
+            rounded-full
+            text-xs md:text-sm
+            font-semibold
+            mb-4
+          "
+        >
+          {item.time}
+        </div>
+
+        <p className="text-gray-600 leading-7 text-sm md:text-base">
+          {item.desc}
+        </p>
+
+      </div>
+    ))}
+
+  </div>
+
+</section>
+
+    
+
+   {/* ===== AARTI SECTION ===== */}
+<section className="pb-20 md:pb-24 px-4 sm:px-6">
+
+  <div
+    className="
+      max-w-6xl mx-auto
+      bg-gradient-to-r
+      from-orange-500
+      via-orange-600
+      to-purple-700
+      rounded-[24px] md:rounded-[40px]
+      p-5 sm:p-8 md:p-16
+      text-white
+      shadow-2xl
+      relative overflow-hidden
+    "
+  >
+
+    {/* Glow */}
+    <div
+      className="
+        absolute
+        -top-24
+        -right-24
+        w-80 h-80
+        rounded-full
+        bg-white/10
+        blur-3xl
+      "
+    />
+
+    <div className="relative z-10">
+
+      {/* Heading */}
+      <div className="text-center mb-10 md:mb-14">
+
+        <p className="uppercase tracking-[3px] text-orange-100 text-xs md:text-sm mb-3">
+          Daily Rituals
+        </p>
+
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
+          Aarti Schedule
+        </h2>
+
+        <p className="text-orange-100 max-w-2xl mx-auto leading-7 text-sm md:text-base">
+          Participate in the sacred aartis and experience
+          divine blessings throughout the day at
+          Shri Chandreshwar Dham.
+        </p>
+
+      </div>
+
+      {/* Aarti Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+        {aartiSchedule.map((aarti, index) => (
           <div
+            key={index}
             className="
-              inline-flex items-center gap-2
-              bg-orange-100 text-orange-700
-              px-5 py-2 rounded-full
-              text-sm font-semibold mb-6
+              bg-white/10
+              backdrop-blur-md
+              rounded-2xl md:rounded-3xl
+              p-4 md:p-6
+              border border-white/10
+              hover:bg-white/20
+              transition-all duration-300
             "
           >
-            <Bell className="w-4 h-4" />
-            Temple Darshan Schedule
-          </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 leading-tight">
-            Darshan <span className="text-orange-600">Timings</span>
-          </h1>
+            <p className="text-orange-100 text-xs md:text-sm mb-2">
+              Temple Ritual
+            </p>
 
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto mt-6 leading-8">
-            Plan your spiritual visit to Shri Chandreshwar Dham
-            and immerse yourself in divine peace, devotion,
-            and sacred rituals.
-          </p>
+            <h3 className="text-xl md:text-2xl font-bold mb-3">
+              {aarti.name}
+            </h3>
 
-        </div>
-      </section>
-
-      {/* ===== DARSHAN TIMINGS ===== */}
-      <section className="pb-24 px-6">
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-
-          {darshanTimings.map((item, index) => (
             <div
-              key={index}
               className="
-                bg-white rounded-[30px]
-                p-8 border border-orange-100
-                shadow-lg hover:shadow-2xl
-                hover:-translate-y-2
-                transition-all duration-500
-                group
+                inline-block
+                bg-white/20
+                px-4 py-2
+                rounded-full
+                text-xs md:text-sm
+                font-semibold
               "
             >
-
-              {/* Icon */}
-              <div
-                className="
-                  w-16 h-16 rounded-2xl
-                  bg-orange-50
-                  flex items-center justify-center
-                  mb-6
-                  group-hover:scale-110
-                  transition
-                "
-              >
-                {item.icon}
-              </div>
-
-              {/* Title */}
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                {item.title}
-              </h2>
-
-              {/* Time */}
-              <div
-                className="
-                  inline-block
-                  bg-orange-100 text-orange-700
-                  px-4 py-2 rounded-full
-                  text-sm font-semibold mb-5
-                "
-              >
-                {item.time}
-              </div>
-
-              {/* Desc */}
-              <p className="text-gray-600 leading-7">
-                {item.desc}
-              </p>
-
-            </div>
-          ))}
-
-        </div>
-      </section>
-
-      {/* ===== AARTI SECTION ===== */}
-      <section className="pb-24 px-6">
-
-        <div
-          className="
-            max-w-6xl mx-auto
-            bg-gradient-to-r from-orange-500 via-orange-600 to-purple-700
-            rounded-[40px]
-            p-10 md:p-16
-            text-white
-            shadow-2xl
-            relative overflow-hidden
-          "
-        >
-
-          {/* Glow */}
-          <div
-            className="
-              absolute -top-24 -right-24
-              w-80 h-80 rounded-full
-              bg-white/10 blur-3xl
-            "
-          ></div>
-
-          <div className="relative z-10">
-
-            {/* Heading */}
-            <div className="text-center mb-14">
-
-              <p className="uppercase tracking-[4px] text-orange-100 text-sm mb-4">
-                Daily Rituals
-              </p>
-
-              <h2 className="text-4xl md:text-5xl font-bold mb-5">
-                Aarti Schedule
-              </h2>
-
-              <p className="text-orange-100 max-w-2xl mx-auto leading-8">
-                Participate in the sacred aartis and experience
-                divine blessings throughout the day at
-                Shri Chandreshwar Dham.
-              </p>
-
+              {aarti.time}
             </div>
 
-            {/* Aarti Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-              {aartiSchedule.map((aarti, index) => (
-                <div
-                  key={index}
-                  className="
-                    bg-white/10 backdrop-blur-md
-                    rounded-3xl p-6
-                    border border-white/10
-                    hover:bg-white/20
-                    transition-all duration-300
-                  "
-                >
-
-                  <p className="text-orange-100 text-sm mb-2">
-                    Temple Ritual
-                  </p>
-
-                  <h3 className="text-2xl font-bold mb-4">
-                    {aarti.name}
-                  </h3>
-
-                  <div
-                    className="
-                      inline-block bg-white/20
-                      px-4 py-2 rounded-full
-                      text-sm font-semibold
-                    "
-                  >
-                    {aarti.time}
-                  </div>
-
-                  <p className="text-orange-100 text-sm mt-4 leading-6">
-                    {aarti.desc}
-                  </p>
-
-                </div>
-              ))}
-
-            </div>
+            <p className="text-orange-100 text-sm mt-4 leading-6">
+              {aarti.desc}
+            </p>
 
           </div>
-        </div>
-      </section>
+        ))}
 
-      {/* ===== IMPORTANT NOTE ===== */}
-      <section className="pb-20 px-6">
+      </div>
 
-        <div
-          className="
-            max-w-4xl mx-auto
-            bg-white rounded-3xl
-            shadow-lg border border-orange-100
-            p-8 text-center
-          "
-        >
+    </div>
 
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
-            Important Note
-          </h3>
+  </div>
 
-          <p className="text-gray-600 leading-8">
-            During special festivals such as Mahashivratri,
-            Shravan Maas, and major poojas, darshan timings
-            may extend. Devotees are requested to arrive early
-            and follow temple guidelines for a peaceful and
-            divine experience.
-          </p>
+</section>
 
-        </div>
-      </section>
+{/* ===== IMPORTANT NOTE ===== */}
+<section className="pb-16 md:pb-20 px-4 sm:px-6">
 
+  <div
+    className="
+      max-w-4xl mx-auto
+      bg-white
+      rounded-3xl
+      shadow-lg
+      border border-orange-100
+      p-5 md:p-8
+      text-center
+    "
+  >
+
+    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+      Important Note
+    </h3>
+
+    <p className="text-gray-600 text-sm md:text-base leading-7 md:leading-8">
+      During special festivals such as Mahashivratri,{/* ===== AARTI SECTION ===== */}
+<section className="pb-20 md:pb-24 px-4 sm:px-6">
+
+  <div
+    className="
+      max-w-6xl mx-auto
+      bg-gradient-to-r
+      from-orange-500
+      via-orange-600
+      to-purple-700
+      rounded-[24px] md:rounded-[40px]
+      p-5 sm:p-8 md:p-16
+      text-white
+      shadow-2xl
+      relative overflow-hidden
+    "
+  >
+
+    {/* Glow */}
+    <div
+      className="
+        absolute
+        -top-24
+        -right-24
+        w-80 h-80
+        rounded-full
+        bg-white/10
+        blur-3xl
+      "
+    />
+
+    <div className="relative z-10">
+
+      {/* Heading */}
+      <div className="text-center mb-10 md:mb-14">
+
+        <p className="uppercase tracking-[3px] text-orange-100 text-xs md:text-sm mb-3">
+          Daily Rituals
+        </p>
+
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
+          Aarti Schedule
+        </h2>
+
+        <p className="text-orange-100 max-w-2xl mx-auto leading-7 text-sm md:text-base">
+          Participate in the sacred aartis and experience
+          divine blessings throughout the day at
+          Shri Chandreshwar Dham.
+        </p>
+
+      </div>
+
+      {/* Aarti Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+        {aartiSchedule.map((aarti, index) => (
+          <div
+            key={index}
+            className="
+              bg-white/10
+              backdrop-blur-md
+              rounded-2xl md:rounded-3xl
+              p-4 md:p-6
+              border border-white/10
+              hover:bg-white/20
+              transition-all duration-300
+            "
+          >
+
+            <p className="text-orange-100 text-xs md:text-sm mb-2">
+              Temple Ritual
+            </p>
+
+            <h3 className="text-xl md:text-2xl font-bold mb-3">
+              {aarti.name}
+            </h3>
+
+            <div
+              className="
+                inline-block
+                bg-white/20
+                px-4 py-2
+                rounded-full
+                text-xs md:text-sm
+                font-semibold
+              "
+            >
+              {aarti.time}
+            </div>
+
+            <p className="text-orange-100 text-sm mt-4 leading-6">
+              {aarti.desc}
+            </p>
+
+          </div>
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* ===== IMPORTANT NOTE ===== */}
+<section className="pb-16 md:pb-20 px-4 sm:px-6">
+
+  <div
+    className="
+      max-w-4xl mx-auto
+      bg-white
+      rounded-3xl
+      shadow-lg
+      border border-orange-100
+      p-5 md:p-8
+      text-center
+    "
+  >
+
+    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+      Important Note
+    </h3>
+
+    <p className="text-gray-600 text-sm md:text-base leading-7 md:leading-8">
+      During special festivals such as Mahashivratri,
+      Shravan Maas, and major poojas, darshan timings
+      may extend. Devotees are requested to arrive early
+      and follow temple guidelines for a peaceful and
+      divine experience.
+    </p>
+
+  </div>
+
+</section>{/* ===== AARTI SECTION ===== */}
+<section className="pb-20 md:pb-24 px-4 sm:px-6">
+
+  <div
+    className="
+      max-w-6xl mx-auto
+      bg-gradient-to-r
+      from-orange-500
+      via-orange-600
+      to-purple-700
+      rounded-[24px] md:rounded-[40px]
+      p-5 sm:p-8 md:p-16
+      text-white
+      shadow-2xl
+      relative overflow-hidden
+    "
+  >
+
+    {/* Glow */}
+    <div
+      className="
+        absolute
+        -top-24
+        -right-24
+        w-80 h-80
+        rounded-full
+        bg-white/10
+        blur-3xl
+      "
+    />
+
+    <div className="relative z-10">
+
+      {/* Heading */}
+      <div className="text-center mb-10 md:mb-14">
+
+        <p className="uppercase tracking-[3px] text-orange-100 text-xs md:text-sm mb-3">
+          Daily Rituals
+        </p>
+
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
+          Aarti Schedule
+        </h2>
+
+        <p className="text-orange-100 max-w-2xl mx-auto leading-7 text-sm md:text-base">
+          Participate in the sacred aartis and experience
+          divine blessings throughout the day at
+          Shri Chandreshwar Dham.
+        </p>
+
+      </div>
+
+      {/* Aarti Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+        {aartiSchedule.map((aarti, index) => (
+          <div
+            key={index}
+            className="
+              bg-white/10
+              backdrop-blur-md
+              rounded-2xl md:rounded-3xl
+              p-4 md:p-6
+              border border-white/10
+              hover:bg-white/20
+              transition-all duration-300
+            "
+          >
+
+            <p className="text-orange-100 text-xs md:text-sm mb-2">
+              Temple Ritual
+            </p>
+
+            <h3 className="text-xl md:text-2xl font-bold mb-3">
+              {aarti.name}
+            </h3>
+
+            <div
+              className="
+                inline-block
+                bg-white/20
+                px-4 py-2
+                rounded-full
+                text-xs md:text-sm
+                font-semibold
+              "
+            >
+              {aarti.time}
+            </div>
+
+            <p className="text-orange-100 text-sm mt-4 leading-6">
+              {aarti.desc}
+            </p>
+
+          </div>
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* ===== IMPORTANT NOTE ===== */}
+<section className="pb-16 md:pb-20 px-4 sm:px-6">
+
+  <div
+    className="
+      max-w-4xl mx-auto
+      bg-white
+      rounded-3xl
+      shadow-lg
+      border border-orange-100
+      p-5 md:p-8
+      text-center
+    "
+  >
+
+    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+      Important Note
+    </h3>
+
+    <p className="text-gray-600 text-sm md:text-base leading-7 md:leading-8">
+      During special festivals such as Mahashivratri,
+      Shravan Maas, and major poojas, darshan timings
+      may extend. Devotees are requested to arrive early
+      and follow temple guidelines for a peaceful and
+      divine experience.
+    </p>
+
+  </div>
+
+</section>
+      Shravan Maas, and major poojas, darshan timings
+      may extend. Devotees are requested to arrive early
+      and follow temple guidelines for a peaceful and
+      divine experience.
+    </p>
+
+  </div>
+
+</section>
     </main>
   );
 }
