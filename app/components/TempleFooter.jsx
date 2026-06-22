@@ -60,7 +60,7 @@ export function TempleFooter() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/20 mt-6 mb-4"></div>
+      
 
        <div className="border-t border-white/10 mt-6 pt-3 text-center">
 
