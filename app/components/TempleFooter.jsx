@@ -65,13 +65,19 @@ export function TempleFooter() {
        <div className="border-t border-white/10 mt-6 pt-3 text-center">
 
   <p className="text-xs text-white/50">
-    Crafted with ❤️ by
-    <span className="ml-1 font-semibold text-[#e8c27d]">
-      Anshika Pathak
-    </span>
-    <span className="mx-2 text-white/20">•</span>
-    9798417750
+    Website Designed & Developed by
   </p>
+
+  <h4 className="text-[#e8c27d] font-medium mt-1">
+    Anshika Pathak
+  </h4>
+
+  <a
+    href="mailto:pthkanshika@gmail.com"
+    className="text-xs text-white/60 hover:text-[#e8c27d] transition"
+  >
+    pthkanshika@gmail.com
+  </a>
 
 </div>
 </div>
