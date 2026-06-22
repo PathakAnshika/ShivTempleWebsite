@@ -62,22 +62,21 @@ export function TempleFooter() {
         {/* Divider */}
       
 
-       <div className="border-t border-white/10 mt-1 pt-2 text-center">
+      <div className="border-t border-white/10 mt-2 pt-2 text-center">
 
   <p className="text-xs text-white/50">
-    Website Designed & Developed by
+    Website Designed & Developed by{" "}
+    <span className="text-[#e8c27d] font-medium">
+      Anshika Pathak
+    </span>
+    {" • "}
+    <a
+      href="mailto:pthkanshika@gmail.com"
+      className="text-white/60 hover:text-[#e8c27d] transition"
+    >
+      pthkanshika@gmail.com
+    </a>
   </p>
-
-  <h4 className="text-[#e8c27d] font-medium mt-1">
-    Anshika Pathak
-  </h4>
-
-  <a
-    href="mailto:pthkanshika@gmail.com"
-    className="text-xs text-white/60 hover:text-[#e8c27d] transition"
-  >
-    pthkanshika@gmail.com
-  </a>
 
 </div>
 </div>
