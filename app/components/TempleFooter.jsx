@@ -62,7 +62,7 @@ export function TempleFooter() {
         {/* Divider */}
       
 
-       <div className="border-t border-white/10 mt-4 pt-3 text-center">
+       <div className="border-t border-white/10 mt-1 pt-2 text-center">
 
   <p className="text-xs text-white/50">
     Website Designed & Developed by
