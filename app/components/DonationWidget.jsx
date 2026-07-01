@@ -184,7 +184,7 @@ export function DonationWidget() {
             </p>
 
             <img
-              src="/images/temple-qr.jpg"
+              src="/images/qr.jpeg"
               alt="Temple QR"
               className="
                 w-56
