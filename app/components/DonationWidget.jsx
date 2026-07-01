@@ -98,197 +98,217 @@ export function DonationWidget() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="
-            fixed
-            inset-0
-            z-[9999]
-
-            bg-black/60
-            backdrop-blur-md
-
-            flex
-            items-center
-            justify-center
-
-            p-4
-          "
-          >
-            <motion.div
-              initial={{
-                scale: .8,
-                opacity: 0,
-              }}
-              animate={{
-                scale: 1,
-                opacity: 1,
-              }}
-              exit={{
-                scale: .8,
-                opacity: 0,
-              }}
-              transition={{
-                duration: .25,
-              }}
-              className="
-              bg-white
-
-              rounded-[36px]
-
-              w-full
-              max-w-md
-
-              p-8
-
-              relative
-
-              shadow-2xl
-            "
-            >
-              <button
-                onClick={() => setOpen(false)}
-                className="absolute top-5 right-5"
-              >
-                <X />
-              </button>
-
-              <div className="text-center">
-
-                <div className="
-                w-20
-                h-20
-                rounded-full
-
-                bg-purple-100
-
-                flex
-                items-center
-                justify-center
-
-                mx-auto
-                ">
-                  <QrCode
-                    className="text-purple-700"
-                    size={40}
-                  />
-                </div>
-
-                <h2 className="text-3xl font-bold mt-5 text-purple-800">
-                  Shri Chandreshwar Dham
-                </h2>
-
-                <p className="text-gray-500 mt-2">
-                  Support Temple Development
-                </p>
-
-                <img
-  src="/images/qr.jpeg"
-  alt="Temple Donation QR"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  onClick={() => setOpen(false)}
   className="
-    w-56
-    h-56
-    sm:w-64
+    fixed
+    inset-0
+    z-[9999]
 
-    sm:h-64
+    bg-black/60
+    backdrop-blur-lg
 
-    object-contain
+    flex
+    items-center
+    justify-center
 
-    mx-auto
-    mt-8
-
-    rounded-2xl
-
-    bg-white
-    p-3
-
-    border-2 border-purple-100
-    shadow-lg
+    p-4
   "
-/>
-<div className="mt-6 text-center space-y-2">
-  <h3 className="text-xl font-semibold text-purple-800">
-    Scan & Donate
-  </h3>
+>
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+    transition={{ duration: 0.25 }}
+    onClick={(e) => e.stopPropagation()}
+    className="
+      relative
 
-  <p className="text-gray-600 text-sm">
-    Every contribution supports
-    <br />
-    🛕 Temple Development
-    <br />
-    🐄 Goshala
-    <br />
-    🍛 Annadaan
-    <br />
-    🎓 Scholarship Programs
-  </p>
-</div>
-                <div className="mt-6 space-y-2 text-gray-600">
+      w-full
+      max-w-[340px]
 
-                  <p>
-                    UPI ID
-                  </p>
+      rounded-[28px]
 
-                  <h3 className="font-semibold text-lg">
-                    temple@upi
-                  </h3>
+      bg-white
 
-                  <p>
-                    Scan & Donate
-                  </p>
+      border border-purple-100
 
-                </div>
+      shadow-[0_20px_60px_rgba(0,0,0,.15)]
 
-                <div className="
-                mt-8
+      px-6
+      py-6
 
-                rounded-2xl
+      text-center
+    "
+  >
+    {/* Close */}
+    <button
+      onClick={() => setOpen(false)}
+      className="
+        absolute
+        top-4
+        right-4
 
-                bg-purple-50
+        w-9
+        h-9
 
-                p-5
+        rounded-full
 
-                text-sm
-                ">
-                  🪔 Your contribution supports
-                  Temple Construction,
-                  Goshala,
-                  Annadaan,
-                  Scholarship &
-                  Daily Seva.
-                </div>
+        bg-gray-100
+        hover:bg-red-100
 
-                <button
-                  className="
-                  mt-8
+        flex
+        items-center
+        justify-center
 
-                  w-full
+        transition
+      "
+    >
+      <X size={18} />
+    </button>
 
-                  py-4
+    {/* Temple Icon */}
+    <div
+      className="
+        w-16
+        h-16
 
-                  rounded-full
+        rounded-full
 
-                  bg-gradient-to-r
-                  from-purple-700
-                  to-purple-500
+        mx-auto
 
-                  text-white
+        bg-gradient-to-br
+        from-purple-100
+        to-orange-100
 
-                  font-semibold
+        flex
+        items-center
+        justify-center
 
-                  hover:scale-105
+        text-3xl
+      "
+    >
+      🪔
+    </div>
 
-                  transition
-                "
-                >
-                  Thank You ❤️
-                </button>
+    {/* Heading */}
+    <h2 className="mt-4 text-2xl font-bold text-purple-800">
+      Donate With Devotion
+    </h2>
 
-              </div>
+    <p className="text-orange-600 font-medium mt-1">
+      Shri Chandreshwar Dham
+    </p>
 
-            </motion.div>
-          </motion.div>
+    {/* QR */}
+    <img
+      src="/images/temple-qr.jpg"
+      alt="Temple QR"
+      className="
+        w-48
+        h-48
+
+        mx-auto
+
+        mt-5
+
+        object-contain
+
+        rounded-2xl
+
+        border border-purple-100
+
+        bg-white
+
+        p-2
+
+        shadow-md
+      "
+    />
+
+    {/* Description */}
+    <p className="mt-5 text-sm text-gray-600 leading-6">
+      Scan this QR to support
+      <br />
+      🛕 Temple Development
+      <br />
+      🐄 Goshala
+      <br />
+      🍛 Annadaan
+      <br />
+      🎓 Scholarship Programs
+    </p>
+
+    {/* UPI */}
+    <div className="mt-5">
+      <p className="text-xs uppercase tracking-wider text-gray-400">
+        UPI ID
+      </p>
+
+      <h3 className="text-lg font-semibold text-purple-700 mt-1">
+        temple@upi
+      </h3>
+    </div>
+
+    {/* Info Box */}
+    <div
+      className="
+        mt-5
+
+        rounded-2xl
+
+        bg-gradient-to-r
+        from-purple-50
+        to-orange-50
+
+        border border-purple-100
+
+        p-4
+
+        text-sm
+        text-gray-700
+        leading-6
+      "
+    >
+      🙏 Every contribution supports
+      <strong> Temple Construction</strong>,
+      <strong> Goshala</strong>,
+      <strong> Annadaan</strong>,
+      <strong> Scholarship</strong> &
+      <strong> Daily Seva</strong>.
+    </div>
+
+    {/* Button */}
+    <button
+      onClick={() => setOpen(false)}
+      className="
+        mt-6
+
+        w-full
+
+        py-3
+
+        rounded-full
+
+        bg-gradient-to-r
+        from-purple-700
+        to-purple-500
+
+        text-white
+
+        font-semibold
+
+        hover:scale-105
+
+        transition-all
+      "
+    >
+      Close
+    </button>
+  </motion.div>
+</motion.div>
         )}
       </AnimatePresence>
     </>
