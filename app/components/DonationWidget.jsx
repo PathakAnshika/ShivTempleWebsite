@@ -20,6 +20,7 @@ export function DonationWidget() {
 
   return (
     <>
+    <div className="hidden md:block">
       {/* Floating Widget */}
       <motion.div
         animate={{ y: [0, -10, 0] }}
@@ -291,9 +292,10 @@ export function DonationWidget() {
 
       </motion.div>
     </motion.div>
+    
   )}
 </AnimatePresence>
-
+</div>
 {/* ================= MOBILE DONATION WIDGET ================= */}
 
 <div className="block md:hidden">
@@ -356,7 +358,7 @@ export function DonationWidget() {
   )}
 
   {/* Mobile Modal */}
-
+<div className="block md:hidden">
   <AnimatePresence>
     {open && (
       <motion.div
@@ -518,6 +520,7 @@ export function DonationWidget() {
     )}
   </AnimatePresence>
 
+</div>
 </div>
     </>
     
