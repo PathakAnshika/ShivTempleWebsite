@@ -382,7 +382,8 @@ export default function AboutPage() {
         Explore More →
       </button>
 
-    
+    </div>
+    </div>
   
 
   {/* ================= Right Side ================= */}
@@ -419,7 +420,7 @@ export default function AboutPage() {
 
     </div>
 
-  </div>
+  
 
 
        {/* ================= Belief ================= */}
@@ -459,7 +460,7 @@ export default function AboutPage() {
 
   </div>
 </div>
-</div>
+
 </div>
 {/* ================= Spiritual Thought ================= */}
 
