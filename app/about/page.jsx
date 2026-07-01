@@ -388,12 +388,12 @@ export default function AboutPage() {
         relative
         rounded-[32px]
         overflow-hidden
-        p-5 sm:p-8
+       p-6 lg:p-8
         bg-gradient-to-b
         from-slate-700
         to-slate-900
         text-white
-       min-h-[320px] sm:min-h-[420px]
+        min-h-[320px] lg:min-h-[420px]
         flex flex-col justify-between
         shadow-xl
       ">
@@ -456,7 +456,9 @@ export default function AboutPage() {
       {/* RIGHT SIDE */}
       <div className="
         lg:col-span-2
-        grid md:grid-cols-2
+        grid
+grid-cols-1
+md:grid-cols-2
         gap-6
       ">
 
@@ -464,13 +466,13 @@ export default function AboutPage() {
         <div className="
           bg-white
           rounded-[30px]
-          p-5 sm:p-8
+         p-6 lg:p-8
           border border-gray-100
           shadow-md
           hover:-translate-y-2
           hover:shadow-xl
           transition-all duration-500
-          min-h-[320px] sm:min-h-[420px]
+         min-h-[320px] lg:min-h-[420px]
           flex flex-col justify-between
         ">
 
@@ -514,13 +516,13 @@ export default function AboutPage() {
         <div className="
           bg-[#F0F8FF ]
           rounded-[30px]
-          p-8
+         p-6 lg:p-8
           border border-gray-100
           shadow-md
           hover:-translate-y-2
           hover:shadow-xl
           transition-all duration-500
-          min-h-[210px]
+          min-h-[320px] lg:min-h-[420px]
           flex flex-col justify-between
         ">
 
@@ -565,7 +567,7 @@ export default function AboutPage() {
           md:col-span-2
           bg-white
           rounded-[30px]
-          p-8 md:p-10
+         p-6 sm:p-8 lg:p-10
           border border-gray-100
           shadow-lg
           relative overflow-hidden
@@ -584,7 +586,7 @@ export default function AboutPage() {
 
           <p className="
             relative z-10
-            text-xl md:text-2xl
+            text-lg sm:text-xl lg:text-2xl
             font-semibold
             text-gray-800
             leading-[42px]
@@ -656,7 +658,11 @@ export default function AboutPage() {
   </div>
 
   {/* Cards */}
- <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+ <div className="max-w-7xl mx-auto grid
+grid-cols-1
+lg:grid-cols-3
+gap-5
+lg:gap-6 sm:gap-10">
     {/* ===== PERSON 1 ===== */}
     <div
       className="
