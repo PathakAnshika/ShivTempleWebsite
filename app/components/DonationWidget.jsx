@@ -95,222 +95,204 @@ export function DonationWidget() {
       </motion.div>
 
       {/* Modal */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  exit={{ opacity: 0 }}
-  onClick={() => setOpen(false)}
-  className="
-    fixed
-    inset-0
-    z-[9999]
-
-    bg-black/60
-    backdrop-blur-lg
-
-    flex
-    items-center
-    justify-center
-
-    p-4
-  "
->
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-    animate={{ opacity: 1, scale: 1, y: 0 }}
-    exit={{ opacity: 0, scale: 0.9, y: 20 }}
-    transition={{ duration: 0.25 }}
-    onClick={(e) => e.stopPropagation()}
-    className="
-      relative
-
-      w-full
-      max-w-[340px]
-
-      rounded-[28px]
-
-      bg-white
-
-      border border-purple-100
-
-      shadow-[0_20px_60px_rgba(0,0,0,.15)]
-
-      px-6
-      py-6
-
-      text-center
-    "
-  >
-    {/* Close */}
-    <button
+      {/* Modal */}
+<AnimatePresence>
+  {open && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       onClick={() => setOpen(false)}
       className="
-        absolute
-        top-4
-        right-4
-
-        w-9
-        h-9
-
-        rounded-full
-
-        bg-gray-100
-        hover:bg-red-100
+        fixed inset-0
+        z-[9999]
+        bg-black/60
+        backdrop-blur-md
 
         flex
         items-center
         justify-center
-
-        transition
-      "
-    >
-      <X size={18} />
-    </button>
-
-    {/* Temple Icon */}
-    <div
-      className="
-        w-16
-        h-16
-
-        rounded-full
-
-        mx-auto
-
-        bg-gradient-to-br
-        from-purple-100
-        to-orange-100
-
-        flex
-        items-center
-        justify-center
-
-        text-3xl
-      "
-    >
-      🪔
-    </div>
-
-    {/* Heading */}
-    <h2 className="mt-4 text-2xl font-bold text-purple-800">
-      Donate With Devotion
-    </h2>
-
-    <p className="text-orange-600 font-medium mt-1">
-      Shri Chandreshwar Dham
-    </p>
-
-    {/* QR */}
-    <img
-      src="/images/temple-qr.jpg"
-      alt="Temple QR"
-      className="
-        w-48
-        h-48
-
-        mx-auto
-
-        mt-5
-
-        object-contain
-
-        rounded-2xl
-
-        border border-purple-100
-
-        bg-white
-
-        p-2
-
-        shadow-md
-      "
-    />
-
-    {/* Description */}
-    <p className="mt-5 text-sm text-gray-600 leading-6">
-      Scan this QR to support
-      <br />
-      🛕 Temple Development
-      <br />
-      🐄 Goshala
-      <br />
-      🍛 Annadaan
-      <br />
-      🎓 Scholarship Programs
-    </p>
-
-    {/* UPI */}
-    <div className="mt-5">
-      <p className="text-xs uppercase tracking-wider text-gray-400">
-        UPI ID
-      </p>
-
-      <h3 className="text-lg font-semibold text-purple-700 mt-1">
-        temple@upi
-      </h3>
-    </div>
-
-    {/* Info Box */}
-    <div
-      className="
-        mt-5
-
-        rounded-2xl
-
-        bg-gradient-to-r
-        from-purple-50
-        to-orange-50
-
-        border border-purple-100
 
         p-4
-
-        text-sm
-        text-gray-700
-        leading-6
       "
     >
-      🙏 Every contribution supports
-      <strong> Temple Construction</strong>,
-      <strong> Goshala</strong>,
-      <strong> Annadaan</strong>,
-      <strong> Scholarship</strong> &
-      <strong> Daily Seva</strong>.
-    </div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ duration: 0.25 }}
+        onClick={(e) => e.stopPropagation()}
+        className="
+          relative
 
-    {/* Button */}
-    <button
-      onClick={() => setOpen(false)}
-      className="
-        mt-6
+          w-full
+          max-w-4xl
 
-        w-full
+          bg-white
 
-        py-3
+          rounded-[30px]
 
-        rounded-full
+          border border-purple-100
 
-        bg-gradient-to-r
-        from-purple-700
-        to-purple-500
+          shadow-[0_25px_70px_rgba(0,0,0,.18)]
 
-        text-white
+          overflow-hidden
+        "
+      >
+        {/* Close */}
+        <button
+          onClick={() => setOpen(false)}
+          className="
+            absolute
+            top-4
+            right-4
 
-        font-semibold
+            w-10
+            h-10
 
-        hover:scale-105
+            rounded-full
 
-        transition-all
-      "
-    >
-      Close
-    </button>
-  </motion.div>
-</motion.div>
-        )}
-      </AnimatePresence>
+            bg-gray-100
+
+            hover:bg-red-100
+
+            flex
+            items-center
+            justify-center
+
+            transition
+          "
+        >
+          <X size={18} />
+        </button>
+
+        <div className="grid md:grid-cols-2 gap-8 p-6 sm:p-8 items-center">
+
+          {/* LEFT */}
+          <div className="text-center">
+
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-100 to-orange-100 flex items-center justify-center text-3xl mx-auto">
+              🪔
+            </div>
+
+            <h2 className="text-3xl font-bold text-purple-800 mt-4">
+              Donate With Devotion
+            </h2>
+
+            <p className="text-orange-600 font-medium mt-1">
+              Shri Chandreshwar Dham
+            </p>
+
+            <img
+              src="/images/temple-qr.jpg"
+              alt="Temple QR"
+              className="
+                w-56
+                h-56
+
+                mx-auto
+
+                mt-6
+
+                object-contain
+
+                rounded-2xl
+
+                border
+
+                bg-white
+
+                p-2
+
+                shadow-md
+              "
+            />
+          </div>
+
+          {/* RIGHT */}
+          <div>
+
+            <h3 className="text-2xl font-semibold text-purple-800">
+              Scan QR & Support Temple
+            </h3>
+
+            <p className="text-gray-600 mt-4 leading-7">
+              Your contribution helps preserve our spiritual heritage and supports
+              various temple initiatives.
+            </p>
+
+            <div className="mt-6 space-y-3 text-gray-700">
+
+              <div>🛕 Temple Development</div>
+
+              <div>🐄 Goshala Seva</div>
+
+              <div>🍛 Annadaan</div>
+
+              <div>🎓 Scholarship Program</div>
+
+              <div>🙏 Daily Seva & Rituals</div>
+
+            </div>
+
+            <div className="
+              mt-6
+
+              rounded-2xl
+
+              bg-gradient-to-r
+              from-purple-50
+              to-orange-50
+
+              border border-purple-100
+
+              p-4
+
+              text-sm
+
+              leading-6
+
+              text-gray-700
+            ">
+              ❤️ Every donation directly supports the development of
+              Shri Chandreshwar Dham and its social & spiritual initiatives.
+            </div>
+
+            <button
+              onClick={() => setOpen(false)}
+              className="
+                mt-8
+
+                w-full
+
+                py-3
+
+                rounded-full
+
+                bg-gradient-to-r
+                from-purple-700
+                to-purple-500
+
+                text-white
+
+                font-semibold
+
+                hover:scale-105
+
+                transition-all
+              "
+            >
+              Close
+            </button>
+
+          </div>
+
+        </div>
+
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </>
   );
 }
