@@ -383,7 +383,6 @@ export default function AboutPage() {
       </button>
 
     </div>
-  </div>
 
   {/* ================= Right Side ================= */}
   <div className="lg:col-span-7 flex flex-col gap-6">
@@ -459,7 +458,7 @@ export default function AboutPage() {
 
   </div>
 
-
+</div>
 </div>
 {/* ================= Spiritual Thought ================= */}
 
