@@ -425,7 +425,7 @@ export default function AboutPage() {
        {/* ================= Belief ================= */}
 
 <div className="relative overflow-hidden rounded-[34px] bg-[#EEF6FA] border border-[#DCE8EE] shadow-lg p-8 h-[307px] hover:-translate-y-1 transition-all duration-500">
-
+</div>
   {/* Decorative Shape */}
   <div className="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-white/40 blur-2xl"></div>
 
@@ -460,6 +460,7 @@ export default function AboutPage() {
   </div>
 
 </div>
+
 {/* ================= Spiritual Thought ================= */}
 
 <div className="relative lg:col-span-12 overflow-hidden rounded-[34px] bg-gradient-to-r from-[#F7F4EC] via-white to-[#F7F4EC] border border-[#E8DFCF] shadow-lg p-8 lg:p-12 mt-6">
@@ -499,7 +500,7 @@ export default function AboutPage() {
   </div>
 
 </div>
-</div>
+
 
 
 </section>  
