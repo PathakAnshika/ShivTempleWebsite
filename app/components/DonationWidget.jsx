@@ -293,6 +293,233 @@ export function DonationWidget() {
     </motion.div>
   )}
 </AnimatePresence>
+
+{/* ================= MOBILE DONATION WIDGET ================= */}
+
+<div className="block md:hidden">
+
+  {/* Floating Card */}
+  {!open && (
+    <motion.div
+      animate={{ y: [0, -6, 0] }}
+      transition={{ repeat: Infinity, duration: 3 }}
+      onClick={() => setOpen(true)}
+      className="
+        fixed
+        bottom-4
+        left-1/2
+        -translate-x-1/2
+        z-[999]
+        w-[92%]
+        max-w-sm
+        rounded-2xl
+        bg-white/95
+        backdrop-blur-xl
+        border
+        border-purple-100
+        shadow-2xl
+        px-4
+        py-3
+      "
+    >
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowWidget(false);
+        }}
+        className="absolute top-3 right-3"
+      >
+        <X size={16} />
+      </button>
+
+      <div className="flex items-center gap-3">
+
+        <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
+          <HandCoins className="text-purple-700 w-6 h-6" />
+        </div>
+
+        <div className="flex-1">
+
+          <h3 className="font-semibold text-base text-gray-800">
+            Donate to Temple
+          </h3>
+
+          <p className="text-xs text-gray-500">
+            Tap here to scan QR & donate
+          </p>
+
+        </div>
+
+      </div>
+
+    </motion.div>
+  )}
+
+  {/* Mobile Modal */}
+
+  <AnimatePresence>
+    {open && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="
+          fixed
+          inset-0
+          z-[9999]
+          bg-black/60
+          backdrop-blur-sm
+          flex
+          items-end
+        "
+        onClick={() => setOpen(false)}
+      >
+
+        <motion.div
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "100%" }}
+          transition={{ type: "spring", damping: 22 }}
+          onClick={(e) => e.stopPropagation()}
+          className="
+            w-full
+            rounded-t-[32px]
+            bg-white
+            p-5
+            max-h-[92vh]
+            overflow-y-auto
+          "
+        >
+
+          <div className="mx-auto mb-5 h-1.5 w-14 rounded-full bg-gray-300"></div>
+
+          <button
+            onClick={() => setOpen(false)}
+            className="absolute right-5 top-5"
+          >
+            <X size={22} />
+          </button>
+
+          <div className="text-center">
+
+            <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-purple-100 to-orange-100 flex items-center justify-center text-3xl">
+              🪔
+            </div>
+
+            <h2 className="mt-4 text-2xl font-bold text-purple-800">
+              Donate With Devotion
+            </h2>
+
+            <p className="text-sm text-orange-600">
+              Shri Chandreshwar Dham
+            </p>
+
+            <img
+              src="/images/qr.jpeg"
+              alt="Temple QR"
+              className="
+                w-48
+                h-48
+                mx-auto
+                mt-5
+                rounded-2xl
+                border
+                bg-white
+                p-2
+                shadow-md
+              "
+            />
+
+          </div>
+
+          <div className="mt-6">
+                        <h3 className="text-lg font-semibold text-purple-800">
+              Scan QR & Support Temple
+            </h3>
+
+            <p className="mt-2 text-sm leading-6 text-gray-600">
+              Your contribution helps preserve our spiritual heritage and
+              supports temple development, Annadaan, Goshala and other
+              spiritual initiatives.
+            </p>
+
+            <div className="mt-5 space-y-3">
+
+              <div className="flex items-center gap-3 rounded-xl bg-purple-50 px-4 py-3">
+                <span className="text-xl">🛕</span>
+                <span className="text-sm font-medium">
+                  Temple Development
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-xl bg-orange-50 px-4 py-3">
+                <span className="text-xl">🐄</span>
+                <span className="text-sm font-medium">
+                  Goshala Seva
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-xl bg-purple-50 px-4 py-3">
+                <span className="text-xl">🍛</span>
+                <span className="text-sm font-medium">
+                  Annadaan
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-xl bg-orange-50 px-4 py-3">
+                <span className="text-xl">🎓</span>
+                <span className="text-sm font-medium">
+                  Scholarship Program
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-xl bg-purple-50 px-4 py-3">
+                <span className="text-xl">🙏</span>
+                <span className="text-sm font-medium">
+                  Daily Seva & Rituals
+                </span>
+              </div>
+
+            </div>
+
+            <div className="mt-6 rounded-2xl bg-gradient-to-r from-purple-50 to-orange-50 border border-purple-100 p-4 text-sm leading-6 text-gray-700">
+
+              ❤️ Every contribution directly supports the
+              development of Shri Chandreshwar Dham and its
+              social & spiritual initiatives.
+
+            </div>
+
+            <button
+              onClick={() => setOpen(false)}
+              className="
+                mt-6
+                w-full
+                rounded-xl
+                bg-gradient-to-r
+                from-purple-700
+                to-purple-500
+                py-3.5
+                text-white
+                font-semibold
+                active:scale-95
+                transition
+              "
+            >
+              Close
+            </button>
+
+          </div>
+
+        </motion.div>
+
+      </motion.div>
+
+    )}
+  </AnimatePresence>
+
+</div>
     </>
+    
   );
 }
