@@ -339,6 +339,7 @@ export default function AboutPage() {
 </section>
 
 {/* ===== VISION / MISSION / BELIEF ===== */}
+<section className="bg-[#f8f8f6] py-14 sm:py-16 md:py-20 overflow-hidden">
 {/* ===== Vision + Mission ===== */}
 
 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -382,9 +383,46 @@ export default function AboutPage() {
       </button>
 
     </div>
+  </div>
 
-  
-  {/* ================= Belief ================= */}
+  {/* ================= Right Side ================= */}
+  <div className="lg:col-span-7 flex flex-col gap-6">
+
+    {/* Mission */}
+    <div className="relative overflow-hidden rounded-[34px] bg-white border border-[#ECE7DB] shadow-lg p-8 h-[307px] hover:-translate-y-1 transition-all duration-500">
+
+      <div className="absolute right-0 bottom-0 opacity-[0.05] text-[220px]">
+        🌸
+      </div>
+
+      <div className="w-16 h-16 rounded-2xl bg-[#F6F2EA] flex items-center justify-center text-3xl">
+        🌸
+      </div>
+
+      <span className="block mt-8 text-xs tracking-[4px] uppercase text-[#B08B50] font-semibold">
+        Our Mission
+      </span>
+
+      <h3 className="text-3xl font-bold text-[#2D2D2D] mt-2">
+        Mission
+      </h3>
+
+      <p className="mt-5 text-gray-600 leading-8 max-w-lg">
+        To preserve sacred traditions, conduct rituals with
+        purity and support society through meaningful
+        initiatives.
+      </p>
+
+      <button className="mt-8 text-[#9B6D33] font-medium hover:gap-3 transition-all flex items-center gap-2">
+        Learn More →
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+       {/* ================= Belief ================= */}
 
 <div className="relative overflow-hidden rounded-[34px] bg-[#EEF6FA] border border-[#DCE8EE] shadow-lg p-8 h-[307px] hover:-translate-y-1 transition-all duration-500">
 
@@ -422,7 +460,7 @@ export default function AboutPage() {
   </div>
 
 </div>
-</div>
+
 {/* ================= Spiritual Thought ================= */}
 
 <div className="relative lg:col-span-12 overflow-hidden rounded-[34px] bg-gradient-to-r from-[#F7F4EC] via-white to-[#F7F4EC] border border-[#E8DFCF] shadow-lg p-8 lg:p-12 mt-6">
@@ -463,43 +501,9 @@ export default function AboutPage() {
 
 </div>
 
-  {/* ================= Right Side ================= */}
-  <div className="lg:col-span-7 flex flex-col gap-6">
 
-    {/* Mission */}
-    <div className="relative overflow-hidden rounded-[34px] bg-white border border-[#ECE7DB] shadow-lg p-8 h-[307px] hover:-translate-y-1 transition-all duration-500">
 
-      <div className="absolute right-0 bottom-0 opacity-[0.05] text-[220px]">
-        🌸
-      </div>
-
-      <div className="w-16 h-16 rounded-2xl bg-[#F6F2EA] flex items-center justify-center text-3xl">
-        🌸
-      </div>
-
-      <span className="block mt-8 text-xs tracking-[4px] uppercase text-[#B08B50] font-semibold">
-        Our Mission
-      </span>
-
-      <h3 className="text-3xl font-bold text-[#2D2D2D] mt-2">
-        Mission
-      </h3>
-
-      <p className="mt-5 text-gray-600 leading-8 max-w-lg">
-        To preserve sacred traditions, conduct rituals with
-        purity and support society through meaningful
-        initiatives.
-      </p>
-
-      <button className="mt-8 text-[#9B6D33] font-medium hover:gap-3 transition-all flex items-center gap-2">
-        Learn More →
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
+</section>  
 
 
 
