@@ -460,7 +460,6 @@ export default function AboutPage() {
   </div>
 
 </div>
-</div>
 {/* ================= Spiritual Thought ================= */}
 
 <div className="relative lg:col-span-12 overflow-hidden rounded-[34px] bg-gradient-to-r from-[#F7F4EC] via-white to-[#F7F4EC] border border-[#E8DFCF] shadow-lg p-8 lg:p-12 mt-6">
@@ -500,7 +499,7 @@ export default function AboutPage() {
   </div>
 
 </div>
-
+</div>
 
 
 </section>  
