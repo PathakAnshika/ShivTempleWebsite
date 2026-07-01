@@ -339,272 +339,175 @@ export default function AboutPage() {
 </section>
 
 {/* ===== VISION / MISSION / BELIEF ===== */}
-<section className="bg-[#f8f8f6] py-14 sm:py-16 md:py-20 overflow-hidden">
+{/* ===== Vision + Mission ===== */}
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
-    {/* Heading */}
-   <div className="text-center mb-10 sm:mb-16">
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-      <p
-  className="
-    uppercase
-    tracking-[3px] sm:tracking-[5px]
-    text-slate-500
-    text-[10px] sm:text-xs
-    font-semibold
-    mb-3 sm:mb-4
-  "
->
-        Spiritual Foundation
-      </p>
+  {/* ================= Vision ================= */}
+  <div className="lg:col-span-5">
+    <div className="relative overflow-hidden rounded-[34px] bg-gradient-to-br from-[#F7F4EC] via-[#F3E7D2] to-[#E9D5B5] h-[420px] lg:h-[640px] p-8 flex flex-col justify-between border border-[#E8D7B9] shadow-lg">
 
-     <h2
-  className="
-    text-2xl
-    sm:text-3xl
-    md:text-5xl
-    font-bold
-    text-gray-900
-    leading-tight
-  "
->
-  Vision • Mission • Belief
-</h2>
+      {/* Decorative Circle */}
+      <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/30 blur-3xl" />
+
+      {/* Mandala */}
+      <div className="absolute bottom-0 left-0 opacity-[0.06] text-[240px] leading-none">
+        🪷
+      </div>
+
+      <div className="relative z-10">
+
+        <div className="w-16 h-16 rounded-2xl bg-white/70 backdrop-blur flex items-center justify-center text-3xl shadow">
+          🕉️
+        </div>
+
+        <span className="inline-block mt-8 text-xs tracking-[4px] uppercase text-[#8B6A3E] font-semibold">
+          Our Vision
+        </span>
+
+        <h3 className="text-4xl font-bold text-[#2D2D2D] mt-3">
+          Vision
+        </h3>
+
+        <p className="mt-6 text-[17px] leading-8 text-[#555] max-w-sm">
+          To build a spiritually vibrant community where
+          faith, harmony, and devotion flourish across
+          generations.
+        </p>
+
+      </div>
+
+      <button className="relative z-10 w-fit px-6 py-3 rounded-full bg-[#2D2D2D] text-white text-sm font-medium hover:bg-black transition">
+        Explore More →
+      </button>
+
     </div>
 
-    {/* Layout */}
-   <div
-  className="
-    grid
-    grid-cols-1
-    lg:grid-cols-3
-    gap-4 sm:gap-6
-    items-stretch
-  "
->
+  </div>
+  {/* ================= Belief ================= */}
 
-      {/* LEFT TALL CARD */}
-      <div className="
-        relative
-        rounded-[32px]
-        overflow-hidden
-       p-6 lg:p-8
-        bg-gradient-to-b
-        from-slate-700
-        to-slate-900
-        text-white
-        min-h-[320px] lg:min-h-[420px]
-        flex flex-col justify-between
-        shadow-xl
-      ">
+<div className="relative overflow-hidden rounded-[34px] bg-[#EEF6FA] border border-[#DCE8EE] shadow-lg p-8 h-[307px] hover:-translate-y-1 transition-all duration-500">
 
-        {/* Blur Glow */}
-        <div className="
-          absolute -top-20 -right-20
-          w-48 h-48
-          bg-white/10
-          rounded-full
-          blur-3xl
-        "></div>
+  {/* Decorative Shape */}
+  <div className="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-white/40 blur-2xl"></div>
 
-        <div className="relative z-10">
+  <div className="absolute top-6 right-6 opacity-10 text-[90px]">
+    🔱
+  </div>
 
-          <div className="
-            w-14 h-14
-            rounded-2xl
-            bg-white/10
-            backdrop-blur-md
-            flex items-center justify-center
-            text-2xl
-            mb-8
-          ">
-            🕉️
-          </div>
+  <div className="relative z-10">
 
-          <h3
-  className="
-    text-2xl
-    sm:text-3xl
-    font-bold
-    leading-tight
-    mb-3 sm:mb-5
-  "
->
-  Vision
-</h3>
+    <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-3xl shadow-sm">
+      🔱
+    </div>
 
-        <p
-  className="
-    text-sm
-    sm:text-base
-    leading-7 sm:leading-8
-    text-slate-200
-  "
->
-  To build a spiritually vibrant community
-  where faith, harmony, and devotion
-  flourish across generations.
-</p>
+    <span className="block mt-8 text-xs tracking-[4px] uppercase text-[#4B6B7A] font-semibold">
+      Our Belief
+    </span>
+
+    <h3 className="text-3xl font-bold text-[#2D2D2D] mt-2">
+      Belief
+    </h3>
+
+    <p className="mt-5 text-gray-600 leading-8 max-w-lg">
+      True devotion lies in compassion,
+      humility, service and inner discipline
+      guided by sincerity.
+    </p>
+
+    <button className="mt-8 text-[#4B6B7A] font-medium flex items-center gap-2 hover:gap-3 transition-all">
+      Learn More →
+    </button>
+
+  </div>
 
 </div>
 
-        </div>
+{/* ================= Spiritual Thought ================= */}
 
-      
-      </div>
+<div className="relative lg:col-span-12 overflow-hidden rounded-[34px] bg-gradient-to-r from-[#F7F4EC] via-white to-[#F7F4EC] border border-[#E8DFCF] shadow-lg p-8 lg:p-12 mt-6">
 
-      {/* RIGHT SIDE */}
-      <div className="
-        lg:col-span-2
-        grid
-grid-cols-1
-md:grid-cols-2
-        gap-6
-      ">
+  {/* Background Glow */}
+  <div className="absolute right-0 top-0 w-72 h-72 rounded-full bg-[#F3E7D2]/40 blur-3xl"></div>
 
-        {/* Mission */}
-        <div className="
-          bg-white
-          rounded-[30px]
-         p-6 lg:p-8
-          border border-gray-100
-          shadow-md
-          hover:-translate-y-2
-          hover:shadow-xl
-          transition-all duration-500
-         min-h-[320px] lg:min-h-[420px]
-          flex flex-col justify-between
-        ">
+  {/* Quote */}
+  <div className="absolute right-10 top-2 text-[120px] leading-none text-[#D8C4A5]/20 font-serif">
+    ”
+  </div>
 
-          <div>
+  <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
 
-            <div className="
-              w-14 h-14
-              rounded-2xl
-              bg-slate-100
-              flex items-center justify-center
-              text-2xl
-              mb-6
-            ">
-              🌸
-            </div>
+    <div className="max-w-3xl">
 
-            <h3 className="
-              text-2xl
-              font-bold
-              text-gray-900
-              mb-4
-            ">
-              Mission
-            </h3>
+      <span className="uppercase tracking-[4px] text-xs text-[#9B7A45] font-semibold">
+        Spiritual Thought
+      </span>
 
-            <p className="
-              text-gray-600
-              leading-7
-              text-base
-            ">
-              To preserve sacred traditions,
-              conduct rituals with purity and
-              support society through meaningful initiatives.
-            </p>
+      <h3 className="text-3xl lg:text-4xl font-bold text-[#2D2D2D] mt-4 leading-snug">
+        "Spirituality is not only devotion,
+        but also service, compassion and
+        preserving the values of humanity."
+      </h3>
 
-          </div>
+    </div>
 
-        </div>
+    <div className="flex items-center justify-center">
 
-        {/* Belief */}
-        <div className="
-          bg-[#F0F8FF ]
-          rounded-[30px]
-         p-6 lg:p-8
-          border border-gray-100
-          shadow-md
-          hover:-translate-y-2
-          hover:shadow-xl
-          transition-all duration-500
-          min-h-[320px] lg:min-h-[420px]
-          flex flex-col justify-between
-        ">
-
-          <div>
-
-            <div className="
-              w-14 h-14
-              rounded-2xl
-              bg-slate-200
-              flex items-center justify-center
-              text-2xl
-              mb-6
-            ">
-              🔱
-            </div>
-
-            <h3 className="
-              text-2xl
-              font-bold
-              text-gray-900
-              mb-4
-            ">
-              Belief
-            </h3>
-
-            <p className="
-              text-gray-600
-              leading-7
-              text-base
-            ">
-              True devotion lies in compassion,
-              humility, service and inner discipline
-              guided by sincerity.
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* Bottom Wide Quote Card */}
-        <div className="
-          md:col-span-2
-          bg-white
-          rounded-[30px]
-         p-6 sm:p-8 lg:p-10
-          border border-gray-100
-          shadow-lg
-          relative overflow-hidden
-        ">
-
-          {/* Quote Glow */}
-          <div className="
-            absolute -right-6 -top-10
-            text-[120px]
-            text-slate-100
-            font-bold
-            leading-none
-          ">
-            ”
-          </div>
-
-          <p className="
-            relative z-10
-            text-lg sm:text-xl lg:text-2xl
-            font-semibold
-            text-gray-800
-            leading-[42px]
-            max-w-3xl
-          ">
-            “Spirituality is not only devotion,
-            but also service, compassion and
-            preserving the values of humanity.”
-          </p>
-
-        </div>
-
+      <div className="w-28 h-28 rounded-full bg-[#F4E8D2] flex items-center justify-center text-5xl shadow-md">
+        🕉️
       </div>
 
     </div>
 
+  </div>
 
-</section>      {/* ===== EMINENT PERSONALITIES SECTION ===== */}
+</div>
+
+  {/* ================= Right Side ================= */}
+  <div className="lg:col-span-7 flex flex-col gap-6">
+
+    {/* Mission */}
+    <div className="relative overflow-hidden rounded-[34px] bg-white border border-[#ECE7DB] shadow-lg p-8 h-[307px] hover:-translate-y-1 transition-all duration-500">
+
+      <div className="absolute right-0 bottom-0 opacity-[0.05] text-[220px]">
+        🌸
+      </div>
+
+      <div className="w-16 h-16 rounded-2xl bg-[#F6F2EA] flex items-center justify-center text-3xl">
+        🌸
+      </div>
+
+      <span className="block mt-8 text-xs tracking-[4px] uppercase text-[#B08B50] font-semibold">
+        Our Mission
+      </span>
+
+      <h3 className="text-3xl font-bold text-[#2D2D2D] mt-2">
+        Mission
+      </h3>
+
+      <p className="mt-5 text-gray-600 leading-8 max-w-lg">
+        To preserve sacred traditions, conduct rituals with
+        purity and support society through meaningful
+        initiatives.
+      </p>
+
+      <button className="mt-8 text-[#9B6D33] font-medium hover:gap-3 transition-all flex items-center gap-2">
+        Learn More →
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+    {/* ===== EMINENT PERSONALITIES SECTION ===== */}
 
 <section className="py-14 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-orange-50 via-white to-orange-50">
 
