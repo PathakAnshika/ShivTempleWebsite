@@ -459,7 +459,7 @@ export default function AboutPage() {
 
   </div>
 
-</div>
+
 </div>
 {/* ================= Spiritual Thought ================= */}
 
@@ -494,11 +494,11 @@ export default function AboutPage() {
       <div className="w-28 h-28 rounded-full bg-[#F4E8D2] flex items-center justify-center text-5xl shadow-md">
         🕉️
       </div>
-
+  
     </div>
-
+</div>
   </div>
-
+ 
 </div>
 
 
