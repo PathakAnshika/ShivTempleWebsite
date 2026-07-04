@@ -274,7 +274,7 @@ export default function ShivalayaPage() {
     </p>
 
     <button
-      onClick={() => router.push("/donate")}
+      onClick={() => router.push("/donation")}
       className="
         px-6 sm:px-10 md:px-12
         py-2.5 sm:py-3.5
