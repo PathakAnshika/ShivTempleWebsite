@@ -4,16 +4,16 @@ import { useState } from "react";
 import { Navbar } from "./components/Navbar";
 import {HeroSection }from "./components/HeroSection";
 import {DonationWidget}from "./components/DonationWidget";
- import {MarqueeStrip} from "./components/MarqueeStrip";
-import { AboutSection } from "./components/AboutSection";
-import {EventCalendar} from "./components/EventCalendar";
-import HomeDonationSection from "./components/HomeDonationSection";
-import { ScholarshipPreview } from "./components/ScholarshipPreview";
-import { GallerySection } from "./components/GallerySection";
-import { MembershipSection } from "./components/MembershipSection";
-import { ContactSection } from "./components/ContactSection";
-import {StayInTouchSection} from "./components/StayInTouchSection";
-import {TempleFooter} from "./components/TempleFooter"
+  import {MarqueeStrip} from "./components/MarqueeStrip";
+ import { AboutSection } from "./components/AboutSection";
+ import {EventCalendar} from "./components/EventCalendar";
+ import HomeDonationSection from "./components/HomeDonationSection";
+ import { ScholarshipPreview } from "./components/ScholarshipPreview";
+ import { GallerySection } from "./components/GallerySection";
+ import { MembershipSection } from "./components/MembershipSection";
+ import { ContactSection } from "./components/ContactSection";
+ import {StayInTouchSection} from "./components/StayInTouchSection";
+ import {TempleFooter} from "./components/TempleFooter"
 export default function HomePage() {
   const [showLogin, setShowLogin] = useState(false);
 
@@ -29,33 +29,33 @@ export default function HomePage() {
       
         <DonationWidget />
     
-     { <MarqueeStrip/>} 
-      <section id="about">
+      { <MarqueeStrip/>} 
+       <section id="about">
         <AboutSection />
       </section>
      
-      {/* <AartiTiming/>
-      <AartiSection/> */}
-      <EventCalendar/>
+   
+       <EventCalendar/>
       <section id="events">
-        {/* <LiveDarshan /> */}
+             
       </section>
-      <HomeDonationSection/>
-       <section id="about">
+       <HomeDonationSection/>
+        <section id="about">
         <ScholarshipPreview />
       
       </section>
-      <section id="gallery">
+       <section id="gallery">
         <GallerySection />
       </section>
-      {/* { <DevoteeCorner/> } */}
-      <MembershipSection/>
+      
+       <MembershipSection/>
       <section id="contact">
         <ContactSection />
-        <StayInTouchSection/>
-        <TempleFooter/>
-      </section>
-      {/* Login Popup */}
+        </section> 
+       <StayInTouchSection/>
+        <TempleFooter/> 
+       
+      {/* Login Popup 
       {/* {showLogin && (
         <div className="fixed bottom-5 right-5 w-80 bg-white/95 backdrop-blur-lg shadow-xl rounded-2xl px-5 py-6 border border-yellow-300 z-50">
           <h3 className="text-xl font-bold text-center mb-4 text-[#4a2e05]">Login</h3>

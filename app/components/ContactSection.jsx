@@ -67,7 +67,7 @@ ${formData.message}
 
   return (
     <section className="py-24 bg-gradient-to-b from-[#fcf8ff] via-[#faf6ff] to-[#f2ecff]">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ ${formData.message}
           Have questions or need assistance? We're here to help and guide you 🙏
         </p>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* LEFT: CONTACT FORM */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -109,6 +109,12 @@ ${formData.message}
                 </label>
                 <input
                   type="text"
+                  className="
+w-full
+max-w-full
+...
+"
+
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -124,6 +130,11 @@ ${formData.message}
                 </label>
                 <input
                   type="email"
+                  className="
+w-full
+max-w-full
+...
+"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -182,21 +193,31 @@ ${formData.message}
                   key={index}
                   className="bg-white p-5 rounded-xl border border-purple-100 shadow hover:shadow-md transition"
                 >
-                  <button
-                    onClick={() =>
-                      setOpenIndex(openIndex === index ? null : index)
-                    }
-                    className="w-full flex justify-between items-center text-left"
-                  >
-                    <span className="font-medium text-gray-800">
-                      {item.q}
-                    </span>
-                    <ChevronDown
-                      className={`transform transition ${
-                        openIndex === index ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+                 <button
+  onClick={() =>
+    setOpenIndex(openIndex === index ? null : index)
+  }
+  className="
+    w-full
+    flex
+    items-start
+    justify-between
+    gap-3
+    text-left
+  "
+>
+  <span className="font-medium text-gray-800 break-words flex-1">
+    {item.q}
+  </span>
+
+  <ChevronDown
+    className={`
+      flex-shrink-0
+      transition-transform
+      ${openIndex === index ? "rotate-180" : ""}
+    `}
+  />
+</button>
 
                   {openIndex === index && (
                     <p className="mt-3 text-gray-600 text-sm leading-relaxed">
