@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Navbar } from "./components/Navbar";
 import {HeroSection }from "./components/HeroSection";
 import {DonationWidget}from "./components/DonationWidget";
-  import {MarqueeStrip} from "./components/MarqueeStrip";
+ import {MarqueeStrip} from "./components/MarqueeStrip";
  import { AboutSection } from "./components/AboutSection";
  import {EventCalendar} from "./components/EventCalendar";
  import HomeDonationSection from "./components/HomeDonationSection";

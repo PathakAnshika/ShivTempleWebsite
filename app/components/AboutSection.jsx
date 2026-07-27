@@ -57,7 +57,7 @@ export function AboutSection() {
     mb-8 sm:mb-10
   "
 >
-  Shri Chandreshwar Dham welcomes devotees
+  Sri Chandreshwar Dham welcomes devotees
   into a divine atmosphere of spirituality,
   devotion and inner peace — preserving
   Sanatan traditions while inspiring
